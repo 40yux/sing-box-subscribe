@@ -75,7 +75,6 @@
   },
   "inbounds": [
     {
-      "type": "tun",
       "tag": "tun",
       "type": "tun",
       "inet4_address": "172.19.0.0/30",
