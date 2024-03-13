@@ -69,7 +69,7 @@
         "server": "proxyDns"
       }
     ],
-    "final": "proxyDns",
+    "final": "localDns",
     "strategy": "ipv4_only"
   },
   "inbounds": [
