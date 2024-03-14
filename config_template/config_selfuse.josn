@@ -92,7 +92,7 @@
         "server": "fakeip"
       }
     ],
-    "final": "local",
+    "final": "google",
     "strategy": "prefer_ipv4",
     "fakeip": {
       "enabled": true,
