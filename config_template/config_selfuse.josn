@@ -44,6 +44,23 @@
       {
         "outbound": "any",
         "server": "local"
+        "disable_cache": true
+      },
+      {
+        "rule_set": "geosite-category-ads-all",
+        "server": "block"
+      },
+      {
+        "rule_set": "geosite-cn",
+        "server": "direct"
+      },
+      {
+        "clash_mode": "direct",
+        "server": "direct"
+      },
+      {
+        "clash_mode": "global",
+        "server": "fakeip"
       },
       {
         "domain_suffix": [
