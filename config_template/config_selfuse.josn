@@ -23,12 +23,12 @@
     "servers": [
       {
         "tag": "google",
-        "address": "tls://8.8.8.8",
+        "address": "https://1.1.1.1/dns-query",
         "detour": "Proxy"
       },
       {
         "tag": "local",
-        "address": "223.5.5.5",
+        "address": "https://120.53.53.53/dns-query",
         "detour": "direct"
       },
       {
