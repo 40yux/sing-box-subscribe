@@ -26,7 +26,6 @@
             {
                 "tag": "dns_direct",
                 "address": "https://1.1.1.1/dns-query",
-                "address_resolver": "dns_ip",
                 "detour": "DIRECT"
             },
             {
@@ -43,6 +42,7 @@
             {
                 "outbound": "any",
                 "server": "dns_ip"
+                "disable_cache": true
             },
             {
                 "clash_mode": "Direct",
