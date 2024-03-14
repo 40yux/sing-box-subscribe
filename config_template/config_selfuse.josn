@@ -473,7 +473,9 @@
       ],
       "url": "http://www.gstatic.com/generate_204",
       "interval": "10m",
-      "tolerance": 50
+      "tolerance": 50,
+      "interrupt_exist_connections": true,
+      "type": "selector"
     },
     {
       "type": "direct",
