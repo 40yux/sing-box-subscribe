@@ -132,7 +132,9 @@
         "auto",
         "direct",
         "{all}"
-      ]
+      ],
+      "interrupt_exist_connections": true,
+      "type": "selector"
     },
     {
       "tag":"OpenAI",
@@ -144,7 +146,9 @@
         "America",
         "Others"
       ],
-      "default": "America"
+      "default": "America",
+      "interrupt_exist_connections": true,
+      "type": "selector"
     },
     {
       "tag":"Google",
@@ -156,7 +160,9 @@
         "Japan",
         "America",
         "Others"
-      ]
+      ],
+      "interrupt_exist_connections": true,
+      "type": "selector"
     },
     {
       "tag":"Telegram",
@@ -168,7 +174,9 @@
         "Japan",
         "America",
         "Others"
-      ]
+      ],
+      "interrupt_exist_connections": true,
+      "type": "selector"
     },
     {
       "tag":"Twitter",
@@ -180,7 +188,9 @@
         "Japan",
         "America",
         "Others"
-      ]
+      ],
+      "interrupt_exist_connections": true,
+      "type": "selector"
     },
     {
       "tag":"Facebook",
@@ -192,7 +202,9 @@
         "Japan",
         "America",
         "Others"
-      ]
+      ],
+      "interrupt_exist_connections": true,
+      "type": "selector"
     },
     {
       "tag":"BiliBili",
@@ -201,7 +213,9 @@
         "direct",
         "HongKong",
         "TaiWan"
-      ]
+      ],
+      "interrupt_exist_connections": true,
+      "type": "selector"
     },
     {
       "tag":"Bahamut",
@@ -214,7 +228,9 @@
         "America",
         "Others"
       ],
-      "default": "TaiWan"
+      "default": "TaiWan",
+      "interrupt_exist_connections": true,
+      "type": "selector"
     },
     {
       "tag":"Spotify",
@@ -226,7 +242,9 @@
         "Japan",
         "America",
         "Others"
-      ]
+      ],
+      "interrupt_exist_connections": true,
+      "type": "selector"
     },
     {
       "tag":"TikTok",
@@ -238,7 +256,9 @@
         "Japan",
         "America"
       ],
-      "default": "Singapore"
+      "default": "Singapore",
+      "interrupt_exist_connections": true,
+      "type": "selector"
     },
     {
       "tag":"NETFLIX",
@@ -250,7 +270,9 @@
         "Japan",
         "America",
         "Others"
-      ]
+      ],
+      "interrupt_exist_connections": true,
+      "type": "selector"
     },
     {
       "tag":"Disney+",
@@ -262,7 +284,9 @@
         "Japan",
         "America",
         "Others"
-      ]
+      ],
+      "interrupt_exist_connections": true,
+      "type": "selector"
     },
     {
       "tag":"Apple",
@@ -275,7 +299,9 @@
         "Japan",
         "America",
         "Others"
-      ]
+      ],
+      "interrupt_exist_connections": true,
+      "type": "selector"
     },
     {
       "tag":"Microsoft",
@@ -288,7 +314,9 @@
         "Japan",
         "America",
         "Others"
-      ]
+      ],
+      "interrupt_exist_connections": true,
+      "type": "selector"
     },
     {
       "tag":"Games",
@@ -301,7 +329,9 @@
         "Japan",
         "America",
         "Others"
-      ]
+      ],
+      "interrupt_exist_connections": true,
+      "type": "selector"
     },
     {
       "tag":"Streaming",
@@ -313,7 +343,9 @@
         "Japan",
         "America",
         "Others"
-      ]
+      ],
+      "interrupt_exist_connections": true,
+      "type": "selector"
     },
     {
       "tag":"Global",
@@ -327,7 +359,9 @@
         "America",
         "Others"
       ],
-      "default": "HongKong"
+      "default": "HongKong",
+      "interrupt_exist_connections": true,
+      "type": "selector"
     },
     {
       "tag":"China",
@@ -335,14 +369,18 @@
       "outbounds":[
         "direct",
         "proxy"
-      ]
+      ],
+      "interrupt_exist_connections": true,
+      "type": "selector"
     },
     {
       "tag":"AdBlock",
       "type":"selector",
       "outbounds":[
         "block",
-        "direct"
+        "direct",
+      "interrupt_exist_connections": true,
+      "type": "selector"
       ]
     },
     {
@@ -354,7 +392,9 @@
       ],
       "filter":[
         {"action":"include","keywords":["🇭🇰|HK|hk|香港|港|HongKong"]}
-      ]
+      ],
+      "interrupt_exist_connections": true,
+      "type": "selector"
     },
     {
       "tag":"TaiWan",
@@ -365,7 +405,9 @@
       ],
       "filter":[
         {"action":"include","keywords":["🇹🇼|TW|tw|台湾|臺灣|台|Taiwan"]}
-      ]
+      ],
+      "interrupt_exist_connections": true,
+      "type": "selector"
     },
     {
       "tag":"Singapore",
@@ -376,7 +418,9 @@
       ],
       "filter":[
         {"action":"include","keywords":["🇸🇬|SG|sg|新加坡|狮|Singapore"]}
-      ]
+      ],
+      "interrupt_exist_connections": true,
+      "type": "selector"
     },
     {
       "tag":"Japan",
@@ -387,7 +431,9 @@
       ],
       "filter":[
         {"action":"include","keywords":["🇯🇵|JP|jp|日本|日|Japan"]}
-      ]
+      ],
+      "interrupt_exist_connections": true,
+      "type": "selector"
     },
     {
       "tag":"America",
@@ -398,7 +444,9 @@
       ],
       "filter":[
         {"action":"include","keywords":["🇺🇸|US|us|美国|美|United States"]}
-      ]
+      ],
+      "interrupt_exist_connections": true,
+      "type": "selector"
     },
     {
       "tag":"Others",
@@ -409,7 +457,9 @@
       ],
       "filter":[
         {"action":"exclude","keywords":["🇭🇰|HK|hk|香港|香|🇹🇼|TW|tw|台湾|台|🇸🇬|SG|sg|新加坡|狮|🇯🇵|JP|jp|日本|日|🇺🇸|US|us|美国|美"]}
-      ]
+      ],
+      "interrupt_exist_connections": true,
+      "type": "selector"
     },
     {
       "tag":"auto",
