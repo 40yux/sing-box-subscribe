@@ -126,6 +126,13 @@
       "sniff": true
     },
     {
+      "type": "redirect",
+      "tag": "redirect-in",
+      "listen": "::",
+      "listen_port": 9887,
+      "sniff": true
+    },
+    {
       "type": "tun",
       "inet4_address": "172.19.0.1/30",
       "inet6_address": "fdfe:dcba:9876::0/126",
