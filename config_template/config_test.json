@@ -20,15 +20,15 @@
     "timestamp": true
   },
   "dns": {
-    "servers": [
+   "servers": [
       {
         "tag": "google",
-        "address": "tls://8.8.8.8",
+        "address": "https://1.1.1.1/dns-query",
         "detour": "Proxy"
       },
       {
         "tag": "local",
-        "address": "223.5.5.5",
+        "address": "https://233.5.5.5/dns-query",
         "detour": "direct"
       },
       {
@@ -45,6 +45,22 @@
         "outbound": "any",
         "server": "local"
         "disable_cache": true
+      },
+      {
+        "rule_set": "geosite-category-ads-all",
+        "server": "block"
+      },
+      {
+        "rule_set": "geosite-cn",
+        "server": "direct"
+      },
+      {
+        "clash_mode": "direct",
+        "server": "direct"
+      },
+      {
+        "clash_mode": "global",
+        "server": "fakeip"
       },
       {
         "domain_suffix": [
@@ -67,33 +83,38 @@
         "server": "local"
       },
       {
-        "rule_set": "geosite-cn",
-        "server": "local"
-      },
-      {
-        "rule_set": "geoip-cn",
-        "server": "local"
-      },
-      {
-        "rule_set": "geosite-icloud@cn",
-        "server": "local"
-      },
-      {
-        "rule_set": "geosite-apple@cn",
-        "server": "local"
+        "type": "logical",
+        "mode": "and",
+        "rules": [
+          {
+            "rule_set": "geosite-geolocation-!cn",
+            "invert": true
+          },
+          {
+            "rule_set": [
+              "geosite-cn",
+              "geosite-category-companies@cn"
+            ]
+          }
+        ],
+        "server": "local",
+        "rewrite_ttl": 10
       },
       {
         "query_type": [
-          "A"
+          "A",
+          "AAAA"
         ],
         "rewrite_ttl": 1,
         "server": "fakeip"
       }
     ],
-    "strategy": "ipv4_only",
+    "final": "google",
+    "strategy": "prefer_ipv4",
     "fakeip": {
       "enabled": true,
-      "inet4_range": "198.18.0.0/15"
+      "inet4_range": "198.18.0.0/15",
+      "inet6_range": "fc00::/18"
     }
   },
   "inbounds": [
@@ -114,6 +135,7 @@
     {
       "type": "tun",
       "inet4_address": "172.19.0.1/30",
+      "inet6_address": "fdfe:dcba:9876::0/126",
       "stack": "system",
       "sniff": true,
       "auto_route": true,
@@ -136,7 +158,8 @@
         "direct",
         "{all}"
       ],
-      "interrupt_exist_connections": true
+      "interrupt_exist_connections": true,
+      "type": "selector"
     },
     {
       "tag":"OpenAI",
@@ -148,8 +171,9 @@
         "America",
         "Others"
       ],
+      "default": "America",
       "interrupt_exist_connections": true,
-      "default": "America"
+      "type": "selector"
     },
     {
       "tag":"Google",
@@ -162,7 +186,8 @@
         "America",
         "Others"
       ],
-      "interrupt_exist_connections": true
+      "interrupt_exist_connections": true,
+      "type": "selector"
     },
     {
       "tag":"Telegram",
@@ -175,7 +200,8 @@
         "America",
         "Others"
       ],
-      "interrupt_exist_connections": true
+      "interrupt_exist_connections": true,
+      "type": "selector"
     },
     {
       "tag":"Twitter",
@@ -188,7 +214,8 @@
         "America",
         "Others"
       ],
-      "interrupt_exist_connections": true
+      "interrupt_exist_connections": true,
+      "type": "selector"
     },
     {
       "tag":"Facebook",
@@ -201,7 +228,8 @@
         "America",
         "Others"
       ],
-      "interrupt_exist_connections": true
+      "interrupt_exist_connections": true,
+      "type": "selector"
     },
     {
       "tag":"BiliBili",
@@ -211,7 +239,8 @@
         "HongKong",
         "TaiWan"
       ],
-      "interrupt_exist_connections": true
+      "interrupt_exist_connections": true,
+      "type": "selector"
     },
     {
       "tag":"Bahamut",
@@ -224,8 +253,9 @@
         "America",
         "Others"
       ],
-      "interrupt_exist_connections": true,
-      "default": "TaiWan"
+       "default": "TaiWan",
+       "interrupt_exist_connections": true,
+       "type": "selector"
     },
     {
       "tag":"Spotify",
@@ -238,7 +268,8 @@
         "America",
         "Others"
       ],
-      "interrupt_exist_connections": true
+      "interrupt_exist_connections": true,
+      "type": "selector"
     },
     {
       "tag":"TikTok",
@@ -250,8 +281,9 @@
         "Japan",
         "America"
       ],
+      "default": "Singapore",
       "interrupt_exist_connections": true,
-      "default": "Singapore"
+      "type": "selector"
     },
     {
       "tag":"NETFLIX",
@@ -264,7 +296,8 @@
         "America",
         "Others"
       ],
-      "interrupt_exist_connections": true
+      "interrupt_exist_connections": true,
+      "type": "selector"
     },
     {
       "tag":"Disney+",
@@ -277,7 +310,8 @@
         "America",
         "Others"
       ],
-      "interrupt_exist_connections": true
+      "interrupt_exist_connections": true,
+      "type": "selector"
     },
     {
       "tag":"Apple",
@@ -291,7 +325,8 @@
         "America",
         "Others"
       ],
-      "interrupt_exist_connections": true
+      "interrupt_exist_connections": true,
+      "type": "selector"
     },
     {
       "tag":"Microsoft",
@@ -305,7 +340,8 @@
         "America",
         "Others"
       ],
-      "interrupt_exist_connections": true
+      "interrupt_exist_connections": true,
+      "type": "selector"
     },
     {
       "tag":"Games",
@@ -319,7 +355,8 @@
         "America",
         "Others"
       ],
-      "interrupt_exist_connections": true
+      "interrupt_exist_connections": true,
+      "type": "selector"
     },
     {
       "tag":"Streaming",
@@ -332,7 +369,8 @@
         "America",
         "Others"
       ],
-      "interrupt_exist_connections": true
+      "interrupt_exist_connections": true,
+      "type": "selector"
     },
     {
       "tag":"Global",
@@ -346,8 +384,9 @@
         "America",
         "Others"
       ],
+      "default": "HongKong",
       "interrupt_exist_connections": true,
-      "default": "HongKong"
+      "type": "selector"
     },
     {
       "tag":"China",
@@ -356,7 +395,8 @@
         "direct",
         "proxy"
       ],
-      "interrupt_exist_connections": true
+      "interrupt_exist_connections": true,
+      "type": "selector"
     },
     {
       "tag":"AdBlock",
@@ -365,7 +405,8 @@
         "block",
         "direct"
       ],
-      "interrupt_exist_connections": true
+      "interrupt_exist_connections": true,
+      "type": "selector"
     },
     {
       "tag":"HongKong",
@@ -373,11 +414,12 @@
       "outbounds":[
         "{all}",
         "proxy"
-      ],,
-      "interrupt_exist_connections": true,
+      ],
       "filter":[
         {"action":"include","keywords":["🇭🇰|HK|hk|香港|港|HongKong"]}
-      ]
+      ],
+      "interrupt_exist_connections": true,
+      "type": "selector"
     },
     {
       "tag":"TaiWan",
@@ -386,10 +428,11 @@
         "{all}",
         "proxy"
       ],
-      "interrupt_exist_connections": true,
       "filter":[
         {"action":"include","keywords":["🇹🇼|TW|tw|台湾|臺灣|台|Taiwan"]}
-      ]
+      ],
+      "interrupt_exist_connections": true,
+      "type": "selector"
     },
     {
       "tag":"Singapore",
@@ -398,10 +441,11 @@
         "{all}",
         "proxy"
       ],
-      "interrupt_exist_connections": true,
       "filter":[
         {"action":"include","keywords":["🇸🇬|SG|sg|新加坡|狮|Singapore"]}
-      ]
+      ],
+      "interrupt_exist_connections": true,
+      "type": "selector"
     },
     {
       "tag":"Japan",
@@ -410,10 +454,11 @@
         "{all}",
         "proxy"
       ],
-      "interrupt_exist_connections": true,
       "filter":[
         {"action":"include","keywords":["🇯🇵|JP|jp|日本|日|Japan"]}
-      ]
+      ],
+      "interrupt_exist_connections": true,
+      "type": "selector"
     },
     {
       "tag":"America",
@@ -422,10 +467,11 @@
         "{all}",
         "proxy"
       ],
-      "interrupt_exist_connections": true,
       "filter":[
         {"action":"include","keywords":["🇺🇸|US|us|美国|美|United States"]}
-      ]
+      ],
+      "interrupt_exist_connections": true,
+      "type": "selector"
     },
     {
       "tag":"Others",
@@ -434,10 +480,11 @@
         "{all}",
         "proxy"
       ],
-      "interrupt_exist_connections": true,
       "filter":[
         {"action":"exclude","keywords":["🇭🇰|HK|hk|香港|香|🇹🇼|TW|tw|台湾|台|🇸🇬|SG|sg|新加坡|狮|🇯🇵|JP|jp|日本|日|🇺🇸|US|us|美国|美"]}
-      ]
+      ],
+      "interrupt_exist_connections": true,
+      "type": "selector"
     },
     {
       "tag":"auto",
@@ -445,13 +492,14 @@
       "outbounds":[
         "{all}"
       ],
-      "interrupt_exist_connections": true,
       "filter":[
         {"action":"exclude","keywords":["网站|地址|剩余|过期|时间|有效"]}
       ],
       "url": "http://www.gstatic.com/generate_204",
       "interval": "10m",
-      "tolerance": 50
+      "tolerance": 50,
+      "interrupt_exist_connections": true,
+      "type": "selector"
     },
     {
       "type": "direct",
