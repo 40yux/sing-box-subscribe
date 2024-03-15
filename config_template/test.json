@@ -25,7 +25,8 @@
       "tag": "google",
       "address": "tls://1.0.0.1:853",
       "strategy": "prefer_ipv4",
-      "address_resolver": "resolver"
+      "address_resolver": "resolver",
+      "detour": "Proxy"
     }, 
     {
       "tag": "local",
