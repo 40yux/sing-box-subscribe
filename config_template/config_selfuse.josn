@@ -397,9 +397,9 @@
       "outbounds":[
         "block",
         "direct",
+      ],
       "interrupt_exist_connections": true,
       "type": "selector"
-      ]
     },
     {
       "tag":"HongKong",
