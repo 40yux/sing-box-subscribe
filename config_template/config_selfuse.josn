@@ -128,7 +128,7 @@
     {
       "type": "tun",
       "inet4_address": "172.19.0.1/30",
-      "inet6_address": "2001:0407:f9da:fafa::1/64",
+      "inet6_address": "fdfe:dcba:9876::0/126",
       "stack": "system",
       "sniff": true,
       "auto_route": true,
