@@ -521,6 +521,84 @@
     }
   ],
   "route": {
+    "rules": [
+      {
+        "protocol": "dns",
+        "outbound": "dns-out"
+      },
+      {
+        "port": 53,
+        "outbound": "dns-out"
+      },
+      {
+        "type": "logical",
+        "mode": "or",
+        "rules": [
+          {
+            "port": 853
+          },
+          {
+            "network": "udp",
+            "port": 443
+          },
+          {
+            "protocol": "stun"
+          }
+        ],
+        "outbound": "block"
+      },
+      {
+        "rule_set": "geosite-category-ads-all",
+        "outbound": "AdBlock"
+      },
+      {
+        "domain_suffix": [
+          "edu.cn",
+          "gov.cn",
+          "mil.cn",
+          "ac.cn",
+          "com.cn",
+          "net.cn",
+          "org.cn",
+          "中国",
+          "中國",
+          "xn--fiqz9s",
+          "xn--fiqs8s",
+          "xn--fiqz9s",
+          "xn--fiqs8s",
+          "xn--fiq228c",
+          "xn--fiq228c"
+        ],
+        "outbound": "direct"
+      },
+      {
+        "ip_is_private": true,
+        "outbound": "direct"
+      },
+      {
+        "clash_mode": "Direct",
+        "outbound": "direct"
+      },
+      {
+        "clash_mode": "Global",
+        "outbound": "Proxy"
+      },
+      {
+        "rule_set": "geosite-category-ads-all",
+        "outbound": "AdBlock"
+      },
+      {
+        "rule_set": [
+          "geosite-cn",
+          "geoip-cn",
+          "geosite-icloud@cn",
+          "geosite-apple@cn"
+        ],
+        "outbound": "direct"
+      }
+    ],
+    "auto_detect_interface": true,
+    "final": "Proxy"
     "rule_set":[
       {
         "tag": "geoip-google",
@@ -746,84 +824,6 @@
         "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/category-ads-all.srs",
         "download_detour": "direct"
       }
-    ],
-    "rules": [
-      {
-        "protocol": "dns",
-        "outbound": "dns-out"
-      },
-      {
-        "port": 53,
-        "outbound": "dns-out"
-      },
-      {
-        "type": "logical",
-        "mode": "or",
-        "rules": [
-          {
-            "port": 853
-          },
-          {
-            "network": "udp",
-            "port": 443
-          },
-          {
-            "protocol": "stun"
-          }
-        ],
-        "outbound": "block"
-      },
-      {
-        "rule_set": "geosite-category-ads-all",
-        "outbound": "AdBlock"
-      },
-      {
-        "domain_suffix": [
-          "edu.cn",
-          "gov.cn",
-          "mil.cn",
-          "ac.cn",
-          "com.cn",
-          "net.cn",
-          "org.cn",
-          "中国",
-          "中國",
-          "xn--fiqz9s",
-          "xn--fiqs8s",
-          "xn--fiqz9s",
-          "xn--fiqs8s",
-          "xn--fiq228c",
-          "xn--fiq228c"
-        ],
-        "outbound": "direct"
-      },
-      {
-        "ip_is_private": true,
-        "outbound": "direct"
-      },
-      {
-        "clash_mode": "Direct",
-        "outbound": "direct"
-      },
-      {
-        "clash_mode": "Global",
-        "outbound": "Proxy"
-      },
-      {
-        "rule_set": "geosite-category-ads-all",
-        "outbound": "AdBlock"
-      },
-      {
-        "rule_set": [
-          "geosite-cn",
-          "geoip-cn",
-          "geosite-icloud@cn",
-          "geosite-apple@cn"
-        ],
-        "outbound": "direct"
-      }
-    ],
-    "auto_detect_interface": true,
-    "final": "Proxy"
+    ]
   }
 }
