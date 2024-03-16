@@ -126,7 +126,7 @@
       }
     ],
     "final": "google",
-    "independent_cache": true
+    "independent_cache": true,
     "strategy": "prefer_ipv4",
     "fakeip": {
       "enabled": true,
@@ -556,10 +556,6 @@
         "outbound": "block"
       },
       {
-        "rule_set": "geosite-category-ads-all",
-        "outbound": "AdBlock"
-      },
-      {
         "domain_suffix": [
           "edu.cn",
           "gov.cn",
@@ -606,7 +602,7 @@
       }
     ],
     "auto_detect_interface": true,
-    "final": "Proxy"
+    "final": "Proxy",
     "rule_set":[
       {
         "tag": "geoip-google",
