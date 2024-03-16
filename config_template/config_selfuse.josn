@@ -173,7 +173,7 @@
         "auto",
         "direct",
         "{all}"
-      ]
+      ],
       "interrupt_exist_connections": true,
       "type": "selector"
     },
