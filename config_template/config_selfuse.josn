@@ -828,6 +828,13 @@
         "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/category-ads-all.srs",
         "download_detour": "direct"
       }
+      {
+        "tag": "geosite-wechat",
+        "type": "remote",
+        "format": "source",
+  "url": "https://raw.githubusercontent.com/Toperlock/sing-box-geosite/main/wechat.json",
+        "download_detour": "auto"
+      }
     ]
   }
 }
