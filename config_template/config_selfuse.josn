@@ -214,6 +214,15 @@
       "type": "selector"
     },
     {
+      "tag": "GitHub",
+      "outbounds": [
+        "Proxy",
+        "➜ Direct"
+      ],
+      "interrupt_exist_connections": true,
+      "type": "selector"
+    },
+    {
       "tag": "Game",
       "outbounds": [
         "Proxy",
@@ -394,6 +403,13 @@
         "download_detour": "direct",
         "tag": "bm7-WeChat",
         "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/bm7/WeChat.srs"
+      },
+      {
+        "type": "remote",
+        "format": "binary",
+        "download_detour": "direct",
+        "tag": "bm7-GitHub",
+        "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/bm7/GitHub.srs"
       },
       {
         "type": "remote",
@@ -602,6 +618,10 @@
       {
         "rule_set": "bm7-WeChat",
         "outbound": "WeChat"
+      },
+      {
+        "rule_set": "bm7-GitHub",
+        "outbound": "GitHub"
       },
       {
         "rule_set": "bm7-Game",
