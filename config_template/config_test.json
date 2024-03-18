@@ -102,7 +102,7 @@
       {
         "rule_set": "geosite-geolocation-!cn",
         "server": "google"
-      }   
+      },
       {
         "clash_mode": "direct",
         "server": "local"
