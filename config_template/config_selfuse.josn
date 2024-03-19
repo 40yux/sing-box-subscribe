@@ -24,8 +24,7 @@
     "rules": [
       {
         "outbound": "any",
-        "server": "tx",
-        "disable_cache": true
+        "server": "tx"
       },
       {
         "clash_mode": "Direct",
