@@ -12,7 +12,7 @@
         "detour": "proxy"
       },
       {
-        "tag": "tx",
+        "tag": "local",
         "address": "https://223.6.6.6/dns-query",
         "detour": "direct"
       },
@@ -24,15 +24,15 @@
     "rules": [
       {
         "outbound": "any",
-        "server": "tx"
+        "server": "local"
       },
       {
         "clash_mode": "Direct",
-        "server": "tx"
+        "server": "local"
       },
       {
         "clash_mode": "Global",
-        "server": "fakeip"
+        "server": "google"
       },
       {
         "inbound": "tun",
@@ -44,11 +44,25 @@
         "rewrite_ttl": 1
       },
       {
-        "rule_set": "geolocation-!cn",
-        "server": "google"
+        "rule_set": "geosite-geolocation-cn",
+        "server": "local"
+      },
+      {
+        "type": "logical",
+        "mode": "and",
+        "rules": [
+          {
+            "rule_set": "geosite-geolocation-!cn"
+          },
+          {
+            "rule_set": "geoip-cn"
+          }
+        ],
+        "server": "google",
+        "client_subnet": "114.114.114.114" // Any China client IP address
       }
     ],
-    "final": "tx",
+    "final": "local",
     "independent_cache": true
   },
   "route": {
@@ -118,6 +132,24 @@
       }
     ],
     "rule_set": [
+      {
+        "type": "remote",
+        "tag": "geosite-geolocation-cn",
+        "format": "binary",
+        "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-geolocation-cn.srs"
+      },
+      {
+        "type": "remote",
+        "tag": "geosite-geolocation-!cn",
+        "format": "binary",
+        "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-geolocation-!cn.srs"
+      },
+      {
+        "type": "remote",
+        "tag": "geoip-cn",
+        "format": "binary",
+        "url": "https://raw.githubusercontent.com/SagerNet/sing-geoip/rule-set/geoip-cn.srs"
+      }
       {
         "tag": "apple",
         "type": "remote",
@@ -575,11 +607,13 @@
       "external_controller": "127.0.0.1:9090",
       "external_ui": "ui",
       "external_ui_download_url": "https://github.com/MetaCubeX/metacubexd/archive/refs/heads/gh-pages.zip",
-      "external_ui_download_detour": "proxy"
+      "external_ui_download_detour": "proxy",
+      "default_mode": "Enhanced"
     },
     "cache_file": {
       "enabled": true,
-      "store_fakeip": true
+      "store_fakeip": true,
+      "store_rdrc": true
     }
   },
   "log": {
