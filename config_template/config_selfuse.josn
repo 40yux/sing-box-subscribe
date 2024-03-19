@@ -612,13 +612,15 @@
     },
     "cache_file": {
       "enabled": true,
+      "path": "cache.db",
+      "cache_id": "my_profile2",
       "store_fakeip": true,
       "store_rdrc": true
     }
   },
   "log": {
-    "disabled": false,
-    "level": "debug",
+    "disabled": true,
+    "level": "info",
     "timestamp": true
   }
 }
