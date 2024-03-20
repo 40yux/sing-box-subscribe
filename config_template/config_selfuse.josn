@@ -8,7 +8,7 @@
     "servers": [
       {
         "tag": "google",
-        "address": "https://1.1.1.1/dns-query",
+        "address": "https://8.8.8.8/dns-query",
         "detour": "proxy"
       },
       {
@@ -62,7 +62,7 @@
         "client_subnet": "114.114.114.114" // Any China client IP address
       }
     ],
-    "final": "local",
+    "final": "google",
     "independent_cache": true
   },
   "route": {
