@@ -182,11 +182,25 @@
     {
       "type": "tun",
       "inet4_address": "172.19.0.1/30",
-      "inet6_address": "fdfe:dcba:9876::1/126",
+     "inet6_address": "2001:0470:f9da:fdfa::1/64",,
       "auto_route": true,
       "strict_route": true,
       "sniff": true,
       "sniff_override_destination": false
+    }，
+    {
+     "type": "socks",
+     "tag": "socks-in",
+     "listen": "127.0.0.1",
+     "listen_port": 2333,
+     "users": []
+    },
+    {
+     "type": "mixed",
+     "tag": "mixed-in",
+     "listen": "127.0.0.1",
+     "listen_port": 2334,
+     "users": []
     }
   ],
   "outbounds": [
