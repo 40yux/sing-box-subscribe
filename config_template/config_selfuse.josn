@@ -193,14 +193,14 @@
      "tag": "socks-in",
      "listen": "127.0.0.1",
      "listen_port": 2333,
-     "users": []
+     "sniff": true
     },
     {
      "type": "mixed",
      "tag": "mixed-in",
      "listen": "127.0.0.1",
      "listen_port": 2334,
-     "users": []
+     "sniff": true
     }
   ],
   "outbounds": [
