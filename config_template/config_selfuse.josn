@@ -190,20 +190,12 @@
       "sniff": true,
       "sniff_override_destination": false
     }，
-    {
-     "type": "mixed",
-     "tag": "mixed-in",
-     "listen": "::",
-     "sniff": true
-    },
-    {
-     "type": "direct",
-     "tag": "direct-in",
-     "listen": "::",
-     "sniff": true,
-     "network": "udp",
-     "override_address": "1.0.0.1",
-     "override_port": 53
+     {
+      "type": "mixed",
+      "tag": "mixed-in",
+      "listen": "127.0.0.1",
+      "listen_port": 7890,
+      "sniff": true
     }
   ],
   "outbounds": [
