@@ -29,7 +29,10 @@
         "server": "local"
       },
       {
-        "query_type": ["A", "AAAA"],
+        "query_type": [
+         "A",
+         "AAAA"
+        ],
         "server": "remote"
       },
       {
