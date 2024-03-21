@@ -7,7 +7,8 @@
     "servers": [
       {
         "tag": "google",
-        "address": "https://1.1.1.1/dns-query"
+        "address": "https://1.1.1.1/dns-query",
+        "detour": "proxy"
       },
       {
         "tag": "local",
@@ -166,7 +167,7 @@
         "outbound": "Bilibili"
       },
       {
-        "rule_set": "geosite-category-games@cn",
+        "rule_set" :"geosite-category-games@cn",
         "outbound": "Games(中国)"
       },
       {
@@ -194,17 +195,17 @@
       "sniff_override_destination": false
     }，
     {
-      "type": "mixed"
-      "tag": "mixed-in"
-      "listen": "::"
-      "listen_port": 8888
+      "type": "mixed",
+      "tag": "mixed-in",
+      "listen": "::",
+      "listen_port": 8888,
       "sniff": true
     }，
     {
       "type": "redirect"
       "tag": "redirect-in"
-      "listen": "::"
-      "listen_port": 9887
+      "listen": "::",
+      "listen_port": 9887,
       "sniff": true
     }
   ],
