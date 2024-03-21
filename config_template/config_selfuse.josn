@@ -265,11 +265,21 @@
       "enabled": true,
       "store_rdrc": true
     },
-    "clash_api": {
-      "default_mode": "Enhanced",
-      "external_controller": "127.0.0.1:9090",
-      "external_ui": "./ui",
-      "external_ui_download_detour": "节点选择"
-    }
+    "v2ray_api": {
+      "listen": "127.0.0.1:8080",
+      "stats": {
+      "enabled": true,
+      "inbounds": [
+      "socks-in"
+    ],
+      "outbounds": [
+      "proxy",
+      "direct"
+    ],
+    "users": [
+      "sekai"
+    ]
+   }
   }
+ }
 }
