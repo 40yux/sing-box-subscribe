@@ -33,7 +33,7 @@
          "google.com",
          "google.cn"
          ],
-         "server": "google"
+        "server": "google"
       },
       {
         "query_type": ["A", "AAAA"],
