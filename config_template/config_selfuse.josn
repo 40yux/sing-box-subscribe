@@ -190,11 +190,18 @@
       "sniff": true,
       "sniff_override_destination": false
     }，
-     {
-      "type": "mixed",
-      "tag": "mixed-in",
-      "listen": "127.0.0.1",
-      "listen_port": 7890,
+    {
+      "type": "mixed"
+      "tag": "mixed-in"
+      "listen": "::"
+      "listen_port": 8888
+      "sniff": true
+    }，
+    {
+      "type": "redirect"
+      "tag": "redirect-in"
+      "listen": "::"
+      "listen_port": 9887
       "sniff": true
     }
   ],
