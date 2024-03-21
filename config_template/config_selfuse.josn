@@ -29,13 +29,6 @@
         "server": "local"
       },
       {
-        "domain_suffix": [
-         "google.com",
-         "google.cn"
-         ],
-        "server": "google"
-      },
-      {
         "query_type": ["A", "AAAA"],
         "server": "remote"
       },
