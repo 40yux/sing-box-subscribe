@@ -20,7 +20,7 @@
         "address": "fakeip"
       },
       {
-        "tag": "block"
+        "tag": "block",
         "address": "rcode://success"
     ],
     "rules": [
