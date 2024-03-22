@@ -82,7 +82,7 @@
         "YouTube", "Telegram", "Netflix", "geoip-google",
         "geoip-telegram", "geoip-twitter", "geoip-netflix"
          ],
-        "server": "gogole"
+        "server": "google"
       },
       {
         "rule_set": "geosite-geolocation-cn",
@@ -164,6 +164,13 @@
         "download_detour": "节点选择"
       },
       {
+        "tag": "geosite-google",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-google.srs",
+        "download_detour": "节点选择"
+      },
+      {
         "tag": "geosite-category-games@cn",
         "type": "remote",
         "format": "binary",
@@ -223,6 +230,10 @@
       {
         "rule_set": "geosite-bahamut",
         "outbound": "Bahamut"
+      },
+      {
+        "rule_set": "geosite-google",
+        "outbound": "google"
       }
     ],
     "final": "节点选择",
@@ -300,6 +311,13 @@
     {
       "type": "selector",
       "tag": "Bahamut",
+      "outbounds": ["节点选择", "<all-country-tags>", "direct"],
+      "default": "节点选择",
+      "interrupt_exist_connections": true
+    },
+    {
+      "type": "selector",
+      "tag": "google",
       "outbounds": ["节点选择", "<all-country-tags>", "direct"],
       "default": "节点选择",
       "interrupt_exist_connections": true
