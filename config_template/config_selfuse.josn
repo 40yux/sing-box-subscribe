@@ -58,31 +58,6 @@
         "server": "google"
       },
       {
-        "process_name": [
-        "TencentMeeting", "NemoDesktop", "ToDesk", "ToDesk_Service",
-        "WeChat", "Tailscale", "wireguard-go", "Tunnelblick",
-        "softwareupdated", "kubectl"
-          ],
-        "server": "local"
-      },
-      {
-        "domain_suffix": [
-        "dun.im", "4pple.org", "sealos.io", "cdn.jsdelivr.net"
-          ],
-        "server": "remote"
-      },
-      {
-        "process_name": ["DropboxMacUpdate", "Dropbox"],
-        "server": "google"
-      },
-      {
-        "package_name": [
-        "com.google.android.youtube", "com.android.vending",
-        "org.telegram.messenger", "org.telegram.plus"
-         ],
-        "server": "google"
-      },
-      {
         "rule_set": [
         "YouTube", "Telegram", "Netflix", "geoip-google",
         "geoip-telegram", "geoip-twitter", "geoip-netflix"
