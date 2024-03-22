@@ -50,7 +50,7 @@
       },
       {
         "clash_mode": "Direct",
-        "server": "block",
+        "server": "local",
         "disable_cache": true
       },
       {
