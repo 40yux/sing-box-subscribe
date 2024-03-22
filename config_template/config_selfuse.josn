@@ -9,7 +9,7 @@
         "tag": "google",
         "address": "https://dns.cloudflare.com/dns-query",
         "address_resolver": "resolver",
-        "detour": "select"
+        "detour": "proxy"
       },
       {
         "tag": "local",
