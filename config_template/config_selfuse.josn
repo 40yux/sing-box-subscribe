@@ -46,7 +46,7 @@
       },
       {
         "geosite": "category-ads-all",
-        "server": "local"
+        "server": "block"
       },
       {
         "clash_mode": "Direct",
