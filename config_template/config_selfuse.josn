@@ -58,13 +58,6 @@
         "server": "google"
       },
       {
-        "rule_set": [
-        "YouTube", "Telegram", "Netflix", "geoip-google",
-        "geoip-telegram", "geoip-twitter", "geoip-netflix"
-         ],
-        "server": "google"
-      },
-      {
         "rule_set": "geosite-geolocation-cn",
         "server": "local"
       },
