@@ -25,12 +25,8 @@
                 "detour": "direct"
             },
             {
-                "tag": "dns_success",
+                "tag": "dns_block",
                 "address": "rcode://success"
-            },
-            {
-                "tag": "dns_refused",
-                "address": "rcode://refused"
             },
             {
                 "tag": "dns_fakeip",
@@ -43,64 +39,38 @@
                 "server": "dns_resolver"
             },
             {
-                "domain": [
-                    "httpdns.bilivideo.com"
-                ],
-                "domain_suffix": [
-                    ".mcdn.bilivideo.cn",
-                    ".szbdyd.com"
-                ],
-                "domain_regex": [
-                    "cn-[a-zA-Z0-9-]+\\.bilivideo\\.com",
-                    "[a-zA-Z0-9-]+-pcdn-[a-zA-Z0-9-]+\\.biliapi\\.net"
-                ],
-                "server": "dns_success",
-                "disable_cache": true
-            },
-            {
-                "rule_set": "geosite-geolocation-!cn",
                 "query_type": [
-                    "A",
-                    "AAAA"
+                  "A",
+                 "AAAA"
                 ],
                 "server": "dns_fakeip"
             },
             {
-                "rule_set": "geosite-geolocation-!cn",
-                "query_type": [
-                    "CNAME"
-                ],
+                "clash_mode": "Direct",
+                "server": "dns_direct"
+            },
+            {
+                "clash_mode": "Global",
                 "server": "dns_proxy"
             },
             {
-                "query_type": [
-                    "A",
-                    "AAAA",
-                    "CNAME"
-                ],
-                "invert": true,
-                "server": "dns_refused",
-                "disable_cache": true
-            },
-            {
-               "clash_mode": "Direct",
-               "server": "dns_direct"
-            },
-            {
-               "clash_mode": "Global",
-               "server": "dns_proxy"
+                "rule_set": "geosite-geolocation-cn",
+                "server": "dns_direct"
             },
             {
                 "type": "logical",
                 "mode": "and",
                 "rules": [
-            {
-                "rule_set": "geoip-cn"
+                  {
+                    "rule_set": "geosite-geolocation-!cn"
+                  },
+                  {
+                    "rule_set": "geoip-cn"
+                  }
+                ],
+                "server": "dns_proxy",
+                "client_subnet": "114.114.114.114" // Any China client IP address
             }
-        ],
-        "server": "dns_proxy",
-        "client_subnet": "114.114.114.114"
-         }
         ],
         "final": "dns_direct",
         "strategy": "prefer_ipv4",
@@ -141,96 +111,50 @@
                 "type": "logical",
                 "mode": "or",
                 "rules": [
-            {
-                  "protocol": "dns"
-            },
-            {
-                  "port": 53
-            }
-        ],
+                  {
+                    "protocol": "dns"
+                  },
+                  {
+                    "port": 53
+                  }
+                ],
                 "outbound": "dns"
             },
             {
-               "ip_is_private": true,
-               "outbound": "direct"
-            },
-            {
-               "clash_mode": "Direct",
-               "outbound": "direct"
-            },
-            {
-               "clash_mode": "Global",
-               "outbound": "default"
-            },
-            {
-               "type": "logical",
-               "mode": "or",
-               "rules": [
-            {
-                 "port": 853
-            },
-            {
-                 "network": "udp",
-                 "port": 443
-            },
-            {
-                 "protocol": "stun"
-            }
-        ],
-               "outbound": "block"
-            },
-            {
-               "rule_set": [
-                 "geoip-cn",
-                 "geosite-geolocation-cn"
-        ],
-               "outbound": "direct"
-            },
-            {
-                "process_name": [
-                    "xray.exe",
-                    "IDMan.exe"
-                ],
+                "ip_is_private": true,
                 "outbound": "direct"
             },
             {
-                "domain": [
-                    "httpdns.bilivideo.com"
-                ],
-                "domain_suffix": [
-                    ".mcdn.bilivideo.cn",
-                    ".szbdyd.com"
-                ],
-                "domain_regex": [
-                    "cn-[a-zA-Z0-9-]+\\.bilivideo\\.com",
-                    "[a-zA-Z0-9-]+-pcdn-[a-zA-Z0-9-]+\\.biliapi\\.net"
+                "clash_mode": "Direct",
+                "outbound": "direct"
+            },
+            {
+                "clash_mode": "Global",
+                "outbound": "default"
+            },
+            {
+                "type": "logical",
+                "mode": "or",
+                "rules": [
+                  {
+                    "port": 853
+                  },
+                  {
+                    "network": "udp",
+                    "port": 443
+                  },
+                  {
+                    "protocol": "stun"
+                  }
                 ],
                 "outbound": "block"
             },
             {
-                "rule_set": "geosite-geolocation-!cn",
-                "outbound": "proxy"
-            },
-            {
-                "ip_cidr": [
-                    "47.101.175.206/32",
-                    "47.100.123.169/32",
-                    "120.46.169.234/32",
-                    "121.36.72.124/32",
-                    "116.63.10.135/32",
-                    "122.9.7.134/32",
-                    "117.185.228.108/32",
-                    "117.144.238.29/32",
-                    "122.9.13.79/32",
-                    "122.9.15.129/32",
-                    "101.91.140.224/32",
-                    "101.91.140.124/32",
-                    "114.116.215.110/32",
-                    "116.63.10.31/32",
-                    "112.64.218.119/32",
-                    "112.65.200.117/32"
+                "rule_set": [
+                  "geoip-cn",
+                  "geosite-geolocation-cn"
                 ],
-                "outbound": "block"
+                "outbound": "direct"
             }
         ],
         "final": "proxy",
@@ -247,19 +171,52 @@
             "strict_route": true,
             "stack": "system",
             "sniff": true,
-            "sniff_override_destination": false
+            "sniff_override_destination": true
         }，
         {
             "type": "mixed",
             "tag": "mixed-in",
             "listen": "::",
             "listen_port": 8888,
-            "users": []
+            "users": [],
             "sniff": true,
             "sniff_override_destination": true
         }
     ],
     "outbounds": [
+        {
+            "tag":"proxy",
+            "type":"selector",
+            "outbounds":[
+              "auto",
+              "direct",
+              "{all}"
+            ]
+        },
+        {
+            "tag":"Others",
+            "type":"selector",
+            "outbounds":[
+              "{all}",
+              "proxy"
+          ],
+            "filter":[
+              {"action":"exclude","keywords":["🇭🇰|HK|hk|香港|香|🇹🇼|TW|tw|台湾|台|🇸🇬|SG|sg|新加坡|狮|🇯🇵|JP|jp|日本|日|🇺🇸|US|us|美国|美"]}
+          ]
+        },
+        {
+            "tag":"auto",
+            "type":"urltest",
+            "outbounds":[
+              "{all}"
+          ],
+            "filter":[
+              {"action":"exclude","keywords":["网站|地址|剩余|过期|时间|有效"]}
+          ],
+            "url": "http://www.gstatic.com/generate_204",
+            "interval": "10m",
+            "tolerance": 50
+        },
         {
             "type": "socks",
             "tag": "proxy",
