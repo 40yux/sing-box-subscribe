@@ -41,7 +41,7 @@
             {
                 "query_type": [
                   "A",
-                 "AAAA"
+                  "AAAA"
                 ],
                 "server": "dns_fakeip"
             },
