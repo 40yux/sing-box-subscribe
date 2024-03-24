@@ -1,37 +1,33 @@
+
 {
-  "log": {
-    "level": "debug",
-    "timestamp": true
-  },
-  "experimental": {
-    "clash_api": {
-      "external_controller": "127.0.0.1:9090",
-      "external_ui": "ui",
-      "secret": "",
-      "external_ui_download_url": "https://mirror.ghproxy.com/https://github.com/MetaCubeX/metacubexd/archive/refs/heads/gh-pages.zip",
-      "external_ui_download_detour": "direct",
-      "default_mode": "rule"
+    "log": {
+        "level": "info",
+        "timestamp": true
     },
-  "cache_file": {
-    "enabled": true,
-    "store_fakeip": true
-    }
-  },
     "dns": {
         "servers": [
             {
-                "tag": "dns_block",
-                "address": "rcode://success"
+                "tag": "dns_proxy",
+                "address": "https://8.8.8.8/dns-query",
+                "address_resolver": "dns_resolver",
+                "strategy": "ipv4_only",
+                "detour": "proxy"
             },
             {
                 "tag": "dns_direct",
-                "address": "https://1.1.1.1/dns-query",
-                "detour": "DIRECT"
+                "address": "https://dns.alidns.com/dns-query",
+                "address_resolver": "dns_resolver",
+                "strategy": "ipv4_only",
+                "detour": "direct"
             },
             {
-                "tag": "dns_ip",
-                "address": "https://223.5.5.5/dns-query",
-                "detour": "DIRECT"
+                "tag": "dns_resolver",
+                "address": "223.5.5.5",
+                "detour": "direct"
+            },
+            {
+                "tag": "dns_block",
+                "address": "rcode://success"
             },
             {
                 "tag": "dns_fakeip",
@@ -41,8 +37,7 @@
         "rules": [
             {
                 "outbound": "any",
-                "server": "dns_ip"
-                "disable_cache": true
+                "server": "dns_resolver"
             },
             {
                 "clash_mode": "Direct",
@@ -50,462 +45,205 @@
             },
             {
                 "clash_mode": "Global",
-                "server": "dns_fakeip",
-                "rewrite_ttl": 1
+                "server": "dns_proxy"
             },
             {
-                "rule_set": "ads",
-                "server": "dns_block"
-            },
-            {
-                "rule_set": [
-                    "microsoft-cn",
-                    "apple-cn",
-                    "google-cn",
-                    "games-cn",
-                    "cn",
-                    "private"
-                ],
-                "query_type": [
-                    "A",
-                    "AAAA"
-                ],
+                "rule_set": "geosite-geolocation-cn",
                 "server": "dns_direct"
             },
             {
-                "rule_set": [
-                    "proxy"
+                "type": "logical",
+                "mode": "and",
+                "rules": [
+                  {
+                    "rule_set": "geosite-geolocation-!cn"
+                  },
+                  {
+                    "rule_set": "geoip-cn"
+                  }
                 ],
-                "query_type": [
-                    "A",
-                    "AAAA"
-                ],
-                "server": "dns_fakeip",
-                "rewrite_ttl": 1
-            }
+                "server": "dns_proxy",
+                "client_subnet": "114.114.114.114" // Any China client IP address
+      }
         ],
         "final": "dns_direct",
-        "strategy": "prefer_ipv4",
         "independent_cache": true,
-        "reverse_mapping": true,
         "fakeip": {
             "enabled": true,
             "inet4_range": "198.18.0.0/15",
             "inet6_range": "fc00::/18"
         }
     },
+    "route": {
+        "rule_set": [
+            {
+                "type": "remote",
+                "tag": "geosite-geolocation-cn",
+                "format": "binary",
+                "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-geolocation-cn.srs",
+                "download_detour": "proxy"
+            },
+            
+            {   "type": "remote",
+                "tag": "geosite-geolocation-!cn",
+                "format": "binary",
+                "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-geolocation-!cn.srs",
+                "download_detour": "proxy"
+            },
+            {
+                "type": "remote",
+                "tag": "geoip-cn",
+                "format": "binary",
+                "url": "https://raw.githubusercontent.com/SagerNet/sing-geoip/rule-set/geoip-cn.srs",
+                "download_detour": "proxy"
+            }
+        ],
+        "rules": [
+          {
+              "type": "direct",
+              "tag": "direct"
+          },
+          {
+              "type": "block",
+              "tag": "block"
+          }
+        ],
+  "route": {
+    "rules": [
+      {
+        "type": "logical",
+        "mode": "or",
+        "rules": [
+          {
+            "protocol": "dns"
+          },
+          {
+            "port": 53
+          }
+        ],
+        "outbound": "dns"
+      },
+      {
+        "ip_is_private": true,
+        "outbound": "direct"
+      },
+      {
+        "clash_mode": "Direct",
+        "outbound": "direct"
+      },
+      {
+        "clash_mode": "Global",
+        "outbound": "default"
+      },
+      {
+        "type": "logical",
+        "mode": "or",
+        "rules": [
+          {
+            "port": 853
+          },
+          {
+            "network": "udp",
+            "port": 443
+          },
+          {
+            "protocol": "stun"
+          }
+        ],
+        "outbound": "block"
+      },
+      {
+        "rule_set": [
+          "geoip-cn",
+          "geosite-geolocation-cn"
+        ],
+        "outbound": "direct"
+      }
+        ],
+        "final": "proxy",
+        "auto_detect_interface": true
+    },
     "inbounds": [
-        {
-            "type": "mixed",
-            "tag": "mixed-in",
-            "listen": "127.0.0.1",
-            "listen_port": 7890,
-            "sniff": false
-        },
-        {
-            "type": "direct",
-            "tag": "dns-in",
-            "listen": "127.0.0.1",
-            "listen_port": 1053
-        },
-        {
-            "type": "redirect",
-            "tag": "redirect-in",
-            "listen": "127.0.0.1",
-            "listen_port": 7892,
-            "sniff": true,
-            "sniff_override_destination": true
-        },
         {
             "type": "tun",
             "tag": "tun-in",
-            "interface_name": "utun",
-            "inet4_address": "198.18.0.0/16",
-            "auto_route": false,
+            "inet4_address": "172.16.0.1/30",
+            "inet6_address": "fd00::1/126",
+            "mtu": 1492,
+            "auto_route": true,
+            "strict_route": true,
             "stack": "system",
-            "always_resolve_udp": true,
             "sniff": true,
-            "sniff_override_destination": true
+            "sniff_override_destination": false
+        },
+        {
+            "type": "mixed",
+            "tag": "mixed-in",
+            "listen": "::",
+            "listen_port": 2334,
+            "users": [],            
+            "sniff": true,
+            "sniff_override_destination": false
         }
     ],
     "outbounds": [
         {
-            "type": "selector",
-            "tag": "🚀 节点选择",
-            "providers": "🌸FlowerCloud"
-        },
-        {
-            "type": "selector",
-            "tag": "📈 网络测试",
-            "outbounds": [
-                "🎯 全球直连",
-                "🪙 省流节点",
-                "🚀 节点选择"
+            "tag":"proxy",
+            "type":"selector",
+            "outbounds":[
+              "auto",
+              "direct",
+              "{all}"
             ]
         },
         {
-            "type": "selector",
-            "tag": "🎮 游戏平台",
-            "outbounds": [
-                "🎯 全球直连",
-                "🪙 省流节点",
-                "🚀 节点选择"
-            ]
+            "tag":"Others",
+            "type":"selector",
+            "outbounds":[
+              "{all}",
+              "proxy"
+          ],
+            "filter":[
+              {"action":"exclude","keywords":["🇭🇰|HK|hk|香港|香|🇹🇼|TW|tw|台湾|台|🇸🇬|SG|sg|新加坡|狮|🇯🇵|JP|jp|日本|日|🇺🇸|US|us|美国|美|KR|kr|韩国|UK|uk|英国"]}
+          ]
         },
         {
-            "type": "selector",
-            "tag": "🎵 TikTok",
-            "providers": "🌸FlowerCloud",
-            "includes": "(?i)实验性",
-            "excludes": "(?i)香港"
-        },
-        {
-            "type": "selector",
-            "tag": "📲 电报消息",
-            "outbounds": [
-                "🪙 省流节点",
-                "🚀 节点选择"
-            ]
-        },
-        {
-            "type": "selector",
-            "tag": "📹 YouTube",
-            "outbounds": [
-                "🪙 省流节点",
-                "🚀 节点选择"
-            ]
-        },
-        {
-            "type": "selector",
-            "tag": "🎥 NetFlix",
-            "providers": "🌸FlowerCloud",
-            "includes": "(?i)实验性"
-        },
-        {
-            "type": "selector",
-            "tag": "📽️ Disney+",
-            "providers": "🌸FlowerCloud",
-            "includes": "(?i)实验性"
-        },
-        {
-            "type": "selector",
-            "tag": "Ⓜ️ 微软服务",
-            "outbounds": [
-                "🎯 全球直连",
-                "🪙 省流节点",
-                "🚀 节点选择"
-            ]
-        },
-        {
-            "type": "selector",
-            "tag": "📢 谷歌服务",
-            "outbounds": [
-                "🎯 全球直连",
-                "🪙 省流节点",
-                "🚀 节点选择"
-            ]
-        },
-        {
-            "type": "selector",
-            "tag": "🍎 苹果服务",
-            "outbounds": [
-                "🎯 全球直连",
-                "🪙 省流节点",
-                "🚀 节点选择"
-            ]
-        },
-        {
-            "type": "selector",
-            "tag": "🤖 人工智能",
-            "providers": "🌸FlowerCloud",
-            "includes": "(?i)实验性",
-            "excludes": "(?i)香港"
-        },
-        {
-            "type": "selector",
-            "tag": "🪜 代理域名",
-            "outbounds": [
-                "🪙 省流节点",
-                "🚀 节点选择",
-                "🎯 全球直连"
-            ]
-        },
-        {
-            "type": "selector",
-            "tag": "🆎 广告拦截",
-            "outbounds": "REJECT"
-        },
-        {
-            "type": "selector",
-            "tag": "🎯 全球直连",
-            "outbounds": "DIRECT"
-        },
-        {
-            "type": "urltest",
-            "tag": "🪙 省流节点",
-            "providers": "🌸FlowerCloud",
-            "includes": "(?i)实验性",
-            "tolerance": 100
-        },
-        {
-            "type": "selector",
-            "tag": "🐟 漏网之鱼",
-            "outbounds": [
-                "🪙 省流节点",
-                "🚀 节点选择",
-                "🎯 全球直连"
-            ]
-        },
-        {
-            "type": "selector",
-            "tag": "GLOBAL",
-            "outbounds": [
-                "🎯 全球直连",
-                "🪙 省流节点",
-                "🐟 漏网之鱼"
-            ]
-        },
-        {
-            "type": "block",
-            "tag": "REJECT"
+            "tag":"auto",
+            "type":"urltest",
+            "outbounds":[
+              "{all}"
+          ],
+            "filter":[
+              {"action":"exclude","keywords":["网站|地址|剩余|过期|时间|有效"]}
+          ],
+            "url": "http://www.gstatic.com/generate_204",
+            "interval": "10m",
+            "tolerance": 50
         },
         {
             "type": "direct",
-            "tag": "DIRECT"
+            "tag": "direct"
+        },
+        {
+            "type": "block",
+            "tag": "block"
         },
         {
             "type": "dns",
             "tag": "dns-out"
         }
     ],
-    "outbound_providers": [
-        {
-            "type": "http",
-            "path": "./providers/FlowerCloud.yaml",
-            "tag": "🌸FlowerCloud",
-            "healthcheck_url": "https://www.gstatic.com/generate_204",
-            "healthcheck_interval": "10m0s",
-            "download_url": "https://example.com",
-            "download_ua": "clash.meta",
-            "download_interval": "24h0m0s",
-            "download_detour": "DIRECT"
+    "experimental": {
+        "cache_file": {
+            "enabled": true,
+            "path": "cache.db",
+            "store_fakeip": true
+        },
+        "clash_api": {
+        "default_mode": "Enhanced",
+        "external_controller": "127.0.0.1:9090",
+        "external_ui": "./ui",
+        "external_ui_download_detour": "direct"
         }
-    ],
-    "route": {
-        "rules": [
-            {
-                "protocol": "dns",
-                "outbound": "dns-out"
-            },
-            {
-                "clash_mode": "Direct",
-                "outbound": "DIRECT"
-            },
-            {
-                "clash_mode": "Global",
-                "outbound": "GLOBAL"
-            },
-            {
-                "rule_set": "ads",
-                "outbound": "🆎 广告拦截"
-            },
-            {
-                "rule_set": "private",
-                "outbound": "🎯 全球直连"
-            },
-            {
-                "rule_set": "microsoft-cn",
-                "outbound": "Ⓜ️ 微软服务"
-            },
-            {
-                "rule_set": "apple-cn",
-                "outbound": "🍎 苹果服务"
-            },
-            {
-                "rule_set": "google-cn",
-                "outbound": "📢 谷歌服务"
-            },
-            {
-                "rule_set": "games-cn",
-                "outbound": "🎮 游戏平台"
-            },
-            {
-                "rule_set": "youtube",
-                "outbound": "📹 YouTube"
-            },
-            {
-                "rule_set": "netflix",
-                "outbound": "🎥 NetFlix"
-            },
-            {
-                "rule_set": "disney",
-                "outbound": "📽️ Disney+"
-            },
-            {
-                "rule_set": "tiktok",
-                "outbound": "🎵 TikTok"
-            },
-            {
-                "rule_set": "ai",
-                "outbound": "🤖 人工智能"
-            },
-            {
-                "rule_set": "networktest",
-                "outbound": "📈 网络测试"
-            },
-            {
-                "rule_set": "proxy",
-                "outbound": "🪜 代理域名"
-            },
-            {
-                "rule_set": "cn",
-                "outbound": "🎯 全球直连"
-            },
-            {
-                "rule_set": "netflixip",
-                "outbound": "🎥 NetFlix"
-            },
-            {
-                "rule_set": "telegramip",
-                "outbound": "📲 电报消息"
-            },
-            {
-                "rule_set": "privateip",
-                "outbound": "🎯 全球直连"
-            },
-            {
-                "rule_set": "cnip",
-                "outbound": "🎯 全球直连"
-            }
-        ],
-        "rule_set": [
-            {
-                "type": "remote",
-                "tag": "ads",
-                "format": "binary",
-                "url": "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box-ruleset/ads.srs",
-                "download_detour": "DIRECT"
-            },
-            {
-                "type": "remote",
-                "tag": "private",
-                "format": "binary",
-                "url": "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box-ruleset/private.srs",
-                "download_detour": "DIRECT"
-            },
-            {
-                "type": "remote",
-                "tag": "microsoft-cn",
-                "format": "binary",
-                "url": "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box-ruleset/microsoft-cn.srs",
-                "download_detour": "DIRECT"
-            },
-            {
-                "type": "remote",
-                "tag": "apple-cn",
-                "format": "binary",
-                "url": "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box-ruleset/apple-cn.srs",
-                "download_detour": "DIRECT"
-            },
-            {
-                "type": "remote",
-                "tag": "google-cn",
-                "format": "binary",
-                "url": "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box-ruleset/google-cn.srs",
-                "download_detour": "DIRECT"
-            },
-            {
-                "type": "remote",
-                "tag": "games-cn",
-                "format": "binary",
-                "url": "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box-ruleset/games-cn.srs",
-                "download_detour": "DIRECT"
-            },
-            {
-                "type": "remote",
-                "tag": "youtube",
-                "format": "binary",
-                "url": "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box-ruleset/youtube.srs",
-                "download_detour": "DIRECT"
-            },
-            {
-                "type": "remote",
-                "tag": "netflix",
-                "format": "binary",
-                "url": "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box-ruleset/netflix.srs",
-                "download_detour": "DIRECT"
-            },
-            {
-                "type": "remote",
-                "tag": "disney",
-                "format": "binary",
-                "url": "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box-ruleset/disney.srs",
-                "download_detour": "DIRECT"
-            },
-            {
-                "type": "remote",
-                "tag": "tiktok",
-                "format": "binary",
-                "url": "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box-ruleset/tiktok.srs",
-                "download_detour": "DIRECT"
-            },
-            {
-                "type": "remote",
-                "tag": "ai",
-                "format": "binary",
-                "url": "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box-ruleset/ai.srs",
-                "download_detour": "DIRECT"
-            },
-            {
-                "type": "remote",
-                "tag": "networktest",
-                "format": "binary",
-                "url": "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box-ruleset/networktest.srs",
-                "download_detour": "DIRECT"
-            },
-            {
-                "type": "remote",
-                "tag": "proxy",
-                "format": "binary",
-                "url": "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box-ruleset/proxy.srs",
-                "download_detour": "DIRECT"
-            },
-            {
-                "type": "remote",
-                "tag": "cn",
-                "format": "binary",
-                "url": "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box-ruleset/cn.srs",
-                "download_detour": "DIRECT"
-            },
-            {
-                "type": "remote",
-                "tag": "netflixip",
-                "format": "binary",
-                "url": "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box-ruleset/netflixip.srs",
-                "download_detour": "DIRECT"
-            },
-            {
-                "type": "remote",
-                "tag": "telegramip",
-                "format": "binary",
-                "url": "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box-ruleset/telegramip.srs",
-                "download_detour": "DIRECT"
-            },
-            {
-                "type": "remote",
-                "tag": "privateip",
-                "format": "binary",
-                "url": "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box-ruleset/privateip.srs",
-                "download_detour": "DIRECT"
-            },
-            {
-                "type": "remote",
-                "tag": "cnip",
-                "format": "binary",
-                "url": "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box-ruleset/cnip.srs",
-                "download_detour": "DIRECT"
-            }
-        ],
-        "final": "🐟 漏网之鱼"
-    },
+    }
 }
