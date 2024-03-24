@@ -7,16 +7,16 @@
         "servers": [
             {
                 "tag": "dns_proxy",
-                "address": "https://1.1.1.1/dns-query",
+                "address": "https://dns.cloudflare.com/dns-query",
                 "address_resolver": "dns_resolver",
-                "strategy": "prefer_ipv4",
+                "strategy": "ipv4_only",
                 "detour": "proxy"
             },
             {
                 "tag": "dns_direct",
                 "address": "https://dns.alidns.com/dns-query",
                 "address_resolver": "dns_resolver",
-                "strategy": "prefer_ipv4",
+                "strategy": "ipv4_only",
                 "detour": "direct"
             },
             {
@@ -25,11 +25,15 @@
                 "detour": "direct"
             },
             {
-                "tag": "dns_block",
+                "tag": "dns_success",
                 "address": "rcode://success"
             },
             {
-                "tag": "remote",
+                "tag": "dns_refused",
+                "address": "rcode://refused"
+            },
+            {
+                "tag": "dns_fakeip",
                 "address": "fakeip"
             }
         ],
@@ -39,46 +43,53 @@
                 "server": "dns_resolver"
             },
             {
+                "domain": [
+                    "httpdns.bilivideo.com"
+                ],
+                "domain_suffix": [
+                    ".mcdn.bilivideo.cn",
+                    ".szbdyd.com"
+                ],
+                "domain_regex": [
+                    "cn-[a-zA-Z0-9-]+\\.bilivideo\\.com",
+                    "[a-zA-Z0-9-]+-pcdn-[a-zA-Z0-9-]+\\.biliapi\\.net"
+                ],
+                "server": "dns_success",
+                "disable_cache": true
+            },
+            {
+                "rule_set": "geosite-geolocation-!cn",
                 "query_type": [
-                  "A",
-                  "AAAA"
-              ],
-                "server": "remote"
+                    "A",
+                    "AAAA"
+                ],
+                "server": "dns_fakeip"
             },
             {
-                "clash_mode": "Direct",
-                "server": "dns_direct"
-            },
-            {
-                "clash_mode": "Global",
+                "rule_set": "geosite-geolocation-!cn",
+                "query_type": [
+                    "CNAME"
+                ],
                 "server": "dns_proxy"
             },
             {
-                "rule_set": "geosite-geolocation-cn",
-                "server": "dns_direct"
-            },
-            {
-                "type": "logical",
-                "mode": "and",
-                "rules": [
-                {
-                    "rule_set": "geosite-geolocation-!cn"
-                },
-                {
-                    "rule_set": "geoip-cn"
-                }
-              ],
-              "server": "dns_proxy",
-              "client_subnet": "114.114.114.114" // Any China client IP address
-           }
+                "query_type": [
+                    "A",
+                    "AAAA",
+                    "CNAME"
+                ],
+                "invert": true,
+                "server": "dns_refused",
+                "disable_cache": true
+            }
         ],
+        "final": "dns_direct",
+        "independent_cache": true,
         "fakeip": {
-        "enabled": true,
-        "inet4_range": "198.18.0.0/15",
-        "inet6_range": "fc00::/18"
-        },
-        "final": "dns_proxy"
-        "independent_cache": true
+            "enabled": true,
+            "inet4_range": "198.18.0.0/15",
+            "inet6_range": "fc00::/18"
+        }
     },
     "route": {
         "rule_set": [
@@ -90,24 +101,10 @@
                 "download_detour": "proxy"
             },
             {
-                "type": "remote",
-                "tag": "geosite-geolocation-cn",
-                "format": "binary",
-                "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-geolocation-cn.srs",
-                "download_detour": "proxy"
-            },
-            {
                 "tag": "geoip-cn",
                 "type": "remote",
                 "format": "binary",
                 "url": "https://raw.githubusercontent.com/SagerNet/sing-geoip/rule-set/geoip-cn.srs",
-                "download_detour": "proxy"
-            },
-            {
-                "tag": "geosite-cn",
-                "type": "remote",
-                "format": "binary",
-                "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-cn.srs",
                 "download_detour": "proxy"
             }
         ],
@@ -130,31 +127,50 @@
                 "outbound": "block"
             },
             {
-                "type": "logical",
-                "mode": "and",
-                "rules": [
-                    {
-                        "rule_set": "geoip-cn",
-                        "invert": true
-                    },
-                    {
-                        "rule_set": "geosite-geolocation-!cn"
-                    }
+                "process_name": [
+                    "xray.exe",
+                    "IDMan.exe"
                 ],
+                "outbound": "direct"
+            },
+            {
+                "domain": [
+                    "httpdns.bilivideo.com"
+                ],
+                "domain_suffix": [
+                    ".mcdn.bilivideo.cn",
+                    ".szbdyd.com"
+                ],
+                "domain_regex": [
+                    "cn-[a-zA-Z0-9-]+\\.bilivideo\\.com",
+                    "[a-zA-Z0-9-]+-pcdn-[a-zA-Z0-9-]+\\.biliapi\\.net"
+                ],
+                "outbound": "block"
+            },
+            {
+                "rule_set": "geosite-geolocation-!cn",
                 "outbound": "proxy"
             },
             {
-                "type": "logical",
-                "mode": "and",
-                "rules": [
-                    {
-                        "rule_set": "geoip-cn"
-                    },
-                    {
-                        "rule_set": "geosite-cn"
-                    }
+                "ip_cidr": [
+                    "47.101.175.206/32",
+                    "47.100.123.169/32",
+                    "120.46.169.234/32",
+                    "121.36.72.124/32",
+                    "116.63.10.135/32",
+                    "122.9.7.134/32",
+                    "117.185.228.108/32",
+                    "117.144.238.29/32",
+                    "122.9.13.79/32",
+                    "122.9.15.129/32",
+                    "101.91.140.224/32",
+                    "101.91.140.124/32",
+                    "114.116.215.110/32",
+                    "116.63.10.31/32",
+                    "112.64.218.119/32",
+                    "112.65.200.117/32"
                 ],
-                "outbound": "direct"
+                "outbound": "block"
             },
             {
                 "rule_set": "geoip-cn",
@@ -173,17 +189,27 @@
             "type": "tun",
             "tag": "tun-in",
             "inet4_address": "172.16.0.1/30",
-            "inet6_address": "fd00::1/126",
-            "mtu": 1400,
+            "inet6_address": "fdfe:dcba:9876::1/126",
+            "mtu": 1492,
             "auto_route": true,
             "strict_route": true,
-            "stack": "gvisor",
+            "stack": "system",
             "sniff": true,
             "sniff_override_destination": false
+        },
+        {
+            "type": "mixed",
+            "tag": "mixed-in",
+            "listen": "127.0.0.1",
+            "listen_port": 2334,
+            "users": [],
+            "domain_strategy": "prefer_ipv4",
+            "sniff": true,
+            "sniff_override_destination": true
         }
     ],
     "outbounds": [
-         {
+        {
             "tag":"proxy",
             "type":"selector",
             "outbounds":[
@@ -216,6 +242,7 @@
             "interval": "10m",
             "tolerance": 50
         },
+
         {
             "type": "direct",
             "tag": "direct"
@@ -234,12 +261,12 @@
             "enabled": true,
             "path": "cache.db",
             "store_fakeip": true
-        },
-    "clash_api": {
-    "default_mode": "Enhanced",
-    "external_controller": "127.0.0.1:9090",
-    "external_ui": "./ui",
-    "external_ui_download_detour": "direct"
+        }
+        "clash_api": {
+        "default_mode": "Enhanced",
+        "external_controller": "127.0.0.1:9090",
+        "external_ui": "./ui",
+        "external_ui_download_detour": "direct"
+        }
     }
-  }
 }
