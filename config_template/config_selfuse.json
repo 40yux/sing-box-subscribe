@@ -7,16 +7,16 @@
         "servers": [
             {
                 "tag": "dns_proxy",
-                "address": "https://dns.cloudflare.com/dns-query",
+                "address": "https://https://dns.cloudflare.com/dns-query",
                 "address_resolver": "dns_resolver",
-                "strategy": "prefer_ipv4",
+                "strategy": "ipv4_only",
                 "detour": "proxy"
             },
             {
                 "tag": "dns_direct",
                 "address": "https://dns.alidns.com/dns-query",
                 "address_resolver": "dns_resolver",
-                "strategy": "prefer_ipv4",
+                "strategy": "ipv4_only",
                 "detour": "direct"
             },
             {
@@ -137,7 +137,7 @@
             "strict_route": true,
             "stack": "gvisor",
             "sniff": true,
-            "sniff_override_destination": true
+            "sniff_override_destination": false
         }
     ],
     "outbounds": [
@@ -175,9 +175,6 @@
             "tolerance": 50
         },
 
-            // 粘贴你的客户端配置，需要保留 "tag": "proxy"
-            "tag": "proxy"
-        },
         {
             "type": "direct",
             "tag": "direct"
@@ -194,8 +191,13 @@
     "experimental": {
         "cache_file": {
             "enabled": true,
-            "path": "cache.db",
-            "store_fakeip": true
+            "path": "cache.db"
+        },
+        "clash_api": {
+        "default_mode": "Enhanced",
+        "external_controller": "127.0.0.1:9090",
+        "external_ui": "./ui",
+        "external_ui_download_detour": "direct"
         }
     }
 }
