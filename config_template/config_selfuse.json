@@ -69,7 +69,7 @@
                   }
                 ],
                 "server": "dns_proxy",
-                "client_subnet": "114.114.114.114" // Any China client IP address
+                "client_subnet": "114.114.114.114"
             }
         ],
         "final": "dns_direct",
