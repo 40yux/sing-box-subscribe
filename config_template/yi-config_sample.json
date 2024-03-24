@@ -192,7 +192,7 @@
   "outbounds": [
     {
       "type": "selector",
-      "tag": "节点选择",
+      "tag": "proxy",
       "outbounds": ["<all-country-tags>", "direct"],
       "interrupt_exist_connections": true
     },
