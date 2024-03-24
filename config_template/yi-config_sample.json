@@ -1,4 +1,4 @@
-{
+7{
   "log": {
     "level": "info",
     "timestamp": true
@@ -213,7 +213,7 @@
       "default_mode": "Enhanced",
       "external_controller": "127.0.0.1:9090",
       "external_ui": "./ui",
-      "external_ui_download_detour": ""
+      "external_ui_download_detour": "direct"
     }
   }
 }
