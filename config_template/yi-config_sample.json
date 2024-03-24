@@ -175,7 +175,7 @@
         "outbound": "Bahamut"
       }
     ],
-    "final": "google",
+    "final": "local",
     "auto_detect_interface": true
   },
   "inbounds": [
