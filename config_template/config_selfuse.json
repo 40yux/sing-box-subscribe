@@ -7,16 +7,16 @@
         "servers": [
             {
                 "tag": "dns_proxy",
-                "address": "https://8.8.8.8/dns-query",
+                "address": "https://dns.cloudflare.com/dns-query",
                 "address_resolver": "dns_resolver",
-                "strategy": "ipv4_only",
+                "strategy": "prefer_ipv4",
                 "detour": "proxy"
             },
             {
                 "tag": "dns_direct",
                 "address": "https://dns.alidns.com/dns-query",
                 "address_resolver": "dns_resolver",
-                "strategy": "ipv4_only",
+                "strategy": "prefer_ipv4",
                 "detour": "direct"
             },
             {
@@ -25,16 +25,8 @@
                 "detour": "direct"
             },
             {
-                "tag": "dns_success",
+                "tag": "dns_block",
                 "address": "rcode://success"
-            },
-            {
-                "tag": "dns_refused",
-                "address": "rcode://refused"
-            },
-            {
-                "tag": "dns_fakeip",
-                "address": "fakeip"
             }
         ],
         "rules": [
@@ -43,53 +35,15 @@
                 "server": "dns_resolver"
             },
             {
-                "domain": [
-                    "httpdns.bilivideo.com"
-                ],
-                "domain_suffix": [
-                    ".mcdn.bilivideo.cn",
-                    ".szbdyd.com"
-                ],
-                "domain_regex": [
-                    "cn-[a-zA-Z0-9-]+\\.bilivideo\\.com",
-                    "[a-zA-Z0-9-]+-pcdn-[a-zA-Z0-9-]+\\.biliapi\\.net"
-                ],
-                "server": "dns_success",
-                "disable_cache": true
-            },
-            {
                 "rule_set": "geosite-geolocation-!cn",
-                "query_type": [
-                    "A",
-                    "AAAA"
-                ],
-                "server": "dns_fakeip"
-            },
-            {
-                "rule_set": "geosite-geolocation-!cn",
-                "query_type": [
-                    "CNAME"
-                ],
                 "server": "dns_proxy"
             },
             {
-                "query_type": [
-                    "A",
-                    "AAAA",
-                    "CNAME"
-                ],
-                "invert": true,
-                "server": "dns_refused",
-                "disable_cache": true
+                "rule_set": "geosite-cn",
+                "server": "dns_direct"
             }
         ],
-        "final": "dns_direct",
-        "independent_cache": true,
-        "fakeip": {
-            "enabled": true,
-            "inet4_range": "198.18.0.0/15",
-            "inet6_range": "fc00::/18"
-        }
+        "final": "dns_proxy"
     },
     "route": {
         "rule_set": [
@@ -105,6 +59,13 @@
                 "type": "remote",
                 "format": "binary",
                 "url": "https://raw.githubusercontent.com/SagerNet/sing-geoip/rule-set/geoip-cn.srs",
+                "download_detour": "proxy"
+            },
+            {
+                "tag": "geosite-cn",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-cn.srs",
                 "download_detour": "proxy"
             }
         ],
@@ -127,50 +88,31 @@
                 "outbound": "block"
             },
             {
-                "process_name": [
-                    "xray.exe",
-                    "IDMan.exe"
+                "type": "logical",
+                "mode": "and",
+                "rules": [
+                    {
+                        "rule_set": "geoip-cn",
+                        "invert": true
+                    },
+                    {
+                        "rule_set": "geosite-geolocation-!cn"
+                    }
                 ],
-                "outbound": "direct"
-            },
-            {
-                "domain": [
-                    "httpdns.bilivideo.com"
-                ],
-                "domain_suffix": [
-                    ".mcdn.bilivideo.cn",
-                    ".szbdyd.com"
-                ],
-                "domain_regex": [
-                    "cn-[a-zA-Z0-9-]+\\.bilivideo\\.com",
-                    "[a-zA-Z0-9-]+-pcdn-[a-zA-Z0-9-]+\\.biliapi\\.net"
-                ],
-                "outbound": "block"
-            },
-            {
-                "rule_set": "geosite-geolocation-!cn",
                 "outbound": "proxy"
             },
             {
-                "ip_cidr": [
-                    "47.101.175.206/32",
-                    "47.100.123.169/32",
-                    "120.46.169.234/32",
-                    "121.36.72.124/32",
-                    "116.63.10.135/32",
-                    "122.9.7.134/32",
-                    "117.185.228.108/32",
-                    "117.144.238.29/32",
-                    "122.9.13.79/32",
-                    "122.9.15.129/32",
-                    "101.91.140.224/32",
-                    "101.91.140.124/32",
-                    "114.116.215.110/32",
-                    "116.63.10.31/32",
-                    "112.64.218.119/32",
-                    "112.65.200.117/32"
+                "type": "logical",
+                "mode": "and",
+                "rules": [
+                    {
+                        "rule_set": "geoip-cn"
+                    },
+                    {
+                        "rule_set": "geosite-cn"
+                    }
                 ],
-                "outbound": "block"
+                "outbound": "direct"
             },
             {
                 "rule_set": "geoip-cn",
@@ -190,20 +132,18 @@
             "tag": "tun-in",
             "inet4_address": "172.16.0.1/30",
             "inet6_address": "fd00::1/126",
-            "mtu": 1492,
+            "mtu": 1400,
             "auto_route": true,
             "strict_route": true,
-            "stack": "system",
+            "stack": "gvisor",
             "sniff": true,
             "sniff_override_destination": false
         }
     ],
     "outbounds": [
         {
-            "type": "socks",
-            "tag": "proxy",
-            "server": "127.0.0.1",
-            "server_port": 10808
+            // 粘贴你的客户端配置，需要保留 "tag": "proxy"
+            "tag": "proxy"
         },
         {
             "type": "direct",
