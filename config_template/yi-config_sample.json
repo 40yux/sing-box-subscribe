@@ -8,6 +8,7 @@
       {
         "tag": "google",
         "address": "tls://8.8.8.8"
+        "detour": "proxy"
       },
       {
         "tag": "local",
