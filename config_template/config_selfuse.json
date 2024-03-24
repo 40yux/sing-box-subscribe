@@ -206,6 +206,5 @@
     "external_ui": "./ui",
     "external_ui_download_detour": "direct"
     }
-
-    }
+  }
 }
