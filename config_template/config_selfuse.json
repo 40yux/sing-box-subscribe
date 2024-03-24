@@ -189,7 +189,7 @@
             "type": "tun",
             "tag": "tun-in",
             "inet4_address": "172.16.0.1/30",
-            "inet6_address": "fd00::1/126",
+            "inet6_address": "fdfe:dcba:9876::1/126",
             "mtu": 1492,
             "auto_route": true,
             "strict_route": true,
@@ -250,7 +250,7 @@
             "enabled": true,
             "path": "cache.db",
             "store_fakeip": true
-        }
+        },
         "clash_api": {
         "default_mode": "Enhanced",
         "external_controller": "127.0.0.1:9090",
