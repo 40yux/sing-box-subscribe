@@ -1,4 +1,3 @@
-
 {
     "log": {
         "level": "info",
@@ -10,14 +9,14 @@
                 "tag": "dns_proxy",
                 "address": "https://8.8.8.8/dns-query",
                 "address_resolver": "dns_resolver",
-                "strategy": "ipv4_only",
+                "strategy": "prefer_ipv4",
                 "detour": "proxy"
             },
             {
                 "tag": "dns_direct",
                 "address": "https://dns.alidns.com/dns-query",
                 "address_resolver": "dns_resolver",
-                "strategy": "ipv4_only",
+                "strategy": "prefer_ipv4",
                 "detour": "direct"
             },
             {
@@ -38,6 +37,13 @@
             {
                 "outbound": "any",
                 "server": "dns_resolver"
+            },
+            {
+                "query_type": [
+                  "A",
+                  "AAAA"
+                ],
+                "server": "dns_fakeip"
             },
             {
                 "clash_mode": "Direct",
@@ -83,7 +89,6 @@
                 "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-geolocation-cn.srs",
                 "download_detour": "proxy"
             },
-            
             {   "type": "remote",
                 "tag": "geosite-geolocation-!cn",
                 "format": "binary",
@@ -100,58 +105,47 @@
         ],
         "rules": [
           {
-              "type": "direct",
-              "tag": "direct"
+             "type": "logical",
+             "mode": "or",
+             "rules": [
+                {
+                "protocol": "dns"
+                },
+                {
+                "port": 53
+                }
+             ],
+            "outbound": "dns-out"
           },
           {
-              "type": "block",
-              "tag": "block"
-          }
-        ],
-  "route": {
-    "rules": [
-      {
-        "type": "logical",
-        "mode": "or",
-        "rules": [
-          {
-            "protocol": "dns"
+            "ip_is_private": true,
+            "outbound": "direct"
           },
           {
-            "port": 53
-          }
-        ],
-        "outbound": "dns"
-      },
-      {
-        "ip_is_private": true,
-        "outbound": "direct"
-      },
-      {
-        "clash_mode": "Direct",
-        "outbound": "direct"
-      },
-      {
-        "clash_mode": "Global",
-        "outbound": "default"
-      },
-      {
-        "type": "logical",
-        "mode": "or",
-        "rules": [
-          {
-            "port": 853
+            "clash_mode": "Direct",
+            "outbound": "direct"
           },
           {
-            "network": "udp",
-            "port": 443
+            "clash_mode": "Global",
+            "outbound": "default"
           },
           {
-            "protocol": "stun"
-          }
-        ],
-        "outbound": "block"
-      },
+            "type": "logical",
+            "mode": "or",
+            "rules": [
+              {
+                "port": 853
+              },
+              {
+                "network": "udp",
+                "port": 443
+              },
+              {
+                "protocol": "stun"
+              }
+           ],
+           "outbound": "block"
+         },
       {
         "rule_set": [
           "geoip-cn",
