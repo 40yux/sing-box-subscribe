@@ -182,24 +182,17 @@
         }
    ],
     "outbounds": [
-         {
-            "tag":"auto",
-            "type":"urltest",
-            "outbounds":[
-              "{all}"
-          ],
-            "url": "http://www.gstatic.com/generate_204",
-            "interval": "10m",
-            "tolerance": 50
-         },
-         {
+        {
             "tag":"proxy",
             "type":"selector",
             "outbounds":[
               "auto",
               "direct",
               "{all}"
-            ]
+            ],
+            "url": "http://www.gstatic.com/generate_204",
+            "interval": "10m",
+            "tolerance": 50
         },
         {
             "tag":"Others",
