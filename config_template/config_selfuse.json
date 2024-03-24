@@ -39,15 +39,46 @@
                 "server": "dns_resolver"
             },
             {
-                "rule_set": "geosite-geolocation-!cn",
+                "query_type": [
+                  "A",
+                  "AAAA"
+              ],
+                "server": "remote"
+            },
+            {
+                "clash_mode": "Direct",
+                "server": "dns_direct"
+            },
+            {
+                "clash_mode": "Global",
                 "server": "dns_proxy"
             },
             {
-                "rule_set": "geosite-cn",
+                "rule_set": "geosite-geolocation-cn",
                 "server": "dns_direct"
-            }
+            },
+            {
+                "type": "logical",
+                "mode": "and",
+                "rules": [
+                {
+                    "rule_set": "geosite-geolocation-!cn"
+                },
+                {
+                    "rule_set": "geoip-cn"
+                }
+              ],
+              "server": "dns_proxy",
+              "client_subnet": "114.114.114.114" // Any China client IP address
+           }
         ],
+        "fakeip": {
+        "enabled": true,
+        "inet4_range": "198.18.0.0/15",
+        "inet6_range": "fc00::/18"
+        },
         "final": "dns_proxy"
+        "independent_cache": true
     },
     "route": {
         "rule_set": [
@@ -56,6 +87,13 @@
                 "type": "remote",
                 "format": "binary",
                 "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-geolocation-!cn.srs",
+                "download_detour": "proxy"
+            },
+            {
+                "type": "remote",
+                "tag": "geosite-geolocation-cn",
+                "format": "binary",
+                "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-geolocation-cn.srs",
                 "download_detour": "proxy"
             },
             {
