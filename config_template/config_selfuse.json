@@ -7,16 +7,16 @@
         "servers": [
             {
                 "tag": "dns_proxy",
-                "address": "https://1.1.1.1/dns-query",
+                "address": "https://dns.cloudflare.com/dns-query",
                 "address_resolver": "dns_resolver",
-                "strategy": "ipv4_only",
+                "strategy": "prefer_ipv4",
                 "detour": "proxy"
             },
             {
                 "tag": "dns_direct",
                 "address": "https://dns.alidns.com/dns-query",
                 "address_resolver": "dns_resolver",
-                "strategy": "ipv4_only",
+                "strategy": "prefer_ipv4",
                 "detour": "direct"
             },
             {
@@ -27,6 +27,10 @@
             {
                 "tag": "dns_block",
                 "address": "rcode://success"
+            },
+            {
+                "tag": "remote",
+                "address": "fakeip"
             }
         ],
         "rules": [
