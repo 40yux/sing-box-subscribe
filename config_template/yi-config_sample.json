@@ -118,7 +118,7 @@
             },
             {
                 "clash_mode": "Global",
-                "outbound": "default"
+                "outbound": "proxy"
             },
             {
                 "port": 853,
