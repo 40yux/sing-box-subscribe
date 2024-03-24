@@ -104,55 +104,55 @@
             }
         ],
         "rules": [
-          {
-             "type": "logical",
-             "mode": "or",
-             "rules": [
-                {
-                "protocol": "dns"
-                },
-                {
-                "port": 53
-                }
-             ],
-            "outbound": "dns-out"
-          },
-          {
-            "ip_is_private": true,
-            "outbound": "direct"
-          },
-          {
-            "clash_mode": "Direct",
-            "outbound": "direct"
-          },
-          {
-            "clash_mode": "Global",
-            "outbound": "default"
-          },
-          {
-            "type": "logical",
-            "mode": "or",
-            "rules": [
-              {
-                "port": 853
-              },
-              {
-                "network": "udp",
-                "port": 443
-              },
-              {
-                "protocol": "stun"
-              }
-           ],
-           "outbound": "block"
-         },
-      {
-        "rule_set": [
-          "geoip-cn",
-          "geosite-geolocation-cn"
-        ],
-        "outbound": "direct"
-      }
+            {
+                "type": "logical",
+                "mode": "or",
+                "rules": [
+                  {
+                    "protocol": "dns"
+                  },
+                  {
+                    "port": 53
+                  }
+                ],
+                "outbound": "dns-out"
+            },
+            {
+                "ip_is_private": true,
+                "outbound": "direct"
+            },
+            {
+                "clash_mode": "Direct",
+                "outbound": "direct"
+            },
+            {
+                "clash_mode": "Global",
+                "outbound": "default"
+            },
+            {
+                "type": "logical",
+                "mode": "or",
+                "rules": [
+                  {
+                    "port": 853
+                  },
+                  {
+                    "network": "udp",
+                    "port": 443
+                  },
+                  {
+                    "protocol": "stun"
+                  }
+               ],
+               "outbound": "block"
+            },
+            {
+               "rule_set": [
+                 "geoip-cn",
+                 "geosite-geolocation-cn"
+               ],
+               "outbound": "direct"
+            }
         ],
         "final": "proxy",
         "auto_detect_interface": true
