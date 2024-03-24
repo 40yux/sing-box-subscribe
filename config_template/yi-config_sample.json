@@ -25,6 +25,10 @@
         "detour": "direct"
       },
       {
+        "tag": "dns_block",
+        "address": "rcode://success"
+      },
+      {
         "tag": "remote",
         "address": "fakeip"
       }
@@ -32,7 +36,7 @@
     "rules": [
       {
         "outbound": "any",
-        "server": "direct"
+        "server": "dns_resolver"
       },
       {
         "query_type": ["A", "AAAA"],
@@ -40,15 +44,15 @@
       },
       {
         "clash_mode": "Direct",
-        "server": "direct"
+        "server": "dns_direct"
       },
       {
         "clash_mode": "Global",
-        "server": "proxy"
+        "server": "dns_proxy"
       },
       {
         "rule_set": "geosite-geolocation-cn",
-        "server": "direct"
+        "server": "dns_direct"
       },
       {
         "type": "logical",
@@ -61,7 +65,7 @@
             "rule_set": "geoip-cn"
           }
         ],
-        "server": "proxy",
+        "server": "dns_proxy",
         "client_subnet": "114.114.114.114"
       }
     ],
