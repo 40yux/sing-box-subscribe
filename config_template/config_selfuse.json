@@ -148,15 +148,15 @@
                   "protocol": "stun"
                 }
               ],
-              "outbound": "block"
-            },
-            {
+                "outbound": "block"
+              },
+              {
                 "rule_set": [
                   "geoip-cn",
                   "geosite-geolocation-cn"
               ],
               "outbound": "direct"
-            }
+              }
         ],
         "final": "proxy",
         "auto_detect_interface": true
