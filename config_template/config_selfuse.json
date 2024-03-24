@@ -259,7 +259,7 @@
             "enabled": true,
             "path": "cache.db",
             "store_fakeip": true
-        }
+        },
         "clash_api": {
         "default_mode": "Enhanced",
         "external_controller": "127.0.0.1:9090",
