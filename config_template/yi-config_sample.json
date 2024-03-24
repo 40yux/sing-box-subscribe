@@ -6,26 +6,26 @@
     "dns": {
         "servers": [
             {
-                "tag": "dns_proxy",
+                "tag": "proxy",
                 "address": "https://8.8.8.8/dns-query",
                 "address_resolver": "dns_resolver",
                 "strategy": "prefer_ipv4",
                 "detour": "proxy"
             },
             {
-                "tag": "dns_direct",
+                "tag": "direct",
                 "address": "https://dns.alidns.com/dns-query",
                 "address_resolver": "dns_resolver",
                 "strategy": "prefer_ipv4",
                 "detour": "direct"
             },
             {
-                "tag": "dns_resolver",
+                "tag": "resolver",
                 "address": "223.5.5.5",
                 "detour": "direct"
             },
             {
-                "tag": "dns_block",
+                "tag": "block",
                 "address": "rcode://success"
             },
             {
@@ -36,7 +36,7 @@
         "rules": [
             {
                 "outbound": "any",
-                "server": "dns_resolver"
+                "server": "resolver"
             },
             {
                 "query_type": [
@@ -47,15 +47,15 @@
             },
             {
                 "clash_mode": "Direct",
-                "server": "dns_direct"
+                "server": "direct"
             },
             {
                 "clash_mode": "Global",
-                "server": "dns_proxy"
+                "server": "proxy"
             },
             {
                 "rule_set": "geosite-geolocation-cn",
-                "server": "dns_direct"
+                "server": "direct"
             },
             {
                 "type": "logical",
@@ -68,11 +68,11 @@
                     "rule_set": "geoip-cn"
                   }
                 ],
-                "server": "dns_proxy",
+                "server": "proxy",
                 "client_subnet": "114.114.114.114" // Any China client IP address
       }
         ],
-        "final": "dns_direct",
+        "final": "direct",
         "independent_cache": true,
         "fakeip": {
             "enabled": true,
