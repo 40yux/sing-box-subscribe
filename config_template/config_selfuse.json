@@ -72,7 +72,7 @@
                     "rule_set": "geoip-cn"
                   }
                 ],
-                "server": "local"
+                "server": "dns_direct"
             }
         ],
         "final": "dns_direct",
