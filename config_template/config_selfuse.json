@@ -175,13 +175,6 @@
             "tolerance": 50
         },
         {
-            "type": "socks",
-            "tag": "proxy",
-            "server": "127.0.0.1",
-            "server_port": 10808
-        },
-
-        {
             "type": "direct",
             "tag": "direct"
         },
