@@ -196,7 +196,17 @@
             "stack": "system",
             "sniff": true,
             "sniff_override_destination": false
+        },
+        {
+            "type": "mixed",
+            "tag": "mixed-in",
+            "listen": "::",
+            "listen_port": 5353,
+            "users": [],
+            "sniff": true,
+            "sniff_override_destination": false
         }
+
     ],
     "outbounds": [
          {
