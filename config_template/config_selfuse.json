@@ -81,6 +81,22 @@
                 "invert": true,
                 "server": "dns_refused",
                 "disable_cache": true
+            },
+            {
+                "domain": [
+                  "ghproxy.com",
+                  "cdn.jsdelivr.net",
+                  "testingcf.jsdelivr.net"
+                ],
+                "server": "dns_fakeip"
+            },
+            {
+                "rule_set": "geosite-category-ads-all",
+                "server": "dns_success"
+            },
+            {
+                "clash_mode": "direct",
+                "server": "dns_direct"
             }
         ],
         "final": "dns_direct",
@@ -112,6 +128,13 @@
                 "type": "remote",
                 "format": "binary",
                 "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-geolocation-cn.srs",
+                "download_detour": "proxy"
+            },
+            {
+                "tag": "geosite-category-ads-all",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/category-ads-all.srs",
                 "download_detour": "proxy"
             }
         ],
@@ -186,6 +209,23 @@
             {
                 "ip_is_private": true,
                 "outbound": "direct"
+            },
+            {
+                "rule_set": "geosite-category-ads-all",
+                "outbound": "AdBlock"
+            },
+            {
+                "clash_mode": "direct",
+                "outbound": "direct"
+            },           
+            {
+                "domain": [
+                  "clash.razord.top",
+                  "yacd.metacubex.one",
+                  "yacd.haishan.me",
+                  "d.metacubex.one"
+                ],
+                "outbound": "direct"
             }
         ],
         "final": "proxy",
@@ -225,17 +265,6 @@
             ]
         },
         {
-            "tag":"Others",
-            "type":"selector",
-            "outbounds":[
-              "{all}",
-              "proxy"
-          ],
-            "filter":[
-              {"action":"exclude","keywords":["🇭🇰|HK|hk|香港|香|🇹🇼|TW|tw|台湾|台|🇸🇬|SG|sg|新加坡|狮|🇯🇵|JP|jp|日本|日|🇺🇸|US|us|美国|美|KR|kr|韩国|UK|uk|英国"]}
-          ]
-        },
-        {
             "tag":"auto",
             "type":"urltest",
             "outbounds":[
@@ -248,6 +277,25 @@
             "interval": "10m",
             "tolerance": 50
         },
+        {
+             "tag":"AdBlock",
+             "type":"selector",
+             "outbounds":[
+               "block",
+               "direct"
+            ]
+        },
+        {
+            "tag":"Others",
+            "type":"selector",
+            "outbounds":[
+              "{all}",
+              "proxy"
+          ],
+            "filter":[
+              {"action":"exclude","keywords":["🇭🇰|HK|hk|香港|香|🇹🇼|TW|tw|台湾|台|🇸🇬|SG|sg|新加坡|狮|🇯🇵|JP|jp|日本|日|🇺🇸|US|us|美国|美|KR|kr|韩国|UK|uk|英国"]}
+          ]
+        },        
         {
             "type": "direct",
             "tag": "direct"
