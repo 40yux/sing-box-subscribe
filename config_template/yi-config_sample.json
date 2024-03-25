@@ -43,21 +43,6 @@
                 "server": "dns_resolver"
             },
             {
-                "domain": [
-                    "httpdns.bilivideo.com"
-                ],
-                "domain_suffix": [
-                    ".mcdn.bilivideo.cn",
-                    ".szbdyd.com"
-                ],
-                "domain_regex": [
-                    "cn-[a-zA-Z0-9-]+\\.bilivideo\\.com",
-                    "[a-zA-Z0-9-]+-pcdn-[a-zA-Z0-9-]+\\.biliapi\\.net"
-                ],
-                "server": "dns_success",
-                "disable_cache": true
-            },
-            {
                 "rule_set": "geosite-geolocation-!cn",
                 "query_type": [
                     "A",
@@ -162,20 +147,6 @@
                     "IDMan.exe"
                 ],
                 "outbound": "direct"
-            },
-            {
-                "domain": [
-                    "httpdns.bilivideo.com"
-                ],
-                "domain_suffix": [
-                    ".mcdn.bilivideo.cn",
-                    ".szbdyd.com"
-                ],
-                "domain_regex": [
-                    "cn-[a-zA-Z0-9-]+\\.bilivideo\\.com",
-                    "[a-zA-Z0-9-]+-pcdn-[a-zA-Z0-9-]+\\.biliapi\\.net"
-                ],
-                "outbound": "block"
             },
             {
                 "rule_set": "geosite-geolocation-!cn",
