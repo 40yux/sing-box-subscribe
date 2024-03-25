@@ -97,6 +97,10 @@
             {
                 "clash_mode": "direct",
                 "server": "dns_direct"
+            },
+            {
+                "rule_set": "geosite-cn",
+                "server": "dns_direct"
             }
         ],
         "final": "dns_direct",
@@ -135,6 +139,13 @@
                 "type": "remote",
                 "format": "binary",
                 "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/category-ads-all.srs",
+                "download_detour": "proxy"
+            },
+            {
+                "tag": "geosite-cn",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/cn.srs",
                 "download_detour": "proxy"
             }
         ],
@@ -225,6 +236,10 @@
                   "yacd.haishan.me",
                   "d.metacubex.one"
                 ],
+                "outbound": "direct"
+            },
+            {
+                "rule_set": "geosite-cn",
                 "outbound": "direct"
             }
         ],
