@@ -128,77 +128,53 @@
       }
     }
   ],
-  "outbounds": [
-    {
-      "tag": "Proxy",
-      "outbounds": [
-        "➜ Direct"
-      ],
-      "interrupt_exist_connections": true,
-      "type": "selector"
-    },
-    {
-      "tag": "Geolocation-cn",
-      "outbounds": [
-        "Proxy",
-        "➜ Direct"
-      ],
-      "interrupt_exist_connections": true,
-      "type": "selector"
-    },
-    {
-      "tag": "Geolocation-!cn",
-      "outbounds": [
-        "Proxy",
-        "➜ Direct"
-      ],
-      "interrupt_exist_connections": true,
-      "type": "selector"
-    },
-    {
-      "tag": "Cn",
-      "outbounds": [
-        "Proxy",
-        "➜ Direct"
-      ],
-      "interrupt_exist_connections": true,
-      "type": "selector"
-    },
-    {
-      "tag": "Adblock",
-      "outbounds": [
-        "Proxy",
-        "➜ Direct"
-      ],
-      "interrupt_exist_connections": true,
-      "type": "selector"
-    },
-    {
-      "tag": "Ad",
-      "outbounds": [
-        "Proxy",
-        "➜ Direct"
-      ],
-      "interrupt_exist_connections": true,
-      "type": "selector"
-    },
-    {
-      "type": "direct",
-      "tag": "➜ Direct"
-    },
-    {
-      "type": "direct",
-      "tag": "direct"
-    },
-    {
-      "type": "dns",
-      "tag": "dns-out"
-    },
-    {
-      "type": "block",
-      "tag": "block"
-    }
-  ],
+   "outbounds": [
+        {
+            "tag":"proxy",
+            "type":"selector",
+            "outbounds":[
+              "auto",
+              "direct",
+              "{all}"
+            ]
+        },
+        {
+            "tag":"Others",
+            "type":"selector",
+            "outbounds":[
+              "{all}",
+              "proxy"
+          ],
+            "filter":[
+              {"action":"exclude","keywords":["🇭🇰|HK|hk|香港|香|🇹🇼|TW|tw|台湾|台|🇸🇬|SG|sg|新加坡|狮|🇯🇵|JP|jp|日本|日|🇺🇸|US|us|美国|美|KR|kr|韩国|UK|uk|英国"]}
+          ]
+        },
+        {
+            "tag":"auto",
+            "type":"urltest",
+            "outbounds":[
+              "{all}"
+          ],
+            "filter":[
+              {"action":"exclude","keywords":["网站|地址|剩余|过期|时间|有效"]}
+          ],
+            "url": "http://www.gstatic.com/generate_204",
+            "interval": "10m",
+            "tolerance": 50
+        },
+        {
+            "type": "direct",
+            "tag": "direct"
+        },
+        {
+            "type": "block",
+            "tag": "block"
+        },
+        {
+            "type": "dns",
+            "tag": "dns-out"
+        }
+    ],
   "route": {
     "rule_set": [
       {
