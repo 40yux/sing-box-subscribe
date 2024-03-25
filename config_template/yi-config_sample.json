@@ -1,19 +1,20 @@
-7{
+{
   "log": {
+    "disabled": false,
     "level": "info",
     "timestamp": true
   },
   "dns": {
     "servers": [
       {
-        "tag": "dns_proxy",
-        "address": "https://8.8.8.8/dns-query",
-        "address_resolver": "dns_resolver",
-        "strategy": "prefer_ipv4",
-        "detour": "proxy"
+        "tag": "google",
+         "address": "https://8.8.8.8/dns-query",
+         "address_resolver": "dns_resolver",
+         "strategy": "prefer_ipv4",
+         "detour": "proxy"
       },
       {
-        "tag": "dns_direct",
+        "tag": "local-dns",
         "address": "https://dns.alidns.com/dns-query",
         "address_resolver": "dns_resolver",
         "strategy": "prefer_ipv4",
@@ -25,12 +26,12 @@
         "detour": "direct"
       },
       {
-        "tag": "dns_block",
-        "address": "rcode://success"
+        "tag": "fakeip-dns",
+        "address": "fakeip"
       },
       {
-        "tag": "remote",
-        "address": "fakeip"
+        "tag": "block-dns",
+        "address": "rcode://success"
       }
     ],
     "rules": [
@@ -39,194 +40,303 @@
         "server": "dns_resolver"
       },
       {
-        "query_type": ["A", "AAAA"],
-        "server": "remote"
-      },
-      {
-        "clash_mode": "Direct",
-        "server": "dns_direct"
-      },
-      {
-        "clash_mode": "Global",
-        "server": "dns_proxy"
-      },
-      {
-        "rule_set": "geosite-geolocation-cn",
-        "server": "dns_direct"
-      },
-      {
-        "type": "logical",
-        "mode": "and",
-        "rules": [
-          {
-            "rule_set": "geosite-geolocation-!cn"
-          },
-          {
-            "rule_set": "geoip-cn"
-          }
+        "rule_set": [
+          "geosite-geolocation-cn",
+          "geosite-geolocation-!cn",
+          "geosite-adblock"
         ],
-        "server": "dns_proxy",
-        "client_subnet": "114.114.114.114"
+        "rewrite_ttl": 1,
+        "server": "fakeip-dns"
+      },
+      {
+        "domain_suffix": [
+          "edu.cn",
+          "gov.cn",
+          "mil.cn",
+          "ac.cn",
+          "com.cn",
+          "net.cn",
+          "org.cn",
+          "中国",
+          "中國",
+          "xn--fiqz9s",
+          "xn--fiqs8s",
+          "xn--fiqz9s",
+          "xn--fiqs8s",
+          "xn--fiq228c",
+          "xn--fiq228c"
+        ],
+        "server": "local-dns"
+      },
+      {
+        "rule_set": [
+          "geosite-apple@cn",
+          "geosite-icloud@cn"
+        ],
+        "server": "local-dns"
+      },
+      {
+        "query_type": [
+          "A",
+          "AAAA"
+        ],
+        "rewrite_ttl": 1,
+        "server": "fakeip-dns"
       }
     ],
+    "strategy": "ipv4_only",
     "fakeip": {
       "enabled": true,
       "inet4_range": "198.18.0.0/15",
       "inet6_range": "fc00::/18"
-    },
-    "independent_cache": true
-  },
-  "route": {
-    "rule_set": [
-      {
-        "tag": "geosite-geolocation-cn",
-        "type": "remote",
-        "format": "binary",
-        "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-geolocation-cn.srs",
-        "download_detour": "proxy"
-      },
-      {
-        "tag": "geosite-geolocation-!cn",
-        "type": "remote",
-        "format": "binary",
-        "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-geolocation-!cn.srs",
-        "download_detour": "proxy"
-      },
-      {
-        "tag": "geoip-cn",
-        "type": "remote",
-        "format": "binary",
-        "url": "https://raw.githubusercontent.com/SagerNet/sing-geoip/rule-set/geoip-cn.srs",
-        "download_detour": "proxy"
-      },
-      {
-        "tag": "geosite-category-ads-all",
-        "type": "remote",
-        "format": "binary",
-        "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-category-ads-all.srs",
-        "download_detour": "proxy"
-      },
-      {
-        "tag": "geosite-category-games@cn",
-        "type": "remote",
-        "format": "binary",
-        "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-category-games@cn.srs",
-        "download_detour": "proxy"
-      },
-      {
-        "tag": "geosite-category-games",
-        "type": "remote",
-        "format": "binary",
-        "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-category-games.srs",
-        "download_detour": "proxy"
-      }
-    ],
-    "rules": [
-      {
-        "type": "logical",
-        "mode": "or",
-        "rules": [
-          {
-            "protocol": "dns"
-          },
-          {
-            "port": 53
-          }
-        ],
-        "outbound": "dns-out"
-      },
-      {
-        "ip_is_private": true,
-        "outbound": "direct"
-      },
-      {
-        "rule_set": ["geoip-cn", "geosite-geolocation-cn"],
-        "outbound": "direct"
-      },
-      {
-        "rule_set": "geosite-category-ads-all",
-        "outbound": "Ads"
-      },
-      {
-        "rule_set": "geosite-category-games@cn",
-        "outbound": "Games(中国)"
-      },
-      {
-        "rule_set": "geosite-category-games",
-        "outbound": "Games(全球)"
-      }
-    ],
-    "final": "proxy",
-    "auto_detect_interface": true
+    }
   },
   "inbounds": [
     {
       "type": "tun",
-      "inet4_address": "172.19.0.1/30",
+      "tag": "tun-in",
+      "inet4_address": "172.16.0.1/30",
       "inet6_address": "fdfe:dcba:9876::1/126",
+      "mtu": 1492,
       "auto_route": true,
       "strict_route": true,
+      "stack": "system",
       "sniff": true,
       "sniff_override_destination": false
-    }
+     },
+     {
+      "type": "mixed",
+      "tag": "mixed-in",
+      "listen": "::",
+      "listen_port": 5353,
+      "users": [],            
+      "sniff": true,
+      "sniff_override_destination": false
+     }
   ],
   "outbounds": [
     {
-            "tag":"proxy",
-            "type":"selector",
-            "outbounds":[
-              "auto",
-              "direct",
-              "{all}"
-            ]
+      "tag": "Proxy",
+      "outbounds": [
+        "➜ Direct"
+      ],
+      "interrupt_exist_connections": true,
+      "type": "selector"
     },
     {
-            "tag":"Others",
-            "type":"selector",
-            "outbounds":[
-              "{all}",
-              "proxy"
-          ],
-            "filter":[
-              {"action":"exclude","keywords":["🇭🇰|HK|hk|香港|香|🇹🇼|TW|tw|台湾|台|🇸🇬|SG|sg|新加坡|狮|🇯🇵|JP|jp|日本|日|🇺🇸|US|us|美国|美|KR|kr|韩国|UK|uk|英国"]}
-          ]
+      "tag": "Geolocation-cn",
+      "outbounds": [
+        "Proxy",
+        "➜ Direct"
+      ],
+      "interrupt_exist_connections": true,
+      "type": "selector"
     },
     {
-            "tag":"auto",
-            "type":"urltest",
-            "outbounds":[
-              "{all}"
-          ],
-            "filter":[
-              {"action":"exclude","keywords":["网站|地址|剩余|过期|时间|有效"]}
-          ],
-            "url": "http://www.gstatic.com/generate_204",
-            "interval": "10m",
-            "tolerance": 50
+      "tag": "Geolocation-!cn",
+      "outbounds": [
+        "Proxy",
+        "➜ Direct"
+      ],
+      "interrupt_exist_connections": true,
+      "type": "selector"
+    },
+    {
+      "tag": "Cn",
+      "outbounds": [
+        "Proxy",
+        "➜ Direct"
+      ],
+      "interrupt_exist_connections": true,
+      "type": "selector"
+    },
+    {
+      "tag": "Adblock",
+      "outbounds": [
+        "Proxy",
+        "➜ Direct"
+      ],
+      "interrupt_exist_connections": true,
+      "type": "selector"
+    },
+    {
+      "tag": "Ad",
+      "outbounds": [
+        "Proxy",
+        "➜ Direct"
+      ],
+      "interrupt_exist_connections": true,
+      "type": "selector"
+    },
+    {
+      "type": "direct",
+      "tag": "➜ Direct"
     },
     {
       "type": "direct",
       "tag": "direct"
     },
     {
-      "type": "block",
-      "tag": "block"
-    },
-    {
       "type": "dns",
       "tag": "dns-out"
+    },
+    {
+      "type": "block",
+      "tag": "block"
     }
   ],
-  "experimental": {
-    "cache_file": {
-      "enabled": true,
-      "store_rdrc": true
-    },
-    "clash_api": {
-      "default_mode": "Enhanced",
-      "external_controller": "127.0.0.1:9090",
-      "external_ui": "./ui",
-      "external_ui_download_detour": "direct"
-    }
+  "route": {
+    "rule_set": [
+      {
+        "type": "remote",
+        "format": "binary",
+        "download_detour": "direct",
+        "tag": "geosite-geolocation-cn",
+        "url": "https://wiki.jokin.uk/geo/geosite/geolocation-cn.srs"
+      },
+      {
+        "type": "remote",
+        "format": "binary",
+        "download_detour": "direct",
+        "tag": "geosite-geolocation-!cn",
+        "url": "https://wiki.jokin.uk/geo/geosite/geolocation-!cn.srs"
+      },
+      {
+        "type": "remote",
+        "format": "binary",
+        "download_detour": "direct",
+        "tag": "geoip-cn",
+        "url": "https://wiki.jokin.uk/geo/geoip/cn.srs"
+      },
+      {
+        "type": "remote",
+        "format": "binary",
+        "download_detour": "direct",
+        "tag": "geosite-adblock",
+        "url": "https://wiki.jokin.uk/geo/geosite/adblock.srs"
+      },
+      {
+        "type": "remote",
+        "format": "binary",
+        "download_detour": "direct",
+        "tag": "geoip-ad",
+        "url": "https://wiki.jokin.uk/geo/geoip/ad.srs"
+      },
+      {
+        "type": "remote",
+        "format": "binary",
+        "download_detour": "direct",
+        "tag": "geosite-apple@cn",
+        "url": "https://wiki.jokin.uk/geo/geosite/apple@cn.srs"
+      },
+      {
+        "type": "remote",
+        "format": "binary",
+        "download_detour": "direct",
+        "tag": "geosite-icloud@cn",
+        "url": "https://wiki.jokin.uk/geo/geosite/icloud@cn.srs"
+      }
+    ],
+    "rules": [
+      {
+        "protocol": "dns",
+        "outbound": "dns-out"
+      },
+      {
+        "port": 53,
+        "outbound": "dns-out"
+      },
+      {
+        "type": "logical",
+        "mode": "or",
+        "rules": [
+          {
+            "port": 853
+          },
+          {
+            "network": "udp",
+            "port": 443
+          },
+          {
+            "protocol": "stun"
+          }
+        ],
+        "outbound": "block"
+      },
+      {
+        "domain_suffix": [
+          "edu.cn",
+          "gov.cn",
+          "mil.cn",
+          "ac.cn",
+          "com.cn",
+          "net.cn",
+          "org.cn",
+          "中国",
+          "中國",
+          "xn--fiqz9s",
+          "xn--fiqs8s",
+          "xn--fiqz9s",
+          "xn--fiqs8s",
+          "xn--fiq228c",
+          "xn--fiq228c"
+        ],
+        "outbound": "direct"
+      },
+      {
+        "ip_is_private": true,
+        "outbound": "direct"
+      },
+      {
+        "clash_mode": "Direct",
+        "outbound": "direct"
+      },
+      {
+        "clash_mode": "Global",
+        "outbound": "Proxy"
+      },
+      {
+        "rule_set": "geosite-geolocation-cn",
+        "outbound": "Geolocation-cn"
+      },
+      {
+        "rule_set": "geosite-geolocation-!cn",
+        "outbound": "Geolocation-!cn"
+      },
+      {
+        "rule_set": "geoip-cn",
+        "outbound": "Cn"
+      },
+      {
+        "rule_set": "geosite-adblock",
+        "outbound": "Adblock"
+      },
+      {
+        "rule_set": "geoip-ad",
+        "outbound": "Ad"
+      },
+      {
+        "rule_set": [
+          "geosite-apple@cn",
+          "geosite-icloud@cn"
+        ],
+        "outbound": "direct"
+      }
+    ],
+    "auto_detect_interface": true,
+    "final": "Proxy"
   }
+   "experimental": {
+        "cache_file": {
+            "enabled": true,
+            "path": "cache.db",
+            "store_fakeip": true
+        },
+        "clash_api": {
+        "default_mode": "Enhanced",
+        "external_controller": "127.0.0.1:9090",
+        "external_ui": "./ui",
+        "external_ui_download_detour": "direct"
+        }
+    }
 }
