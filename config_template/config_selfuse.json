@@ -113,13 +113,6 @@
                 "server": "dns_direct"
             },
             {
-                "package_name": [
-                    "com.google.android.youtube", "com.android.vending",
-                    "org.telegram.messenger", "org.telegram.plus"
-                ],
-                "server": "dns_proxy"
-            },
-            {
                 "rule_set": [
                     "YouTube", "Telegram", "Netflix", "geoip-google",
                     "geoip-telegram", "geoip-twitter", "geoip-netflix"
