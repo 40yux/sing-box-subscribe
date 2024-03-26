@@ -111,13 +111,6 @@
                     "dun.im", "4pple.org", "sealos.io", "cdn.jsdelivr.net"
                 ],
                 "server": "dns_direct"
-            },
-            {
-                "rule_set": [
-                    "YouTube", "Telegram", "Netflix", "geoip-google",
-                    "geoip-telegram", "geoip-twitter", "geoip-netflix"
-                ],
-                "server": "dns_proxy"
             }
         ],
         "final": "dns_direct",
