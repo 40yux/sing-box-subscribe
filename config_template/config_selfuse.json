@@ -129,6 +129,13 @@
                 "format": "binary",
                 "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-cn.srs",
                 "download_detour": "proxy"
+            },
+            {
+                "tag": "geosite-wechat",
+                "type": "remote",
+                "format": "source",
+                "url": "https://raw.githubusercontent.com/Toperlock/sing-box-geosite/main/wechat.json",
+                "download_detour": "auto"
             }
         ],
         "rules": [
