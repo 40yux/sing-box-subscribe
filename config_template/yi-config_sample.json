@@ -224,5 +224,12 @@
             "path": "cache.db",
             "store_fakeip": true
         }
+    }，
+     "experimental": {
+        "cache_file": {
+            "enabled": true,
+            "path": "cache.db",
+            "store_fakeip": true
+        }
     }
 }
