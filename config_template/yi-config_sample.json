@@ -9,14 +9,14 @@
                 "tag": "dns_proxy",
                 "address": "https://8.8.8.8/dns-query",
                 "address_resolver": "dns_resolver",
-                "strategy": "ipv4_only",
+                "strategy": "prefer_ipv4",
                 "detour": "proxy"
             },
             {
                 "tag": "dns_direct",
                 "address": "https://dns.alidns.com/dns-query",
                 "address_resolver": "dns_resolver",
-                "strategy": "ipv4_only",
+                "strategy": "prefer_ipv4",
                 "detour": "direct"
             },
             {
@@ -25,12 +25,8 @@
                 "detour": "direct"
             },
             {
-                "tag": "dns_success",
+                "tag": "dns_block",
                 "address": "rcode://success"
-            },
-            {
-                "tag": "dns_refused",
-                "address": "rcode://refused"
             },
             {
                 "tag": "dns_fakeip",
@@ -54,7 +50,7 @@
                     "cn-[a-zA-Z0-9-]+\\.bilivideo\\.com",
                     "[a-zA-Z0-9-]+-pcdn-[a-zA-Z0-9-]+\\.biliapi\\.net"
                 ],
-                "server": "dns_success",
+                "server": "dns_block",
                 "disable_cache": true
             },
             {
@@ -73,14 +69,16 @@
                 "server": "dns_proxy"
             },
             {
-                "query_type": [
-                    "A",
-                    "AAAA",
-                    "CNAME"
-                ],
-                "invert": true,
-                "server": "dns_refused",
-                "disable_cache": true
+                "clash_mode": "direct",
+                "server": "dns_direct"
+            },
+            {
+                "rule_set": "geosite-cn",
+                "server": "dns_direct"
+            },
+            {
+                "rule_set": "geoip-cn",
+                "server": "dns_direct"
             }
         ],
         "final": "dns_direct",
@@ -105,6 +103,27 @@
                 "type": "remote",
                 "format": "binary",
                 "url": "https://raw.githubusercontent.com/SagerNet/sing-geoip/rule-set/geoip-cn.srs",
+                "download_detour": "proxy"
+            },
+            {
+                "tag": "geosite-geolocation-cn",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-geolocation-cn.srs",
+                "download_detour": "proxy"
+            },
+            {
+                "tag": "geosite-category-ads-all",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-category-ads-all.srs",
+                "download_detour": "proxy"
+            },
+            {
+                "tag": "geosite-cn",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-cn.srs",
                 "download_detour": "proxy"
             }
         ],
@@ -179,6 +198,18 @@
             {
                 "ip_is_private": true,
                 "outbound": "direct"
+            },
+            {
+                "rule_set": "geosite-category-ads-all",
+                "outbound": "AdBlock"
+            },
+            {
+                "clash_mode": "direct",
+                "outbound": "direct"
+            },           
+            {
+                "rule_set": "geosite-cn",
+                "outbound": "direct"
             }
         ],
         "final": "proxy",
@@ -189,11 +220,20 @@
             "type": "tun",
             "tag": "tun-in",
             "inet4_address": "172.16.0.1/30",
-            "inet6_address": "fd00::1/126",
+            "inet6_address": "fdfe:dcba:9876::1/126",
             "mtu": 1492,
             "auto_route": true,
             "strict_route": true,
             "stack": "system",
+            "sniff": true,
+            "sniff_override_destination": false
+        },
+        {
+            "type": "mixed",
+            "tag": "mixed-in",
+            "listen": "::",
+            "listen_port": 5353,
+            "users": [],            
             "sniff": true,
             "sniff_override_destination": false
         }
@@ -222,6 +262,25 @@
             "tolerance": 50
         },
         {
+             "tag":"AdBlock",
+             "type":"selector",
+             "outbounds":[
+               "block",
+               "direct"
+            ]
+        },
+        {
+            "tag":"Others",
+            "type":"selector",
+            "outbounds":[
+              "{all}",
+              "proxy"
+          ],
+            "filter":[
+              {"action":"exclude","keywords":["🇭🇰|HK|hk|香港|香|🇹🇼|TW|tw|台湾|台|🇸🇬|SG|sg|新加坡|狮|🇯🇵|JP|jp|日本|日|🇺🇸|US|us|美国|美|🇰🇷|KR|kr|韩国"]}
+          ]
+        },        
+        {
             "type": "direct",
             "tag": "direct"
         },
@@ -239,13 +298,12 @@
             "enabled": true,
             "path": "cache.db",
             "store_fakeip": true
-        }
-    },
-     "experimental": {
-        "cache_file": {
-            "enabled": true,
-            "path": "cache.db",
-            "store_fakeip": true
+        },
+        "clash_api": {
+        "default_mode": "Enhanced",
+        "external_controller": "127.0.0.1:9090",
+        "external_ui": "./ui",
+        "external_ui_download_detour": "direct"
         }
     }
 }
