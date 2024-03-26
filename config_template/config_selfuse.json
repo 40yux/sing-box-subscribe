@@ -1,3 +1,4 @@
+
 {
     "log": {
         "level": "info",
@@ -83,10 +84,6 @@
                 "disable_cache": true
             },
             {
-                "rule_set": "geosite-category-ads-all",
-                "server": "dns_success"
-            },
-            {
                 "clash_mode": "direct",
                 "server": "dns_direct"
             },
@@ -96,20 +93,6 @@
             },
             {
                 "rule_set": "geoip-cn",
-                "server": "dns_direct"
-            },
-            {
-                "process_name": [
-                    "TencentMeeting", "NemoDesktop", "ToDesk", "ToDesk_Service",
-                    "WeChat", "Tailscale", "wireguard-go", "Tunnelblick",
-                    "softwareupdated", "kubectl"
-                ],
-                "server": "dns_direct"
-            },
-            {
-                "domain_suffix": [
-                    "dun.im", "4pple.org", "sealos.io", "cdn.jsdelivr.net"
-                ],
                 "server": "dns_direct"
             }
         ],
@@ -239,15 +222,6 @@
                 "clash_mode": "direct",
                 "outbound": "direct"
             },           
-            {
-                "domain": [
-                  "clash.razord.top",
-                  "yacd.metacubex.one",
-                  "yacd.haishan.me",
-                  "d.metacubex.one"
-                ],
-                "outbound": "direct"
-            },
             {
                 "rule_set": "geosite-cn",
                 "outbound": "direct"
