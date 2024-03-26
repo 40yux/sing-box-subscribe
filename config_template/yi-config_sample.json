@@ -79,6 +79,10 @@
             {
                 "rule_set": "geoip-cn",
                 "server": "dns_direct"
+            },
+            {
+                "rule_set": "geosite-category-ads-all",
+                "outbound": "dns_block"
             }
         ],
         "final": "dns_direct",
