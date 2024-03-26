@@ -191,7 +191,7 @@
             },
             {
                 "rule_set": "geosite-category-ads-all",
-                "outbound": "Block"
+                "outbound": "block"
             },
             {
                 "clash_mode": "direct",
