@@ -77,7 +77,7 @@
                 "type": "remote",
                 "format": "binary",
                 "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-geolocation-!cn.srs",
-                "download_detour": "auto",
+                "download_detour": "proxy",
                 "update_interval":"1d"
             },
              {
@@ -85,7 +85,7 @@
                 "type": "remote",
                 "format": "binary",
                 "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-geolocation-cn.srs",
-                "download_detour": "auto",
+                "download_detour": "proxy",
                 "update_interval":"1d"
             },
             {
@@ -93,7 +93,7 @@
                 "type": "remote",
                 "format": "binary",
                 "url": "https://raw.githubusercontent.com/SagerNet/sing-geoip/rule-set/geoip-cn.srs",
-                "download_detour": "auto",
+                "download_detour": "proxy",
                 "update_interval":"1d"
             },
             {
@@ -101,7 +101,7 @@
                 "type": "remote",
                 "format": "source",
                 "url": "https://raw.githubusercontent.com/Toperlock/sing-box-geosite/main/wechat.json",
-                "download_detour": "auto"
+                "download_detour": "proxy"
             }
         ],
         "rules": [
