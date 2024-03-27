@@ -60,7 +60,7 @@
             {
                 "clash_mode": "global",
                 "server": "dns_fakeip"
-            }，
+            },
             {
                 "inbound": "tun",
                 "query_type": [
@@ -69,7 +69,7 @@
                 ],
                 "server": "fakeip",
                 "rewrite_ttl": 1
-            },
+            }
         ],
         "final": "dns_direct",
         "independent_cache": true,
@@ -190,14 +190,14 @@
             "users": [],
             "sniff": true,
             "sniff_override_destination": false
-        }，
+        },
         {
             "type": "loop-in",
             "tag": "mixed-in",
             "listen": "127.0.0.1",
             "listen_port": 7891,
             "users": [],
-            "domain_strategy": "prefer_ipv4
+            "domain_strategy": "prefer_ipv4",
             "sniff": true,
             "sniff_override_destination": false
         }
