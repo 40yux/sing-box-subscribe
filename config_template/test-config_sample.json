@@ -150,7 +150,7 @@
             {
                 "clash_mode": "global",
                 "outbound": "proxy"
-            }，
+            },
             {
                 "inbound": [
                   "tun",
