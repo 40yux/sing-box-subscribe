@@ -79,11 +79,11 @@
             {
                 "rule_set": "geoip-cn",
                 "server": "dns_direct"
-            },
-            {
-                "rule_set": "geosite-category-ads-all",
-                "server": "dns_block"
             }
+//            {
+//                "rule_set": "geosite-category-ads-all",
+//                "server": "dns_block"
+//            }
         ],
         "final": "dns_direct",
         "independent_cache": true,
@@ -119,14 +119,14 @@
                 "download_detour": "auto",
                 "update_interval":"1d"
             },            
-            {
-                "tag": "geosite-category-ads-all",
-                "type": "remote",
-                "format": "binary",
-                "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-category-ads-all.srs",
-                "download_detour": "auto",
-                "update_interval":"1d"
-            },            
+//            {
+//                "tag": "geosite-category-ads-all",
+//                "type": "remote",
+//                "format": "binary",
+//                "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-category-ads-all.srs",
+//                "download_detour": "auto",
+//                "update_interval":"1d"
+//            },            
             {
                 "tag": "geosite-wechat",
                 "type": "remote",
@@ -187,10 +187,10 @@
                 "ip_is_private": true,
                 "outbound": "direct"
             },
-            {
-                "rule_set": "geosite-category-ads-all",
-                "outbound": "block"
-            },
+//            {
+//                "rule_set": "geosite-category-ads-all",
+//                "outbound": "block"
+//            },
             {
                 "clash_mode": "direct",
                 "outbound": "direct"
