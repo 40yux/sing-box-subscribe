@@ -36,8 +36,7 @@
         "rules": [
             {
                 "outbound": "any",
-                "server": "dns_resolver",
-                 "disable_cache": true
+                "server": "dns_resolver"
             },           
             {
                 "rule_set": "geosite-geolocation-!cn",
@@ -111,15 +110,11 @@
                 "outbound": "dns-out"
             },
             {
-                "port": 853,
-                "network": "tcp",
-                "outbound": "block"
+                "port": 53,
+                "outbound": "dns-out"
             },
             {
-                "port": [
-                    443,
-                    853
-                ],
+                "port": [443,853],
                 "network": "udp",
                 "outbound": "block"
             },           
@@ -141,7 +136,7 @@
             },
             {
                 "clash_mode": "global",
-                "outbound": "proxy"
+                "outbound": "auto"
             }
         ],
         "final": "proxy",
@@ -163,8 +158,17 @@
                 "enabled": true,
                 "server": "127.0.0.1",
                 "server_port": 7890
-               }
-            },
+              }
+          },
+            "sniff_override_destination": false
+        },
+        {
+            "type": "mixed",
+            "tag": "mixed-in",
+            "listen": "::",
+            "listen_port": 7890,
+            "users": [],            
+            "sniff": true,
             "sniff_override_destination": false
         }
     ],
@@ -230,7 +234,7 @@
             "store_fakeip": true
         },
         "clash_api": {
-        "default_mode": "Enhanced",
+        "default_mode": "rule",
         "external_controller": "127.0.0.1:9090",
         "external_ui": "./ui",
         "external_ui_download_detour": "direct"
