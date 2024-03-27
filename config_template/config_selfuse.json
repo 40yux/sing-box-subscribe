@@ -114,7 +114,7 @@
                 "outbound": "dns-out"
             },
             {
-                "port": 443
+                "port": 443,
                 "network": "udp",
                 "outbound": "block"
             },           
