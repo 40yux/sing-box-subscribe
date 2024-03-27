@@ -67,7 +67,7 @@
                   "A",
                   "AAAA"
                 ],
-                "server": "fakeip",
+                "server": "dns_fakeip",
                 "rewrite_ttl": 1
             }
         ],
