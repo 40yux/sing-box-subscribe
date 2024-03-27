@@ -129,34 +129,24 @@
                 ],
                 "network": "udp",
                 "outbound": "block"
-            },           
+            },            
             {
-                "type": "logical",
-                "mode": "and",
-                "rules": [
-                    {
-                        "rule_set": "geoip-cn",
-                        "invert": true
-                    },
-                    {
-                        "rule_set": "geosite-geolocation-!cn"
-                    }
-                ],
-                "outbound": "proxy",
+                 "rule_set": "geoip-cn",
+                 "invert": true,
+                 "outbound": "proxy"
             },
             {
-                "type": "logical",
-                "mode": "and",
-                "rules": [
-                    {
-                        "rule_set": "geoip-cn"
-                    },
-                    {
-                        "rule_set": "geosite-cn"
-                    }
-                ],
-                "outbound": "direct"
+                 "rule_set": "geosite-geolocation-!cn",
+                 "outbound": "proxy"
+            }, 
+            {
+                 "rule_set": "geoip-cn",
+                 "outbound": "direct"
             },
+            {
+                 "rule_set": "geosite-cn",
+                 "outbound": "direct"
+            }, 
             {
                 "ip_is_private": true,
                 "outbound": "direct"
