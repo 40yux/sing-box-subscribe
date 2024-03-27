@@ -240,7 +240,7 @@
         "download_detour": "proxy"
       }
     ],
-    "final": "final",
+    "final": "proxy",
     "auto_detect_interface": true
   },
   "outbounds": [
