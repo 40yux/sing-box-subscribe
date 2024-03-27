@@ -110,6 +110,10 @@
                 "outbound": "dns-out"
             },
             {
+                "port": 53,
+                "outbound": "dns-out"
+            },
+            {
                 "port": 853,
                 "network": "tcp",
                 "outbound": "block"
