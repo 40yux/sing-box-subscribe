@@ -197,7 +197,7 @@
             },
             {
                 "clash_mode": "global",
-                "outbound": "select"
+                "outbound": "auto"
             },       
             {
                 "rule_set": "geosite-cn",
