@@ -198,10 +198,6 @@
             {
                 "clash_mode": "global",
                 "outbound": "auto"
-            },       
-            {
-                "rule_set": "geosite-cn",
-                "outbound": "direct"
             }
         ],
         "final": "proxy",
