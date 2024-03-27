@@ -53,16 +53,18 @@
                 "rule_set": "geosite-geolocation-!cn",
                 "query_type": [
                     "CNAME"
-                ],
+                ],              
                 "server": "dns_proxy"
             },
             {
-                "clash_mode": "direct",
-                "server": "dns_direct"
-            },
-            {
-                "clash_mode": "global",
-                "server": "dns_fakeip"
+                "query_type": [
+                    "A",
+                    "AAAA",
+                    "CNAME"
+                ],
+                "invert": true,
+                "server": "dns_refused",
+                "disable_cache": true
             }
         ],
         "final": "dns_direct",
@@ -132,14 +134,6 @@
             {
                 "ip_is_private": true,
                 "outbound": "direct"
-            },            
-            {
-                "clash_mode": "direct",
-                "outbound": "direct"
-            },
-            {
-                "clash_mode": "global",
-                "outbound": "auto"
             }
         ],
         "final": "proxy",
