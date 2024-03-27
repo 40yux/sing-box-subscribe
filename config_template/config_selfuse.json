@@ -170,7 +170,7 @@
             "type": "mixed",
             "tag": "mixed-in",
             "listen": "::",
-            "listen_port": 5353,
+            "listen_port": 7890,
             "users": [],            
             "sniff": true,
             "sniff_override_destination": false
