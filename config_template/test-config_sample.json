@@ -1,89 +1,79 @@
 {
-  "dns": {
-    "fakeip": {
-      "enabled": true,
-      "inet4_range": "198.18.0.0/15",
-      "inet6_range": "fc00::/18"
+    "log": {
+        "level": "info",
+        "timestamp": true
     },
-    "servers": [
-      {
-        "tag": "google",
-        "address": "https://8.8.8.8/dns-query",
-        "detour": "proxy"
-      },
-      {
-        "tag": "tx",
-        "address": "https://120.53.53.53/dns-query",
-        "detour": "direct"
-      },
-      {
-        "tag": "fakeip",
-        "address": "fakeip"
-      }
-    ],
-    "rules": [
-      {
-        "outbound": "any",
-        "server": "tx",
-        "disable_cache": true
-      },
-      {
-        "clash_mode": "Direct",
-        "server": "tx"
-      },
-      {
-        "clash_mode": "global",
-        "server": "fakeip"
-      },
-      {
-        "inbound": "tun",
-        "query_type": [
-          "A",
-          "AAAA"
+    "dns": {
+        "servers": [
+            {
+                "tag": "dns_proxy",
+                "address": "https://8.8.8.8/dns-query",
+                "address_resolver": "dns_resolver",
+                "strategy": "prefer_ipv4",
+                "detour": "proxy"
+            },
+            {
+                "tag": "dns_direct",
+                "address": "https://dns.alidns.com/dns-query",
+                "address_resolver": "dns_resolver",
+                "strategy": "prefer_ipv4",
+                "detour": "direct"
+            },
+            {
+                "tag": "dns_resolver",
+                "address": "223.5.5.5",
+                "detour": "direct"
+            },
+            {
+                "tag": "dns_block",
+                "address": "rcode://success"
+            },
+            {
+                "tag": "dns_fakeip",
+                "address": "fakeip"
+            }
         ],
-        "server": "fakeip",
-        "rewrite_ttl": 1
-      },
-      {
-        "rule_set": "geolocation-!cn",
-        "server": "google"
-      }
-    ],
-    "final": "tx",
-    "independent_cache": true
-  },
-  "route": {
-    "rules": [
-      {
-        "port": 53,
-        "outbound": "dns-out"
-      },
-      {
-        "ip_is_private": true,
-        "outbound": "direct"
-      },
-      {
-        "clash_mode": "Direct",
-        "outbound": "direct"
-      },
-      {
-        "clash_mode": "global",
-        "outbound": "proxy"
-      },
-      {
-        "rule_set": "geolocation-!cn",
-        "outbound": "proxy"
-      },
-      {
-        "inbound": [
-          "tun",
-          "mixed"
+        "rules": [
+            {
+                "outbound": "any",
+                "server": "dns_resolver",
+                 "disable_cache": true
+            },           
+            {
+                "rule_set": "geosite-geolocation-!cn",
+                "query_type": [
+                    "A",
+                    "AAAA"
+                ],
+                "server": "dns_fakeip"
+            },
+            {
+                "rule_set": "geosite-geolocation-!cn",
+                "query_type": [
+                    "CNAME"
+                ],
+                "server": "dns_proxy"
+            },
+            {
+                "clash_mode": "direct",
+                "server": "dns_direct"
+            },
+            {
+                "clash_mode": "global",
+                "server": "dns_fakeip"
+            }
         ],
-        "outbound": "loop"
-      }
-    ],
-    "rule_set": [
-     {
+        "final": "dns_direct",
+        "independent_cache": true,
+        "fakeip": {
+            "enabled": true,
+            "inet4_range": "198.18.0.0/15",
+            "inet6_range": "fc00::/18"
+        }
+    },
+    "route": {
+        "rule_set": [
+            {
                 "tag": "geosite-geolocation-!cn",
                 "type": "remote",
                 "format": "binary",
@@ -114,12 +104,72 @@
                 "url": "https://raw.githubusercontent.com/Toperlock/sing-box-geosite/main/wechat.json",
                 "download_detour": "proxy"
             }
+        ],
+        "rules": [
+            {
+                "protocol": "dns",
+                "outbound": "dns-out"
+            },
+            {
+                "port": 853,
+                "network": "tcp",
+                "outbound": "block"
+            },
+            {
+                "port": [
+                    443,
+                    853
+                ],
+                "network": "udp",
+                "outbound": "block"
+            },           
+            {
+                "rule_set": "geosite-geolocation-!cn",
+                "outbound": "proxy"
+            },
+            {
+                "rule_set": "geoip-cn",
+                "outbound": "direct"
+            },
+            {
+                "ip_is_private": true,
+                "outbound": "direct"
+            },            
+            {
+                "clash_mode": "direct",
+                "outbound": "direct"
+            },
+            {
+                "clash_mode": "global",
+                "outbound": "proxy"
+            }
+        ],
+        "final": "proxy",
+        "auto_detect_interface": true
+    },
+    "inbounds": [
+        {
+            "type": "tun",
+            "tag": "tun-in",
+            "inet4_address": "172.16.0.1/30",
+            "inet6_address": "fdfe:dcba:9876::1/126",
+            "mtu": 1400,
+            "auto_route": true,
+            "strict_route": true,
+            "stack": "system",
+            "sniff": true,
+            "platform": {
+              "http_proxy": {
+                "enabled": true,
+                "server": "127.0.0.1",
+                "server_port": 7890
+               }
+            },
+            "sniff_override_destination": false
+        }
     ],
-    "final": "proxy",
-    "auto_detect_interface": true
-  },
-  "outbounds": [
-    {
+    "outbounds": [
+        {
             "tag":"proxy",
             "type":"selector",
             "outbounds":[
@@ -171,62 +221,19 @@
         {
             "type": "dns",
             "tag": "dns-out"
-        },
-    {
-      "tag": "loop",
-      "type": "socks",
-      "server": "127.0.0.1",
-      "server_port": 7891
-    }
-  ],
-  "inbounds": [
-    {
-      "tag": "tun",
-      "type": "tun",
-      "inet4_address": "172.19.0.0/30",
-      "inet6_address": "fdfe:dcba:9876::0/126",
-      "stack": "system",
-      "auto_route": true,
-      "sniff": true,
-      "platform": {
-        "http_proxy": {
-          "enabled": true,
-          "server": "127.0.0.1",
-          "server_port": 7890
         }
-      }
-    },
-    {
-      "tag": "mixed",
-      "type": "mixed",
-      "listen": "127.0.0.1",
-      "listen_port": 7890,
-      "sniff": true
-    },
-    {
-      "tag": "loop-in",
-      "type": "mixed",
-      "listen": "127.0.0.1",
-      "listen_port": 7891,
-      "sniff": true,
-      "domain_strategy": "prefer_ipv4"
+    ],
+    "experimental": {
+        "cache_file": {
+            "enabled": true,
+            "path": "cache.db",
+            "store_fakeip": true
+        },
+        "clash_api": {
+        "default_mode": "Enhanced",
+        "external_controller": "127.0.0.1:9090",
+        "external_ui": "./ui",
+        "external_ui_download_detour": "direct"
+        }
     }
-  ],
-  "experimental": {
-    "clash_api": {
-      "external_controller": "127.0.0.1:9090",
-      "external_ui": "ui",
-      "external_ui_download_url": "https://github.com/MetaCubeX/metacubexd/archive/refs/heads/gh-pages.zip",
-      "external_ui_download_detour": "proxy"
-    },
-    "cache_file": {
-      "enabled": true,
-      "store_fakeip": true
-    }
-  },
-  "log": {
-    "disabled": false,
-    "level": "debug",
-    "timestamp": true
-  }
 }
