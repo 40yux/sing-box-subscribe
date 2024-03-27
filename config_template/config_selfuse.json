@@ -136,7 +136,7 @@
             },
             {
                 "clash_mode": "global",
-                "outbound": "proxy"
+                "outbound": "auto"
             }
         ],
         "final": "proxy",
