@@ -19,9 +19,7 @@
       {
         "tag": "fakeip",
         "address": "fakeip"
-      },
-        "tag": "block",
-        "address": "rcode://success"
+      }
     ],
     "rules": [
       {
