@@ -25,11 +25,14 @@
                 "detour": "direct"
             },
             {
-                "tag": "dns_block",
+                "tag": "dns_success",
                 "address": "rcode://success"
             },
             {
-                "tag": "dns_fakeip",
+                "tag": "dns_refused",
+                "address": "rcode://refused"
+            },
+            {     "tag": "dns_fakeip",
                 "address": "fakeip"
             }
         ],
