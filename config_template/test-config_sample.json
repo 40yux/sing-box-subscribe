@@ -199,10 +199,7 @@
               "auto",
               "direct",
               "{all}"
-            ],
-            "url": "http://www.gstatic.com/generate_204",
-            "interval": "10m",
-            "tolerance": 50
+            ]
         },
         {
             "tag":"auto",
@@ -234,10 +231,7 @@
           ],
             "filter":[
               {"action":"exclude","keywords":["🇭🇰|HK|hk|香港|香|🇹🇼|TW|tw|台湾|台|🇸🇬|SG|sg|新加坡|狮|🇯🇵|JP|jp|日本|日|🇺🇸|US|us|美国|美|🇰🇷|KR|kr|韩国"]}
-          ],
-            "url": "http://www.gstatic.com/generate_204",
-            "interval": "10m",
-            "tolerance": 50
+          ]
         },        
         {
             "type": "direct",
