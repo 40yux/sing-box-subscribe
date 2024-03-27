@@ -141,13 +141,6 @@
                 "outbound": "block"
             },
             {
-                "process_name": [
-                    "xray.exe",
-                    "IDMan.exe"
-                ],
-                "outbound": "direct"
-            },
-            {
                 "rule_set": "geosite-geolocation-!cn",
                 "outbound": "proxy"
             },
