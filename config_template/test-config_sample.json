@@ -32,7 +32,7 @@
         "server": "tx"
       },
       {
-        "clash_mode": "Global",
+        "clash_mode": "global",
         "server": "fakeip"
       },
       {
@@ -67,8 +67,8 @@
         "outbound": "direct"
       },
       {
-        "clash_mode": "Global",
-        "outbound": "GLOBAL"
+        "clash_mode": "global",
+        "outbound": "proxy"
       },
       {
         "rule_set": "bilibili",
