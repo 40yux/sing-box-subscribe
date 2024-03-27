@@ -234,7 +234,7 @@
             "store_fakeip": true
         },
         "clash_api": {
-        "default_mode": "Enhanced",
+        "default_mode": "rule",
         "external_controller": "127.0.0.1:9090",
         "external_ui": "./ui",
         "external_ui_download_detour": "direct"
