@@ -32,9 +32,9 @@
                 "tag": "dns_refused",
                 "address": "rcode://refused"
             },
-            {     "tag": "dns_fakeip",
+            {   "tag": "dns_fakeip",
                 "address": "fakeip"
-            }
+            }            
         ],
         "rules": [
             {
@@ -65,6 +65,12 @@
                 "invert": true,
                 "server": "dns_refused",
                 "disable_cache": true
+            },
+            {   "clash_mode": "direct",
+                "server": "dns_direct"
+            },
+            {   "clash_mode": "global",
+                "server": "dns_fakeip"
             }
         ],
         "final": "dns_direct",
@@ -145,6 +151,14 @@
             {
                 "ip_is_private": true,
                 "outbound": "direct"
+            },
+            {
+                "clash_mode": "direct",
+                "outbound": "direct"
+            },
+            {
+                "clash_mode": "global",
+                "outbound": "proxy"
             }
         ],
         "final": "proxy",
@@ -161,13 +175,20 @@
             "strict_route": true,
             "stack": "system",
             "sniff": true,
+            "platform": {
+              "http_proxy": {
+              "enabled": true,
+              "server": "127.0.0.1",
+              "server_port": 7890
+              }
+        },
             "sniff_override_destination": false
         },
         {
             "type": "mixed",
             "tag": "mixed-in",
-            "listen": "::",
-            "listen_port": 5353,
+            "listen": "127.0.0.1",
+            "listen_port": 7890,
             "users": [],            
             "sniff": true,
             "sniff_override_destination": false
@@ -231,6 +252,7 @@
     "experimental": {
         "cache_file": {
             "enabled": true,
+            "path": "cache.db",
             "store_fakeip": true
         },
         "clash_api": {
