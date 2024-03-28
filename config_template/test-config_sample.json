@@ -127,10 +127,18 @@
                 "outbound": "dns-out"
             },
             {
-                "port": [443,853],
+                "port": 853,
+                "network": "tcp",
+                "outbound": "block"
+            },
+            {
+                "port": [
+                    443,
+                    853
+                ],
                 "network": "udp",
                 "outbound": "block"
-            },           
+            },     
             {
                 "rule_set": "geosite-geolocation-!cn",
                 "outbound": "proxy"
