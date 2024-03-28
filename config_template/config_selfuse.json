@@ -25,11 +25,14 @@
                 "detour": "direct"
             },
             {
-                "tag": "dns_block",
+                "tag": "dns_success",
                 "address": "rcode://success"
             },
             {
-                "tag": "dns_fakeip",
+                "tag": "dns_refused",
+                "address": "rcode://refused"
+            },
+            {     "tag": "dns_fakeip",
                 "address": "fakeip"
             }
         ],
@@ -50,16 +53,18 @@
                 "rule_set": "geosite-geolocation-!cn",
                 "query_type": [
                     "CNAME"
-                ],
+                ],              
                 "server": "dns_proxy"
             },
             {
-                "clash_mode": "direct",
-                "server": "dns_direct"
-            },
-            {
-                "clash_mode": "global",
-                "server": "dns_fakeip"
+                "query_type": [
+                    "A",
+                    "AAAA",
+                    "CNAME"
+                ],
+                "invert": true,
+                "server": "dns_refused",
+                "disable_cache": true
             }
         ],
         "final": "dns_direct",
@@ -97,6 +102,14 @@
                 "update_interval":"1d"
             },
             {
+                "tag": "geosite-category-ads-all",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://raw.githubusercontent.com/SagerNet/sing-geoip/rule-set/geosite-category-ads-all.srs",
+                "download_detour": "proxy",
+                "update_interval":"1d"
+            },
+            {
                 "tag": "geosite-wechat",
                 "type": "remote",
                 "format": "source",
@@ -114,29 +127,36 @@
                 "outbound": "dns-out"
             },
             {
-                "port": [443,853],
+                "port": [
+                    443,
+                    853
+                ],
                 "network": "udp",
                 "outbound": "block"
-            },           
+            },     
             {
                 "rule_set": "geosite-geolocation-!cn",
                 "outbound": "proxy"
             },
             {
+                "rule_set": "geosite-geolocation-cn",
+                "outbound": "direct"
+            },
+            {
+                "rule_set": "geosite-wechat",
+                "outbound": "direct"
+            },            
+            {
                 "rule_set": "geoip-cn",
                 "outbound": "direct"
             },
             {
-                "ip_is_private": true,
-                "outbound": "direct"
-            },            
-            {
-                "clash_mode": "direct",
-                "outbound": "direct"
+                "rule_set": "geosite-category-ads-all",
+                "outbound": "block"
             },
             {
-                "clash_mode": "global",
-                "outbound": "auto"
+                "ip_is_private": true,
+                "outbound": "direct"
             }
         ],
         "final": "proxy",
@@ -165,7 +185,7 @@
         {
             "type": "mixed",
             "tag": "mixed-in",
-            "listen": "::",
+            "listen": "127.0.0.1",
             "listen_port": 7890,
             "users": [],            
             "sniff": true,
