@@ -102,6 +102,14 @@
                 "update_interval":"1d"
             },
             {
+                "tag": "geosite-category-ads-all",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://raw.githubusercontent.com/SagerNet/sing-geoip/rule-set/geosite-category-ads-all.srs",
+                "download_detour": "proxy",
+                "update_interval":"1d"
+            },
+            {
                 "tag": "geosite-wechat",
                 "type": "remote",
                 "format": "source",
@@ -138,6 +146,10 @@
             {
                 "rule_set": "geoip-cn",
                 "outbound": "direct"
+            },
+            {
+                "rule_set": "geosite-category-ads-all",
+                "outbound": "block"
             },
             {
                 "ip_is_private": true,
