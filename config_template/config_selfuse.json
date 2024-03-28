@@ -125,6 +125,11 @@
                 "outbound": "dns-out"
             },
             {
+                "port": 853,
+                "network": "tcp",
+                "outbound": "block"
+            },
+            {
                 "port": [
                     443,
                     853
