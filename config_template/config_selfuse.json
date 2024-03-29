@@ -71,6 +71,10 @@
             },
             {   "clash_mode": "global",
                 "server": "dns_fakeip"
+            },
+            {
+                "rule_set": "geosite-category-ads-all",
+                "server": "dns_success"
             }
         ],
         "final": "dns_direct",
@@ -113,6 +117,14 @@
                 "format": "source",
                 "url": "https://raw.githubusercontent.com/Toperlock/sing-box-geosite/main/wechat.json",
                 "download_detour": "proxy"
+            },
+            {
+                "tag": "geosite-category-ads-all",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://raw.githubusercontent.com/SagerNet/sing-geoip/rule-set/geosite-category-ads-all.srs",
+                "download_detour": "proxy",
+                "update_interval":"1d"
             }
         ],
         "rules": [
@@ -164,6 +176,10 @@
             {
                 "clash_mode": "global",
                 "outbound": "proxy"
+            },
+            {
+                "rule_set": "geosite-category-ads-all.srs",
+                "outbound": "block"
             }
         ],
         "final": "proxy",
