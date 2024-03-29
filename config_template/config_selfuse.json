@@ -178,7 +178,7 @@
                 "outbound": "proxy"
             },
             {
-                "rule_set": "geosite-category-ads-all.srs",
+                "rule_set": "geosite-category-ads-all",
                 "outbound": "block"
             }
         ],
