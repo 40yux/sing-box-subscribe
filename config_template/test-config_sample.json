@@ -8,7 +8,7 @@
         "servers": [
             {
                 "tag": "dns_proxy",
-                "address": "https://dns.cloudflare.com/dns-query",          
+                "address": "https://8.8.8.8/dns-query",          
                 "address_resolver": "dns_resolver",
                 "strategy": "prefer_ipv4",
                 "detour": "proxy"
@@ -26,11 +26,7 @@
                 "detour": "direct"
             },
             {
-                "tag": "dns_success",
-                "address": "rcode://success"
-            },
-            {
-                "tag": "dns_refused",
+                "tag": "dns_block",
                 "address": "rcode://refused"
             },
             {   "tag": "dns_fakeip",
@@ -51,23 +47,6 @@
                 "server": "dns_fakeip"
             },
             {
-                "rule_set": "geosite-geolocation-!cn",
-                "query_type": [
-                    "CNAME"
-                ],              
-                "server": "dns_proxy"
-            },
-            {
-                "query_type": [
-                    "A",
-                    "AAAA",
-                    "CNAME"
-                ],
-                "invert": true,
-                "server": "dns_refused",
-                "disable_cache": true
-            },
-            {
                 "type": "logical",
                 "mode": "and",
                 "rules": [
@@ -78,7 +57,7 @@
                         "rule_set": "ads"
                     }
                 ],
-                "server": "dns_success"
+                "server": "dns_block"
             },
             {   "clash_mode": "direct",
                 "server": "dns_direct"
@@ -169,7 +148,17 @@
                 "outbound": "block"
             },            
             {
-                "rule_set": "geosite-geolocation-!cn",
+                "type": "logical",
+                "mode": "and",
+                "rules": [
+                    {
+                        "rule_set": "geoip-cn",
+                        "invert": true
+                    },
+                    {
+                        "rule_set": "geosite-geolocation-!cn"
+                    }
+                ],
                 "outbound": "proxy"
             },
             {
