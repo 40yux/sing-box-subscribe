@@ -196,8 +196,7 @@
             {
                 "clash_mode": "global",
                 "outbound": "proxy"
-            },
-            
+            }
         ],
         "final": "proxy",
         "auto_detect_interface": true
