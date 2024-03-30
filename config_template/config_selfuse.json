@@ -109,7 +109,7 @@
                 "tag": "ads",
                 "type": "remote",
                 "format": "binary",
-                "url": "https://wiki.jokin.uk/geo/geosite/google-ads.srs",
+                "url": "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box-ruleset/ads.srs",
                 "download_detour": "auto",
                 "update_interval":"1d"
             },
