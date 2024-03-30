@@ -169,17 +169,7 @@
                 "outbound": "block"
             },            
             {
-                "type": "logical",
-                "mode": "and",
-                "rules": [
-                    {
-                        "rule_set": "geoip-cn",
-                        "invert": true
-                    },
-                    {
-                        "rule_set": "geosite-geolocation-!cn"
-                    }
-                ],
+                "rule_set": "geosite-geolocation-!cn",
                 "outbound": "proxy"
             },
             {
