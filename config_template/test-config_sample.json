@@ -188,7 +188,7 @@
             {
                 "ip_is_private": true,
                 "outbound": "direct"
-            }
+            },
             {
                 "clash_mode": "direct",
                 "outbound": "direct"
