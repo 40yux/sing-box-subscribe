@@ -257,3 +257,312 @@
        }
     }
 }
+{
+    "log": {
+        "disabled": false,
+        "level": "error",
+        "timestamp": true
+    },
+    "dns": {
+        "servers": [
+            {
+                "tag": "dns_proxy",
+                "address": "https://8.8.8.8/dns-query",          
+                "address_resolver": "dns_resolver",
+                "strategy": "prefer_ipv4",
+                "detour": "proxy"
+            },
+            {
+                "tag": "dns_direct",
+                "address": "https://dns.alidns.com/dns-query",
+                "address_resolver": "dns_resolver",
+                "strategy": "prefer_ipv4",
+                "detour": "direct"
+            },
+            {
+                "tag": "dns_resolver",
+                "address": "223.5.5.5",
+                "detour": "direct"
+            },
+            {
+                "tag": "dns_success",
+                "address": "rcode://success"
+            },
+            {
+                "tag": "dns_refused",
+                "address": "rcode://refused"
+            },
+            {   "tag": "dns_fakeip",
+                "address": "fakeip"
+            }            
+        ],
+        "rules": [
+            {
+                "outbound": "any",
+                "server": "dns_resolver"
+            },
+            {
+                "rule_set": "geosite-category-ads-all",
+                "server": "dns_success"
+            },
+            {
+                "rule_set": "geosite-geolocation-!cn",
+                "query_type": [
+                    "A",
+                    "AAAA"
+                ],
+                "server": "dns_fakeip"
+            },
+            {
+                "rule_set": "geosite-geolocation-!cn",
+                "query_type": [
+                    "CNAME"
+                ],              
+                "server": "dns_proxy"
+            },
+            {
+                "query_type": [
+                    "A",
+                    "AAAA",
+                    "CNAME"
+                ],
+                "invert": true,
+                "server": "dns_refused",
+                "disable_cache": true
+            },
+            {   "clash_mode": "direct",
+                "server": "dns_direct"
+            },
+            {   "clash_mode": "global",
+                "server": "dns_fakeip"
+            }            
+        ],
+        "final": "dns_direct",
+        "independent_cache": true,
+        "fakeip": {
+            "enabled": true,
+            "inet4_range": "198.18.0.0/15",
+            "inet6_range": "fc00::/18"
+        }
+    },
+    "route": {
+        "rule_set": [
+            {
+                "tag": "geosite-category-ads-all",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/category-ads-all.srs",
+                "download_detour": "direct",
+                "update_interval":"1d"
+             },
+             {
+                "tag": "ads",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box-ruleset/ads.srs",
+                "download_detour": "auto",
+                "update_interval":"1d"
+            },
+            {
+                "tag": "geosite-geolocation-!cn",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-geolocation-!cn.srs",
+                "download_detour": "auto",
+                "update_interval":"1d"
+            },
+            {
+                "tag": "geosite-geolocation-cn",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-geolocation-cn.srs",
+                "download_detour": "auto",
+                "update_interval":"1d"
+            },
+            {
+                "tag": "geosite-cn",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-cn.srs",
+                "download_detour": "auto",
+                "update_interval":"1d"
+            },
+            {
+                "tag": "geoip-cn",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geoip-cn",
+                "download_detour": "auto",
+                "update_interval":"1d"
+            }
+        ],
+        "rules": [
+            {
+                "protocol": "dns",
+                "outbound": "dns-out"
+            },
+            {
+                "port": 53,
+                "outbound": "dns-out"
+            },
+            {
+                "port": 853,
+                "network": "tcp",
+                "outbound": "block"
+            },
+            {
+                "port": [
+                    443,
+                    853
+                ],
+                "network": "udp",
+                "outbound": "block"
+            },
+            {
+                "rule_set": "geosite-category-ads-all",
+                "outbound": "block"
+            },
+            {
+                "type": "logical",
+                "mode": "and",
+                "rules": [
+                    {
+                        "rule_set": "geoip-cn",
+                        "invert": true
+                    },
+                    {
+                        "rule_set": "geosite-geolocation-!cn"
+                    }
+                ],
+                "outbound": "proxy"
+            },
+            {
+                "type": "logical",
+                "mode": "and",
+                "rules": [
+                    {
+                        "rule_set": "geoip-cn"
+                    },
+                    {
+                        "rule_set": "geosite-cn"
+                    }
+                ],
+                "outbound": "direct"
+            },
+            {
+                "ip_is_private": true,
+                "outbound": "direct"
+            },
+            {
+                "clash_mode": "direct",
+                "outbound": "direct"
+            },
+            {
+                "clash_mode": "global",
+                "outbound": "proxy"
+            }
+        ],
+        "final": "proxy",
+        "auto_detect_interface": true
+    },
+    "inbounds": [
+        {
+            "type": "tun",
+            "tag": "tun-in",
+            "inet4_address": "172.16.0.1/30",
+            "inet6_address": "fdfe:dcba:9876::1/126",
+            "mtu": 1400,
+            "auto_route": true,
+            "strict_route": true,
+            "stack": "system",
+            "sniff": true,
+            "platform": {
+              "http_proxy": {
+              "enabled": true,
+              "server": "127.0.0.1",
+              "server_port": 7890
+              }
+        },
+            "sniff_override_destination": false
+        },
+        {
+            "type": "mixed",
+            "tag": "mixed-in",
+            "listen": "127.0.0.1",
+            "listen_port": 7890,
+            "users": [],            
+            "sniff": true,
+            "sniff_override_destination": false
+        }
+    ],
+    "outbounds": [
+        {
+            "tag":"proxy",
+            "type":"selector",
+            "outbounds":[
+              "auto",
+              "direct",
+              "{all}"
+            ]
+        },
+        {
+            "tag":"auto",
+            "type":"urltest",
+            "outbounds":[
+              "{all}"
+          ],
+            "filter":[
+              {"action":"exclude","keywords":["网站|地址|剩余|过期|时间|有效"]}
+          ],
+            "url": "http://www.gstatic.com/generate_204",
+            "interval": "10m",
+            "tolerance": 25
+        },
+        {
+             "tag":"AdBlock",
+             "type":"selector",
+             "outbounds":[
+               "block",
+               "direct"
+            ]
+        },
+        {
+            "tag":"Others",
+            "type":"selector",
+            "outbounds":[
+              "{all}",
+              "proxy"
+          ],
+            "filter":[
+              {"action":"exclude","keywords":["🇭🇰|HK|hk|香港|香|🇹🇼|TW|tw|台湾|台|🇸🇬|SG|sg|新加坡|狮|🇯🇵|JP|jp|日本|日|🇺🇸|US|us|美国|美|🇰🇷|KR|kr|韩国"]}
+          ]
+        },        
+        {
+            "type": "direct",
+            "tag": "direct"
+        },
+        {
+            "type": "block",
+            "tag": "block"
+        },
+        {
+            "type": "dns",
+            "tag": "dns-out"
+        }
+    ],
+    "experimental": {
+        "cache_file": {
+            "enabled": true,
+            "path": "cache.db",
+            "store_fakeip": true
+        },
+        "clash_api": {
+        "external_controller": "127.0.0.1:9090",
+        "external_ui": "ui",
+        "secret": "",
+        "external_ui_download_url": "https://github.com/MetaCubeX/metacubexd/archive/refs/heads/gh-pages.zip",
+        "external_ui_download_detour": "direct",
+        "default_mode": "rule"
+       }
+    }
+}
