@@ -43,7 +43,16 @@
                 "server": "dns_resolver"
             },
             {
-                "rule_set": "geosite-category-ads-all",
+                "type": "logical",
+                "mode": "and",
+                "rules": [
+                    {
+                        "rule_set": "geosite-category-ads-all"
+                    },
+                    {
+                        "rule_set": "ads"
+                    }
+                ],
                 "server": "dns_success"
             },
             {
