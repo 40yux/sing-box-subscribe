@@ -8,7 +8,7 @@
         "servers": [
             {
                 "tag": "dns_proxy",
-                "address": "https://dns.cloudflare.com//dns-query",          
+                "address": "https://dns.cloudflare.com/dns-query",          
                 "address_resolver": "dns_resolver",
                 "strategy": "prefer_ipv4",
                 "detour": "proxy"
@@ -22,7 +22,7 @@
             },
             {
                 "tag": "dns_resolver",
-                "address": "1.12.12.12",
+                "address": "223.5.5.5",
                 "detour": "direct"
             },
             {
@@ -167,20 +167,7 @@
                 ],
                 "network": "udp",
                 "outbound": "block"
-            },
-            {
-                "type": "logical",
-                "mode": "and",
-                "rules": [
-                    {
-                        "rule_set": "geosite-category-ads-all"
-                    },
-                    {
-                        "rule_set": "ads"
-                    }
-                ],
-                "outbound": "block"
-            },
+            },            
             {
                 "type": "logical",
                 "mode": "and",
@@ -211,6 +198,19 @@
             {
                 "ip_is_private": true,
                 "outbound": "direct"
+            },
+            {
+                "type": "logical",
+                "mode": "and",
+                "rules": [
+                    {
+                        "rule_set": "geosite-category-ads-all"
+                    },
+                    {
+                        "rule_set": "ads"
+                    }
+                ],
+                "outbound": "block"
             },
             {
                 "clash_mode": "direct",
