@@ -26,11 +26,7 @@
                 "detour": "direct"
             },
             {
-                "tag": "dns_success",
-                "address": "rcode://success"
-            },
-            {
-                "tag": "dns_refused",
+                "tag": "dns_block",
                 "address": "rcode://refused"
             },
             {   "tag": "dns_fakeip",
@@ -42,41 +38,41 @@
                 "outbound": "any",
                 "server": "dns_resolver"
             },
-            {
-                "rule_set": "geosite-category-ads-all",
-                "server": "dns_success"
+            {   "clash_mode": "Direct",
+                "server": "dns_direct"
+            },
+            {   "clash_mode": "Global",
+                "server": "dns_proxy"
             },
             {
-                "rule_set": "geosite-geolocation-!cn",
-                "query_type": [
-                    "A",
-                    "AAAA"
+                "rule_set": "geosite-geolocation-cn",
+                "server": "dns_direct"
+            },
+            {
+                "type": "logical",
+                "mode": "and",
+                "rules": [
+                  {
+                    "rule_set": "geosite-geolocation-!cn"
+                  },
+                  {
+                    "rule_set": "geoip-cn"
+                  }
                 ],
-                "server": "dns_fakeip"
-            },
-            {
-                "rule_set": "geosite-geolocation-!cn",
-                "query_type": [
-                    "CNAME"
-                ],              
                 "server": "dns_proxy"
             },
             {
                 "query_type": [
-                    "A",
-                    "AAAA",
-                    "CNAME"
+                  "A",
+                  "AAAA"
                 ],
-                "invert": true,
-                "server": "dns_refused",
-                "disable_cache": true
+                "server": "dns_fakeip",
+                "rewrite_ttl": 1
             },
-            {   "clash_mode": "direct",
-                "server": "dns_direct"
-            },
-            {   "clash_mode": "global",
-                "server": "dns_fakeip"
-            }            
+            {
+                "rule_set": "geosite-category-ads-all",
+                "server": "dns_block"
+            }
         ],
         "final": "dns_direct",
         "independent_cache": true,
@@ -88,22 +84,6 @@
     },
     "route": {
         "rule_set": [
-            {
-                "tag": "geosite-category-ads-all",
-                "type": "remote",
-                "format": "binary",
-                "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/category-ads-all.srs",
-                "download_detour": "direct",
-                "update_interval":"1d"
-             },
-             {
-                "tag": "ads",
-                "type": "remote",
-                "format": "binary",
-                "url": "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box-ruleset/ads.srs",
-                "download_detour": "auto",
-                "update_interval":"1d"
-            },
             {
                 "tag": "geosite-geolocation-!cn",
                 "type": "remote",
@@ -121,86 +101,72 @@
                 "update_interval":"1d"
             },
             {
-                "tag": "geosite-cn",
+                "tag": "geoip-cn",
                 "type": "remote",
                 "format": "binary",
-                "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-cn.srs",
+                "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geoip-cn.srs",
                 "download_detour": "auto",
                 "update_interval":"1d"
             },
             {
-                "tag": "geoip-cn",
+                "tag": "geosite-category-ads-all",
                 "type": "remote",
                 "format": "binary",
-                "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geoip-cn",
+                "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-category-ads-all.srs",
                 "download_detour": "auto",
                 "update_interval":"1d"
             }
         ],
         "rules": [
             {
-                "protocol": "dns",
-                "outbound": "dns-out"
-            },
-            {
-                "port": 53,
-                "outbound": "dns-out"
-            },
-            {
-                "port": 853,
-                "network": "tcp",
-                "outbound": "block"
-            },
-            {
-                "port": [
-                    443,
-                    853
-                ],
-                "network": "udp",
-                "outbound": "block"
-            },
-            {
-                "rule_set": "geosite-category-ads-all",
-                "outbound": "block"
-            },
-            {
                 "type": "logical",
-                "mode": "and",
+                "mode": "or",
                 "rules": [
-                    {
-                        "rule_set": "geoip-cn",
-                        "invert": true
-                    },
-                    {
-                        "rule_set": "geosite-geolocation-!cn"
-                    }
+                  {
+                    "protocol": "dns"
+                  },
+                  {
+                    "port": 53
+                  }
                 ],
-                "outbound": "proxy"
-            },
-            {
-                "type": "logical",
-                "mode": "and",
-                "rules": [
-                    {
-                        "rule_set": "geoip-cn"
-                    },
-                    {
-                        "rule_set": "geosite-cn"
-                    }
-                ],
-                "outbound": "direct"
+                "outbound": "dns-out"
             },
             {
                 "ip_is_private": true,
                 "outbound": "direct"
             },
             {
-                "clash_mode": "direct",
+                "clash_mode": "Direct",
                 "outbound": "direct"
             },
             {
-                "clash_mode": "global",
+                "clash_mode": "Global",
                 "outbound": "proxy"
+            },
+            {
+                "type": "logical",
+                "mode": "or",
+                "rules": [
+                  {
+                    "port": 853
+                  },
+                  {
+                    "network": "udp",
+                    "port": 443
+                  }
+                ],
+                "outbound": "block"
+            },
+            {
+                "rule_set": [
+                  "geoip-cn",
+                  "geosite-geolocation-cn"
+                ],
+                "outbound": "direct"
+            },
+            {
+                "rule_set": "geosite-category-ads-all",
+                "outbound": "block"
             }
         ],
         "final": "proxy",
@@ -303,7 +269,7 @@
         "secret": "",
         "external_ui_download_url": "https://github.com/MetaCubeX/metacubexd/archive/refs/heads/gh-pages.zip",
         "external_ui_download_detour": "direct",
-        "default_mode": "rule"
+        "default_mode": "Rule"
        }
     }
 }
