@@ -125,7 +125,7 @@
                 "tag": "geoip-cn",
                 "type": "remote",
                 "format": "binary",
-                "url": "https://raw.githubusercontent.com/SagerNet/sing-geoip/rule-set/geoip-cn.srs",
+                "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/cn.srs",
                 "download_detour": "direct",
                 "update_interval":"1d"
             },
@@ -150,7 +150,7 @@
                 "type": "remote",
                 "format": "binary",
                 "url": "https://github.com/shangguanhongxin/for-sing-box-and-surge/blob/master/sing-box1.9/AdGuardSDNSFilter/AdGuardSDNSFilter_All.srs",
-                "download_detour": "direct",
+                "download_detour": "auto",
                 "update_interval":"1d"
             }
         ],
