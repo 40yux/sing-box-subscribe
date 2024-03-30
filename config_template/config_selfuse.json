@@ -165,6 +165,18 @@
                 "outbound": "direct"
             },
             {
+                "domain_keyword": [
+                  "点筹", 
+                  "点筹网", 
+                  "dianchou",
+                  "dcw",
+                  "dianchou.dcw",
+                  "dc",
+                  "DC"           
+        									],
+        									"outbound": "direct"
+     							 },
+            {
                 "rule_set": "geosite-category-ads-all",
                 "outbound": "block"
             }
