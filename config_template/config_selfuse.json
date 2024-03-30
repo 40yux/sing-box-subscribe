@@ -95,6 +95,14 @@
                 "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/category-ads-all.srs",
                 "download_detour": "direct",
                 "update_interval":"1d"
+             },
+             {
+                "tag": "ads",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box-ruleset/ads.srs",
+                "download_detour": "auto",
+                "update_interval":"1d"
             },
             {
                 "tag": "geosite-geolocation-!cn",
@@ -113,18 +121,18 @@
                 "update_interval":"1d"
             },
             {
-                "tag": "geoip-cn",
+                "tag": "geosite-cn",
                 "type": "remote",
                 "format": "binary",
-                "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geoip-cn",
+                "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-cn.srs",
                 "download_detour": "auto",
                 "update_interval":"1d"
             },
             {
-                "tag": "geosite-cn",
+                "tag": "geoip-cn",
                 "type": "remote",
                 "format": "binary",
-                "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/cn.srs",
+                "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geoip-cn",
                 "download_detour": "auto",
                 "update_interval":"1d"
             }
