@@ -149,7 +149,7 @@
                 "tag": "ads",
                 "type": "remote",
                 "format": "binary",
-                "url": "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box-ruleset/ads.srs",
+                "url": "https://github.com/shangguanhongxin/for-sing-box-and-surge/blob/master/sing-box1.9/AdGuardSDNSFilter/AdGuardSDNSFilter_All.srs",
                 "download_detour": "direct",
                 "update_interval":"1d"
             }
