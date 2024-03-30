@@ -109,7 +109,7 @@
                 "tag": "ads",
                 "type": "remote",
                 "format": "binary",
-                "url": "https://github.com/shangguanhongxin/for-sing-box-and-surge/blob/master/sing-box1.9/AdGuardSDNSFilter/AdGuardSDNSFilter_All.srs",
+                "url": "https://wiki.jokin.uk/geo/geosite/google-ads.srs",
                 "download_detour": "auto",
                 "update_interval":"1d"
             },
