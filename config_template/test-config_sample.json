@@ -62,7 +62,6 @@
                 "server": "dns_proxy"
             },
             {
-                "rule_set": "proxy",
                 "query_type": [
                   "A",
                   "AAAA"
