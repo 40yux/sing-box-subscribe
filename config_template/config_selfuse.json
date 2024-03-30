@@ -1,5 +1,6 @@
 {
     "log": {
+        "disabled": false,
         "level": "error",
         "timestamp": true
     },
@@ -7,7 +8,7 @@
         "servers": [
             {
                 "tag": "dns_proxy",
-                "address": "https://8.8.8.8/dns-query",
+                "address": "https://dns.cloudflare.com//dns-query",          
                 "address_resolver": "dns_resolver",
                 "strategy": "prefer_ipv4",
                 "detour": "proxy"
@@ -21,7 +22,7 @@
             },
             {
                 "tag": "dns_resolver",
-                "address": "223.5.5.5",
+                "address": "1.12.12.12",
                 "detour": "direct"
             },
             {
@@ -40,7 +41,20 @@
             {
                 "outbound": "any",
                 "server": "dns_resolver"
-            },           
+            },
+            {
+                "type": "logical",
+                "mode": "and",
+                "rules": [
+                    {
+                        "rule_set": "geosite-category-ads-all"
+                    },
+                    {
+                        "rule_set": "ads"
+                    }
+                ],
+                "server": "dns_success"
+            },
             {
                 "rule_set": "geosite-geolocation-!cn",
                 "query_type": [
@@ -71,11 +85,7 @@
             },
             {   "clash_mode": "global",
                 "server": "dns_fakeip"
-            },
-            {
-                "rule_set": "geosite-category-ads-all",
-                "server": "dns_success"
-            }
+            }            
         ],
         "final": "dns_direct",
         "independent_cache": true,
@@ -104,6 +114,14 @@
                 "update_interval":"1d"
             },
             {
+                "tag": "geosite-cn",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://raw.githubusercontent.com/SagerNet/sing-geoip/rule-set/geosite-cn.srs",
+                "download_detour": "direct",
+                "update_interval":"1d"
+            },
+            {
                 "tag": "geoip-cn",
                 "type": "remote",
                 "format": "binary",
@@ -116,13 +134,22 @@
                 "type": "remote",
                 "format": "source",
                 "url": "https://raw.githubusercontent.com/Toperlock/sing-box-geosite/main/wechat.json",
-                "download_detour": "direct"
+                "download_detour": "direct",
+                "update_interval":"1d"
             },
             {
                 "tag": "geosite-category-ads-all",
                 "type": "remote",
                 "format": "binary",
                 "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/category-ads-all.srs",
+                "download_detour": "direct",
+                "update_interval":"1d"
+            },
+             {
+                "tag": "ads",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box-ruleset/ads.srs",
                 "download_detour": "direct",
                 "update_interval":"1d"
             }
@@ -148,21 +175,45 @@
                 ],
                 "network": "udp",
                 "outbound": "block"
-            },     
+            },
             {
-                "rule_set": "geosite-geolocation-!cn",
+                "type": "logical",
+                "mode": "and",
+                "rules": [
+                    {
+                        "rule_set": "geosite-category-ads-all"
+                    },
+                    {
+                        "rule_set": "ads"
+                    }
+                ],
+                "outbound": "block"
+            },
+            {
+                "type": "logical",
+                "mode": "and",
+                "rules": [
+                    {
+                        "rule_set": "geoip-cn",
+                        "invert": true
+                    },
+                    {
+                        "rule_set": "geosite-geolocation-!cn"
+                    }
+                ],
                 "outbound": "proxy"
             },
             {
-                "rule_set": "geosite-geolocation-cn",
-                "outbound": "direct"
-            },
-            {
-                "rule_set": "geosite-wechat",
-                "outbound": "direct"
-            },            
-            {
-                "rule_set": "geoip-cn",
+                "type": "logical",
+                "mode": "and",
+                "rules": [
+                    {
+                        "rule_set": "geoip-cn"
+                    },
+                    {
+                        "rule_set": "geosite-cn"
+                    }
+                ],
                 "outbound": "direct"
             },
             {
@@ -176,10 +227,6 @@
             {
                 "clash_mode": "global",
                 "outbound": "proxy"
-            },
-            {
-                "rule_set": "geosite-category-ads-all",
-                "outbound": "block"
             }
         ],
         "final": "proxy",
