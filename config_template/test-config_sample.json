@@ -129,8 +129,8 @@
                 "outbound": "direct"
             },
             {
-                "clash_mode": "Global",
-                "outbound": "default"
+                "clash_mode": "global",
+                "outbound": "proxy"
             },
             {
                 "type": "logical",
