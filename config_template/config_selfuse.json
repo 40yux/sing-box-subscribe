@@ -9,20 +9,20 @@
             {
                 "tag": "dns_proxy",
                 "address": "https://1.1.1.1/dns-query",
-                "strategy": "prefer_ipv4",
                 "address_resolver": "dns_resolver",
+                "strategy": "prefer_ipv4",                
                 "detour": "proxy"
             },
             {
                 "tag": "dns_direct",
-                "address": "https://223.5.5.5/dns-query",
-                "strategy": "prefer_ipv4",
+                "address": "https://dns.alidns.com/dns-query",
                 "address_resolver": "dns_resolver",
+                "strategy": "prefer_ipv4",
                 "detour": "direct"
             },
             {
                 "tag": "dns_resolver",
-                "address": "120.53.53.53",
+                "address": "223.5.5.5",
                 "strategy": "prefer_ipv4",               
                 "detour": "direct"
             },
