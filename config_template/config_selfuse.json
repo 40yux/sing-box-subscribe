@@ -61,7 +61,7 @@
                         "invert": true
                     }
                 ],
-                "server": "dns_proxy"
+                "server": "dns_fakeip"
             },
             {
                 "rule_set": "geosite-category-ads-all",
