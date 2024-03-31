@@ -63,10 +63,7 @@
                 "server": "dns_proxy"
             },
             {
-                "rule_set": [
-                    "geosite-category-ads-all",
-                    "geoip-ad"
-                ],
+                "rule_set":	geosite-category-ads-all",
                 "server": "dns_block"
             },
             {
@@ -105,14 +102,6 @@
                 "update_interval":"1d"
             },
             {
-                "tag": "geosite-cn",
-                "type": "remote",
-                "format": "binary",
-                "url": "https://raw.githubusercontent.com/Chocolate4U/Iran-sing-box-rules/rule-set/geosite-cn.srs",
-                "download_detour": "auto",
-                "update_interval":"1d"
-            },
-            {
                 "tag": "geoip-cn",
                 "type": "remote",
                 "format": "binary",
@@ -127,15 +116,7 @@
                 "url": "https://raw.githubusercontent.com/Chocolate4U/Iran-sing-box-rules/rule-set/geosite-category-ads-all.srs",
                 "download_detour": "auto",
                 "update_interval":"1d"
-            },
-            {
-                "tag": "geoip-ad",
-                "type": "remote",
-                "format": "binary",
-                "url": "https://raw.githubusercontent.com/Chocolate4U/Iran-sing-box-rules/rule-set/geoip-ad.srs",
-                "download_detour": "auto",
-                "update_interval":"1d"
-            }
+            },        
         ],
         "rules": [
             {
@@ -164,6 +145,20 @@
                 "outbound": "proxy"
             },
             {
+                "type": "logical",
+                "mode": "and",
+                "rules": [
+                    {
+                        "rule_set": "geosite-geolocation-!cn"
+                    },
+                    {
+                        "rule_set": "geoip-cn",
+                        "invert": true
+                    }
+                ],
+                "outbound": "proxy"
+            },            
+            {
                 "domain_keyword": [
                   "idianchou", 
                   "dianchou",
@@ -180,20 +175,6 @@
             },            
             {
                 "type": "logical",
-                "mode": "and",
-                "rules": [
-                    {
-                        "rule_set": "geosite-geolocation-!cn"
-                    },
-                    {
-                        "rule_set": "geoip-cn",
-                        "invert": true
-                    }
-                ],
-                "outbound": "proxy"
-            },
-            {
-                "type": "logical",
                 "mode": "or",
                 "rules": [
                   {
@@ -207,13 +188,9 @@
                 "outbound": "block"
             },            
             {
-                "rule_set": [
-                    "geosite-category-ads-all",
-                    "geoip-ad"
-                ],
+                "rule_set": "geosite-category-ads-all",
                 "outbound": "block"
-            }
-            
+            }            
         ],
         "final": "proxy",
         "auto_detect_interface": true
