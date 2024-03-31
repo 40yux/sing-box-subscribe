@@ -26,7 +26,14 @@
             },
             {   "tag": "dns_fakeip",
                 "address": "fakeip"
-            }            
+            },
+            {
+                "query_type": [
+                  "A",
+                  "AAAA"
+                ],
+                "server": "dns_fakeip"
+            }
         ],
         "rules": [
             {
