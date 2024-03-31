@@ -179,17 +179,7 @@
                 "outbound": "direct"
             },            
             {
-                "type": "logical",
-                "mode": "or",
-                "rules": [
-                  {
-                    "port": 853
-                  },
-                  {
-                    "network": "udp",
-                    "port": 443
-                  }
-                ],
+                "port": 853,               
                 "outbound": "block"
             },            
             {
