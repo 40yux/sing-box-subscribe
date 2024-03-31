@@ -90,7 +90,7 @@
                 "type": "remote",
                 "format": "binary",
                 "url": "https://raw.githubusercontent.com/Chocolate4U/Iran-sing-box-rules/rule-set/geosite-geolocation-!cn.srs",
-                "download_detour": "auto",
+                "download_detour": "direct",
                 "update_interval":"1d"
             },
             {
@@ -98,7 +98,7 @@
                 "type": "remote",
                 "format": "binary",
                 "url": "https://raw.githubusercontent.com/Chocolate4U/Iran-sing-box-rules/rule-set/geosite-geolocation-cn.srs",
-                "download_detour": "auto",
+                "download_detour": "direct",
                 "update_interval":"1d"
             },
             {
@@ -106,7 +106,7 @@
                 "type": "remote",
                 "format": "binary",
                 "url": "https://raw.githubusercontent.com/Chocolate4U/Iran-sing-box-rules/rule-set/geoip-cn.srs",
-                "download_detour": "auto",
+                "download_detour": "direct",
                 "update_interval":"1d"
             },
             {
@@ -114,7 +114,7 @@
                 "type": "remote",
                 "format": "binary",
                 "url": "https://raw.githubusercontent.com/Chocolate4U/Iran-sing-box-rules/rule-set/geosite-category-ads-all.srs",
-                "download_detour": "auto",
+                "download_detour": "direct",
                 "update_interval":"1d"
             } 
         ],
@@ -247,7 +247,7 @@
           ],
             "url": "http://www.gstatic.com/generate_204",
             "interval": "10m",
-            "tolerance": 25
+            "tolerance": 50
         },
         {
              "tag":"AdBlock",
