@@ -206,6 +206,7 @@
             "inet4_address": "172.16.0.1/30",
             "inet6_address": "fdfe:dcba:9876::0/126",
             "auto_route": true,
+            "strict_route": true
             "stack": "system",
             "sniff": true,
             "sniff_override_destination": true,
