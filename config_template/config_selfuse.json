@@ -71,7 +71,6 @@
                 "server": "dns_block"
             },
             {
-																 "inbound": "tun",
                 "query_type": [
                   "A",
                   "AAAA"
@@ -190,7 +189,7 @@
                     "port": 443
                   }
                 ],
-                "outbound": "block"
+                "outbound": "direct"
             },            
             {
                 "rule_set": "geosite-category-ads-all",
