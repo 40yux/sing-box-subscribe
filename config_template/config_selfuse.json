@@ -189,7 +189,7 @@
                     "port": 443
                   }
                 ],
-                "outbound": "direct"
+                "outbound": "block"
             },            
             {
                 "rule_set": "geosite-category-ads-all",
