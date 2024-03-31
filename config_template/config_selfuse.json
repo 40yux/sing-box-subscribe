@@ -201,7 +201,7 @@
             "tag": "tun-in",
             "inet4_address": "172.16.0.1/30",
             "inet6_address": "fdfe:dcba:9876::1/126",
-            "mtu": 9000,
+            "mtu": 1500,
             "gso": false,
             "auto_route": true,
             "strict_route": true,
@@ -211,7 +211,7 @@
                 "http_proxy": {
                 "enabled": true,
                 "server": "127.0.0.1",
-                "server_port": 7890
+                "server_port": 8080
                 }
         },
             "sniff_override_destination": false
@@ -220,7 +220,7 @@
             "type": "mixed",
             "tag": "mixed-in",
             "listen": "127.0.0.1",
-            "listen_port": 7890,
+            "listen_port": 8080,
             "users": [],            
             "sniff": true,
             "sniff_override_destination": false
