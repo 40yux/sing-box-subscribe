@@ -210,6 +210,7 @@
             "strict_route": true,
             "stack": "system",
             "sniff": true,
+            "endpoint_independent_nat": true,
             "sniff_override_destination": true,
             "platform": {
                 "http_proxy": {
