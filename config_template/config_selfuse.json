@@ -15,7 +15,7 @@
             },
             {
                 "tag": "dns_direct",
-                "address": "https://dns.alidns.com/dns-query",
+                "address": "https://120.53.53.53/dns-query",
                 "address_resolver": "dns_resolver",
                 "strategy": "prefer_ipv4",
                 "detour": "direct"
@@ -186,16 +186,12 @@
             },
             {
                 "domain_keyword": [
-                  "idanchou.com", 
                   "idianchou", 
                   "dianchou",
-                  "dcw",
-                  "dianchou.dcw",
-                  "dc",
-                  "DC"           
+                  "dcw" 
         		],
         		"outbound": "direct"
-     							 },
+     	    },
             {
                 "rule_set": [
                     "geosite-category-ads-all",
