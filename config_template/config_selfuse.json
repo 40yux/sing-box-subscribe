@@ -164,9 +164,10 @@
             },            
             {
                 "domain_keyword": [
-                  "idianchou", 
+                  "idianchou.com", 
                   "dianchou",
-                  "dcw" 
+                  "dcw",
+                  "dc"
         		],
         	    "outbound": "direct"
      	    },
