@@ -174,11 +174,24 @@
                   "geosite-geolocation-cn"
                 ],
                 "outbound": "direct"
-            },            
+            },
             {
-                "port": 853,               
+                "type": "logical",
+                "mode": "or",
+                "rules": [
+                    {
+                        "port": 853
+                    },
+                    {
+                        "network": "udp",
+                        "port": 443
+                    },
+                    {
+                        "protocol": "stun"
+                    }
+                ],
                 "outbound": "block"
-            },            
+            },
             {
                 "rule_set": "geosite-category-ads-all",
                 "outbound": "block"
