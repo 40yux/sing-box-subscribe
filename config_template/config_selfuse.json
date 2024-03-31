@@ -62,7 +62,7 @@
                 "server": "dns_dircet"
             },
             {
-                "rule_set":	"geosite-category-ads-all",
+                "rule_set": "geosite-category-ads-all",
                 "server": "dns_block"
             },
             {
