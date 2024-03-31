@@ -15,7 +15,7 @@
             },
             {
                 "tag": "dns_direct",
-                "address": "https://120.53.53.53/dns-query",
+                "address": "https://dns.alidns.com/dns-query",
                 "address_resolver": "dns_resolver",
                 "strategy": "prefer_ipv4",
                 "detour": "direct"
