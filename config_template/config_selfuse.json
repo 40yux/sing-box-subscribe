@@ -63,8 +63,8 @@
                         "rule_set": "geosite-geolocation-!cn"
                     },
                     {
-                        "rule_set": "geoip-cn",
-                        "invert": true
+                        "rule_set": "geoip-cn"
+                        // "invert": true
                     }
                 ],
                 "server": "dns_proxy"
