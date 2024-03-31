@@ -45,14 +45,6 @@
                 "server": "dns_proxy"
             },
             {
-                "domain_keyword": [
-                  "idianchou", 
-                  "dianchou",
-                  "dcw" 
-        		],
-        		"outbound": "direct"
-     	    },
-            {
                 "rule_set": "geosite-geolocation-cn",
                 "server": "dns_direct"
             },
@@ -171,6 +163,14 @@
                 "clash_mode": "Global",
                 "outbound": "proxy"
             },
+            {
+                "domain_keyword": [
+                  "idianchou", 
+                  "dianchou",
+                  "dcw" 
+        		],
+        		"outbound": "direct"
+     	    },
             {
                 "rule_set": [
                   "geoip-cn",
