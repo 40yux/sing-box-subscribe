@@ -158,7 +158,7 @@
                   "dianchou",
                   "dcw" 
         		],
-        		"outbound": "direct"
+        	    "outbound": "direct"
      	    },
             {
                 "rule_set": [
