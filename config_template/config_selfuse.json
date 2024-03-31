@@ -43,7 +43,15 @@
             },
             {   "clash_mode": "Global",
                 "server": "dns_proxy"
-            },           
+            },
+            {
+                "domain_keyword": [
+                  "idianchou", 
+                  "dianchou",
+                  "dcw" 
+        		],
+        		"outbound": "direct"
+     	    },
             {
                 "rule_set": "geosite-geolocation-cn",
                 "server": "dns_direct"
