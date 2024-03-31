@@ -63,7 +63,7 @@
                 "server": "dns_proxy"
             },
             {
-                "rule_set":	geosite-category-ads-all",
+                "rule_set":	"geosite-category-ads-all",
                 "server": "dns_block"
             },
             {
