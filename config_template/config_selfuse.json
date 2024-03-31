@@ -88,23 +88,7 @@
     },
     "route": {
         "rule_set": [
-            {
-                "tag": "geosite-category-ads-all",
-                "type": "remote",
-                "format": "binary",
-                "url": "https://raw.githubusercontent.com/Chocolate4U/Iran-sing-box-rules/rule-set/geosite-category-ads-all.srs",
-                "download_detour": "auto",
-                "update_interval":"1d"
-            },
-            {
-                "tag": "geoip-ad",
-                "type": "remote",
-                "format": "binary",
-                "url": "https://raw.githubusercontent.com/Chocolate4U/Iran-sing-box-rules/rule-set/geoip-ad.srs",
-                "download_detour": "auto",
-                "update_interval":"1d"
-            },
-            {
+            {    
                 "tag": "geosite-geolocation-!cn",
                 "type": "remote",
                 "format": "binary",
@@ -135,7 +119,23 @@
                 "url": "https://raw.githubusercontent.com/Chocolate4U/Iran-sing-box-rules/rule-set/geoip-cn.srs",
                 "download_detour": "auto",
                 "update_interval":"1d"
-            }            
+            },
+            {
+                "tag": "geosite-category-ads-all",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://raw.githubusercontent.com/Chocolate4U/Iran-sing-box-rules/rule-set/geosite-category-ads-all.srs",
+                "download_detour": "auto",
+                "update_interval":"1d"
+            },
+            {
+                "tag": "geoip-ad",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://raw.githubusercontent.com/Chocolate4U/Iran-sing-box-rules/rule-set/geoip-ad.srs",
+                "download_detour": "auto",
+                "update_interval":"1d"
+            }
         ],
         "rules": [
             {
@@ -164,20 +164,6 @@
                 "outbound": "proxy"
             },
             {
-                "type": "logical",
-                "mode": "or",
-                "rules": [
-                  {
-                    "port": 853
-                  },
-                  {
-                    "network": "udp",
-                    "port": 443
-                  }
-                ],
-                "outbound": "block"
-            },
-            {
                 "rule_set": [
                   "geoip-cn",
                   "geosite-geolocation-cn"
@@ -193,13 +179,6 @@
         		"outbound": "direct"
      	    },
             {
-                "rule_set": [
-                    "geosite-category-ads-all",
-                    "geoip-ad"
-                ],
-                "outbound": "block"
-            },
-            {
                 "type": "logical",
                 "mode": "and",
                 "rules": [
@@ -212,7 +191,29 @@
                     }
                 ],
                 "outbound": "proxy"
+            },
+            {
+                "type": "logical",
+                "mode": "or",
+                "rules": [
+                  {
+                    "port": 853
+                  },
+                  {
+                    "network": "udp",
+                    "port": 443
+                  }
+                ],
+                "outbound": "block"
+            },            
+            {
+                "rule_set": [
+                    "geosite-category-ads-all",
+                    "geoip-ad"
+                ],
+                "outbound": "block"
             }
+            
         ],
         "final": "proxy",
         "auto_detect_interface": true
@@ -230,11 +231,11 @@
             "stack": "system",
             "sniff": true,
             "platform": {
-              "http_proxy": {
-              "enabled": true,
-              "server": "127.0.0.1",
-              "server_port": 7890
-              }
+                "http_proxy": {
+                "enabled": true,
+                "server": "127.0.0.1",
+                "server_port": 7890
+                }
         },
             "sniff_override_destination": false
         },
