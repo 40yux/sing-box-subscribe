@@ -111,6 +111,14 @@
                 "update_interval":"1d"
             },
             {
+                "tag": "WeChat",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://github.com/shangguanhongxin/for-sing-box-and-surge/tree/master/sing-box1.9/WeChat/WeChat_Resolve.srs",
+                "download_detour": "direct",
+                "update_interval":"1d"
+            },
+            {
                 "tag": "geosite-category-ads-all",
                 "type": "remote",
                 "format": "binary",
@@ -158,7 +166,11 @@
                     }
                 ],
                 "outbound": "proxy"
-            },            
+            },
+            {
+                "rule_set": "WeChat",
+                "outbound": "direct"
+            },
             {
                 "domain_keyword": [
                   "idianchou.com", 
