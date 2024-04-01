@@ -220,7 +220,7 @@
             "type": "tun",
             "tag": "tun-in",
             "inet4_address": "172.16.0.1/30",
-            "inet6_address": "fdfe:dcba:9876::0/128",
+            "inet6_address": "fd00::1/126",
             "auto_route": true,
             "strict_route": true,
             "stack": "system",
