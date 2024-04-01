@@ -113,7 +113,7 @@
             {
                 "tag": "WeChat",
                 "type": "remote",
-                "format": "binary",
+                "format": "source",
                 "url": "https://github.com/shangguanhongxin/for-sing-box-and-surge/raw/master/sing-box1.9/WeChat/WeChat_Resolve.srs",
                 "download_detour": "direct",
                 "update_interval":"1d"
