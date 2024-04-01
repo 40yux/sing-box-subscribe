@@ -192,7 +192,7 @@
             },
             {
                 "type": "logical",
-                "mode": "and",
+                "mode": "or",
                 "rules": [
                     {
                         "port": 853
@@ -220,7 +220,7 @@
             "type": "tun",
             "tag": "tun-in",
             "inet4_address": "172.16.0.1/30",
-            "inet6_address": "fd00::1/126",
+            "inet6_address": "2005:1::/60",
             "auto_route": true,
             "strict_route": true,
             "stack": "system",
