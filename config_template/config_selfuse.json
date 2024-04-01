@@ -168,15 +168,20 @@
                 "outbound": "proxy"
             },
             {
-                "rule_set": "WeChat",
+                "type": "logical",
+                "mode": "and",
+                "rules": [
+                    {
+                         "rule_set": "WeChat"
+                    },
+                    {
+                        "domain_keyword": [
+                            "idianchou.com", 
+                            "dianchou.dcw"
+                        ]
+                    }                
+                ],
                 "outbound": "direct"
-            },
-            {
-                "domain_keyword": [
-                  "idianchou.com", 
-                  "dianchou.dcw"                 
-        		],
-        	    "outbound": "direct"
      	    },
             {
                 "rule_set": [
