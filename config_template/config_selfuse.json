@@ -192,7 +192,7 @@
             },
             {
                 "type": "logical",
-                "mode": "or",
+                "mode": "and",
                 "rules": [
                     {
                         "port": 853
