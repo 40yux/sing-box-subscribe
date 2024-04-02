@@ -160,20 +160,6 @@
                 "mode": "and",
                 "rules": [
                     {
-                        "rule_set": "geosite-geolocation-!cn"
-                    },
-                    {
-                        "rule_set": "geoip-cn",
-                        "invert": true
-                    }
-                ],
-                "outbound": "proxy"
-            },
-            {
-                "type": "logical",
-                "mode": "and",
-                "rules": [
-                    {
                          "rule_set": "WeChat"
                     },
                     {
@@ -186,6 +172,20 @@
                 ],
                 "outbound": "direct"
      	    },
+            {
+                "type": "logical",
+                "mode": "and",
+                "rules": [
+                    {
+                        "rule_set": "geosite-geolocation-!cn"
+                    },
+                    {
+                        "rule_set": "geoip-cn",
+                        "invert": true
+                    }
+                ],
+                "outbound": "proxy"
+            },            
             {
                 "rule_set": [
                   "geoip-cn",
