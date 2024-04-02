@@ -44,10 +44,7 @@
             },
             {   "clash_mode": "Global",
                 "server": "dns_proxy"
-            },
-            {   "clash_mode": "Default",
-                "server": "dns_proxy"
-            },
+            },            
             {
                 "rule_set": "geosite-geolocation-cn",
                 "server": "dns_direct"
