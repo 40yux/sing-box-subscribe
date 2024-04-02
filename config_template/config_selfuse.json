@@ -63,10 +63,6 @@
                 "server": "dns_direct"
             },
             {
-                "rule_set": "geosite-category-ads-all",
-                "server": "dns_block"
-            },
-            {
                 "query_type": [
                     "A",
                     "AAAA"
