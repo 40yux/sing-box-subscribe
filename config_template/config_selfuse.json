@@ -153,7 +153,7 @@
                 "mode": "and",
                 "rules": [
                     {
-                         "rule_set": "WeChat"，
+                         "rule_set": "WeChat",
                          "rule_set_ipcidr_match_source": true
                     },
                     {
