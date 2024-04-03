@@ -63,6 +63,7 @@
                 "server": "dns_direct"
             },
             {
+                "inbound": "tun-in",
                 "query_type": [
                     "A",
                     "AAAA"
@@ -76,8 +77,7 @@
             "inet4_range": "198.18.0.0/15",
             "inet6_range": "fc00::/18"
         },
-        "final": "dns_direct",
-        "independent_cache": true
+        "final": "dns_direct" 
     },
     "route": {
         "rule_set": [
