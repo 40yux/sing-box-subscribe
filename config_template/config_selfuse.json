@@ -156,11 +156,7 @@
                          "rule_set": "WeChat"
                     },
                     {
-                        "domain_keyword": [
-                            "idianchou.com", 
-                            "dianchou.dcw",
-                            "dcw"
-                        ]
+                        "package_name": "com.dianchou.dcw"
                     }                
                 ],
                 "outbound": "direct"
