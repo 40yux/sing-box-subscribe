@@ -67,7 +67,7 @@
                     "A",
                     "AAAA"
                 ],
-                "server": "dns_fakeip",
+                "server": "dns_fakeip"
             }
         ],        
         "fakeip": {
