@@ -156,7 +156,11 @@
                          "rule_set_ipcidr_match_source": true
                     },
                     {
-                        "package_name": "com.dianchou.dcw"
+                        "domain_keyword": [
+                            "com.dianchou.dcw",
+                            "idianchou.com",
+                            "dianchou"
+                        ]
                     }                
                 ],
                 "outbound": "direct"
@@ -166,19 +170,12 @@
                 "mode": "and",
                 "rules": [
                     {
-                        "rule_set": "geosite-geolocation-!cn"
+                        "rule_set": "geosite-geolocation-!cn",
+                        "invert": true
                     },
                     {
-                        "rule_set": "geoip-cn",
-                        "invert": true
+                        "rule_set": "geoip-cn"                        
                     }
-                ],
-                "outbound": "proxy"
-            },            
-            {
-                "rule_set": [
-                  "geoip-cn",
-                  "geosite-geolocation-cn"
                 ],
                 "outbound": "direct"
             },
@@ -295,7 +292,8 @@
         "cache_file": {
             "enabled": true,
             "path": "cache.db",
-            "store_fakeip": true
+            "store_fakeip": true,
+            "store_rdrc": true
         },
         "clash_api": {
         "external_controller": "127.0.0.1:9090",
