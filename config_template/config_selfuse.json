@@ -61,7 +61,8 @@
                         "rule_set": "geoip-cn"
                     }
                 ],
-                "server": "dns_direct"
+                "server": "dns_direct",
+                "client_subnet": "114.114.114.114"
             },
             {
                 "query_type": [
