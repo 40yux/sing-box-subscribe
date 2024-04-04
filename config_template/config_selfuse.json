@@ -107,7 +107,7 @@
                 "tag": "WeChat",
                 "type": "remote",
                 "format": "source",
-                "url": "https://raw.githubusercontent.com/Toperlock/sing-box-geosite/main/wechat.json",
+                "url": "https://raw.githubusercontent.com/shangguanhongxin/for-sing-box-and-surge/master/sing-box1.9/WeChat/WeChat_Resolve.json",
                 "download_detour": "direct",
                 "update_interval":"1d"
             },
