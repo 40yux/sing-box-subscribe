@@ -54,13 +54,15 @@
                 "mode": "and",
                 "rules": [
                     {
-                        "rule_set": "geosite-geolocation-!cn"
+                        "rule_set": "geosite-geolocation-!cn",
+                        "invert": true
                     },
                     {
                         "rule_set": "geoip-cn"
                     }
                 ],
-                "server": "dns_direct"
+                "server": "dns_proxy",
+                "client_subnet": "114.114.114.114"
             },
             {
                 "query_type": [
