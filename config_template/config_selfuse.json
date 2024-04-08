@@ -216,7 +216,7 @@
             "inet6_address": "fdfe:dcba:9876::1/126",
             "auto_route": true,
             "strict_route": true,
-            "stack": "system",
+            "stack": "mixed",
             "sniff": true,
             "sniff_override_destination": true,
             "exclude_package": [
@@ -277,7 +277,8 @@
                 "io.kubenav.kubenav",
                 "org.geekbang.geekTime",
                 "tv.danmaku.bili",
-                "com.dianchou.dcw"
+                "com.dianchou.dcw",
+                "com.jaemobird.mutongji"
             ],
             "platform": {
                 "http_proxy": {
