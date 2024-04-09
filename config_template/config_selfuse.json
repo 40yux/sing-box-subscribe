@@ -163,6 +163,15 @@
                 "outbound": "direct"
      	    },
             {
+                "domain_suffix": [
+                  "icloudnative.io",
+                  "fuckcloudnative.io",
+                  "sealos.io",
+                  "cdn.jsdelivr.net"
+                ],
+                "outbound": "direct"
+            },
+            {
                 "type": "logical",
                 "mode": "and",
                 "rules": [
