@@ -250,7 +250,8 @@
                 "ctrip.android.view",     
                 "org.geekbang.geekTime",
                 "com.dianchou.dcw",
-                "com.jaemobird.mutongji"
+                "com.jaemobird.mutongji",
+                "com.baidu.newapp"
             ],
             "platform": {
                 "http_proxy": {
