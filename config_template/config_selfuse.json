@@ -157,7 +157,10 @@
                          "rule_set_ipcidr_match_source": true
                     },
                     {
-                         "domain_keyword": "xiaomi"
+                         "domain_keyword": [
+                             "xiaomi",
+                             "miui"
+                         ]
                     }                
                 ],
                 "outbound": "direct"
