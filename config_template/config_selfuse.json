@@ -47,7 +47,7 @@
             },
             {
                 "rule_set": "geosite-geolocation-cn",
-                "invert": true
+                "invert": true,
                 "server": "dns_proxy"
             },
             {
