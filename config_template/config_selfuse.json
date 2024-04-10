@@ -219,7 +219,7 @@
             "stack": "system",
             "sniff": true,
             "sniff_override_destination": true,
-            "include_package": [
+            "exclude_package": [
                 "cmb.pb",
                 "cn.com.spdb.mobilebank.pe",
                 "cn.gov.pbc.decp",
