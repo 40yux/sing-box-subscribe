@@ -8,22 +8,22 @@
         "servers": [
             {
                 "tag": "dns_proxy",
-                "address": "https://1.1.1.1/dns-query",
+                "address": "https://dns.cloudflare.com/dns-query",
                 "address_resolver": "dns_resolver", 
-                "strategy": "ipv4_only",
+                "strategy": "prefer_ipv4",
                 "detour": "proxy"
             },
             {
                 "tag": "dns_direct",
-                "address": "h3://dns.alidns.com/dns-query",
+                "address": "https://dns.alidns.com/dns-query",
                 "address_resolver": "dns_resolver",
-                "strategy": "ipv4_only",
+                "strategy": "prefer_ipv4",
                 "detour": "direct"
             },
             {
                 "tag": "dns_resolver",
                 "address": "223.5.5.5",
-                "strategy": "ipv4_only",                               
+                "strategy": "prefer_ipv4",                               
                 "detour": "direct"
             },
             {
@@ -79,6 +79,7 @@
             "inet4_range": "198.18.0.0/15",
             "inet6_range": "fc00::/18"
         },
+        "strategy": "prefer_ipv4",
         "final": "dns_direct" 
     },
     "route": {
