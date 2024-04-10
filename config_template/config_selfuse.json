@@ -235,7 +235,19 @@
                 "cn.android.bankabc",
                 "com.baidu.newapp",
                 "com.chinamworld.main",
-                "com.eg.android.
+                "com.eg.android.AlipayGphone",
+                "com.dianchou.dcw",
+                "com.gzrcb.mobilebank",
+                "com.hxb.mobile.client",
+                "com.icbc",
+                "com.icbc.elife",
+                "com.jaemobird.mutongji",
+                "com.MobileTicket",
+                "com.spdbccc.app",
+                "com.tencent.mm",
+                "com.tencent.mobileqq",
+                "com.unionpay"
+            ],
             "platform": {
                 "http_proxy": {
                 "enabled": true,
