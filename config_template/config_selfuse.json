@@ -8,20 +8,22 @@
         "servers": [
             {
                 "tag": "dns_proxy",
-                "address": "https://dns.cloudflare.com/dns-query",
-                "address_resolver": "dns_resolver",  
+                "address": "https://1.1.1.1/dns-query",
+                "address_resolver": "dns_resolver", 
+                "strategy": "ipv4_only",
                 "detour": "proxy"
             },
             {
                 "tag": "dns_direct",
-                "address": "https://dns.alidns.com/dns-query",
+                "address": "h3://dns.alidns.com/dns-query",
                 "address_resolver": "dns_resolver",
+                "strategy": "ipv4_only",
                 "detour": "direct"
             },
             {
                 "tag": "dns_resolver",
                 "address": "223.5.5.5",
-                               
+                "strategy": "ipv4_only",                               
                 "detour": "direct"
             },
             {
