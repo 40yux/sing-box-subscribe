@@ -246,7 +246,8 @@
                 "com.spdbccc.app",
                 "com.tencent.mm",
                 "com.tencent.mobileqq",
-                "com.unionpay"
+                "com.unionpay",
+                "com.xiaomi.youpin"
             ],
             "platform": {
                 "http_proxy": {
