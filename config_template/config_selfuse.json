@@ -47,19 +47,18 @@
             },
             {
                 "rule_set": "geosite-geolocation-cn",
-                "invert": true,
-                "server": "dns_proxy"
+                "server": "dns_direct"
             },
             {
                 "type": "logical",
                 "mode": "and",
                 "rules": [
                     {
-                        "rule_set": "geosite-geolocation-!cn"                        
+                        "rule_set": "geosite-geolocation-!cn",
+                        "invert": true
                     },
                     {
-                        "rule_set": "geoip-cn",
-                        "invert": true
+                        "rule_set": "geoip-cn"
                     }
                 ],
                 "server": "dns_proxy",
