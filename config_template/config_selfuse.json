@@ -226,7 +226,16 @@
             "strict_route": true,
             "stack": "system",
             "sniff": true,
-            "sniff_override_destination": true,            
+            "sniff_override_destination": true,
+            "include_package": [
+                "cmb.pb",
+                "cn.com.spdb.mobilebank.pe",
+                "cn.gov.pbc.decp",
+                "cn.gov.tax.its",
+                "cn.android.bankabc",
+                "com.baidu.newapp",
+                "com.chinamworld.main",
+                "com.eg.android.
             "platform": {
                 "http_proxy": {
                 "enabled": true,
