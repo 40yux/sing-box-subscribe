@@ -46,7 +46,7 @@
                 "server": "dns_proxy"
             },
             {
-                "domain_keyword" [
+                "domain_keyword": [
                     "xiaomi"
                 ],
                 "server": "dns_direct"
