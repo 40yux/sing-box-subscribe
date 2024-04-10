@@ -46,12 +46,6 @@
                 "server": "dns_proxy"
             },
             {
-                "domain_keyword": [
-                    "xiaomi"
-                ],
-                "server": "dns_direct"
-            },
-            {
                 "rule_set": "geosite-geolocation-cn",
                 "server": "dns_direct"
             },
@@ -257,7 +251,8 @@
                 "ctrip.android.view",            
                 "com.dianchou.dcw",
                 "com.jaemobird.mutongji",
-                "com.baidu.newapp"
+                "com.baidu.newapp",
+                "com.xiaomi.youpin"
             ],
             "platform": {
                 "http_proxy": {
