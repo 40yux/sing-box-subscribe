@@ -69,9 +69,9 @@
                 "query_type": [
                     "A",
                     "AAAA"
-                ],
-                "rewrite_ttl": 1,
-                "server": "dns_fakeip"
+                ],                
+                "server": "dns_fakeip",
+                "rewrite_ttl": 1
             }
         ],        
         "fakeip": {
