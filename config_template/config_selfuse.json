@@ -151,23 +151,10 @@
                 "outbound": "proxy"
             },
             {
-                "type": "logical",
-                "mode": "and",
-                "rules": [
-                    {
-                         "rule_set": "WeChat",
-                         "rule_set_ipcidr_match_source": true
-                    },
-                    {
-                         "domain_keyword": [
-                             "xiaomi",
-                             "miui",
-                             "dianchou"
-                         ]
-                    }                
-                ],
+                "rule_set": "WeChat",
+                "rule_set_ipcidr_match_source": true,
                 "outbound": "direct"
-     	    },
+            },            
             {
                 "domain_suffix": [
                   "icloudnative.io",
