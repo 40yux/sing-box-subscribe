@@ -184,54 +184,47 @@
     }
   ],
   "outbounds": [
-    {
-      "type": "selector",
-      "tag": "select",
-      "outbounds": [
-        "trojan-out"
-      ],
-      "default": "trojan-out"
-    },
-    {
-      "type": "selector",
-      "tag": "openai",
-      "outbounds": [
-        "trojan-out"
-      ],
-      "default": "trojan-out"
-    },
-    {
-      "type": "selector",
-      "tag": "tiktok",
-      "outbounds": [
-        "trojan-out"
-      ],
-      "default": "trojan-out"
-    },
-    {
-      "type": "trojan",
-      "tag": "trojan-out",
-      "server": "199.180.115.155",
-      "server_port": 9443,
-      "password": "5iFHKMrn9Ez//VKh6zChTA==",
-      "tls": {
-        "enabled": true,
-        "server_name": "ss.icloudnative.io",
-        "insecure": true,
-        "utls": {
-          "fingerprint": "chrome"
-        }
-      },
-      "multiplex": {
-        "protocol": "h2mux",
-        "max_connections": 4,
-        "min_streams": 4
-      },
-      "transport": {
-        "type": "grpc",
-        "service_name": "TunService"
-      }
-    },
+     {
+            "tag":"select",
+            "type":"selector",
+            "outbounds":[
+              "auto",
+              "direct",
+              "{all}"
+            ]
+        },
+        {
+            "tag":"auto",
+            "type":"urltest",
+            "outbounds":[
+              "{all}"
+          ],
+            "filter":[
+              {"action":"exclude","keywords":["网站|地址|剩余|过期|时间|有效"]}
+          ],
+            "url": "https://www.gstatic.com/generate_204",
+            "interval": "3m",
+            "tolerance": 50
+        },
+        {
+             "tag":"AdBlock",
+             "type":"selector",
+             "outbounds":[
+               "block",
+               "direct"
+            ]
+        },
+        {
+            "tag":"Others",
+            "type":"selector",
+            "outbounds":[
+              "{all}",
+              "proxy"
+          ],
+            "filter":[
+              {"action":"exclude","keywords":["🇭🇰|HK|hk|香港|香|🇹🇼|TW|tw|台湾|台|🇸🇬|SG|sg|新加坡|狮|🇯🇵|JP|jp|日本|日|🇺🇸|US|us|美国|美|🇰🇷|KR|kr|韩国"]}
+          ]
+        }, 
     {
       "type": "direct",
       "tag": "direct"
