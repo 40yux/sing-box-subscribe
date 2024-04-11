@@ -228,7 +228,8 @@
                 "com.tencent.mobileqq",
                 "com.unionpay",
                 "com.xiaomi.youpin",
-                "com.miui.packageinstaller"
+                "com.miui.packageinstaller",
+                "com.xiaomi.market"
             ],
             "platform": {
                 "http_proxy": {
