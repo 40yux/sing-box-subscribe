@@ -30,9 +30,6 @@
             {
                 "tag": "dns_block",
                 "address": "rcode://success"
-            },
-            {   "tag": "dns_fakeip",
-                "address": "fakeip"
             }
         ],
         "rules": [
@@ -64,21 +61,8 @@
                 ],
                 "server": "dns_proxy",
                 "client_subnet": "114.114.114.114"
-            },
-            {
-                "query_type": [
-                    "A",
-                    "AAAA"
-                ],                
-                "server": "dns_fakeip",
-                "rewrite_ttl": 1
             }
-        ],        
-        "fakeip": {
-            "enabled": true,
-            "inet4_range": "198.18.0.0/15",
-            "inet6_range": "fc00::/18"
-        },
+        ],
         "strategy": "prefer_ipv4",
         "final": "dns_direct" 
     },
@@ -207,29 +191,7 @@
             "strict_route": true,
             "stack": "mixed",
             "sniff": true,
-            "sniff_override_destination": true,
-            "exclude_package": [
-                "cmb.pb",
-                "cn.com.spdb.mobilebank.pe",
-                "cn.gov.pbc.decp",
-                "cn.gov.tax.its",
-                "cn.android.bankabc",
-                "com.baidu.newapp",
-                "com.chinamworld.main",
-                "com.eg.android.AlipayGphone",
-                "com.dianchou.dcw",
-                "com.gzrcb.mobilebank",
-                "com.hxb.mobile.client",
-                "com.icbc",
-                "com.icbc.elife",
-                "com.jaemobird.mutongji",
-                "com.MobileTicket",
-                "com.spdbccc.app",
-                "com.tencent.mm",
-                "com.tencent.mobileqq",
-                "com.unionpay",
-                "com.xiaomi.youpin"
-            ],
+            "sniff_override_destination": true,            
             "platform": {
                 "http_proxy": {
                 "enabled": true,
@@ -307,7 +269,6 @@
         "cache_file": {
             "enabled": true,
             "path": "cache.db",
-            "store_fakeip": true,
             "store_rdrc": true
         },
         "clash_api": {
