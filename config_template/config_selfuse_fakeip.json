@@ -20,7 +20,7 @@
             },
             {
                 "tag": "dns_resolver",
-                "address": "101.226.4.6",
+                "address": "114.114.114.114",
                 "detour": "direct"
             },
             {
