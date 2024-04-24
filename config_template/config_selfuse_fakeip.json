@@ -8,7 +8,7 @@
         "servers": [
             {
                 "tag": "dns_proxy",
-                "address": "tcp://dns.google",
+                "address": "https://dns.google/dns-query",
                 "address_resolver": "dns_resolver",
                 "detour": "proxy"
             },
