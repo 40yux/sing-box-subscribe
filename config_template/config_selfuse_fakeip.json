@@ -8,7 +8,7 @@
         "servers": [
             {
                 "tag": "dns_proxy",
-                "address": "https://cloudflare-dns.com/dns-query",
+                "address": "tcp://cloudflare-dns.com",
                 "address_resolver": "dns_resolver",
                 "detour": "proxy"
             },
