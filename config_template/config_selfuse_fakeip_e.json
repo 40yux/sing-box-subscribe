@@ -187,7 +187,8 @@
                 "com.jaemobird.mutongji",
                 "com.MobileTicket",             
                 "com.tencent.mm",
-                "com.tencent.mobileqq"              
+                "com.tencent.mobileqq",
+"com.sohu.inputmethod.sogou.xiaomi"              
             ],
             "platform": {
                 "http_proxy": {
