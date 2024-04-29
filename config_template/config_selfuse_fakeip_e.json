@@ -191,7 +191,9 @@
                 "com.miui.cloudservice",
                 "com.miui.weather2",
                 "com.xiaomi.market",
-                "com.miui.packageinstaller"
+                "com.miui.packageinstaller",
+                "com.android.browser",
+                "com.iflytek.inputmethod"
             ],
             "platform": {
                 "http_proxy": {
