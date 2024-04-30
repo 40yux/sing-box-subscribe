@@ -33,6 +33,10 @@
         ],
         "rules": [
             {
+                "rule_set": "geosite-category-ads-all",
+                "server": "dns_block"
+            },
+            {
                 "outbound": "any",
                 "server": "dns_resolver"
             },
@@ -220,13 +224,24 @@
             {
                 "rule_set": [
                     "geoip-cn",
-                    "geosite-geolocation-cn"
+                    "geosite-geolocation-cn",
+                    "geoip-private"
                 ],
                 "outbound": "direct"
             }, 
             {
                 "rule_set": "geosite-category-ads-all",
                 "outbound": "block"
+            },
+            {
+                "rule_set": [
+                    "geoip-google",
+                    "geosite-google",
+                    "geosite-github",
+                    "geoip-telegram",
+                    "geosite-bahamut"
+                ],
+                "outbound": "proxy"
             }
         ],
         "final": "proxy",
