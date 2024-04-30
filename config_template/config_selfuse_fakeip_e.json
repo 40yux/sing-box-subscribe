@@ -234,7 +234,13 @@
                 "outbound": "block"
             },
             {
-                "rule_set": ["geoip-google", "geosite-google", "geosite-github", "geoip-telegram", "geosite-bahamut"],
+                "rule_set": [
+                    "geoip-google",
+                    "geosite-google",
+                    "geosite-github",
+                    "geoip-telegram",
+                    "geosite-bahamut"
+                ],
                 "outbound": "proxy"
             }
         ],
