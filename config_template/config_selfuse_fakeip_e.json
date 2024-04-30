@@ -34,7 +34,7 @@
         "rules": [
             {
                 "rule_set": "geosite-category-ads-all",
-                "server": "block"
+                "server": "dns_block"
             },
             {
                 "outbound": "any",
