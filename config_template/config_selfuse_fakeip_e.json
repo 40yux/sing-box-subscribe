@@ -245,90 +245,90 @@
             }
         ],
         "final": "proxy",
-        "auto_detect_interface": true
-    },
-     "rule_set": [
-         {
-             "tag": "geosite-geolocation-!cn",
+        "auto_detect_interface": true,
+        "rule_set": [
+            {
+                "tag": "geosite-geolocation-!cn",
                 "type": "remote",
                 "format": "binary",
                 "url": "https://raw.githubusercontent.com/lyc8503/sing-box-rules/rule-set-geosite/geosite-geolocation-!cn.srs",
                 "download_detour": "auto",
                 "update_interval": "1d"
-         },
-         {
-             "tag": "geosite-geolocation-cn",
+            },
+            {
+                "tag": "geosite-geolocation-cn",
                 "type": "remote",
                 "format": "binary",
                 "url": "https://raw.githubusercontent.com/lyc8503/sing-box-rules/rule-set-geosite/geosite-geolocation-cn.srs",
                 "download_detour": "auto",
                 "update_interval": "1d"
-         },
-         {
-              "tag": "geoip-cn",
+            },
+            {
+                "tag": "geoip-cn",
                 "type": "remote",
                 "format": "binary",
                 "url": "https://raw.githubusercontent.com/lyc8503/sing-box-rules/rule-set-geoip/geoip-cn.srs",
                 "download_detour": "auto",
                 "update_interval": "1d"
-         },
-         {
-             "tag": "geosite-category-ads-all",
+            },
+            {
+                "tag": "geosite-category-ads-all",
                 "type": "remote",
                 "format": "binary",
                 "url": "https://raw.githubusercontent.com/lyc8503/sing-box-rules/rule-set-geosite/geosite-category-ads-all.srs",
                 "download_detour": "auto",
                 "update_interval": "1d"
-         },
-         {
-             "tag": "geoip-private",
+            },
+            {
+                "tag": "geoip-private",
                 "type": "remote",
                 "format": "binary",
                 "url": "https://raw.githubusercontent.com/lyc8503/sing-box-rules/rule-set-geoip/geoip-private.srs",
                 "download_detour": "auto",
                 "update_interval": "1d"
-         },
-         {
-             "tag": "geoip-google",
+            },
+            {
+                "tag": "geoip-google",
                 "type": "remote",
                 "format": "binary",
                 "url": "https://raw.githubusercontent.com/lyc8503/sing-box-rules/rule-set-geoip/geoip-google.srs",
                 "download_detour": "auto",
                 "update_interval": "1d"
-         },
-         {
-             "tag": "geosite-google",
+            },
+            {
+                "tag": "geosite-google",
                 "type": "remote",
                 "format": "binary",
                 "url": "https://raw.githubusercontent.com/lyc8503/sing-box-rules/rule-set-geosite/geosite-google.srs",
                 "download_detour": "auto",
                 "update_interval": "1d"
-         },
-         {
-             "tag": "geoip-telegram",
+            },
+            {
+                "tag": "geoip-telegram",
                 "type": "remote",
                 "format": "binary",
                 "url": "https://raw.githubusercontent.com/lyc8503/sing-box-rules/rule-set-geoip/geoip-telegram.srs",
                 "download_detour": "auto",
                 "update_interval": "1d"
-         },
-         {
-             "tag": "geosite-github",
+            },
+            {
+                "tag": "geosite-github",
                 "type": "remote",
                 "format": "binary",
                 "url": "https://raw.githubusercontent.com/lyc8503/sing-box-rules/rule-set-geosite/geosite-github.srs",
                 "download_detour": "auto",
                 "update_interval": "1d"
-         },
-         {
-             "tag": "geosite-bahamut",
+            },
+            {
+                "tag": "geosite-bahamut",
                 "type": "remote",
                 "format": "binary",
                 "url": "https://raw.githubusercontent.com/lyc8503/sing-box-rules/rule-set-geosite/geosite-bahamut.srs",
                 "download_detour": "auto",
                 "update_interval": "1d"
-         }
-     ],
+            }
+        ]
+    },
     "experimental": {
         "cache_file": {
             "enabled": true,
