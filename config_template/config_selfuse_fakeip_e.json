@@ -247,7 +247,7 @@
                 "format": "binary",
                 "url": "https://raw.githubusercontent.com/lyc8503/sing-box-rules/rule-set-geosite/geosite-geolocation-!cn.srs",
                 "download_detour": "auto",
-                "update_interval":"1d"
+                "update_interval": "1d"
             },
             {
                 "tag": "geosite-geolocation-cn",
@@ -255,7 +255,7 @@
                 "format": "binary",
                 "url": "https://raw.githubusercontent.com/lyc8503/sing-box-rules/rule-set-geosite/geosite-geolocation-cn.srs",
                 "download_detour": "auto",
-                "update_interval":"1d"
+                "update_interval": "1d"
             },
             {
                 "tag": "geoip-cn",
@@ -263,7 +263,7 @@
                 "format": "binary",
                 "url": "https://raw.githubusercontent.com/lyc8503/sing-box-rules/rule-set-geoip/geoip-cn.srs",
                 "download_detour": "auto",
-                "update_interval":"1d"
+                "update_interval": "1d"
             },
             {
                 "tag": "geosite-category-ads-all",
@@ -271,7 +271,7 @@
                 "format": "binary",
                 "url": "https://raw.githubusercontent.com/lyc8503/sing-box-rules/rule-set-geosite/geosite-category-ads-all.srs",
                 "download_detour": "auto",
-                "update_interval":"1d"
+                "update_interval": "1d"
             },
             {
                 "tag": "geoip-private",
@@ -279,7 +279,7 @@
                 "format": "binary",
                 "url": "https://raw.githubusercontent.com/lyc8503/sing-box-rules/rule-set-geoip/geoip-private.srs",
                 "download_detour": "auto",
-                "update_interval":"1d"
+                "update_interval": "1d"
             },
             {
                 "tag": "geoip-google",
@@ -287,7 +287,7 @@
                 "format": "binary",
                 "url": "https://raw.githubusercontent.com/lyc8503/sing-box-rules/rule-set-geoip/geoip-google.srs",
                 "download_detour": "auto",
-                "update_interval":"1d"
+                "update_interval": "1d"
             },
             {
                 "tag": "geosite-google",
@@ -295,7 +295,7 @@
                 "format": "binary",
                 "url": "https://raw.githubusercontent.com/lyc8503/sing-box-rules/rule-set-geosite/geosite-google.srs",
                 "download_detour": "auto",
-                "update_interval":"1d"
+                "update_interval": "1d"
             },
             {
                 "tag": "geoip-telegram",
@@ -303,7 +303,7 @@
                 "format": "binary",
                 "url": "https://raw.githubusercontent.com/lyc8503/sing-box-rules/rule-set-geoip/geoip-telegram.srs",
                 "download_detour": "auto",
-                "update_interval":"1d
+                "update_interval": "1d"
             },
             {
                 "tag": "geosite-githua",
@@ -311,7 +311,7 @@
                 "format": "binary",
                 "url": "https://raw.githubusercontent.com/lyc8503/sing-box-rules/rule-set-geosite/geosite-github.srs",
                 "download_detour": "auto",
-                "update_interval":"1d"
+                "update_interval": "1d"
             },
             {
                 "tag": "geosite-bahamut",
@@ -319,7 +319,7 @@
                 "format": "binary",
                 "url": "https://raw.githubusercontent.com/lyc8503/sing-box-rules/rule-set-geosite/geosite-bahamut.srs",
                 "download_detour": "auto",
-                "update_interval":"1d"
+                "update_interval": "1d"
             }
         ]
     },
