@@ -307,7 +307,7 @@
                 "update_interval": "1d"
          },
          {
-             "tag": "geosite-githua",
+             "tag": "geosite-github",
                 "type": "remote",
                 "format": "binary",
                 "url": "https://raw.githubusercontent.com/lyc8503/sing-box-rules/rule-set-geosite/geosite-github.srs",
