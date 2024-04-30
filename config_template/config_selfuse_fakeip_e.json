@@ -33,10 +33,6 @@
         ],
         "rules": [
             {
-                "rule_set": "geosite-category-ads-all",
-                "server": "dns_block"
-            },
-            {
                 "outbound": "any",
                 "server": "dns_resolver"
             },
