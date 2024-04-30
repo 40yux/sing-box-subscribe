@@ -220,8 +220,7 @@
             {
                 "rule_set": [
                     "geoip-cn",
-                    "geosite-geolocation-cn",
-                    "geoip-private"
+                    "geosite-geolocation-cn"
                 ],
                 "outbound": "direct"
             }, 
