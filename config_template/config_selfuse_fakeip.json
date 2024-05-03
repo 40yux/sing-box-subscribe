@@ -108,18 +108,12 @@
         {
             "tag": "proxy",
             "type": "selector",
-            "outbounds": [
-              "auto",
-              "direct",
-              "{all}"
-            ]
+            "outbounds": [ ]
         },
         {
             "tag": "auto",
             "type": "urltest",
-            "outbounds": [
-              "{all}"
-            ],
+            "outbounds": [ ],
             "filter": [
               {"action": "exclude", "keywords": ["网站|地址|剩余|过期|时间|有效"]}
             ],
