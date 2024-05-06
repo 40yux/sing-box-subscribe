@@ -111,8 +111,8 @@
             "outbounds": ["auto", "direct", "{all}"]
         },
         {
-            "tag": "auto",
-            "type": "selector",
+            "tag": "select",
+            "type": "auto",
             "outbounds": ["{all}"]
         },
         {
