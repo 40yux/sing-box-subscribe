@@ -112,6 +112,11 @@
         },
         {
             "tag": "auto",
+            "type": "selector",
+            "outbounds": ["{all}"]
+        },
+        {
+            "tag": "auto",
             "type": "urltest",
             "outbounds": ["{all}"],
             "filter": [
