@@ -69,8 +69,10 @@
                 "rule_set_ipcidr_match_source": false,
                 "invert": false,
                 "outbound": ["direct"],
-                "server": "dns_fakeip",
+                "server": "dns_fakeip",                
+                "disable_cache": false,
                 "rewrite_ttl": 1
+                "client_subnet": "127.0.0.1"
             }
         ],
         "fakeip": {
