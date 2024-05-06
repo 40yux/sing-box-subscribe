@@ -111,11 +111,6 @@
             "outbounds": ["auto", "direct", "{all}"]
         },
         {
-            "tag": "select",
-            "type": "auto",
-            "outbounds": ["{all}"]
-        },
-        {
             "tag": "auto",
             "type": "urltest",
             "outbounds": ["{all}"],
