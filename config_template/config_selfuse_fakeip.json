@@ -108,7 +108,9 @@
         {
             "tag": "proxy",
             "type": "selector",
-            "outbounds": ["auto", "direct", "{all}"]
+            "outbounds": ["auto", "direct", "{all}"].
+ "default": "auto",
+  "interrupt_exist_connections": true
         },
         {
             "tag": "auto",
