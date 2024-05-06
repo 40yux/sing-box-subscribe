@@ -133,7 +133,7 @@
             "interval": "1m",
             "tolerance": 50,
             "idle_timeout": "30m",
-            "interrupt_exist_connections": true,
+            "interrupt_exist_connections": true
         },
         {
              "tag": "AdBlock",
