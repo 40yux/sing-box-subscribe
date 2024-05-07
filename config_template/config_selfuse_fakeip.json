@@ -33,7 +33,7 @@
             },
             {
                 "outbound": "any",
-                "server": ["dns_direct", "dns_proxy"]
+                "server": "dns_direct"
             },
             {   "clash_mode": "Direct",
                 "server": "dns_direct"
@@ -81,7 +81,7 @@
             "inet6_range": "fc00::/18"
         },
         "strategy": "prefer_ipv4",
-        "final": ["dns_direct", "dns_proxy"] 
+        "final": "dns_direct"
     },
     "inbounds": [
         {
