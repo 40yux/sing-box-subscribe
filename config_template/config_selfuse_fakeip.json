@@ -80,6 +80,10 @@
             "inet4_range": "198.18.0.0/15",
             "inet6_range": "fc00::/18"
         },
+        "disable_cache": false,
+        "disable_expire": false,
+        "independent_cache": false,
+        "reverse_mapping": false,
         "strategy": "prefer_ipv4",
         "final": "dns_direct"
     },
