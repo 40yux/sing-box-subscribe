@@ -11,7 +11,8 @@
                 "address": "tcp://1.1.1.1",
                 "address_strategy": "ipv4_only",
                 "strategy": "prefer_ipv4",
-                "detour": "proxy"
+                "detour": "proxy",
+                "client_subnet": "8.8.8.8"
             },
             {
                 "tag": "dns_direct",
@@ -19,6 +20,7 @@
                 "address_strategy": "ipv4_only",
                 "strategy": "prefer_ipv4",
                 "detour": "direct"
+                "client_subnet": "1.2.4.8"
             },
             {
                 "tag": "dns_block",
@@ -29,6 +31,21 @@
             }
         ],
         "rules": [
+             {
+                "inbound": ["tun-in"],
+                "query_type": ["A", "AAAA"], 
+                "protocol": ["tls", "http", "quic"],
+                "port": [80, 443],
+                "port_range": ["1000:2000", ":3000", "4000:"],
+                "rule_set": ["geoip-cn", "geosite-cn", "geosite-geolocation-cn"],
+                "rule_set_ipcidr_match_source": false,
+                "invert": false,
+                "outbound": ["direct"],
+                "server": "dns_fakeip",                
+                "disable_cache": false,
+                "rewrite_ttl": 1,
+                "client_subnet": "127.0.0.1"
+            },
             {
                 "rule_set": "geosite-category-ads-all",
                 "server": "dns_block"
@@ -61,21 +78,7 @@
                 ],
                 "server": "dns_proxy",
                 "client_subnet": "114.114.114.114"
-            },
-            {
-                "inbound": ["tun-in"],
-                "query_type": ["A", "AAAA"], 
-                "protocol": ["tls", "http", "quic"],
-                "port": [80, 443],
-                "port_range": ["1000:2000", ":3000", "4000:"],
-                "rule_set_ipcidr_match_source": false,
-                "invert": false,
-                "outbound": ["direct"],
-                "server": "dns_fakeip",                
-                "disable_cache": false,
-                "rewrite_ttl": 1,
-                "client_subnet": "127.0.0.1"
-            }
+            }           
         ],
         "final": "dns_direct",
         "strategy": "prefer_ipv4",
@@ -135,7 +138,7 @@
                 "outbound": "block"
             },
             {
-                "rule_set": ["geoip-cn", "geosite-geolocation-cn", "geoip-private"],
+                "rule_set": ["geoip-cn", "geosite-cn", "geosite-geolocation-cn", "geoip-private"],
                 "outbound": "direct"
             }, 
             {
@@ -161,6 +164,14 @@
                 "type": "remote",
                 "format": "binary",
                 "url": "https://raw.githubusercontent.com/lyc8503/sing-box-rules/rule-set-geosite/geosite-geolocation-cn.srs",
+                "download_detour": "auto",
+                "update_interval": "1d"
+            },
+            {
+                "tag": "geosite-cn",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://raw.githubusercontent.com/lyc8503/sing-box-rules/rule-set-geosite/geosite-cn.srs",
                 "download_detour": "auto",
                 "update_interval": "1d"
             },
