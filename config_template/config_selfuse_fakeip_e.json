@@ -51,11 +51,7 @@
                 "disable_cache": false,
                 "rewrite_ttl": 1,
                 "client_subnet": "127.0.0.1"
-            },
-            {
-                "rule_set": "geosite-category-ads-all",
-                "server": "dns_block"
-            },            
+            },           
             {
                 "rule_set": "geosite-geolocation-cn",
                 "server": "dns_direct"
@@ -75,6 +71,10 @@
                 "server": "dns_proxy",
                 "client_subnet": "114.114.114.114"
             },
+            {
+                "rule_set": "geosite-category-ads-all",
+                "server": "dns_block"
+            },            
             {
                 "outbound": "any",
                 "server": "dns_direct"
@@ -100,11 +100,7 @@
         }
     },
     "route": {
-        "rules": [
-            {
-                "rule_set": "geosite-category-ads-all",
-                "outbound": "block"
-            },
+        "rules": [            
             {
                 "rule_set": ["geoip-google", "geosite-google", "geosite-github", "geoip-telegram", "geosite-bahamut"],
                 "outbound": "proxy"
@@ -116,7 +112,11 @@
             {
                 "ip_is_private": true,
                 "outbound": "direct"
-            },            
+            },
+            {
+                "rule_set": "geosite-category-ads-all",
+                "outbound": "block"
+            },
             {
                 "type": "logical",
                 "mode": "or",
