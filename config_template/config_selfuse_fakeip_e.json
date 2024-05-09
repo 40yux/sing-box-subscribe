@@ -300,7 +300,8 @@
             "listen_port": 7890,
             "users": [],            
             "sniff": true,
-            "sniff_override_destination": true
+            "sniff_override_destination": true,
+            "set_system_proxy": false
         }
     ],
     "outbounds": [
