@@ -55,17 +55,7 @@
             {
                 "rule_set": "geosite-category-ads-all",
                 "server": "dns_block"
-            },
-            {
-                "outbound": "any",
-                "server": "dns_direct"
-            },
-            {   "clash_mode": "Direct",
-                "server": "dns_direct"
-            },
-            {   "clash_mode": "Global",
-                "server": "dns_proxy"
-            },
+            },            
             {
                 "rule_set": "geosite-geolocation-cn",
                 "server": "dns_direct"
@@ -84,7 +74,17 @@
                 ],
                 "server": "dns_proxy",
                 "client_subnet": "114.114.114.114"
-            }           
+            },
+            {
+                "outbound": "any",
+                "server": "dns_direct"
+            },
+            {   "clash_mode": "Direct",
+                "server": "dns_direct"
+            },
+            {   "clash_mode": "Global",
+                "server": "dns_proxy"
+            }
         ],
         "final": "dns_direct",
         "strategy": "prefer_ipv4",
@@ -102,6 +102,22 @@
     "route": {
         "rules": [
             {
+                "rule_set": "geosite-category-ads-all",
+                "outbound": "block"
+            },
+            {
+                "rule_set": ["geoip-google", "geosite-google", "geosite-github", "geoip-telegram", "geosite-bahamut"],
+                "outbound": "proxy"
+            },
+            {
+                "rule_set": ["geoip-cn", "geosite-cn", "geosite-geolocation-cn", "geoip-private"],
+                "outbound": "direct"
+            },
+            {
+                "ip_is_private": true,
+                "outbound": "direct"
+            },            
+            {
                 "type": "logical",
                 "mode": "or",
                 "rules": [
@@ -113,19 +129,7 @@
                     }
                 ],
                 "outbound": "dns-out"
-            },
-            {
-                "ip_is_private": true,
-                "outbound": "direct"
-            },
-            {
-                "clash_mode": "Direct",
-                "outbound": "direct"
-            },
-            {
-                "clash_mode": "Global",
-                "outbound": "proxy"
-            },
+            },            
             {
                 "type": "logical",
                 "mode": "or",
@@ -142,18 +146,14 @@
                     }
                 ],
                 "outbound": "block"
-            },            
-            {
-                "rule_set": "geosite-category-ads-all",
-                "outbound": "block"
             },
             {
-                "rule_set": ["geoip-google", "geosite-google", "geosite-github", "geoip-telegram", "geosite-bahamut"],
-                "outbound": "proxy"
-            },
-            {
-                "rule_set": ["geoip-cn", "geosite-cn", "geosite-geolocation-cn", "geoip-private"],
+                "clash_mode": "Direct",
                 "outbound": "direct"
+            },
+            {
+                "clash_mode": "Global",
+                "outbound": "proxy"
             }
         ],       
         "rule_set": [
