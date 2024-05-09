@@ -270,6 +270,9 @@
             "udp_timeout": "5m",
             "sniff": true,
             "sniff_override_destination": true,
+            "sniff_timeout": "300ms",
+            "domain_strategy": "prefer_ipv6",
+            "udp_disable_domain_unmapping": false,
             "exclude_package": [
                 "com.dianchou.dcw",
                 "com.jaemobird.mutongji",
