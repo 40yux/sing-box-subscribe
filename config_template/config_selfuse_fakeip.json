@@ -36,9 +36,9 @@
                 "query_type": ["A", "AAAA"], 
                 "protocol": ["tls", "http", "quic"],
                 "source_ip_cidr": ["10.0.0.0/24", "192.168.0.0/16"],
-                "source_ip_is_private": true,
+                "source_ip_is_private": false,
                 "ip_cidr": ["10.0.0.0/24", "192.168.0.0/16"],
-                "ip_is_private": true,
+                "ip_is_private": false,
                 "source_port": [12345],
                 "source_port_range": ["1000:2000", ":3000", "4000:"],
                 "port": [80, 443],
@@ -256,7 +256,7 @@
             "interface_name": "tun0",
             "inet4_address": "172.16.0.1/30",
             "inet6_address": "fdfe:dcba:9876::1/126",
-            "mtu": 9000,
+            "mtu": 1400,
             "gso": false,
             "auto_route": true,
             "strict_route": true,
@@ -291,6 +291,7 @@
             "sniff_override_destination": true,
             "sniff_timeout": "300ms",
             "domain_strategy": "prefer_ipv6",
+            "udp_disable_domain_unmapping": false,
             "set_system_proxy": false
         }
     ],
