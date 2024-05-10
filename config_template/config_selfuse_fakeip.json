@@ -1,7 +1,7 @@
 {
     "log": {
         "disabled": false,
-        "level": "trace",
+        "level": "info",
         "timestamp": true
     },
     "dns": {
