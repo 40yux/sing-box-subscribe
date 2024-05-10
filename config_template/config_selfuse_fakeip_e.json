@@ -1,4 +1,3 @@
-
 {
     "log": {
         "disabled": false,
@@ -48,7 +47,7 @@
                 "rule_set_ipcidr_match_source": true,
                 "invert": false,
                 "outbound": ["direct"],
-                "server": "dns_fakeip",                
+                "server": "dns_fakeip",
                 "disable_cache": false,
                 "rewrite_ttl": 1,
                 "client_subnet": "127.0.0.1"
@@ -93,7 +92,7 @@
         "disable_expire": false,
         "independent_cache": false,
         "reverse_mapping": true,
-        "client_subnet": "114.114.114.114",        
+        "client_subnet": "114.114.114.114",
         "fakeip": {
             "enabled": true,
             "inet4_range": "198.18.0.0/15",
@@ -143,7 +142,7 @@
                     }
                 ],
                 "outbound": "block"
-            },           
+            },
             {
                 "rule_set": ["geoip-google", "geosite-google", "geosite-github", "geoip-telegram", "geosite-bahamut"],
                 "outbound": "proxy"
@@ -156,8 +155,8 @@
                 "rule_set": "geosite-category-ads-all",
                 "outbound": "block"
             }
-        ],       
-        "rule_set": [             
+        ],
+        "rule_set": [
             {
                 "tag": "geoip-private",
                 "type": "remote",
@@ -165,7 +164,7 @@
                 "url": "https://raw.githubusercontent.com/lyc8503/sing-box-rules/rule-set-geoip/geoip-private.srs",
                 "download_detour": "auto",
                 "update_interval": "1d"
-            },            
+            },
             {
                 "tag": "geoip-google",
                 "type": "remote",
@@ -213,7 +212,7 @@
                 "url": "https://raw.githubusercontent.com/lyc8503/sing-box-rules/rule-set-geosite/geosite-geolocation-!cn.srs",
                 "download_detour": "auto",
                 "update_interval": "1d"
-            },            
+            },
             {
                 "tag": "geosite-geolocation-cn",
                 "type": "remote",
@@ -271,7 +270,7 @@
             "exclude_package": [
                 "com.dianchou.dcw",
                 "com.jaemobird.mutongji",
-                "com.MobileTicket",             
+                "com.MobileTicket",
                 "com.tencent.mm",
                 "com.tencent.mobileqq",
                 "com.miui.cloudservice",
@@ -286,12 +285,12 @@
                     "server": "127.0.0.1",
                     "server_port": 7890
                 }
-            },            
+            },
             "sniff": true,
             "sniff_override_destination": true,
             "sniff_timeout": "300ms",
             "domain_strategy": "prefer_ipv6",
-            "udp_disable_domain_unmapping": true            
+            "udp_disable_domain_unmapping": true
         },
         {
             "type": "mixed",
@@ -299,9 +298,10 @@
             "listen": "127.0.0.1",
             "listen_port": 7890,
             "users": [],
-            "domain_strategy": "prefer_ipv6",
             "sniff": true,
             "sniff_override_destination": true,
+            "sniff_timeout": "300ms",
+            "domain_strategy": "prefer_ipv6",
             "set_system_proxy": true
         }
     ],
@@ -316,7 +316,7 @@
         {
             "tag": "auto",
             "type": "urltest",
-            "outbounds": ["{all}"],           
+            "outbounds": ["{all}"],
             "filter": [{"action": "exclude", "keywords": ["网站|地址|剩余|过期|时间|有效"]}],
             "url": "https://www.gstatic.com/generate_204",
             "interval": "1m",
@@ -334,7 +334,7 @@
             "type": "selector",
             "outbounds": ["{all}", "proxy"],
             "filter": [{"action": "exclude", "keywords": ["🇭🇰|HK|hk|香港|香|🇹🇼|TW|tw|台湾|台|🇸🇬|SG|sg|新加坡|狮|🇯🇵|JP|jp|日本|日|🇺🇸|US|us|美国|美|🇰🇷|KR|kr|韩国"]}]
-        },        
+        },
         {
             "type": "direct",
             "tag": "direct"
@@ -347,7 +347,7 @@
             "type": "dns",
             "tag": "dns-out"
         }
-    ],    
+    ],
     "experimental": {
         "cache_file": {
             "enabled": true,
