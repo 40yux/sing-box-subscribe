@@ -11,16 +11,14 @@
                 "address": "tcp://1.1.1.1",
                 "address_strategy": "ipv4_only",
                 "strategy": "prefer_ipv4",
-                "detour": "proxy",
-                "client_subnet": "8.8.8.8"
+                "detour": "proxy"        
             },
             {
                 "tag": "dns_direct",
                 "address": "https://223.5.5.5/dns-query",
                 "address_strategy": "ipv4_only",
                 "strategy": "prefer_ipv4",
-                "detour": "direct",
-                "client_subnet": "1.2.4.8"
+                "detour": "direct"
             },
             {
                 "tag": "dns_block",
@@ -33,24 +31,9 @@
         "rules": [
              {
                 "inbound": ["tun-in"],
-                "query_type": ["A", "AAAA"], 
-                "protocol": ["tls", "http", "quic"],
-                "source_ip_cidr": ["10.0.0.0/24", "192.168.0.0/16"],
-                "source_ip_is_private": false,
-                "ip_cidr": ["10.0.0.0/24", "192.168.0.0/16"],
-                "ip_is_private": false,
-                "source_port": [12345],
-                "source_port_range": ["1000:2000", ":3000", "4000:"],
-                "port": [80, 443],
-                "port_range": ["1000:2000", ":3000", "4000:"],
-                "rule_set": ["geoip-cn", "geosite-cn", "geosite-geolocation-cn"],
-                "rule_set_ipcidr_match_source": true,
-                "invert": false,
-                "outbound": ["direct"],
+                "query_type": ["A", "AAAA"],
                 "server": "dns_fakeip",
-                "disable_cache": false,
-                "rewrite_ttl": 1,
-                "client_subnet": "127.0.0.1"
+                "rewrite_ttl": 1
             },
             {
                 "outbound": "any",
