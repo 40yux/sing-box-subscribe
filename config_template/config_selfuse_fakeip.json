@@ -256,7 +256,7 @@
             "interface_name": "tun0",
             "inet4_address": "172.16.0.1/30",
             "inet6_address": "fdfe:dcba:9876::1/126",
-            "mtu": 9000,
+            "mtu": 1400,
             "gso": false,
             "auto_route": true,
             "strict_route": true,
