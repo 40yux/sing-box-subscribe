@@ -28,7 +28,6 @@
         ],
         "rules": [
              {
-                "inbound": ["tun-in"],
                 "query_type": ["A", "AAAA"],
                 "server": "dns_fakeip",
                 "rewrite_ttl": 1
