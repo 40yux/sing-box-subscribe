@@ -302,7 +302,7 @@
             "sniff_override_destination": true,
             "sniff_timeout": "300ms",
             "domain_strategy": "prefer_ipv6",
-            "set_system_proxy": true
+            "set_system_proxy": false
         }
     ],
     "outbounds": [
