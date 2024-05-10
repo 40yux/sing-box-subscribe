@@ -268,18 +268,19 @@
             "udp_timeout": "5m",
             "stack": "mixed",
             "exclude_package": [],
-            "sniff": true,
-            "sniff_override_destination": true,
-            "sniff_timeout": "300ms",
-            "domain_strategy": "prefer_ipv6",
-            "udp_disable_domain_unmapping": false,
             "platform": {
                 "http_proxy": {
                     "enabled": true,
                     "server": "127.0.0.1",
                     "server_port": 7890
                 }                
-            }            
+            },
+            "sniff": true,
+            "sniff_override_destination": true,
+            "sniff_timeout": "300ms",
+            "domain_strategy": "prefer_ipv6",
+            "udp_disable_domain_unmapping": false
+            
         },
         {
             "type": "mixed",
