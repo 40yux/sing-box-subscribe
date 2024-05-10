@@ -267,7 +267,7 @@
             "endpoint_independent_nat": false,
             "udp_timeout": "5m",
             "stack": "mixed",
-            "exclude_package": [],
+            "exclude_package": ["com.android.captiveportallogin"],
             "platform": {
                 "http_proxy": {
                     "enabled": true,
