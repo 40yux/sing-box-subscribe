@@ -278,7 +278,7 @@
             "sniff": true,
             "sniff_override_destination": true,
             "sniff_timeout": "300ms",
-            "domain_strategy": "prefer_ipv6",
+            "domain_strategy": "prefer_ipv4",
             "udp_disable_domain_unmapping": false
             
         },
@@ -291,7 +291,7 @@
             "sniff": true,
             "sniff_override_destination": true,
             "sniff_timeout": "300ms",
-            "domain_strategy": "prefer_ipv6",
+            "domain_strategy": "prefer_ipv4",
             "udp_disable_domain_unmapping": false,
             "set_system_proxy": false
         }
