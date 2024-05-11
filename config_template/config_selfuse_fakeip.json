@@ -8,7 +8,7 @@
         "servers": [
             {
                 "tag": "dns_proxy",
-                "address": "https://1.1.1.1/dns-query",
+                "address": "tcp://1.1.1.1",
                 "strategy": "prefer_ipv4",
                 "detour": "proxy"        
             },
@@ -27,11 +27,6 @@
             }
         ],
         "rules": [
-             {
-                "query_type": ["A", "AAAA"],
-                "server": "dns_fakeip",
-                "rewrite_ttl": 1
-            },
             {
                 "outbound": "any",
                 "server": "dns_direct"
@@ -41,10 +36,6 @@
             },
             {   "clash_mode": "Global",
                 "server": "dns_proxy"
-            },
-            {
-                "rule_set": "geosite-geolocation-cn",
-                "server": "dns_direct"
             },
             {
                 "type": "logical",
@@ -62,20 +53,38 @@
                 "client_subnet": "114.114.114.114"
             },
             {
+                "type": "logical",
+                "mode": "and",
+                "rules": [
+                    {
+                        "rule_set": "geosite-geolocation-cn",
+                    },
+                    {
+                        "geosite-cn"
+                    }
+                ],
+                "server": "dns_direct"
+            },
+            {
                 "rule_set": "geosite-category-ads-all",
                 "server": "dns_block"
+            },
+            {
+                "query_type": ["A", "AAAA"],
+                "server": "dns_fakeip",
+                "rewrite_ttl": 1
             }
         ],
-        "final": "dns_direct",
-        "strategy": "prefer_ipv4",
-        "disable_cache": false,
-        "disable_expire": false,
-        "independent_cache": false,
         "fakeip": {
             "enabled": true,
             "inet4_range": "198.18.0.0/15",
             "inet6_range": "fc00::/18"
-        }
+        },
+        "final": "dns_direct",
+        "strategy": "prefer_ipv4",
+        "disable_cache": false,
+        "disable_expire": false,
+        "independent_cache": false
     },
     "route": {
         "rules": [
