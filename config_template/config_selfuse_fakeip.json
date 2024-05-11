@@ -60,7 +60,7 @@
                         "rule_set": "geosite-geolocation-cn"
                     },
                     {
-                        "geosite-cn"
+                        "rule_set": "geosite-cn"
                     }
                 ],
                 "server": "dns_direct"
