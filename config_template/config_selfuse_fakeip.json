@@ -71,20 +71,28 @@
             },
             {
                 "query_type": ["A", "AAAA"],
+                "protocol": ["tls", "http", "quic"],
+                "ip_cidr": ["10.0.0.0/24", "192.168.0.0/16"],
+                "ip_is_private": false,
+                "port": [80, 443],
+                "clash_mode": "direct",
                 "server": "dns_fakeip",
+                "disable_cache": false,
+                "client_subnet": "127.0.0.1"
                 "rewrite_ttl": 1
             }
         ],
-        "fakeip": {
-            "enabled": true,
-            "inet4_range": "198.18.0.0/15",
-            "inet6_range": "fc00::/18"
-        },
         "final": "dns_direct",
         "strategy": "prefer_ipv4",
         "disable_cache": false,
         "disable_expire": false,
-        "independent_cache": false
+        "independent_cache": false,
+        "reverse_mapping": false,
+        "fakeip": {
+            "enabled": true,
+            "inet4_range": "198.18.0.0/15",
+            "inet6_range": "fc00::/18"
+        }
     },
     "route": {
         "rules": [
@@ -243,8 +251,13 @@
             "inet4_address": "172.16.0.1/30",
             "inet6_address": "fdfe:dcba:9876::1/126",
             "mtu": 9000,
+            "gso": false,
             "auto_route": true,
             "strict_route": true,
+            "inet4_route_address": ["0.0.0.0/1", "128.0.0.0/1"],
+            "inet6_route_address": ["::/1", "8000::/1"],
+            "inet4_route_exclude_address": ["192.168.0.0/16"],
+            "inet6_route_exclude_address": ["fc00::/7"],
             "endpoint_independent_nat": false,
             "stack": "system",
             "exclude_package": ["com.android.captiveportallogin"],
@@ -318,7 +331,7 @@
             "enabled": true,
             "path": "cache.db",
             "store_fakeip": false,
-            "store_rdrc": false
+            "store_rdrc": true
         },
         "clash_api": {
             "external_controller": "127.0.0.1:9090",
