@@ -1,7 +1,7 @@
 {
     "log": {
         "disabled": false,
-        "level": "error",
+        "level": "info",
         "timestamp": true
     },
     "dns": {
@@ -9,18 +9,14 @@
             {
                 "tag": "dns_proxy",
                 "address": "tcp://1.1.1.1",
-                "address_strategy": "ipv4_only",
                 "strategy": "prefer_ipv4",
-                "detour": "proxy",
-                "client_subnet": "8.8.8.8"
+                "detour": "proxy"        
             },
             {
                 "tag": "dns_direct",
                 "address": "https://223.5.5.5/dns-query",
-                "address_strategy": "ipv4_only",
                 "strategy": "prefer_ipv4",
-                "detour": "direct",
-                "client_subnet": "1.2.4.8"
+                "detour": "direct"
             },
             {
                 "tag": "dns_block",
@@ -31,27 +27,6 @@
             }
         ],
         "rules": [
-             {
-                "inbound": ["tun-in"],
-                "query_type": ["A", "AAAA"], 
-                "protocol": ["tls", "http", "quic"],
-                "source_ip_cidr": ["10.0.0.0/24", "192.168.0.0/16"],
-                "source_ip_is_private": true,
-                "ip_cidr": ["10.0.0.0/24", "192.168.0.0/16"],
-                "ip_is_private": true,
-                "source_port": [12345],
-                "source_port_range": ["1000:2000", ":3000", "4000:"],
-                "port": [80, 443],
-                "port_range": ["1000:2000", ":3000", "4000:"],
-                "rule_set": ["geoip-cn", "geosite-cn", "geosite-geolocation-cn"],
-                "rule_set_ipcidr_match_source": true,
-                "invert": false,
-                "outbound": ["direct"],
-                "server": "dns_fakeip",
-                "disable_cache": false,
-                "rewrite_ttl": 1,
-                "client_subnet": "127.0.0.1"
-            },
             {
                 "outbound": "any",
                 "server": "dns_direct"
@@ -61,10 +36,6 @@
             },
             {   "clash_mode": "Global",
                 "server": "dns_proxy"
-            },
-            {
-                "rule_set": "geosite-geolocation-cn",
-                "server": "dns_direct"
             },
             {
                 "type": "logical",
@@ -82,8 +53,33 @@
                 "client_subnet": "114.114.114.114"
             },
             {
+                "type": "logical",
+                "mode": "and",
+                "rules": [
+                    {
+                        "rule_set": "geosite-geolocation-cn"
+                    },
+                    {
+                        "rule_set": "geosite-cn"
+                    }
+                ],
+                "server": "dns_direct"
+            },
+            {
                 "rule_set": "geosite-category-ads-all",
                 "server": "dns_block"
+            },
+            {
+                "query_type": ["A", "AAAA"],
+                "protocol": ["tls", "http", "quic"],
+                "ip_cidr": ["10.0.0.0/24", "192.168.0.0/16"],
+                "ip_is_private": false,
+                "port": [80, 443],
+                "clash_mode": "direct",
+                "server": "dns_fakeip",
+                "disable_cache": false,
+                "client_subnet": "127.0.0.1",
+                "rewrite_ttl": 1
             }
         ],
         "final": "dns_direct",
@@ -91,8 +87,7 @@
         "disable_cache": false,
         "disable_expire": false,
         "independent_cache": false,
-        "reverse_mapping": true,
-        "client_subnet": "114.114.114.114",
+        "reverse_mapping": false,
         "fakeip": {
             "enabled": true,
             "inet4_range": "198.18.0.0/15",
@@ -156,6 +151,8 @@
                 "outbound": "block"
             }
         ],
+        "final": "proxy",
+        "auto_detect_interface": true,
         "rule_set": [
             {
                 "tag": "geoip-private",
@@ -245,15 +242,12 @@
                 "download_detour": "auto",
                 "update_interval": "1d"
             }
-        ],
-        "final": "proxy",
-        "auto_detect_interface": true
+        ]
     },
     "inbounds": [
         {
             "type": "tun",
             "tag": "tun-in",
-            "interface_name": "tun0",
             "inet4_address": "172.16.0.1/30",
             "inet6_address": "fdfe:dcba:9876::1/126",
             "mtu": 9000,
@@ -265,10 +259,8 @@
             "inet4_route_exclude_address": ["192.168.0.0/16"],
             "inet6_route_exclude_address": ["fc00::/7"],
             "endpoint_independent_nat": false,
-            "udp_timeout": "5m",
-            "stack": "mixed",
-            "exclude_package": [
-                "com.dianchou.dcw",
+            "stack": "system",
+            "exclude_package": ["com.android.captiveportallogin", "com.dianchou.dcw",
                 "com.jaemobird.mutongji",
                 "com.MobileTicket",
                 "com.tencent.mm",
@@ -276,9 +268,7 @@
                 "com.miui.cloudservice",
                 "com.miui.weather2",
                 "com.android.browser",
-                "com.iflytek.inputmethod",
-                "com.xiaomi.market"
-            ],
+                "com.iflytek.inputmethod"],
             "platform": {
                 "http_proxy": {
                     "enabled": true,
@@ -288,9 +278,7 @@
             },
             "sniff": true,
             "sniff_override_destination": true,
-            "sniff_timeout": "300ms",
-            "domain_strategy": "prefer_ipv6",
-            "udp_disable_domain_unmapping": true
+            "domain_strategy": "prefer_ipv6"
         },
         {
             "type": "mixed",
@@ -300,9 +288,7 @@
             "users": [],
             "sniff": true,
             "sniff_override_destination": true,
-            "sniff_timeout": "300ms",
-            "domain_strategy": "prefer_ipv6",
-            "set_system_proxy": false
+            "domain_strategy": "prefer_ipv6"
         }
     ],
     "outbounds": [
@@ -352,15 +338,15 @@
         "cache_file": {
             "enabled": true,
             "path": "cache.db",
-            "store_fakeip": true,
+            "store_fakeip": false,
             "store_rdrc": true
         },
         "clash_api": {
             "external_controller": "127.0.0.1:9090",
-            "external_ui": "ui",
-            "secret": "",
+            "external_ui": "ui",            
             "external_ui_download_url": "https://github.com/MetaCubeX/metacubexd/archive/refs/heads/gh-pages.zip",
             "external_ui_download_detour": "direct",
+            "secret": "",
             "default_mode": "Rule"
         }
     }
