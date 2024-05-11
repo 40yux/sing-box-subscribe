@@ -62,7 +62,14 @@
             },
             {
                 "query_type": ["A", "AAAA"],
+                "protocol": ["tls", "http", "quic"],
+                "ip_cidr": ["10.0.0.0/24", "192.168.0.0/16"],
+                "ip_is_private": false,
+                "port": [80, 443],
+                "clash_mode": "direct",
                 "server": "dns_fakeip",
+                "disable_cache": false,
+                "client_subnet": "127.0.0.1",
                 "rewrite_ttl": 1
             }
         ],
