@@ -37,8 +37,17 @@
             {   "clash_mode": "Global",
                 "server": "dns_proxy"
             },
-            {                
-                "rule_set": "geosite-geolocation-cn",
+            {
+                "type": "logical",
+                "mode": "and",
+                "rules": [
+                    {
+                        "rule_set": "geosite-geolocation-cn"
+                    },
+                    {
+                        "rule_set": "geosite-cn"
+                    }
+                ],
                 "server": "dns_direct"
             },
             {
