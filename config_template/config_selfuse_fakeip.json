@@ -39,7 +39,7 @@
             },
             {                
                 "rule_set": "geosite-geolocation-cn",
-                "server": "local"
+                "server": "dns_direct"
             },
             {
                 "type": "logical",
