@@ -57,7 +57,7 @@
                 "mode": "and",
                 "rules": [
                     {
-                        "rule_set": "geosite-geolocation-cn",
+                        "rule_set": "geosite-geolocation-cn"
                     },
                     {
                         "geosite-cn"
