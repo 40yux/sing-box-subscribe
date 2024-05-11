@@ -21,10 +21,8 @@
             {
                 "tag": "dns_block",
                 "address": "rcode://success"
-            },
-            {   "tag": "dns_fakeip",
-                "address": "fakeip"
             }
+         
         ],
         "rules": [
             {
