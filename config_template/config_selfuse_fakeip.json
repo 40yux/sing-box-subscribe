@@ -143,6 +143,8 @@
                 "outbound": "block"
             }
         ],
+        "final": "proxy",
+        "auto_detect_interface": true
         "rule_set": [
             {
                 "tag": "geoip-private",
@@ -232,9 +234,7 @@
                 "download_detour": "auto",
                 "update_interval": "1d"
             }
-        ],
-        "final": "proxy",
-        "auto_detect_interface": true
+        ]
     },
     "inbounds": [
         {
