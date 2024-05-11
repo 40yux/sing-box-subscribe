@@ -77,7 +77,6 @@
                 "port": [80, 443],
                 "clash_mode": "direct",
                 "server": "dns_fakeip",
-                "disable_cache": false,
                 "client_subnet": "127.0.0.1",
                 "rewrite_ttl": 1
             }
