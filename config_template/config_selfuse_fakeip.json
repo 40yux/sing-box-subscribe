@@ -21,8 +21,10 @@
             {
                 "tag": "dns_block",
                 "address": "rcode://success"
+            },
+            {   "tag": "dns_fakeip",
+                "address": "fakeip"
             }
-         
         ],
         "rules": [
             {
@@ -74,7 +76,7 @@
                 "ip_is_private": false,
                 "port": [80, 443],
                 "clash_mode": "direct",
-                "server": "dns_direct",
+                "server": "dns_fakeip",
                 "disable_cache": false,
                 "client_subnet": "127.0.0.1",
                 "rewrite_ttl": 1
@@ -87,7 +89,7 @@
         "independent_cache": false,
         "reverse_mapping": false,
         "fakeip": {
-            "enabled": false,
+            "enabled": true,
             "inet4_range": "198.18.0.0/15",
             "inet6_range": "fc00::/18"
         }
