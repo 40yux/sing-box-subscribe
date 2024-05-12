@@ -11,14 +11,14 @@
                 "address": "tcp://1.1.1.1",
                 "strategy": "prefer_ipv4",
                 "detour": "proxy",
-                "client_subnet": "8.8.8.8"
+                "client_subnet": "101.226.4.6"
             },
             {
                 "tag": "dns_direct",
-                "address": "https://223.5.5.5/dns-query",
+                "address": "https://223.6.6.6/dns-query",
                 "strategy": "prefer_ipv4",
                 "detour": "direct",
-                "client_subnet": "1.2.4.8"
+                "client_subnet": "218.30.118.6"
             },
             {
                 "tag": "dns_block",
