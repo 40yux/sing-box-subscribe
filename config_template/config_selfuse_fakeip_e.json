@@ -64,7 +64,7 @@
                         "rule_set": "geoip-cn"
                     }
                 ],
-                "server": "direct"
+                "server": "dns_direct"
             },
             {
                 "rule_set": "geosite-category-ads-all",
