@@ -64,8 +64,7 @@
                         "rule_set": "geoip-cn"
                     }
                 ],
-                "server": "dns_proxy",
-                "client_subnet": "114.114.114.114"
+                "server": "dns_direct"
             },
             {
                 "rule_set": "geosite-category-ads-all",
@@ -83,7 +82,7 @@
                 "rewrite_ttl": 1
             }
         ],
-        "final": "dns_direct",
+        "final": "dns_proxy",
         "strategy": "prefer_ipv4",
         "fakeip": {
             "enabled": true,
