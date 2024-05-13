@@ -271,7 +271,7 @@
                     "enabled": true,
                     "server": "127.0.0.1",
                     "server_port": 7890
-                }                
+                }
             },
             "sniff": true,
             "sniff_override_destination": true
@@ -338,7 +338,7 @@
         },
         "clash_api": {
             "external_controller": "127.0.0.1:9090",
-            "external_ui": "ui",            
+            "external_ui": "ui",
             "external_ui_download_url": "https://github.com/MetaCubeX/metacubexd/archive/refs/heads/gh-pages.zip",
             "external_ui_download_detour": "direct",
             "secret": "",
