@@ -77,7 +77,6 @@
                 "ip_is_private": false,
                 "port": [80, 443],
                 "rule_set_ipcidr_match_source": true,
-                "clash_mode": "direct",
                 "server": "dns_fakeip",
                 "rewrite_ttl": 1
             }
