@@ -71,12 +71,7 @@
                 "server": "dns_block"
             },
             {
-                "query_type": ["A", "AAAA"],
-                "protocol": ["tls", "http", "quic"],
-                "ip_cidr": ["10.0.0.0/24", "192.168.0.0/16"],
-                "ip_is_private": false,
-                "port": [80, 443],
-                "rule_set_ipcidr_match_source": true,
+                "query_type": ["A", "AAAA"],      
                 "server": "dns_fakeip",
                 "rewrite_ttl": 1
             }
