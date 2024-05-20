@@ -138,6 +138,14 @@
                 "outbound": "block"
             },
             {
+                "inbound": ["tun-in"],
+                "protocol": ["tls", "http", "quic"],
+                "ip_cidr": ["10.0.0.0/24"],
+                "ip_is_private": false,
+                "port": [80, 443],
+                "outbound": "direct"
+            },
+            {
                 "rule_set": ["geoip-google", "geosite-google", "geosite-github", "geoip-telegram", "geosite-bahamut"],
                 "outbound": "proxy"
             },
