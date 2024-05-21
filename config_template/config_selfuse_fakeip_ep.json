@@ -49,6 +49,8 @@
                     }
                 ],
                 "server": "dns_direct",
+                "disable_cache": false,
+                "rewrite_ttl": 1,
                 "client_subnet": "127.0.0.1/24"
             },
             {
@@ -64,6 +66,8 @@
                     }
                 ],
                 "server": "dns_direct",
+                "disable_cache": false,
+                "rewrite_ttl": 1,
                 "client_subnet": "127.0.0.1/24"
             },
             {
@@ -73,6 +77,7 @@
             {              
                 "query_type": ["A", "AAAA"],              
                 "server": "dns_fakeip",
+                "disable_cache": false,
                 "rewrite_ttl": 1
             }
         ],
@@ -87,6 +92,93 @@
             "inet6_range": "fc00::/18"
         }
     },
+    "inbounds": [
+        {
+            "type": "tun",
+            "tag": "tun-in",
+            "inet4_address": "172.16.0.1/30",
+            "inet6_address": "fdfe:dcba:9876::1/126",
+            "mtu": 1492,
+            "auto_route": true,
+            "strict_route": true,
+            "inet4_route_address": ["0.0.0.0/1", "128.0.0.0/1"],
+            "inet6_route_address": ["::/1", "8000::/1"],
+            "stack": "mixed",
+            "exclude_package": [
+                "com.android.captiveportallogin",
+                "com.dianchou.dcw",
+                "com.jaemobird.mutongji",
+                "com.MobileTicket",
+                "com.tencent.mm",
+                "com.tencent.mobileqq",
+                "com.miui.cloudservice",
+                "com.miui.weather2",
+                "com.android.browser",
+                "com.iflytek.inputmethod"
+            ],
+            "platform": {
+                "http_proxy": {
+                    "enabled": true,
+                    "server": "127.0.0.1",
+                    "server_port": 7890
+                }
+            },
+            "sniff": true,
+            "sniff_override_destination": true
+        },
+        {
+            "type": "mixed",
+            "tag": "mixed-in",
+            "listen": "127.0.0.1",
+            "listen_port": 7890,
+            "users": [],
+            "sniff": true,
+            "sniff_override_destination": true
+        }
+    ],
+    "outbounds": [
+        {
+            "tag": "proxy",
+            "type": "selector",
+            "outbounds": ["auto", "direct", "{all}"],
+            "default": "auto",
+            "interrupt_exist_connections": true
+        },
+        {
+            "tag": "auto",
+            "type": "urltest",
+            "outbounds": ["{all}"],
+            "filter": [{"action": "exclude", "keywords": ["网站|地址|剩余|过期|时间|有效"]}],
+            "url": "https://www.gstatic.com/generate_204",
+            "interval": "1m",
+            "tolerance": 50,
+            "idle_timeout": "30m",
+            "interrupt_exist_connections": true
+        },
+        {
+             "tag": "AdBlock",
+             "type": "selector",
+             "outbounds": ["block", "direct"]
+        },
+        {
+            "tag": "Others",
+            "type": "selector",
+            "outbounds": ["{all}", "proxy"],
+            "filter": [{"action": "exclude", "keywords": ["🇭🇰|HK|hk|香港|香|🇹🇼|TW|tw|台湾|台|🇸🇬|SG|sg|新加坡|狮|🇯🇵|JP|jp|日本|日|🇺🇸|US|us|美国|美|🇰🇷|KR|kr|韩国"]}]
+        },
+        {
+            "type": "direct",
+            "tag": "direct"
+        },
+        {
+            "type": "block",
+            "tag": "block"
+        },
+        {
+            "type": "dns",
+            "tag": "dns-out"
+        }
+    ],
     "route": {
         "rules": [
             {
@@ -236,96 +328,7 @@
                 "update_interval": "1d"
             }
         ]
-    },
-    "inbounds": [
-        {
-            "type": "tun",
-            "tag": "tun-in",
-            "inet4_address": "172.16.0.1/30",
-            "inet6_address": "fdfe:dcba:9876::1/126",
-            "mtu": 1492,
-            "auto_route": true,
-            "strict_route": true,
-            "inet4_route_address": ["0.0.0.0/1", "128.0.0.0/1"],
-            "inet6_route_address": ["::/1", "8000::/1"],
-            "inet4_route_exclude_address": ["192.168.0.0/16"],
-            "inet6_route_exclude_address": ["fc00::/7"],
-            "stack": "mixed",
-            "exclude_package": [
-                "com.android.captiveportallogin",
-                "com.dianchou.dcw",
-                "com.jaemobird.mutongji",
-                "com.MobileTicket",
-                "com.tencent.mm",
-                "com.tencent.mobileqq",
-                "com.miui.cloudservice",
-                "com.miui.weather2",
-                "com.android.browser",
-                "com.iflytek.inputmethod"
-            ],
-            "platform": {
-                "http_proxy": {
-                    "enabled": true,
-                    "server": "127.0.0.1",
-                    "server_port": 7890
-                }
-            },
-            "sniff": true,
-            "sniff_override_destination": true
-        },
-        {
-            "type": "mixed",
-            "tag": "mixed-in",
-            "listen": "127.0.0.1",
-            "listen_port": 7890,
-            "users": [],
-            "sniff": true,
-            "sniff_override_destination": true
-        }
-    ],
-    "outbounds": [
-        {
-            "tag": "proxy",
-            "type": "selector",
-            "outbounds": ["auto", "direct", "{all}"],
-            "default": "auto",
-            "interrupt_exist_connections": true
-        },
-        {
-            "tag": "auto",
-            "type": "urltest",
-            "outbounds": ["{all}"],
-            "filter": [{"action": "exclude", "keywords": ["网站|地址|剩余|过期|时间|有效"]}],
-            "url": "https://www.gstatic.com/generate_204",
-            "interval": "1m",
-            "tolerance": 50,
-            "idle_timeout": "30m",
-            "interrupt_exist_connections": true
-        },
-        {
-             "tag": "AdBlock",
-             "type": "selector",
-             "outbounds": ["block", "direct"]
-        },
-        {
-            "tag": "Others",
-            "type": "selector",
-            "outbounds": ["{all}", "proxy"],
-            "filter": [{"action": "exclude", "keywords": ["🇭🇰|HK|hk|香港|香|🇹🇼|TW|tw|台湾|台|🇸🇬|SG|sg|新加坡|狮|🇯🇵|JP|jp|日本|日|🇺🇸|US|us|美国|美|🇰🇷|KR|kr|韩国"]}]
-        },
-        {
-            "type": "direct",
-            "tag": "direct"
-        },
-        {
-            "type": "block",
-            "tag": "block"
-        },
-        {
-            "type": "dns",
-            "tag": "dns-out"
-        }
-    ],
+    },  
     "experimental": {
         "cache_file": {
             "enabled": true,
