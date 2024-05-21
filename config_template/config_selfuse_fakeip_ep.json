@@ -75,7 +75,7 @@
                 "server": "dns_block"
             },
             {              
-                "query_type": ["A", "AAAA"],              
+                "query_type": ["A", "AAAA"],
                 "server": "dns_fakeip",
                 "disable_cache": false,
                 "rewrite_ttl": 1
@@ -328,7 +328,7 @@
                 "update_interval": "1d"
             }
         ]
-    },  
+    },
     "experimental": {
         "cache_file": {
             "enabled": true,
