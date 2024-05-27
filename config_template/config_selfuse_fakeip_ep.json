@@ -152,6 +152,7 @@
             "url": "https://www.gstatic.com/generate_204",
             "interval": "30s",
             "tolerance": 50,
+            "connect_timeout": "5s",
             "idle_timeout": "30m",
             "interrupt_exist_connections": true
         },
