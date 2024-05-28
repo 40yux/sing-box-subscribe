@@ -128,7 +128,7 @@
                 "http_proxy": {
                     "enabled": true,
                     "server": "127.0.0.1",
-                    "server_port": 7890
+                    "server_port": 8080
                 }
             },
             "sniff": true,
@@ -137,8 +137,8 @@
         {
             "type": "mixed",
             "tag": "mixed-in",
-            "listen": "127.0.0.1",
-            "listen_port": 7890,
+            "listen": "::",
+            "listen_port": 5353,
             "users": [],
             "sniff": true,
             "sniff_override_destination": true
