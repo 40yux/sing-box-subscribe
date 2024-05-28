@@ -8,14 +8,22 @@
         "servers": [
             {
                 "tag": "dns_proxy",
-                "address": "tls://8.8.8.8",
+                "address": "https://dns.google/dns-query",
+                "address_resolver": "dns_resolver",
                 "strategy": "prefer_ipv4",
                 "detour": "proxy"
             },
             {
                 "tag": "dns_direct",
-                "address": "https://223.5.5.5/dns-query",
+                "address": "https://dns.alidns.com/dns-query",
+                "address_resolver": "dns_resolver",
                 "strategy": "prefer_ipv4",
+                "detour": "direct"
+            },
+            {
+                "tag": "dns_resolver",
+                "address": "101.226.4.6",
+                "strategy": "ipv4_only",
                 "detour": "direct"
             },
             {
@@ -29,7 +37,7 @@
         "rules": [
             {
                 "outbound": "any",
-                "server": "dns_direct"
+                "server": "dns_resolver"
             },
             {   "clash_mode": "Direct",
                 "server": "dns_direct"
@@ -103,7 +111,7 @@
             "strict_route": true,
             "inet4_route_address": ["0.0.0.0/1", "128.0.0.0/1"],
             "inet6_route_address": ["::/1", "8000::/1"],
-            "stack": "mixed",
+            "stack": "mixed",           
             "platform": {
                 "http_proxy": {
                     "enabled": true,
