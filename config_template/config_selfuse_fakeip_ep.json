@@ -25,6 +25,7 @@
                 "address": "101.226.4.6",
                 "strategy": "ipv4_only",
                 "detour": "direct"
+            },
             {
                 "tag": "dns_block",
                 "address": "rcode://success"
