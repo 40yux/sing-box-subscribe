@@ -8,13 +8,13 @@
         "servers": [
             {
                 "tag": "dns_proxy",
-                "address": "tls://8.8.8.8",
+                "address": "tls://8.8.4.4",
                 "strategy": "prefer_ipv4",
                 "detour": "proxy"
             },
             {
                 "tag": "dns_direct",
-                "address": "https://1.12.12.12/dns-query",
+                "address": "https://223.6.6.6/dns-query",
                 "strategy": "prefer_ipv4",
                 "detour": "direct"
             },
