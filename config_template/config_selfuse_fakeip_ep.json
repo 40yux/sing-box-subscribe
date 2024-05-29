@@ -121,7 +121,6 @@
                 "com.tencent.mobileqq",
                 "com.miui.cloudservice",
                 "com.miui.weather2",
-                "com.android.browser",
                 "com.iflytek.inputmethod"
             ],
             "platform": {
