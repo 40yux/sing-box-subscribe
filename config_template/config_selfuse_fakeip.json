@@ -115,8 +115,8 @@
             "platform": {
                 "http_proxy": {
                     "enabled": true,
-                    "server": "0.0.0.0",
-                    "server_port": 5353
+                    "server": "127.0.0.1",
+                    "server_port": 7890
                 }
             },
             "sniff": true,
@@ -125,8 +125,8 @@
         {
             "type": "mixed",
             "tag": "mixed-in",
-            "listen": "::",
-            "listen_port": 5353,
+            "listen": "0.0.0.0",
+            "listen_port": 7890,
             "users": [],
             "sniff": true,
             "sniff_override_destination": true
