@@ -345,7 +345,8 @@
             "enabled": true,
             "path": "cache.db",
             "store_fakeip": true,
-            "store_rdrc": true
+            "store_rdrc": true,
+            "rdrc_timeout": ""
         },
         "clash_api": {
             "external_controller": "127.0.0.1:9090",
