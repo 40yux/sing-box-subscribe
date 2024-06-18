@@ -111,8 +111,6 @@
             "auto_route": true,
             "strict_route": true,
             "auto_redirect": false,
-            "inet4_route_address": ["0.0.0.0/1", "128.0.0.0/1"],
-            "inet6_route_address": ["::/1", "8000::/1"],
             "stack": "mixed",
             "exclude_package": [
                 "com.android.captiveportallogin",
