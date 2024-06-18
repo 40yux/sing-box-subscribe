@@ -114,6 +114,10 @@
             "auto_redirect": false,
             "route_address": ["0.0.0.0/1", "128.0.0.0/1", "::/1", "8000::/1"],
             "route_exclude_address": ["192.168.0.0/16", "fc00::/7"],
+            "route_address_set": ["geoip-cloudflare"],
+            "route_exclude_address_set": ["geoip-cn"],
+            "endpoint_independent_nat": false,
+            "udp_timeout": "5m",
             "stack": "mixed",
             "platform": {
                 "http_proxy": {
@@ -283,6 +287,14 @@
                 "type": "remote",
                 "format": "binary",
                 "url": "https://raw.githubusercontent.com/lyc8503/sing-box-rules/rule-set-geosite/geosite-bahamut.srs",
+                "download_detour": "auto",
+                "update_interval": "1d"
+            },
+            {
+                "tag": "geoip-cloudflare",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://raw.githubusercontent.com/lyc8503/sing-box-rules/rule-set-geoip/geoip-cloudflare.srs",
                 "download_detour": "auto",
                 "update_interval": "1d"
             },
