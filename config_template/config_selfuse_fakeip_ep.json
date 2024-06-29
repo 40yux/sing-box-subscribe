@@ -101,7 +101,6 @@
                 "rule_set_ip_cidr_match_source": false,
                 "rule_set_ip_cidr_accept_empty": false,
                 "invert": false,
-                "outbound": ["direct"],
                 "server": "dns_fakeip",
                 "disable_cache": false,
                 "rewrite_ttl": 1
