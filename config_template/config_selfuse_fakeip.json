@@ -82,7 +82,7 @@
                 "rule_set": "geosite-category-ads-all",
                 "server": "dns_block"
             },
-            {              
+            {
                 "query_type": ["A", "AAAA"],
                 "server": "dns_fakeip",
                 "disable_cache": false,
@@ -110,8 +110,12 @@
             "mtu": 1492,
             "gso": false,
             "auto_route": true,
-            "strict_route": true,
+            "iproute2_table_index": 2022,
+            "iproute2_rule_index": 9000,
             "auto_redirect": false,
+            "auto_redirect_input_mark": "0x2023",
+            "auto_redirect_output_mark": "0x2024",
+            "strict_route": true,            
             "route_address": ["0.0.0.0/1", "128.0.0.0/1", "::/1", "8000::/1"],
             "route_exclude_address": ["192.168.0.0/16", "fc00::/7"],
             "route_address_set": ["geoip-cloudflare"],
@@ -119,6 +123,9 @@
             "endpoint_independent_nat": false,
             "udp_timeout": "5m",
             "stack": "mixed",
+            "exclude_package": [
+                "com.android.captiveportallogin"
+            ],
             "platform": {
                 "http_proxy": {
                     "enabled": true,
@@ -184,6 +191,23 @@
     ],
     "route": {
         "rules": [
+            {
+                "inbound": ["tun-in"],
+                "network": ["tcp"],
+                "protocol": ["tls", "http", "quic"],
+                "source_ip_cidr": ["10.0.0.0/24"],
+                "source_ip_is_private": false,
+                "ip_cidr": ["10.0.0.0/24"],
+                "ip_is_private": false,
+                "source_port": [12345],
+                "source_port_range": ["1000:2000", ":3000", "4000:"],
+                "port": [80, 443],
+                "port_range": ["1000:2000", ":3000", "4000:"],
+                "rule_set": ["geoip-cn", "geosite-cn"],
+                "rule_set_ip_cidr_match_source": false,
+                "invert": false,
+                "outbound": "direct"
+            },
             {
                 "type": "logical",
                 "mode": "or",
