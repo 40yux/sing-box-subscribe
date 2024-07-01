@@ -200,23 +200,6 @@
     "route": {
         "rules": [
             {
-                "inbound": ["tun-in"],
-                "network": ["tcp"],
-                "protocol": ["tls", "http", "quic"],
-                "source_ip_cidr": ["10.0.0.0/24"],
-                "source_ip_is_private": false,
-                "ip_cidr": ["10.0.0.0/24"],
-                "ip_is_private": false,
-                "source_port": [12345],
-                "source_port_range": ["1000:2000", ":3000", "4000:"],
-                "port": [80, 443],
-                "port_range": ["1000:2000", ":3000", "4000:"],
-                "rule_set": ["geoip-cn", "geosite-cn"],
-                "rule_set_ip_cidr_match_source": false,
-                "invert": false,
-                "outbound": "direct"
-            },
-            {
                 "type": "logical",
                 "mode": "or",
                 "rules": [
