@@ -117,7 +117,7 @@
             "route_exclude_address": ["192.168.0.0/16", "fc00::/7"],
             "endpoint_independent_nat": false,
             "udp_timeout": "5m",
-            "stack": "mixed",
+            "stack": "system",
             "exclude_package": [
                 "com.android.captiveportallogin",
                 "com.dianchou.dcw",
