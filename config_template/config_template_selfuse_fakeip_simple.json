@@ -29,6 +29,9 @@
             {
                 "tag": "dns_block",
                 "address": "rcode://success"
+            },
+            {   "tag": "dns_fakeip",
+                "address": "fakeip"
             }
         ],
         "rules": [
@@ -43,21 +46,9 @@
                 "server": "dns_proxy"
             },
             {
-                "type": "logical",
-                "mode": "and",
-                "rules": [
-                    {
-                        "rule_set": "geosite-geolocation-cn"
-                    },
-                    {
-                        "rule_set": "geosite-cn"
-                    }
-                ],
-                "server": "dns_direct",
-                "disable_cache": false,
-                "client_subnet": "114.114.114.114/24",
-                "rewrite_ttl": 1
-            },
+                "rule_set": "geosite-geolocation-cn",
+                "server": "dns_direct"
+            },            
             {
                 "type": "logical",
                 "mode": "and",
@@ -70,23 +61,26 @@
                         "rule_set": "geoip-cn"
                     }
                 ],
-                "server": "dns_proxy",
-                "disable_cache": false,                
-                "client_subnet": "114.114.114.114/24",
-                "rewrite_ttl": 1
+                "server": "dns_proxy",          
+                "client_subnet": "114.114.114.114/24"
             },
             {
                 "rule_set": "geosite-category-ads-all",
                 "server": "dns_block"
+            },
+            {
+                "query_type": ["A", "AAAA"],
+                "server": "dns_fakeip"               
             }
         ],
         "final": "dns_proxy",
-        "strategy": "prefer_ipv4",
-        "disable_cache": false,
-        "disable_expire": false,
-        "independent_cache": false,
-        "reverse_mapping": false,
-        "client_subnet": "114.114.114.114/24"
+        "strategy": "prefer_ipv4",       
+        "client_subnet": "114.114.114.114/24",
+        "fakeip": {
+            "enabled": true,
+            "inet4_range": "198.18.0.0/15",
+            "inet6_range": "fc00::/18"
+        }
     },
     "inbounds": [
         {
@@ -95,9 +89,7 @@
             "address": ["172.18.0.1/30", "fdfe:dcba:9876::1/126"],
             "mtu": 1492,
             "gso": false,
-            "auto_route": true,
-            "iproute2_table_index": 2022,
-            "iproute2_rule_index": 9000,
+            "auto_route": true            
             "strict_route": true,
             "route_address": ["0.0.0.0/1", "128.0.0.0/1", "::/1", "8000::/1"],
             "route_exclude_address": ["192.168.0.0/16", "fc00::/7"],
@@ -105,7 +97,14 @@
             "udp_timeout": "5m",
             "stack": "mixed",
             "exclude_package": [
-                "com.android.captiveportallogin"
+                "com.android.captiveportallogin",
+                "com.dianchou.dcw",
+                "com.jaemobird.mutongji",
+                "com.MobileTicket",
+                "com.tencent.mm",
+                "com.tencent.mobileqq",
+                "com.miui.cloudservice",
+                "com.miui.weather2"                
             ],
             "platform": {
                 "http_proxy": {
@@ -213,13 +212,9 @@
                     }
                 ],
                 "outbound": "block"
-            },
+            },            
             {
-                "rule_set": ["geoip-google", "geosite-google", "geosite-github", "geoip-telegram", "geosite-bahamut"],
-                "outbound": "proxy"
-            },
-            {
-                "rule_set": ["geoip-cn", "geosite-cn", "geosite-geolocation-cn", "geoip-private"],
+                "rule_set": ["geoip-cn", "geosite-geolocation-cn"],
                 "outbound": "direct"
             },
             {
@@ -229,60 +224,12 @@
         ],
         "final": "proxy",
         "auto_detect_interface": true,
-        "rule_set": [
+        "rule_set": [            
             {
-                "tag": "geoip-private",
+                "tag": "geosite-geolocation-cn",
                 "type": "remote",
                 "format": "binary",
-                "url": "https://raw.githubusercontent.com/lyc8503/sing-box-rules/rule-set-geoip/geoip-private.srs",
-                "download_detour": "auto",
-                "update_interval": "1d"
-            },
-            {
-                "tag": "geoip-google",
-                "type": "remote",
-                "format": "binary",
-                "url": "https://raw.githubusercontent.com/lyc8503/sing-box-rules/rule-set-geoip/geoip-google.srs",
-                "download_detour": "auto",
-                "update_interval": "1d"
-            },
-            {
-                "tag": "geosite-google",
-                "type": "remote",
-                "format": "binary",
-                "url": "https://raw.githubusercontent.com/lyc8503/sing-box-rules/rule-set-geosite/geosite-google.srs",
-                "download_detour": "auto",
-                "update_interval": "1d"
-            },
-            {
-                "tag": "geoip-telegram",
-                "type": "remote",
-                "format": "binary",
-                "url": "https://raw.githubusercontent.com/lyc8503/sing-box-rules/rule-set-geoip/geoip-telegram.srs",
-                "download_detour": "auto",
-                "update_interval": "1d"
-            },
-            {
-                "tag": "geosite-github",
-                "type": "remote",
-                "format": "binary",
-                "url": "https://raw.githubusercontent.com/lyc8503/sing-box-rules/rule-set-geosite/geosite-github.srs",
-                "download_detour": "auto",
-                "update_interval": "1d"
-            },
-            {
-                "tag": "geosite-bahamut",
-                "type": "remote",
-                "format": "binary",
-                "url": "https://raw.githubusercontent.com/lyc8503/sing-box-rules/rule-set-geosite/geosite-bahamut.srs",
-                "download_detour": "auto",
-                "update_interval": "1d"
-            },
-            {
-                "tag": "geoip-cloudflare",
-                "type": "remote",
-                "format": "binary",
-                "url": "https://raw.githubusercontent.com/lyc8503/sing-box-rules/rule-set-geoip/geoip-cloudflare.srs",
+                "url": "https://raw.githubusercontent.com/lyc8503/sing-box-rules/rule-set-geosite/geosite-geolocation-cn.srs",
                 "download_detour": "auto",
                 "update_interval": "1d"
             },
@@ -293,23 +240,7 @@
                 "url": "https://raw.githubusercontent.com/lyc8503/sing-box-rules/rule-set-geosite/geosite-geolocation-!cn.srs",
                 "download_detour": "auto",
                 "update_interval": "1d"
-            },
-            {
-                "tag": "geosite-geolocation-cn",
-                "type": "remote",
-                "format": "binary",
-                "url": "https://raw.githubusercontent.com/lyc8503/sing-box-rules/rule-set-geosite/geosite-geolocation-cn.srs",
-                "download_detour": "auto",
-                "update_interval": "1d"
-            },
-            {
-                "tag": "geosite-cn",
-                "type": "remote",
-                "format": "binary",
-                "url": "https://raw.githubusercontent.com/lyc8503/sing-box-rules/rule-set-geosite/geosite-cn.srs",
-                "download_detour": "auto",
-                "update_interval": "1d"
-            },
+            },            
             {
                 "tag": "geoip-cn",
                 "type": "remote",
@@ -332,7 +263,7 @@
         "cache_file": {
             "enabled": true,
             "path": "cache.db",
-            "store_fakeip": false,
+            "store_fakeip": true,
             "store_rdrc": true,
             "rdrc_timeout": "7d"
         },
