@@ -39,10 +39,6 @@
         ],
         "rules": [
             {
-                "rule_set": "geosite-category-ads-all",
-                "server": "dns_block"
-            },
-            {
                 "outbound": "any",
                 "server": "dns_resolver"
             },
@@ -51,6 +47,10 @@
             },
             {   "clash_mode": "Global",
                 "server": "dns_proxy"
+            },
+            {
+                "rule_set": "geosite-category-ads-all",
+                "server": "dns_block"
             },
             {
                 "rule_set": "geosite-geolocation-cn",
