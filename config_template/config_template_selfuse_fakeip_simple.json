@@ -215,19 +215,27 @@
                     }
                 ],
                 "outbound": "block"
-            },            
-            {
-                "rule_set": ["geoip-cn", "geosite-geolocation-cn"],
-                "outbound": "direct"
             },
             {
                 "rule_set": "geosite-category-ads-all",
                 "outbound": "block"
+            },
+            {
+                "rule_set": ["geoip-cn", "geosite-geolocation-cn"],
+                "outbound": "direct"
             }
         ],
         "final": "proxy",
         "auto_detect_interface": true,
-        "rule_set": [            
+        "rule_set": [
+            {
+                "tag": "geosite-category-ads-all",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://raw.githubusercontent.com/lyc8503/sing-box-rules/rule-set-geosite/geosite-category-ads-all.srs",
+                "download_detour": "auto",
+                "update_interval": "1d"
+            },
             {
                 "tag": "geosite-geolocation-cn",
                 "type": "remote",
@@ -249,14 +257,6 @@
                 "type": "remote",
                 "format": "binary",
                 "url": "https://raw.githubusercontent.com/lyc8503/sing-box-rules/rule-set-geoip/geoip-cn.srs",
-                "download_detour": "auto",
-                "update_interval": "1d"
-            },
-            {
-                "tag": "geosite-category-ads-all",
-                "type": "remote",
-                "format": "binary",
-                "url": "https://raw.githubusercontent.com/lyc8503/sing-box-rules/rule-set-geosite/geosite-category-ads-all.srs",
                 "download_detour": "auto",
                 "update_interval": "1d"
             }
