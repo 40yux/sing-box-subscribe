@@ -39,6 +39,10 @@
         ],
         "rules": [
             {
+                "rule_set": "geosite-category-ads-all",
+                "server": "dns_block"
+            },
+            {
                 "outbound": "any",
                 "server": "dns_resolver"
             },
@@ -66,10 +70,6 @@
                 ],
                 "server": "dns_proxy",          
                 "client_subnet": "114.114.114.114/24"
-            },
-            {
-                "rule_set": "geosite-category-ads-all",
-                "server": "dns_block"
             },
             {
                 "query_type": ["A", "AAAA"],
