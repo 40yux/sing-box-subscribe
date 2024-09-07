@@ -19,7 +19,7 @@
                 "address_resolver": "dns_resolver",
                 "strategy": "prefer_ipv4",
                 "detour": "direct"
-            },            
+            },
             {
                 "tag": "dns_block",
                 "address": "quic://dns.adguard.com",
@@ -55,7 +55,7 @@
             {
                 "rule_set": "geosite-geolocation-cn",
                 "server": "dns_direct"
-            },            
+            },
             {
                 "type": "logical",
                 "mode": "and",
@@ -97,8 +97,7 @@
             "route_address": ["0.0.0.0/1", "128.0.0.0/1", "::/1", "8000::/1"],
             "route_exclude_address": ["192.168.0.0/16", "fc00::/7"],
             "endpoint_independent_nat": false,
-            "udp_timeout": "5m",
-            "stack": "mixed",
+            "stack": "system",
             "exclude_package": [
                 "com.android.captiveportallogin",
                 "com.dianchou.dcw",
@@ -251,7 +250,7 @@
                 "url": "https://raw.githubusercontent.com/lyc8503/sing-box-rules/rule-set-geosite/geosite-geolocation-!cn.srs",
                 "download_detour": "auto",
                 "update_interval": "1d"
-            },            
+            },
             {
                 "tag": "geoip-cn",
                 "type": "remote",
