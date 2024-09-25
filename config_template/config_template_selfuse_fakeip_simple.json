@@ -15,7 +15,7 @@
             },
             {
                 "tag": "dns_direct",
-                "address": "https://doh.pub/dns-query",
+                "address": "https://dns.alidns.com/dns-query",
                 "address_resolver": "dns_resolver",
                 "strategy": "prefer_ipv4",
                 "detour": "direct"
