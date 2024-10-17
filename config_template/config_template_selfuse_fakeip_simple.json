@@ -24,7 +24,8 @@
                 "tag": "dns_block",
                 "address": "quic://dns.adguard.com",
                 "address_resolver": "dns_resolver",
-                "strategy": "prefer_ipv4"
+                "strategy": "prefer_ipv4",
+"detour": "block"
             },
             {
                 "tag": "dns_resolver",
