@@ -28,7 +28,8 @@
             {
                 "tag": "dns_resolver",
                 "address": "101.226.4.6",
-                "strategy": "ipv4_only"
+                "strategy": "ipv4_only",
+"detour": "direct"
             },
             {   "tag": "dns_fakeip",
                 "address": "fakeip"
