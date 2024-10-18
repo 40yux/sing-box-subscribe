@@ -10,8 +10,7 @@
                 "tag": "dns_proxy",
                 "address": "https://dns.cloudflare.com/dns-query",
                 "address_resolver": "dns_resolver",
-                "strategy": "prefer_ipv4",
-                "detour": "proxy"
+                "strategy": "prefer_ipv4"
             },
             {
                 "tag": "dns_direct",
@@ -197,7 +196,7 @@
             },
             {
                 "clash_mode": "Global",
-                "outbound": "proxy"
+                "outbound": "default"
             },
             {
                 "type": "logical",
