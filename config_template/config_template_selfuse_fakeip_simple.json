@@ -11,7 +11,7 @@
                 "address": "https://dns.cloudflare.com/dns-query",
                 "address_resolver": "dns_resolver",
                 "strategy": "prefer_ipv4",
-"detour": "proxy"
+                "detour": "proxy"
             },
             {
                 "tag": "dns_direct",
@@ -25,13 +25,13 @@
                 "address": "quic://dns.adguard.com",
                 "address_resolver": "dns_resolver",
                 "strategy": "prefer_ipv4",
-"detour": "block"
+                "detour": "block"
             },
             {
                 "tag": "dns_resolver",
                 "address": "101.226.4.6",
                 "strategy": "ipv4_only",
-"detour": "direct"
+                "detour": "direct"
             },
             {   "tag": "dns_fakeip",
                 "address": "fakeip"
