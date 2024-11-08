@@ -153,11 +153,6 @@
             "interrupt_exist_connections": true
         },
         {
-             "tag": "AdBlock",
-             "type": "selector",
-             "outbounds": ["block", "direct"]
-        },
-        {
             "tag": "Others",
             "type": "selector",
             "outbounds": ["{all}", "proxy"],
