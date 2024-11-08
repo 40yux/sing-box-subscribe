@@ -112,8 +112,7 @@
                 "com.tencent.mm",
                 "com.tencent.mobileqq",
                 "com.miui.cloudservice",
-                "com.miui.weather2",
-                "com.global.xddq.t3p"
+                "com.miui.weather2"
             ],
             "platform": {
                 "http_proxy": {
