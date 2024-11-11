@@ -158,15 +158,20 @@
     "route": {
         "rules": [
             {
+                "inbound": "tun-in",
+                "action": "sniff",
+                "sniffer": [ "dns", "bittorrent", "http", "tls", "quic", "dtls"],
+                "timeout": "1s"
+            },
+            {
                 "inbound": "in",
                 "action": "resolve",
                 "strategy": "prefer_ipv4"
             },
             {
-                "inbound": "tun-in",
+                "inbound": "in",
                 "action": "sniff",
-                "sniffer": [ "dns", "bittorrent", "http", "tls", "quic", "dtls"],
-                "timeout": "1s"
+                 "timeout": "1s" 
             },
             {
                 "protocol": "dns",
