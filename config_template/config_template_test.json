@@ -98,7 +98,6 @@
             "stack": "system",
             "exclude_package": [
                 "com.android.captiveportallogin",
-                "com.dianchou.dcw",
                 "com.jaemobird.mutongji",
                 "com.MobileTicket",
                 "com.tencent.mm",
