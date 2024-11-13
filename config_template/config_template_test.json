@@ -159,9 +159,7 @@
         "rules": [
             {
                 "inbound": "tun-in",
-                "action": "sniff",
-                "sniffer": [ "dns", "bittorrent", "http", "tls", "quic", "dtls"],
-                "timeout": "1s"
+                "action": "sniff"
             },
             {
                 "inbound": "in",
@@ -171,7 +169,7 @@
             {
                 "inbound": "in",
                 "action": "sniff",
-                 "timeout": "1s" 
+                "timeout": "1s" 
             },
             {
                 "protocol": "dns",
