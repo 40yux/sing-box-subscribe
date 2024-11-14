@@ -173,7 +173,7 @@
             },
             {
                 "action": "sniff"
-            }，
+            },
             {
                 "protocol": "dns",
                 "action": "hijack-dns"
