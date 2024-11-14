@@ -158,10 +158,6 @@
     "route": {
         "rules": [
             {
-                "inbound": "tun-in",
-                "action": "sniff"
-            },
-            {
                 "inbound": "in",
                 "action": "resolve",
                 "strategy": "prefer_ipv4"
