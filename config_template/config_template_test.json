@@ -149,10 +149,6 @@
             "type": "selector",
             "outbounds": ["{all}", "proxy"],
             "filter": [{"action": "exclude", "keywords": ["🇭🇰|HK|hk|香港|香|🇹🇼|TW|tw|台湾|台|🇸🇬|SG|sg|新加坡|狮|🇯🇵|JP|jp|日本|日|🇺🇸|US|us|美国|美|🇰🇷|KR|kr|韩国"]}]
-        },
-        {
-            "type": "direct",
-            "tag": "direct"
         }
     ],
     "route": {
@@ -205,6 +201,11 @@
                     }
                 ],
                 "action": "reject"
+            },
+            {
+                "action": "route-options",
+                "override_address": "1.1.1.1",
+                "override_port": 443
             },
             {
                 "rule_set": "geosite-category-ads-all",
