@@ -208,11 +208,6 @@
                 "action": "reject"
             },
             {
-                "action": "route-options",
-                "override_address": "1.1.1.1",
-                "override_port": 443
-            },
-            {
                 "rule_set": "geosite-category-ads-all",
                 "action": "reject",
                 "method": "default",
@@ -222,6 +217,11 @@
                 "rule_set": ["geoip-cn", "geosite-geolocation-cn"],
                 "action": "route",
                 "outbound": "direct"
+            },
+            {
+                "action": "route-options",
+                "override_address": "1.1.1.1",
+                "override_port": 443
             }
         ],
         "final": "proxy",
