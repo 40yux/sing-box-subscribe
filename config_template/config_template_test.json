@@ -66,8 +66,8 @@
                         "rule_set": "geoip-cn"
                     }
                 ],
-                "server": "dns_proxy",
                 "action": "route"
+                "server": "dns_proxy"
             },
             {
                 "query_type": ["A", "AAAA"],
