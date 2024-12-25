@@ -93,7 +93,7 @@
             "auto_route": true,
             "iproute2_table_index": 2022,
             "iproute2_rule_index": 9000,
-            "auto_redirect": true,
+            "auto_redirect": false,
             "auto_redirect_input_mark": "0x2023",
             "auto_redirect_output_mark": "0x2024",
             "strict_route": true,
