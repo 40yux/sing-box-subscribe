@@ -159,7 +159,7 @@
         },
         {
             "type": "direct",
-            "tag": "direct"            
+            "tag": "direct"
         }
     ],
     "route": {
@@ -172,7 +172,7 @@
             {
                 "inbound": "in",
                 "action": "sniff",
-                "timeout": "1s" 
+                "timeout": "1s"
             },
             {
                 "action": "sniff"
