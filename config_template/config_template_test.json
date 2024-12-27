@@ -223,6 +223,11 @@
                 "rule_set": ["geoip-cn", "geosite-geolocation-cn"],
                 "action": "route",
                 "outbound": "direct"
+            },
+            {
+                "rule_set": ["geoip-telegram", "geosite-geolocation-!cn"],
+                "action": "route",
+                "outbound": "proxy"
             }
         ],
         "final": "proxy",
