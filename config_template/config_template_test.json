@@ -223,11 +223,6 @@
                 "rule_set": ["geoip-cn", "geosite-geolocation-cn"],
                 "action": "route",
                 "outbound": "direct"
-            },
-            {
-                "rule_set": ["geoip-telegram", "geosite-geolocation-!cn"],
-                "action": "route",
-                "outbound": "proxy"
             }
         ],
         "final": "proxy",
@@ -238,14 +233,6 @@
                 "type": "remote",
                 "format": "binary",
                 "url": "https://github.com/lyc8503/sing-box-rules/raw/refs/heads/rule-set-geosite/geosite-category-ads-all.srs",
-                "download_detour": "auto",
-                "update_interval": "1d"
-            },
-            {
-                "tag": "geoip-telegram",
-                "type": "remote",
-                "format": "binary",
-                "url": "https://github.com/lyc8503/sing-box-rules/raw/refs/heads/rule-set-geoip/geoip-telegram.srs",
                 "download_detour": "auto",
                 "update_interval": "1d"
             },
