@@ -167,7 +167,7 @@
         "rules": [
             {
                 "inbound": "in",
-                "action": "dns_resolve",
+                "action": "dns_resolver",
                 "strategy": "prefer_ipv4"
             },
             {
