@@ -40,7 +40,7 @@
             {
                 "outbound": "any",
                 "action": "route",
-                "server": "dns_resolver"
+                "server": "resolver"
             },
             {   "clash_mode": "Direct",
                 "action": "route",
