@@ -8,25 +8,32 @@
         "servers": [
             {
                 "tag": "dns_proxy",
-                "address": "https://dns.cloudflare.com/dns-query",
-                "address_resolver": "dns_resolver",
+                "type": "https",
+                "server": "dns.cloudflare.com",
+                "domain_resolver": "dns_resolver",
                 "strategy": "prefer_ipv4"
             },
             {
                 "tag": "dns_direct",
-                "address": "https://dns.alidns.com/dns-query",
-                "address_resolver": "dns_resolver",
+                "type": "https",
+                "server": "dns.alidns.com",
+                "domain_resolver": "dns_resolver",
                 "strategy": "prefer_ipv4",
                 "detour": "direct"
             },
             {
                 "tag": "dns_resolver",
-                "address": "101.226.4.6",
+                "type": "udp"
+                "server": "101.226.4.6",
                 "strategy": "ipv4_only",
                 "detour": "direct"
             },
-            {   "tag": "dns_fakeip",
-                "address": "fakeip"
+            {
+                "type": "fakeip",
+                "tag": "dns_fakeip",
+                "inet4_range": "198.18.0.0/15",
+                "inet6_range": "fc00::/18"
+
             }
         ],
         "rules": [
@@ -77,12 +84,7 @@
         ],
         "final": "dns_proxy",
         "strategy": "prefer_ipv4",
-        "cache_capacity": 0,
-        "fakeip": {
-            "enabled": true,
-            "inet4_range": "198.18.0.0/15",
-            "inet6_range": "fc00::/18"
-        }
+        "cache_capacity": 0
     },
     "inbounds": [
         {
