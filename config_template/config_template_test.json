@@ -37,12 +37,8 @@
             }
         ],
         "rules": [
-            {
-                "outbound": "any",
-                "action": "route",
-                "server": "resolver"
-            },
-            {   "clash_mode": "Direct",
+            {   
+                "clash_mode": "Direct",
                 "action": "route",
                 "server": "dns_direct"
             },
@@ -264,7 +260,12 @@
                 "download_detour": "auto",
                 "update_interval": "1d"
             }
-        ]
+        ],
+"default_domain_resolver": {
+      "server": "local",
+      "rewrite_tll": 60,
+      "client_subnet": "1.1.1.1"
+    }
     },
     "experimental": {
         "cache_file": {
