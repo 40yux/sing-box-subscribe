@@ -11,21 +11,21 @@
                 "type": "https",
                 "server": "dns.cloudflare.com",
                 "domain_resolver":  "dns_resolver",
-                "strategy": "prefer_ipv4"
+                "address_strategy": "prefer_ipv4"
             },
             {
                 "tag": "dns_direct",
                 "type": "https",
                 "server": "dns.alidns.com",
                 "domain_resolver":  "dns_resolver",
-                "strategy": "prefer_ipv4",
+                "address_strategy": "prefer_ipv4",
                 "detour": "direct"
             },
             {
                 "tag": "dns_resolver",
                 "type": "udp",
                 "server": "101.226.4.6",
-                "strategy": "ipv4_only",
+                "address_strategy": "ipv4_only",
                 "detour": "direct"
             },
             {
