@@ -23,7 +23,7 @@
             },
             {
                 "tag": "dns_resolver",
-                "type": "udp"
+                "type": "udp",
                 "server": "101.226.4.6",
                 "strategy": "ipv4_only",
                 "detour": "direct"
