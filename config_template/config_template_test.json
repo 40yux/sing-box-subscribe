@@ -9,20 +9,12 @@
             {
                 "tag": "dns_proxy",
                 "type": "https",
-                "server": "dns.cloudflare.com",
-                "domain_resolver":  "resolver"
+                "server": "1.1.1.1"
             },
             {
                 "tag": "dns_direct",
                 "type": "https",
-                "server": "dns.alidns.com",
-                "domain_resolver":  "resolver",
-                "detour": "direct"
-            },
-            {
-                "tag": "resolver",
-                "type": "udp",
-                "server": "101.226.4.6",
+                "server": "233.5.5.5",
                 "detour": "direct"
             },
             {
@@ -257,12 +249,7 @@
                 "download_detour": "auto",
                 "update_interval": "1d"
             }
-        ],
-"default_domain_resolver": {
-      "server": "dns_resolver",
-      "rewrite_tll": 60,
-      "client_subnet": "1.1.1.1"
-    }
+        ]
     },
     "experimental": {
         "cache_file": {
