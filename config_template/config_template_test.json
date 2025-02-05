@@ -168,12 +168,12 @@
     "route": {
         "rules": [
             {
-                "inbound": "in",
+                "inbound": ["tun-in", "mixed-in"],
                 "action": "resolve",
                 "strategy": "prefer_ipv4"
             },
             {
-                "inbound": ["tun-in", "mixed-in"],,
+                "inbound": ["tun-in", "mixed-in"],
                 "action": "sniff",
                 "timeout": "1s"
             },
