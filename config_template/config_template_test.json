@@ -27,8 +27,8 @@
                 "server_port": 53,
             },
             {
-                "tag": "dns_fakeip",
                 "type": "fakeip",
+                "tag": "dns_fakeip",
                 "inet4_range": "198.18.0.0/15",
                 "inet6_range": "fc00::/18"
 
