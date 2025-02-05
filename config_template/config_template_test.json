@@ -162,7 +162,7 @@
             "server": "101.226.4.6",
             "server_port": 53,
             "domain_resolver": "dns_resolver"
-        },
+        }
     ],
     "route": {
         "rules": [
