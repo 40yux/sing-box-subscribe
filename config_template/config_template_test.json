@@ -37,9 +37,11 @@
         "rules": [           
             {   
                 "clash_mode": "Direct",
+                "action": "route",
                 "server": "dns_direct"
             },
             {   "clash_mode": "Global",
+                "action": "route",
                 "server": "dns_proxy"
             },
             {
@@ -76,7 +78,12 @@
         ],
         "final": "dns_proxy",
         "strategy": "prefer_ipv4",
+        "disable_cache": false,
+        "disable_expire": false,
+        "independent_cache": false,
         "cache_capacity": 0
+        "reverse_mapping": false,
+        "client_subnet": "114.114.114.114"
     },
     "inbounds": [
         {
@@ -229,6 +236,11 @@
         },
         "final": "proxy",
         "auto_detect_interface": true,
+        "override_android_vpn": false,
+        "default_interface": "",
+        "default_mark": 0,
+        "default_network_strategy": "",
+        "default_fallback_delay": ""
         "rule_set": [
             {
                 "tag": "geosite-category-ads-all",
