@@ -128,7 +128,7 @@
         },
         {
             "type": "mixed",
-            "tag": "in",
+            "tag": "mixed-in",
             "listen": "0.0.0.0",
             "listen_port": 7890,
             "users": [],
@@ -173,7 +173,7 @@
                 "strategy": "prefer_ipv4"
             },
             {
-                "inbound": "in",
+                "inbound": ["tun-in", "mixed-in"],,
                 "action": "sniff",
                 "timeout": "1s"
             },
