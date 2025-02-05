@@ -239,7 +239,7 @@
         "override_android_vpn": false,
         "default_interface": "",
         "default_mark": 0,
-        "default_network_strategy": "",
+        "network_strategy": "default",
         "default_fallback_delay": "",
         "rule_set": [
             {
