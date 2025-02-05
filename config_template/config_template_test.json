@@ -240,7 +240,7 @@
         "default_interface": "",
         "default_mark": 0,
         "default_network_strategy": "",
-        "default_fallback_delay": ""
+        "default_fallback_delay": "",
         "rule_set": [
             {
                 "tag": "geosite-category-ads-all",
