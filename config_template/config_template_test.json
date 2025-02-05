@@ -24,7 +24,7 @@
                 "type": "udp",
                 "tag": "dns_resolver",
                 "server": "101.226.4.6",
-                "server_port": 53,
+                "server_port": 53
             },
             {
                 "type": "fakeip",
