@@ -37,16 +37,13 @@
         "rules": [
             {
                 "outbound": "any",
-                "action": "route",
                 "server": "dns_resolver"
             },
             {   
                 "clash_mode": "Direct",
-                "action": "route",
                 "server": "dns_direct"
             },
             {   "clash_mode": "Global",
-                "action": "route",
                 "server": "dns_proxy"
             },
             {
