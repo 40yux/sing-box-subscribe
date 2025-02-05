@@ -168,7 +168,7 @@
     "route": {
         "rules": [
             {
-                "inbound": ["tun-in", "mixed-in"],
+                "inbound": "in",
                 "action": "resolve",
                 "strategy": "prefer_ipv4"
             },
