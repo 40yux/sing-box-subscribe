@@ -11,14 +11,14 @@
                 "tag": "dns_proxy",
                 "server": "dns.cloudflare.com",
                 "server_port": 443,
-                "address_resolver": "dns_resolver"
+                "domain_resolver": "dns_resolver"
             },
             {
                 "type": "https",
                 "tag": "dns_direct",
                 "server": "dns.alidns.com",
                 "server_port": 443,
-                "address_resolver": "dns_resolver"
+                "domain_resolver": "dns_resolver"
             },
             {
                 "type": "udp",
