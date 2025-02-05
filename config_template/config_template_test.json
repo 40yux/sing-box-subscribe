@@ -239,8 +239,7 @@
         "override_android_vpn": false,
         "default_interface": "",
         "default_mark": 0,
-        "fallback_delay": "300ms
-        ",
+        "fallback_delay": "300ms",
         "rule_set": [
             {
                 "tag": "geosite-category-ads-all",
