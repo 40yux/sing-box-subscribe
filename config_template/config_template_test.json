@@ -21,13 +21,6 @@
                 "address_resolver": "dns_resolver"
             },
             {
-                "tag": "dns_block",
-                "address": "quic://dns.adguard.com",
-                "address_resolver": "dns_resolver",
-                "strategy": "prefer_ipv4",
-                "detour": "block"
-            },
-            {
                 "type": "udp",
                 "tag": "dns_resolver",
                 "server": "101.226.4.6",
