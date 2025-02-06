@@ -76,11 +76,7 @@
         ],
         "final": "dns_proxy",
         "strategy": "prefer_ipv4",
-        "disable_cache": false,
-        "disable_expire": false,
-        "independent_cache": false,
         "cache_capacity": 0,
-        "reverse_mapping": false
     },
     "inbounds": [
         {
@@ -224,10 +220,7 @@
             "client_subnet": "1.1.1.1"
         },
         "final": "proxy",
-        "auto_detect_interface": true,
-        "override_android_vpn": false,
-        "default_interface": "",
-        "default_mark": 0,
+        "auto_detect_interface": true
         "rule_set": [
             {
                 "tag": "geosite-category-ads-all",
