@@ -220,7 +220,7 @@
             "client_subnet": "1.1.1.1"
         },
         "final": "proxy",
-        "auto_detect_interface": true，
+        "auto_detect_interface": true,
         "rule_set": [
             {
                 "tag": "geosite-category-ads-all",
