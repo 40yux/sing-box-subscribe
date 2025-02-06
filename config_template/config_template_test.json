@@ -108,7 +108,6 @@
                     "server_port": 7890
                 }
             },
-            "sniff": true,
             "sniff_override_destination": true
         },
         {
