@@ -83,7 +83,7 @@
         "independent_cache": false,
         "cache_capacity": 0,
         "reverse_mapping": false,
-        "client_subnet": "114.114.114.114"
+        "client_subnet": "114.114.114.114/24"
     },
     "inbounds": [
         {
