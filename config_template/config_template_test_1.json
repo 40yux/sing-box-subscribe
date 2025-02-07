@@ -1,7 +1,7 @@
 {
     "log": {
         "disabled": false,
-        "level": "error",
+        "level": "info",
         "timestamp": true
     },
     "dns": {
@@ -75,6 +75,7 @@
         {
             "type": "tun",
             "tag": "tun-in",
+            "interface_name": "tun0",
             "address": ["172.18.0.1/30", "fdfe:dcba:9876::1/126"],
             "mtu": 1492,
             "auto_route": true,
@@ -144,7 +145,12 @@
     "route": {
         "rules": [
             {
-                "inbound": ["tun-in", "mixed-in"],
+                "inbound": "in",
+                "action": "resolve",
+                "strategy": "prefer_ipv4"
+            },
+            {
+                "inbound": ["tun-in","mixed-in"],
                 "action": "sniff",
                 "timeout": "1s"
             },
@@ -190,7 +196,7 @@
                 "outbound": "direct"
             }
         ],
-        "default_domain_resolver": 
+        "default_domain_resolver":
         {
             "server": "dns_resolver",
             "rewrite_tll": 60,
