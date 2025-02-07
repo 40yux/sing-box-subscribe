@@ -245,9 +245,7 @@
             "external_ui_download_url": "https://github.com/MetaCubeX/metacubexd/archive/refs/heads/gh-pages.zip",
             "external_ui_download_detour": "direct",
             "secret": "",
-            "default_mode": "Rule",
-            "access_control_allow_origin": ["http://127.0.0.1", "http://yacd.haishan.me"],
-            "access_control_allow_private_network": true
+            "default_mode": "Rule"
         }
     }
 }
