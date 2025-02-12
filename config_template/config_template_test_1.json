@@ -155,7 +155,16 @@
                 "timeout": "1s"
             },
             {
-                "protocol": "dns",
+                "type": "logical",
+                "mode": "or",
+                "rules": [
+                    {
+                        "port": 53
+                    },
+                    {
+                         "protocol": "dns"
+                    }
+                ],               
                 "action": "hijack-dns"
             },
             {
@@ -172,23 +181,6 @@
                 "clash_mode": "Global",
                 "action": "route",
                 "outbound": "proxy"
-            },
-            {
-                "type": "logical",
-                "mode": "or",
-                "rules": [
-                    {
-                        "port": 853
-                    },
-                    {
-                        "network": "udp",
-                        "port": 443
-                    },
-                    {
-                        "protocol": "stun"
-                    }
-                ],
-                "action": "reject"
             },
             {
                 "rule_set": ["geoip-cn", "geosite-geolocation-cn"],
