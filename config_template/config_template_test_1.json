@@ -32,9 +32,18 @@
                 "inet4_range": "198.18.0.0/15",
                 "inet6_range": "fc00::/18"
 
+            },
+            {
+                "type": "tailscale",
+                "tag": "ts",
+                "endpoint": "ts-ep"
             }
         ],
         "rules": [
+            {
+                "ip_accept_any": true,
+                "server": "ts"
+            },
             {   
                 "clash_mode": "Direct",
                 "action": "route",
