@@ -31,7 +31,6 @@
                 "tag": "dns_fakeip",
                 "inet4_range": "198.18.0.0/15",
                 "inet6_range": "fc00::/18"
-
             },
             {
                 "type": "tailscale",
@@ -103,7 +102,7 @@
              "exit_node_allow_lan_access": false,
              "advertise_routes": ["192.168.1.1/24"],
              "advertise_exit_node": false,
-             "udp_timeout": "5m",
+             "udp_timeout": "5m"
         }
     ],
     "inbounds": [
