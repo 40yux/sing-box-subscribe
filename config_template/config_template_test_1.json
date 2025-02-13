@@ -83,6 +83,29 @@
         "final": "dns_proxy",
         "strategy": "prefer_ipv4"
     },
+    {
+    "ntp": {
+        "enabled": true,
+        "server": "time.apple.com",
+        "server_port": 123,
+        "interval": "30m"
+    },
+    "endpoints": [
+        {
+            "type": "tailscale",
+            "tag": "ts-ep",
+            "state_directory": "",
+            "auth_key": "",
+            "control_url": "https://tailscale.com/s/ephemeral-nodes",
+             "ephemeral": false,
+             "hostname": "",
+             "exit_node": "",
+             "exit_node_allow_lan_access": false,
+             "advertise_routes": ["192.168.1.1/24"],
+             "advertise_exit_node": false,
+             "udp_timeout": "5m",
+        }
+    ],
     "inbounds": [
         {
             "type": "tun",
