@@ -82,7 +82,6 @@
         "final": "dns_proxy",
         "strategy": "prefer_ipv4"
     },
-    {
     "ntp": {
         "enabled": true,
         "server": "time.apple.com",
