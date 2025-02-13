@@ -36,7 +36,7 @@
                 "type": "tailscale",
                 "tag": "ts",
                 "endpoint": "ts-ep"
-            }，
+            }
         ],
         "rules": [
             {
