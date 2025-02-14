@@ -95,11 +95,7 @@
             "exit_node_allow_lan_access": true,
             "advertise_routes": ["192.168.1.0/24"],
             "advertise_exit_node": false,
-            "udp_timeout": "5m",
-            "server": "100.100.100.100",
-            "server_port": 41641, 
-            "interface_name": "tailscale0",
-            "mtu": 1280
+            "udp_timeout": "5m"
         }
     ],
     "inbounds": [
