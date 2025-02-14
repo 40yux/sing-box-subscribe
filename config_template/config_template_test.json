@@ -32,6 +32,11 @@
                 "inet4_range": "198.18.0.0/15",
                 "inet6_range": "fc00::/18"
 
+            },
+            {
+                "type": "tailscale",
+                "tag": "ts",
+                "endpoint": "ts-ep"
             }
         ],
         "rules": [
@@ -75,11 +80,31 @@
                 "query_type": ["A", "AAAA"],
                 "action": "route",
                 "server": "dns_fakeip"
+            },
+            {
+                "ip_accept_any": true,
+                "server": "ts"
             }
         ],
         "final": "dns_proxy",
         "strategy": "prefer_ipv4"
     },
+    "endpoints": [
+        {
+            "type": "tailscale",
+            "tag": "ts-ep",
+            "state_directory": "",
+            "auth_key": "tskey-auth-xxxxxxxxx",
+            "control_url": "https://controlplane.tailscale.com",
+            "ephemeral": false,
+            "hostname": "my-server",
+            "exit_node": "100.101.102.103",
+            "exit_node_allow_lan_access": true,
+            "advertise_routes": ["192.168.1.0/24"],
+            "advertise_exit_node": false,
+            "udp_timeout": "5m"
+        }
+    ],
     "inbounds": [
         {
             "type": "tun",
