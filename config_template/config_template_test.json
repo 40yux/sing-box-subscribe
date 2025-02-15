@@ -179,11 +179,6 @@
     "route": {
         "rules": [
             {
-                "inbound": "in",
-                "action": "resolve",
-                "strategy": "prefer_ipv4"
-            },
-            {
                 "inbound": ["tun-in","mixed-in"],
                 "action": "sniff",
                 "timeout": "1s"
