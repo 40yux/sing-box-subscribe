@@ -16,7 +16,7 @@
                 "type": "https",
                 "tag": "dns_direct",
                 "server": "233.5.5.5",
-                "server_port": 443，
+                "server_port": 443,
                 "detour": "direct"
             },
             {
