@@ -9,29 +9,19 @@
             {
                 "type": "https",
                 "tag": "dns_proxy",
-                "server": "dns.cloudflare.com",
-                "server_port": 443,
-                "domain_resolver": "dns_resolver"
+                "server": "1.1.1.1"
             },
             {
                 "type": "https",
                 "tag": "dns_direct",
-                "server": "dns.alidns.com",
-                "server_port": 443,
-                "domain_resolver": "dns_resolver"
-            },
-            {
-                "type": "udp",
-                "tag": "dns_resolver",
-                "server": "101.226.4.6",
-                "server_port": 53
+                "server": "233.5.5.5",
+                "detour": "direct"
             },
             {
                 "type": "fakeip",
                 "tag": "dns_fakeip",
-                "inet4_range": "172.16.0.0/12",
-                "inet6_range": "fd00::/8"
-
+                "inet4_range": "198.18.0.0/15",
+                "inet6_range": "fc00::/18"
             },
             {
                 "type": "tailscale",
@@ -46,12 +36,6 @@
             },
             {   "clash_mode": "Global",
                 "server": "dns_proxy"
-            },
-            {
-                "rule_set": "geosite-category-ads-all",
-                "action": "reject",
-                "method": "default",
-                "no_drop": false
             },
             {
                 "rule_set": "geosite-geolocation-cn",
@@ -93,8 +77,8 @@
             "control_url": "https://controlplane.tailscale.com",
             "ephemeral": false,
             "hostname": "my-server",
-            "exit_node": "100.101.102.103",
-            "exit_node_allow_lan_access": false,
+            "exit_node": "",
+            "exit_node_allow_lan_access": true,
             "advertise_routes": ["192.168.1.0/24"],
             "advertise_exit_node": false,
             "udp_timeout": "5m"
@@ -224,12 +208,6 @@
                 "action": "reject"
             },
             {
-                "rule_set": "geosite-category-ads-all",
-                "action": "reject",
-                "method": "default",
-                "no_drop": false
-            },
-            {
                 "rule_set": ["geoip-cn", "geosite-geolocation-cn"],
                 "action": "route",
                 "outbound": "direct"
@@ -237,21 +215,11 @@
         ],
         "default_domain_resolver":
         {
-            "server": "dns_resolver",
-            "rewrite_tll": 60,
-            "client_subnet": "1.1.1.1/32"
+            "server": "dns_direct"
         },
         "final": "proxy",
         "auto_detect_interface": true,
         "rule_set": [
-            {
-                "tag": "geosite-category-ads-all",
-                "type": "remote",
-                "format": "binary",
-                "url": "https://github.com/lyc8503/sing-box-rules/raw/refs/heads/rule-set-geosite/geosite-category-ads-all.srs",
-                "download_detour": "auto",
-                "update_interval": "1d"
-            },
             {
                 "tag": "geosite-geolocation-cn",
                 "type": "remote",
