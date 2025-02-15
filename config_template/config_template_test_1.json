@@ -9,19 +9,21 @@
             {
                 "type": "https",
                 "tag": "dns_proxy",
-                "server": "https://1.1.1.1/dns-query",
-                "domain_resolver": "direct"
+                "server": "dns.cloudflare.com",
+                "server_port": 443,
+                "domain_resolver": "dns_resolver"
             },
             {
                 "type": "https",
                 "tag": "dns_direct",
-                "server": "https://dns.alidns.com/dns-query",
-                "domain_resolver": "direct"
+                "server": "dns.alidns.com",
+                "server_port": 443,
+                "domain_resolver": "dns_resolver"
             },
             {
                 "type": "udp",
                 "tag": "dns_resolver",
-                "server": "223.5.5.5",
+                "server": "101.226.4.6",
                 "server_port": 53
             },
             {
