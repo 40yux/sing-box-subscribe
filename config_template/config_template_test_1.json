@@ -195,7 +195,8 @@
                 "mode": "or",
                 "rules": [
                     {
-                        "port": 853
+                        "network": "tcp",
+                        "port": 853,
                     },
                     {
                         "network": "udp",
