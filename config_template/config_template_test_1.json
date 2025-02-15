@@ -9,28 +9,27 @@
             {
                 "type": "https",
                 "tag": "dns_proxy",
-                "server": "dns.cloudflare.com",
-                "server_port": 443,
-                "domain_resolver": "dns_resolver"
+                "server": ""https://1.1.1.1/dns-query"",
+                "domain_resolver": "direct"
             },
             {
                 "type": "https",
                 "tag": "dns_direct",
-                "server": "dns.alidns.com",
-                "server_port": 443,
-                "domain_resolver": "dns_resolver"
+                "server": "https://dns.alidns.com/dns-query",
+                "domain_resolver": "direct"
             },
             {
                 "type": "udp",
                 "tag": "dns_resolver",
-                "server": "101.226.4.6",
+                "server": "223.5.5.5",
                 "server_port": 53
             },
             {
                 "type": "fakeip",
                 "tag": "dns_fakeip",
-                "inet4_range": "198.18.0.0/15",
-                "inet6_range": "fc00::/18"
+                "inet4_range": "172.16.0.0/12",
+                "inet6_range": "fd00::/8"
+
             },
             {
                 "type": "tailscale",
@@ -41,12 +40,16 @@
         "rules": [
             {   
                 "clash_mode": "Direct",
-                "action": "route",
                 "server": "dns_direct"
             },
             {   "clash_mode": "Global",
-                "action": "route",
                 "server": "dns_proxy"
+            },
+            {
+                "rule_set": "geosite-category-ads-all",
+                "action": "reject",
+                "method": "default",
+                "no_drop": false
             },
             {
                 "rule_set": "geosite-geolocation-cn",
@@ -70,7 +73,7 @@
                 "client_subnet": "114.114.114.114/24"
             },
             {
-                "query_type": ["A", "AAAA"],
+                "query_type": ["A", "AAAA","MX", "TXT"],
                 "action": "route",
                 "server": "dns_fakeip"
             },
@@ -87,12 +90,12 @@
             "type": "tailscale",
             "tag": "ts-ep",
             "state_directory": "",
-            "auth_key": "tskey-auth-xxxxxxxxx",
+            "auth_key": {"env": "TAILSCALE_AUTH_KEY"},
             "control_url": "https://controlplane.tailscale.com",
             "ephemeral": false,
             "hostname": "my-server",
             "exit_node": "100.101.102.103",
-            "exit_node_allow_lan_access": true,
+            "exit_node_allow_lan_access": false,
             "advertise_routes": ["192.168.1.0/24"],
             "advertise_exit_node": false,
             "udp_timeout": "5m"
@@ -205,6 +208,29 @@
                 "outbound": "proxy"
             },
             {
+                "type": "logical",
+                "mode": "or",
+                "rules": [
+                    {
+                        "port": 853
+                    },
+                    {
+                        "network": "udp",
+                        "port": 443
+                    },
+                    {
+                        "protocol": "stun"
+                    }
+                ],
+                "action": "reject"
+            },
+            {
+                "rule_set": "geosite-category-ads-all",
+                "action": "reject",
+                "method": "default",
+                "no_drop": false
+            },
+            {
                 "rule_set": ["geoip-cn", "geosite-geolocation-cn"],
                 "action": "route",
                 "outbound": "direct"
@@ -219,6 +245,14 @@
         "final": "proxy",
         "auto_detect_interface": true,
         "rule_set": [
+            {
+                "tag": "geosite-category-ads-all",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://github.com/lyc8503/sing-box-rules/raw/refs/heads/rule-set-geosite/geosite-category-ads-all.srs",
+                "download_detour": "auto",
+                "update_interval": "1d"
+            },
             {
                 "tag": "geosite-geolocation-cn",
                 "type": "remote",
