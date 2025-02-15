@@ -213,11 +213,7 @@
                     },
                     {
                         "network": "udp",
-                        "port": 443,
-                        "domain_suffix": {
-                            [".google.com", ".youtube.com"],
-                            "invert": true
-                        }
+                        "port": 443
                     },
                     {
                         "protocol": "stun"
