@@ -77,7 +77,7 @@
                 "client_subnet": "114.114.114.114/24"
             },
             {
-                "query_type": ["A", "AAAA"],
+                "query_type": ["A", "AAAA","MX", "TXT"],
                 "action": "route",
                 "server": "dns_fakeip"
             },
@@ -98,7 +98,7 @@
             "control_url": "https://controlplane.tailscale.com",
             "ephemeral": false,
             "hostname": "my-server",
-            "exit_node": "100.101.102.103",
+            "exit_node": "",
             "exit_node_allow_lan_access": true,
             "advertise_routes": ["192.168.1.0/24"],
             "advertise_exit_node": false,
@@ -244,7 +244,7 @@
         {
             "server": "dns_resolver",
             "rewrite_tll": 60,
-            "client_subnet": "1.1.1.1"
+            "client_subnet": "1.1.1.1/32"
         },
         "final": "proxy",
         "auto_detect_interface": true,
