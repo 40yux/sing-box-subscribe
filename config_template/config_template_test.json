@@ -9,14 +9,12 @@
             {
                 "type": "https",
                 "tag": "dns_proxy",
-                "server": "1.1.1.1",
-                "server_port": 443
+                "server": "1.1.1.1"
             },
             {
                 "type": "https",
                 "tag": "dns_direct",
                 "server": "233.5.5.5",
-                "server_port": 443,
                 "detour": "direct"
             },
             {
