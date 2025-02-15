@@ -34,16 +34,13 @@
         "rules": [
             {   
                 "clash_mode": "Direct",
-                "action": "route",
                 "server": "dns_direct"
             },
             {   "clash_mode": "Global",
-                "action": "route",
                 "server": "dns_proxy"
             },
             {
                 "rule_set": "geosite-geolocation-cn",
-                "action": "route",
                 "server": "dns_direct"
             },
             {
@@ -58,13 +55,11 @@
                         "rule_set": "geoip-cn"
                     }
                 ],
-                "action": "route",
                 "server": "dns_proxy",
                 "client_subnet": "114.114.114.114/24"
             },
             {
                 "query_type": ["A", "AAAA","MX", "TXT"],
-                "action": "route",
                 "server": "dns_fakeip"
             },
             {
