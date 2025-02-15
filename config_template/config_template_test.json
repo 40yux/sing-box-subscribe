@@ -9,22 +9,14 @@
             {
                 "type": "https",
                 "tag": "dns_proxy",
-                "server": "dns.cloudflare.com",
-                "server_port": 443,
-                "domain_resolver": "dns_resolver"
+                "server": "1.1.1.1",
+                "server_port": 443
             },
             {
                 "type": "https",
                 "tag": "dns_direct",
-                "server": "dns.alidns.com",
-                "server_port": 443,
-                "domain_resolver": "dns_resolver"
-            },
-            {
-                "type": "udp",
-                "tag": "dns_resolver",
-                "server": "101.226.4.6",
-                "server_port": 53
+                "server": "233.5.5.5",
+                "server_port": 443
             },
             {
                 "type": "fakeip",
