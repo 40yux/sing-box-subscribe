@@ -9,7 +9,7 @@
             {
                 "type": "https",
                 "tag": "dns_proxy",
-                "server": ""https://1.1.1.1/dns-query"",
+                "server": "https://1.1.1.1/dns-query",
                 "domain_resolver": "direct"
             },
             {
