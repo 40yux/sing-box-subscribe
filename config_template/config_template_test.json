@@ -106,7 +106,7 @@
             "stack": "system",
             "exclude_package": [
                 "com.android.captiveportallogin",
-                "com.dianchou.dcw",
+                "com.diancho.dcw",
                 "com.jaemobird.mutongji",
                 "com.MobileTicket",
                 "com.tencent.mm",
@@ -179,7 +179,7 @@
                     {
                          "protocol": "dns"
                     }
-                ],               
+                ],
                 "action": "hijack-dns"
             },
             {
@@ -227,8 +227,7 @@
                 "outbound": "direct"
             }
         ],
-        "default_domain_resolver":
-        {
+        "default_domain_resolver": {
             "server": "dns_direct",
             "rewrite_tll": 60,
             "client_subnet": "1.1.1.1"
