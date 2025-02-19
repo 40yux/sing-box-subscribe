@@ -105,7 +105,7 @@
             "endpoint_independent_nat": false,
             "stack": "system",
             "exclude_package": [
-                "com.android.captiveportallogin"
+                "com.android.captiveportallogin","com.tencent.mm"
             ],
             "platform": {
                 "http_proxy": {
