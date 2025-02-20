@@ -105,7 +105,11 @@
             "endpoint_independent_nat": false,
             "stack": "system",
             "exclude_package": [
-                "com.android.captiveportallogin","com.tencent.mm"
+                "com.android.captiveportallogin",
+                "com.tencent.mm",
+                "cn.gov.tax.its",
+                "com.MobileTicket",
+                "com.eg.android.AlipayGphone"
             ],
             "platform": {
                 "http_proxy": {
