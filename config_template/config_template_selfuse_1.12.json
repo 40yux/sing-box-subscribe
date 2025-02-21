@@ -9,7 +9,7 @@
             {
                 "type": "https",
                 "tag": "dns_proxy",
-                "server": "cloudflare-dns.com",
+                "server": "dns.google",
                 "server_port": 443,
                 "path": "/dns-query",
                 "domain_resolver": "dns_resolver",
@@ -27,7 +27,7 @@
             {
                 "type": "tls",
                 "tag": "dns_resolver",
-                "server": "180.76.76.76",
+                "server": "1.1.1.1",
                 "server_port": 853,
                 "detour": "direct"
             },
