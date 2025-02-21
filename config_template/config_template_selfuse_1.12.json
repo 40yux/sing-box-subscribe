@@ -11,6 +11,7 @@
                 "tag": "dns_proxy",
                 "server": "cloudflare-dns.com",
                 "server_port": 443,
+                "path": "/dns-query",
                 "domain_resolver": "dns_resolver",
                 "detour": "proxy"
             },
@@ -19,6 +20,7 @@
                 "tag": "dns_direct",
                 "server": "dns.alidns.com",
                 "server_port": 443,
+                "path": "/dns-query",
                 "domain_resolver": "dns_resolver",
                 "detour": "direct"
             },
