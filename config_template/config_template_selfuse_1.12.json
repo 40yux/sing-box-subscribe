@@ -23,7 +23,7 @@
             {
                 "type": "udp",
                 "tag": "dns_resolver",
-                "server": "223.6.6.6",
+                "server": "180.76.76.76",
                 "detour": "direct"
             },
             {
@@ -80,7 +80,7 @@
                 "server": "ts"
             }
         ],
-        "final": "dns_resolver",
+        "final": "dns_direct",
         "strategy": "prefer_ipv4"
     },
     "endpoints": [
