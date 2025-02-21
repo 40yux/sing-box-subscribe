@@ -27,9 +27,9 @@
             {
                 "type": "tls",
                 "tag": "dns_resolver",
-                "server": "8.8.8.8",
+                "server": "114.14.114.114",
                 "server_port": 853,
-                "detour": "proxy"
+                "detour": "direct"
             },
             {
                 "type": "fakeip",
