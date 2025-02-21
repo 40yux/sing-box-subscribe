@@ -9,15 +9,22 @@
             {
                 "type": "https",
                 "tag": "dns_proxy",
-                "server": "1.1.1.1",
+                "server": "cloudflare-dns.com",
+                "domain_resolver": "dns_resolver",
                 "detour": "proxy"
             },
             {
                 "type": "https",
                 "tag": "dns_direct",
-                "server": "223.5.5.5",
+                "server": "dns.alidns.com",
+                "domain_resolver": "dns_resolver",
                 "detour": "direct"
             },
+            {
+                "type": "tls",
+                "tag": "dns_resolver",
+                "server": "8.8.8.8",
+                "detour": "proxy"
             {
                 "type": "fakeip",
                 "tag": "dns_fakeip",
