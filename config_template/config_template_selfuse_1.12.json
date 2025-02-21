@@ -10,6 +10,7 @@
                 "type": "https",
                 "tag": "dns_proxy",
                 "server": "cloudflare-dns.com",
+                "server_port": 443,
                 "domain_resolver": "dns_resolver",
                 "detour": "proxy"
             },
@@ -17,6 +18,7 @@
                 "type": "https",
                 "tag": "dns_direct",
                 "server": "dns.alidns.com",
+                "server_port": 443,
                 "domain_resolver": "dns_resolver",
                 "detour": "direct"
             },
@@ -24,6 +26,7 @@
                 "type": "tls",
                 "tag": "dns_resolver",
                 "server": "8.8.8.8",
+                "server_port": 853,
                 "detour": "proxy"
             },
             {
