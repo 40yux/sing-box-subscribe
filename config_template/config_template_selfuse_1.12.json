@@ -27,7 +27,7 @@
             {
                 "type": "tls",
                 "tag": "dns_resolver",
-                "server": "114.14.114.114",
+                "server": "180.76.76.76",
                 "server_port": 853,
                 "detour": "direct"
             },
