@@ -25,6 +25,7 @@
                 "tag": "dns_resolver",
                 "server": "8.8.8.8",
                 "detour": "proxy"
+            },
             {
                 "type": "fakeip",
                 "tag": "dns_fakeip",
