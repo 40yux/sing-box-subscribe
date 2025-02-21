@@ -23,8 +23,8 @@
             {
                 "type": "udp",
                 "tag": "dns_resolver",
-                "server": "1.1.1.1",
-                "detour": "proxy"
+                "server": "223.6.6.6",
+                "detour": "direct"
             },
             {
                 "type": "fakeip",
