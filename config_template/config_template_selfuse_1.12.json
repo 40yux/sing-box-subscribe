@@ -29,7 +29,7 @@
                 "tag": "dns_resolver",
                 "server": "1.1.1.1",
                 "server_port": 853,
-                "detour": "direct"
+                "detour": "proxy"
             },
             {
                 "type": "fakeip",
