@@ -24,7 +24,7 @@
                 "type": "tls",
                 "tag": "dns_resolver",
                 "server": "1.1.1.1",
-                "detour": "proxy"
+                "detour": "direct"
             },
             {
                 "type": "fakeip",
