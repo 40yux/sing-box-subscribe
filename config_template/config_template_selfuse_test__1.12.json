@@ -1,1 +1,273 @@
-
+{
+    "log": {
+        "disabled": false,
+        "level": "debug",
+        "timestamp": true
+    },
+    "dns": {
+        "servers": [
+            {
+                "type": "https",
+                "tag": "dns_proxy",
+                "server": "dns.google",
+                "domain_resolver": "dns_resolver",
+                "detour": "proxy"
+            },
+            {
+                "type": "https",
+                "tag": "dns_direct",
+                "server": "dns.alidns.com",
+                "domain_resolver": "dns_resolver",
+                "detour": "direct"
+            },
+            {
+                "type": "tls",
+                "tag": "dns_resolver",
+                "server": "1.1.1.1",
+                "detour": "proxy"
+            },
+            {
+                "type": "fakeip",
+                "tag": "dns_fakeip",
+                "inet4_range": "198.18.0.0/15",
+                "inet6_range": "fc00::/18"
+            }
+        ],
+        "rules": [
+            {   
+                "clash_mode": "Direct",
+                "action": "route",
+                "server": "dns_direct"
+            },
+            {   "clash_mode": "Global",
+                "action": "route",
+                "server": "dns_proxy"
+            },
+            {
+                "rule_set": "geosite-geolocation-cn",
+                "action": "route",
+                "server": "dns_direct"
+            },
+            {
+                "type": "logical",
+                "mode": "and",
+                "rules": [
+                    {
+                        "rule_set": "geosite-geolocation-!cn",
+                        "invert": true
+                    },
+                    {
+                        "rule_set": "geoip-cn"
+                    }
+                ],
+                "action": "route",
+                "server": "dns_proxy",
+                "client_subnet": "114.114.114.114/24"
+            },
+            {
+                "query_type": ["A", "AAAA","MX", "TXT"],
+                "action": "route",
+                "server": "dns_fakeip"
+            }
+        ],
+        "final": "dns_proxy",
+        "strategy": "prefer_ipv4"
+    },    
+    "inbounds": [
+        {
+            "type": "tun",
+            "tag": "tun-in",
+            "interface_name": "tun0",
+            "address": ["172.18.0.1/30", "fdfe:dcba:9876::1/126"],
+            "mtu": 1492,
+            "auto_route": true,
+            "strict_route": true,
+            "route_address": ["0.0.0.0/1", "128.0.0.0/1", "::/1", "8000::/1"],
+            "route_exclude_address": ["192.168.0.0/16", "fc00::/7"],
+            "endpoint_independent_nat": false,
+            "stack": "system",
+            "exclude_package": [
+                "com.android.captiveportallogin",
+                "com.tencent.mm",
+                "cn.gov.tax.its",
+                "com.MobileTicket",
+                "com.eg.android.AlipayGphone",
+                "com.huawei.health",
+                "com.dragon.read"
+            ],
+            "platform": {
+                "http_proxy": {
+                    "enabled": true,
+                    "server": "127.0.0.1",
+                    "server_port": 7890
+                }
+            }
+        },
+        {
+            "type": "mixed",
+            "tag": "mixed-in",
+            "listen": "127.0.0.1",
+            "listen_port": 7890,
+            "users": []
+        }
+    ],
+    "outbounds": [
+        {
+            "tag": "proxy",
+            "type": "selector",
+            "outbounds": ["auto", "direct", "{all}"],
+            "default": "auto",
+            "interrupt_exist_connections": true
+        },
+        {
+            "tag": "auto",
+            "type": "urltest",
+            "outbounds": ["{all}"],
+            "filter": [{"action": "exclude", "keywords": ["网站|地址|剩余|过期|时间|有效"]}],
+            "url": "https://www.gstatic.com/generate_204",
+            "interval": "30s",
+            "tolerance": 50,
+            "idle_timeout": "30m",
+            "interrupt_exist_connections": true
+        },
+        {
+            "tag": "Others",
+            "type": "selector",
+            "outbounds": ["{all}", "proxy"],
+            "filter": [{"action": "exclude", "keywords": ["🇭🇰|HK|hk|香港|香|🇹🇼|TW|tw|台湾|台|🇸🇬|SG|sg|新加坡|狮|🇯🇵|JP|jp|日本|日|🇺🇸|US|us|美国|美|🇰🇷|KR|kr|韩国"]}]
+        },
+        {
+            "type": "direct",
+            "tag": "direct"
+        }
+    ],
+    "route": {
+        "rules": [
+            {
+                "inbound": ["tun-in","mixed-in"],
+                "action": "sniff",
+                "timeout": "1s"
+            },
+            {
+                "type": "logical",
+                "mode": "or",
+                "rules": [
+                    {
+                        "port": 53
+                    },
+                    {
+                         "protocol": "dns"
+                    }
+                ],
+                "action": "hijack-dns"
+            },
+            {
+                "ip_is_private": true,
+                "action": "route",
+                "outbound": "direct"
+            },
+            {
+                "clash_mode": "Direct",
+                "action": "route",
+                "outbound": "direct"
+            },
+            {
+                "clash_mode": "Global",
+                "action": "route",
+                "outbound": "proxy"
+            },
+            {
+                "type": "logical",
+                "mode": "or",
+                "rules": [
+                    {
+                        "network": "tcp",
+                        "port": 853
+                    },
+                    {
+                        "network": "udp",
+                        "port": 443
+                    },
+                    {
+                        "protocol": "stun"
+                    }
+                ],
+                "action": "reject"
+            },
+            {
+                "rule_set": "geosite-category-ads-all",
+                "action": "reject",
+                "method": "default",
+                "no_drop": false
+            },
+            {
+                "rule_set": "geosite-geolocation-!cn",
+                "action": "route",
+                "outbound": "proxy"
+            },
+            {
+                "rule_set": ["geoip-cn", "geosite-geolocation-cn"],
+                "action": "route",
+                "outbound": "direct"
+            }
+        ],
+        "default_domain_resolver": {
+            "server": "dns_direct",
+            "rewrite_tll": 60,
+            "client_subnet": "1.1.1.1"
+        },
+        "final": "proxy",
+        "auto_detect_interface": true,
+        "rule_set": [
+            {
+                "tag": "geosite-category-ads-all",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://gh-proxy.com/raw.githubusercontent.com/lyc8503/sing-box-rules/refs/heads/rule-set-geosite/geosite-category-ads-all.srs",
+                "download_detour": "auto",
+                "update_interval": "1d"
+            },
+            {
+                "tag": "geosite-geolocation-cn",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://gh-proxy.com/raw.githubusercontent.com/lyc8503/sing-box-rules/refs/heads/rule-set-geosite/geosite-geolocation-cn.srs",
+                "download_detour": "auto",
+                "update_interval": "1d"
+            },
+            {
+                "tag": "geosite-geolocation-!cn",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://gh-proxy.com/raw.githubusercontent.com/lyc8503/sing-box-rules/refs/heads/rule-set-geosite/geosite-geolocation-!cn.srs",
+                "download_detour": "auto",
+                "update_interval": "1d"
+            },
+            {
+                "tag": "geoip-cn",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://gh-proxy.com/raw.githubusercontent.com/lyc8503/sing-box-rules/refs/heads/rule-set-geoip/geoip-cn.srs",
+                "download_detour": "auto",
+                "update_interval": "1d"
+            }
+        ]
+    },
+    "experimental": {
+        "cache_file": {
+            "enabled": true,
+            "path": "cache.db",
+            "store_fakeip": true,
+            "store_rdrc": true,
+            "rdrc_timeout": "7d"
+        },
+        "clash_api": {
+            "external_controller": "127.0.0.1:9090",
+            "external_ui": "ui",
+            "external_ui_download_url": "https://gh-proxy.com/github.com/MetaCubeX/metacubexd/archive/refs/heads/gh-pages.zip",
+            "external_ui_download_detour": "direct",
+            "secret": "",
+            "default_mode": "Rule"
+        }
+    }
+}
