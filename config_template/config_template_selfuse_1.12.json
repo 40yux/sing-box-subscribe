@@ -226,6 +226,12 @@
                 "action": "reject"
             },
             {
+                "rule_set": "geosite-category-ads-all",
+                "action": "reject",
+                "method": "default",
+                "no_drop": false
+            },
+            {
                 "rule_set": "geosite-geolocation-!cn",
                 "action": "route",
                 "outbound": "proxy"
