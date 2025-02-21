@@ -21,7 +21,7 @@
                 "detour": "direct"
             },
             {
-                "type": "udp",
+                "type": "tcp",
                 "tag": "dns_resolver",
                 "server": "180.76.76.76",
                 "detour": "direct"
@@ -80,7 +80,7 @@
                 "server": "ts"
             }
         ],
-        "final": "dns_direct",
+        "final": "dns_proxy",
         "strategy": "prefer_ipv4"
     },
     "endpoints": [
