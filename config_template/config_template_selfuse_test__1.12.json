@@ -7,23 +7,15 @@
     "dns": {
         "servers": [
             {
-                "type": "https",
+                "type": "tls",
                 "tag": "dns_proxy",
-                "server": "dns.google",
-                "domain_resolver": "dns_resolver",
+                "server": "8.8.8.8",
                 "detour": "proxy"
             },
             {
                 "type": "https",
                 "tag": "dns_direct",
-                "server": "dns.alidns.com",
-                "domain_resolver": "dns_resolver",
-                "detour": "direct"
-            },
-            {
-                "type": "tls",
-                "tag": "dns_resolver",
-                "server": "1.1.1.1",
+                "server": "223.5.5.5",
                 "detour": "direct"
             },
             {
