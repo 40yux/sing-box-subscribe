@@ -175,6 +175,9 @@
                 "timeout": "1s"
             },
             {
+                "action": "resolve"
+            },
+            {
                 "type": "logical",
                 "mode": "or",
                 "rules": [
