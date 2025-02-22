@@ -171,7 +171,6 @@
             {
                 "inbound": ["tun-in","mixed-in"],
                 "action": "sniff",
-                "sinffer": [],
                 "timeout": "1s"
             },
             {
