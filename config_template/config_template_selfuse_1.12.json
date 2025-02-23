@@ -168,6 +168,11 @@
     "route": {
         "rules": [
             {
+                "inbound": ["tun-in","mixed-in"],
+                "action": "sniff",
+                "timeout": "1s"
+            },
+            {
                 "type": "logical",
                 "mode": "or",
                 "rules": [
@@ -179,11 +184,6 @@
                     }
                 ],
                 "action": "hijack-dns"
-            },
-            {
-                "inbound": ["tun-in","mixed-in"],
-                "action": "sniff",
-                "timeout": "1s"
             },
             {
                 "rule_set": "geosite-category-ads-all",
