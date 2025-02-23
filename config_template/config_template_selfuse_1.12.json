@@ -87,9 +87,9 @@
         {
             "type": "tailscale",
             "tag": "ts-ep",
-            "state_directory": "/storage/emulated/0/Android/
+            "state_directory": "/Android/
 data/io.nekohasekai.sfa/files/
-tailscale/.tailscale",
+tailscale",
             "auth_key": "tskey-auth-xxxxxxxxx",
             "control_url": "https://controlplane.tailscale.com",
             "ephemeral": false,
