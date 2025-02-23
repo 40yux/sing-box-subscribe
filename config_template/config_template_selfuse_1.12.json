@@ -168,11 +168,6 @@
     "route": {
         "rules": [
             {
-                "inbound": ["tun-in","mixed-in"],
-                "action": "sniff",
-                "timeout": "1s"
-            },
-            {
                 "type": "logical",
                 "mode": "or",
                 "rules": [
@@ -184,6 +179,17 @@
                     }
                 ],
                 "action": "hijack-dns"
+            },
+            {
+                "inbound": ["tun-in","mixed-in"],
+                "action": "sniff",
+                "timeout": "1s"
+            },
+            {
+                "rule_set": "geosite-category-ads-all",
+                "action": "reject",
+                "method": "default",
+                "no_drop": false
             },
             {
                 "ip_is_private": true,
@@ -217,12 +223,6 @@
                     }
                 ],
                 "action": "reject"
-            },
-            {
-                "rule_set": "geosite-category-ads-all",
-                "action": "reject",
-                "method": "default",
-                "no_drop": false
             },
             {
                 "rule_set": "geosite-geolocation-!cn",
