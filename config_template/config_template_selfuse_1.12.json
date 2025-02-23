@@ -1,4 +1,4 @@
-{
+7{
     "log": {
         "disabled": false,
         "level": "debug",
@@ -168,7 +168,7 @@
     "route": {
         "rules": [
             {
-                "inbound": "tun-in",
+                "inbound": ["tun-in", "mixed-in"],
                 "action": "sniff",
                 "timeout": "1s"
             },
