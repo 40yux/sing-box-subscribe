@@ -87,7 +87,7 @@
         {
             "type": "tailscale",
             "tag": "ts-ep",
-            "state_directory": "/Android/
+            "state_directory": "/
 data/io.nekohasekai.sfa/files/
 tailscale",
             "auth_key": "tskey-auth-xxxxxxxxx",
