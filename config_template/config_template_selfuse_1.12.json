@@ -127,12 +127,6 @@
                     "server_port": 7890
                 }
             }
-        },
-        {
-            "type": "mixed",
-            "tag": "mixed-in",
-            "listen": "127.0.0.1",
-            "listen_port": 7890
         }
     ],
     "outbounds": [
@@ -168,7 +162,7 @@
     "route": {
         "rules": [
             {
-                "inbound": ["tun-in","mixed-in"],
+                "inbound": "tun-in",
                 "action": "sniff",
                 "timeout": "1s"
             },
