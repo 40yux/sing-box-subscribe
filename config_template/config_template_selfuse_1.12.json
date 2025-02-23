@@ -104,7 +104,7 @@
             "type": "tun",
             "tag": "tun-in",
             "interface_name": "tun0",
-            "address": ["172.18.0.1/30", "fdfe:dcba:9876::1/126"],
+            "address": ["172.19.0.1/30", "fdfe:dcba:9876::1/126"],
             "mtu": 1492,
             "auto_route": true,
             "strict_route": true,
@@ -124,7 +124,7 @@
                 "http_proxy": {
                     "enabled": true,
                     "server": "127.0.0.1",
-                    "server_port": 8080
+                    "server_port": 1080
                 }
             }
         },
@@ -132,7 +132,7 @@
             "type": "mixed",
             "tag": "mixed-in",
             "listen": "127.0.0.1",
-            "listen_port": 8080
+            "listen_port": 1080
         }
     ],
     "outbounds": [
@@ -238,7 +238,7 @@
         "default_domain_resolver": {
             "server": "dns_direct",
             "rewrite_tll": 60,
-            "client_subnet": "1.1.1.1"
+            "client_subnet": "1.1.1.1/32"
         },
         "final": "proxy",
         "auto_detect_interface": true,
