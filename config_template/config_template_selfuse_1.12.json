@@ -87,8 +87,7 @@
         {
             "type": "tailscale",
             "tag": "ts-ep",
-            "state_directory": "
-tailscale",
+            "state_directory": "$HOME/.tailscale",
             "auth_key": "tskey-auth-xxxxxxxxx",
             "control_url": "https://controlplane.tailscale.com",
             "ephemeral": false,
