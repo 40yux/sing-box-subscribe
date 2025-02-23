@@ -92,9 +92,9 @@
             "control_url": "https://controlplane.tailscale.com",
             "ephemeral": false,
             "hostname": "my-server",
-            "exit_node": "",
-            "exit_node_allow_lan_access": true,
-            "advertise_routes": ["192.168.1.0/24"],
+            "exit_node": "100.101.102.103",
+            "exit_node_allow_lan_access": false,
+            "advertise_routes": ["192.168.1.0/24", "10.0.0.0/8"],
             "advertise_exit_node": false,
             "udp_timeout": "5m"
         }
