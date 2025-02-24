@@ -94,7 +94,7 @@
             "hostname": "my-server",
             "exit_node": "100.101.102.103",
             "exit_node_allow_lan_access": false,
-            "advertise_routes": ["192.168.1.0/24"],
+            "advertise_routes": ["192.168.1.1/24"],
             "advertise_exit_node": false,
             "udp_timeout": "5m"
         }
@@ -104,12 +104,12 @@
             "type": "tun",
             "tag": "tun-in",
             "interface_name": "tun0",
-            "address": ["172.19.0.1/30", "fdfe:dcba:9876::1/126"],
-            "mtu": 1492,
+            "address": ["172.18.0.1/30", "fdfe:dcba:9876::1/126"],
+            "mtu": 1408,
             "auto_route": true,
             "strict_route": true,
             "route_address": ["0.0.0.0/1", "128.0.0.0/1", "::/1", "8000::/1"],
-            "route_exclude_address": ["192.168.0.0/24", "fc00::/7"],
+            "route_exclude_address": ["192.168.0.0/16", "fc00::/7"],
             "endpoint_independent_nat": false,
             "stack": "system",
             "exclude_package": [
@@ -238,7 +238,7 @@
         "default_domain_resolver": {
             "server": "dns_direct",
             "rewrite_tll": 60,
-            "client_subnet": "1.1.1.1/32"
+            "client_subnet": "1.1.1.1"
         },
         "final": "proxy",
         "auto_detect_interface": true,
