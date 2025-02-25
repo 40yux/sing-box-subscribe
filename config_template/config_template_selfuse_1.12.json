@@ -78,7 +78,12 @@
                 "query_type": ["A", "AAAA"],
                 "action": "route",
                 "server": "dns_fakeip"
-            }            
+            },
+            {
+                "ip_accept_any": true,
+                "action": "route",
+                "server": "ts"
+            }
         ],
         "final": "dns_proxy",
         "strategy": "prefer_ipv4"
