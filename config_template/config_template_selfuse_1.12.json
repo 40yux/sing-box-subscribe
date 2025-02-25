@@ -147,6 +147,11 @@
     ],
     "route": {
         "rules": [
+            "default_domain_resolver": {
+            "server": "dns_direct",
+            "rewrite_tll": 60,
+            "client_subnet": "1.1.1.1"
+        },
             {               
                 "action": "sniff"                
             },
@@ -212,12 +217,7 @@
                 "action": "route",
                 "outbound": "direct"
             }
-        ],
-        "default_domain_resolver": {
-            "server": "dns_direct",
-            "rewrite_tll": 60,
-            "client_subnet": "1.1.1.1"
-        },
+        ],        
         "final": "proxy",
         "auto_detect_interface": true,
         "rule_set": [
