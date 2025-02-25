@@ -187,6 +187,24 @@
                 "outbound": "proxy"
             },
             {
+                "type": "logical",
+                "mode": "or",
+                "rules": [
+                    {
+                        "network": "tcp",
+                        "port": 853
+                    },
+                    {
+                        "network": "udp",
+                        "port": 443
+                    },
+                    {
+                        "protocol": "stun"
+                    }
+                ],
+                "action": "reject"
+            },
+            {
                 "rule_set": "geosite-geolocation-!cn",
                 "action": "route",
                 "outbound": "proxy"
