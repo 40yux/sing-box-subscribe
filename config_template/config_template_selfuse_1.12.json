@@ -53,11 +53,11 @@
                 "mode": "and",
                 "rules": [
                     {
-                        "rule_set": "geosite-geolocation-!cn",
-                        "invert": true
+                        "rule_set": "geosite-geolocation-!cn"
                     },
                     {
-                        "rule_set": "geoip-cn"
+                        "rule_set": "geoip-cn",
+                        "invert": true
                     }
                 ],
                 "action": "route",
