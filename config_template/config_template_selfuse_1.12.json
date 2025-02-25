@@ -147,10 +147,8 @@
     ],
     "route": {
         "rules": [
-            {
-                "inbound": ["tun-in","mixed-in"],
-                "action": "sniff",
-                "timeout": "1s"
+            {               
+                "action": "sniff"                
             },
             {
                 "type": "logical",
