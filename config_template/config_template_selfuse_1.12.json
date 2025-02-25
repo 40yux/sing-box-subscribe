@@ -31,11 +31,6 @@
                 "tag": "dns_fakeip",
                 "inet4_range": "198.18.0.0/15",
                 "inet6_range": "fc00::/18"
-            },
-            {
-                "type": "tailscale",
-                "tag": "ts",
-                "endpoint": "ts-ep"
             }
         ],
         "rules": [
@@ -73,45 +68,30 @@
                 "query_type": ["A", "AAAA"],
                 "action": "route",
                 "server": "dns_fakeip"
-            },
-            {
-                "ip_accept_any": true,
-                "action": "route",
-                "server": "ts"
             }
         ],
         "final": "dns_proxy",
         "strategy": "prefer_ipv4"
     },
-    "endpoints": [
-        {
-            "type": "tailscale",
-            "tag": "ts-ep",
-            "state_directory": "/storage/emulated/0/Android/data/io.nekohasekai.sfa/files/tailscale",
-            "auth_key": "tskey-auth-xxxxxxxxx",
-            "control_url": "https://controlplane.tailscale.com",
-            "ephemeral": false,
-            "hostname": "my-server",
-            "exit_node": "100.101.102.103",
-            "exit_node_allow_lan_access": false,
-            "advertise_routes": ["192.168.1.1/24"],
-            "advertise_exit_node": false,
-            "udp_timeout": "5m"
-        }
-    ],
+    "ntp": {
+        "enabled": true,
+        "server": "time.android.com",
+        "server_port": 123,
+        "detour": "direct"
+    },
     "inbounds": [
         {
             "type": "tun",
             "tag": "tun-in",
             "interface_name": "tun0",
             "address": ["172.18.0.1/30", "fdfe:dcba:9876::1/126"],
-            "mtu": 1408,
+            "mtu": 1500,
             "auto_route": true,
             "strict_route": true,
             "route_address": ["0.0.0.0/1", "128.0.0.0/1", "::/1", "8000::/1"],
-            "route_exclude_address": ["192.168.0.0/16", "fc00::/7"],
+            "route_exclude_address": ["10.0.0.0/8", "172.16.0.0/12", "192.168.0.0/16", "fc00::/7"],
             "endpoint_independent_nat": false,
-            "stack": "system",
+            "stack": "mixed",
             "exclude_package": [
                 "com.android.captiveportallogin",
                 "cn.gov.tax.its",
@@ -124,7 +104,7 @@
                 "http_proxy": {
                     "enabled": true,
                     "server": "127.0.0.1",
-                    "server_port": 8080
+                    "server_port": 7890
                 }
             }
         },
@@ -132,7 +112,7 @@
             "type": "mixed",
             "tag": "mixed-in",
             "listen": "127.0.0.1",
-            "listen_port": 8080
+            "listen_port": 7890
         }
     ],
     "outbounds": [
