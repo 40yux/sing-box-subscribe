@@ -16,7 +16,7 @@
             {
                 "type": "https",
                 "tag": "dns_direct",
-                "server": "doh.pub",
+                "server": "dns.alidns.com",
                 "domain_resolver": "dns_resolver",
                 "detour": "direct"
             },
@@ -111,7 +111,7 @@
         {
             "type": "mixed",
             "tag": "mixed-in",
-            "listen": "0.0.0.0",
+            "listen": "127.0.0.0",
             "listen_port": 8080
         }
     ],
