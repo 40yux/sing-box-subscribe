@@ -10,25 +10,19 @@
                 "type": "https",
                 "tag": "dns_proxy",
                 "server": "cloudflare-dns.com",
-                "domain_resolver": "dns_google",
-                "detour": "proxy"
-            },
-            {
-                "type": "udp",
-                "tag": "dns_google",
-                "server": "8.8.8.8",
+                "domain_resolver": "dns_resolver",
                 "detour": "proxy"
             },
             {
                 "type": "https",
                 "tag": "dns_direct",
                 "server": "dns.alidns.com",
-                "domain_resolver": "dns_baidu",
+                "domain_resolver": "dns_resolver",
                 "detour": "direct"
             },
             {
                 "type": "udp",
-                "tag": "dns_baidu",
+                "tag": "dns_resolver",
                 "server": "180.76.76.76",
                 "detour": "direct"
             },
