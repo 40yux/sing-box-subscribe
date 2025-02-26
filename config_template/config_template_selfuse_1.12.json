@@ -206,12 +206,7 @@
                 "action": "route",
                 "outbound": "direct"
             }
-        ],
-        "default_domain_resolver": {
-            "server": "dns_direct"
-        },        
-        "final": "proxy",
-        "auto_detect_interface": true,
+        ],        
         "rule_set": [
             {
                 "tag": "geosite-category-ads-all",
@@ -245,7 +240,12 @@
                 "download_detour": "auto",
                 "update_interval": "1d"
             }
-        ]
+        ],
+        "default_domain_resolver": {
+            "server": "dns_direct"
+        },        
+        "final": "proxy",
+        "auto_detect_interface": true
     },
     "experimental": {
         "cache_file": {
