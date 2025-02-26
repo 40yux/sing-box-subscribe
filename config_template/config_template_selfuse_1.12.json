@@ -29,7 +29,7 @@
             {
                 "type": "udp",
                 "tag": "dns_baidu",
-                "server": "180.76.76.76",
+                "server": "223.5.5.5.5",
                 "detour": "direct"
             },
             {
