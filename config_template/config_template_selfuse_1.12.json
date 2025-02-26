@@ -22,14 +22,14 @@
             {
                 "type": "https",
                 "tag": "dns_direct",
-                "server": "doh.pub",
+                "server": "dns.alidns.com",
                 "domain_resolver": "dns_tencent",
                 "detour": "direct"
             },
             {
                 "type": "udp",
-                "tag": "dns_tencent",
-                "server": "119.29.29.29",
+                "tag": "dns_ali",
+                "server": "223.5.5.5",
                 "detour": "direct"
             },
             {
