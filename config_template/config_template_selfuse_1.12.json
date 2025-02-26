@@ -22,7 +22,7 @@
             {
                 "type": "https",
                 "tag": "dns_direct",
-                "server": "doh.pub",
+                "server": "dns.alidns.com",
                 "domain_resolver": "dns_baidu",
                 "detour": "direct"
             },
