@@ -104,7 +104,7 @@
                 "http_proxy": {
                     "enabled": true,
                     "server": "127.0.0.1",
-                    "server_port": 8080
+                    "server_port": 7890
                 }
             }
         },
@@ -112,7 +112,7 @@
             "type": "mixed",
             "tag": "mixed-in",
             "listen": "127.0.0.0",
-            "listen_port": 8080
+            "listen_port": 7890
         }
     ],
     "outbounds": [
