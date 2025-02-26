@@ -10,26 +10,26 @@
                 "type": "https",
                 "tag": "dns_proxy",
                 "server": "cloudflare-dns.com",
-                "domain_resolver": "dns_cloudflare",
+                "domain_resolver": "dns_google",
                 "detour": "proxy"
             },
             {
                 "type": "udp",
-                "tag": "dns_cloudflare",
-                "server": "1.1.1.1",
+                "tag": "dns_google",
+                "server": "8.8.8.8",
                 "detour": "proxy"
             },
             {
                 "type": "https",
                 "tag": "dns_direct",
                 "server": "dns.alidns.com",
-                "domain_resolver": "dns_ali",
+                "domain_resolver": "dns_tencent",
                 "detour": "direct"
             },
             {
                 "type": "udp",
-                "tag": "dns_ali",
-                "server": "223.5.5.5",
+                "tag": "dns_tencent",
+                "server": "119.29.29.29",
                 "detour": "direct"
             },
             {
