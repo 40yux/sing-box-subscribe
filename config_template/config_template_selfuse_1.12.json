@@ -10,20 +10,26 @@
                 "type": "https",
                 "tag": "dns_proxy",
                 "server": "cloudflare-dns.com",
-                "domain_resolver": "dns_resolver",
+                "domain_resolver": "dns_resolver_1",
                 "detour": "proxy"
             },
+            {
+                "type": "udp",
+                "tag": "dns_resolver_1",
+                "server": "8.8.8.8",
+                "detour": "proxy"
+            },            
             {
                 "type": "https",
                 "tag": "dns_direct",
                 "server": "dns.alidns.com",
-                "domain_resolver": "dns_resolver",
+                "domain_resolver": "dns_resolver_2",
                 "detour": "direct"
             },
             {
                 "type": "udp",
-                "tag": "dns_resolver",
-                "server": "8.8.8.8",
+                "tag": "dns_resolver_2",
+                "server": "180.76.76.76",
                 "detour": "direct"
             },
             {
