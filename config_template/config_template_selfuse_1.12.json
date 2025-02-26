@@ -16,14 +16,14 @@
             {
                 "type": "https",
                 "tag": "dns_direct",
-                "server": "dns.alidns.com",
+                "server": ".dns.alidns.com",
                 "domain_resolver": "dns_resolver",
                 "detour": "direct"
             },
             {
                 "type": "udp",
                 "tag": "dns_resolver",
-                "server": "180.76.76.76",
+                "server": "119.29.29.29",
                 "detour": "direct"
             },
             {
