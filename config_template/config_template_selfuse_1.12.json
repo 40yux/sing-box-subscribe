@@ -23,7 +23,7 @@
                 "type": "https",
                 "tag": "dns_direct",
                 "server": "dns.alidns.com",
-                "domain_resolver": "dns_tencent",
+                "domain_resolver": "dns_ali",
                 "detour": "direct"
             },
             {
