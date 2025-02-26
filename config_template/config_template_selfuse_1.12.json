@@ -10,20 +10,30 @@
                 "type": "https",
                 "tag": "dns_proxy",
                 "server": "cloudflare-dns.com",
-                "domain_resolver": "dns_resolver",
+                "server_port":  443,
+                "domain_resolver": "dns_cloudflare",
+                "detour": "proxy"
+            },
+            {
+                "type": "udp",
+                "tag": "dns_cloudflare",
+                "server": "1.1.1.1",
+                "server_port":  53,
                 "detour": "proxy"
             },
             {
                 "type": "https",
                 "tag": "dns_direct",
-                "server": "dns.alidns.com",
-                "domain_resolver": "dns_resolver",
+                "server": "doh.pub",
+                "server_port":  443,
+                "domain_resolver": "dns_tencent",
                 "detour": "direct"
             },
             {
                 "type": "udp",
-                "tag": "dns_resolver",
+                "tag": "dns_tencent",
                 "server": "119.29.29.29",
+                "server_port":  53,
                 "detour": "direct"
             },
             {
@@ -83,9 +93,9 @@
         {
             "type": "tun",
             "tag": "tun-in",
-            "interface_name": "tun0",
+            "interface_name": "sing-box",
             "address": ["172.18.0.1/30", "fdfe:dcba:9876::1/126"],
-            "mtu": 1500,
+            "mtu": 1492,
             "auto_route": true,
             "strict_route": true,
             "route_address": ["0.0.0.0/1", "128.0.0.0/1", "::/1", "8000::/1"],
