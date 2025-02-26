@@ -197,20 +197,7 @@
                 "outbound": "proxy"
             },
             {
-                "type": "logical",
-                "mode": "or",
-                "rules": [
-                    {
-                        "port": 853
-                    },
-                    {
-                        "network": "udp",
-                        "port": 443
-                    },
-                    {
-                        "protocol": "stun"
-                    }
-                ],
+                "protocol": "stun",
                 "action": "reject"
             },
             {
