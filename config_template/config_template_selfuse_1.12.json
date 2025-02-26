@@ -77,7 +77,11 @@
             }
         ],
         "final": "dns_proxy",
-        "strategy": "prefer_ipv4"
+        "strategy": "prefer_ipv4",
+        "disable_cache": false,
+        "disable_expire": false,
+        "independent_cache": true,
+        "reverse_mapping": true
     },
     "ntp": {
         "enabled": true,
@@ -155,8 +159,7 @@
         "rules": [
             {
                 "inbound": ["tun-in", "mixed-in"],
-                "action": "sniff",
-                "sniffer": ["http", "tls", "quic", "stun", "dns", "bittorrent", "dtls", "ssh", "rdp"]
+                "action": "sniff"
             },
             {
                 "type": "logical",
