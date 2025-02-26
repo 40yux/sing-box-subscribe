@@ -16,14 +16,14 @@
             {
                 "type": "https",
                 "tag": "dns_direct",
-                "server": "doh.pub",
+                "server": "dns.alidns.com",
                 "domain_resolver": "dns_resolver",
                 "detour": "direct"
             },
             {
                 "type": "udp",
                 "tag": "dns_resolver",
-                "server": "119.29.29.29",
+                "server": "8.8.8.8",
                 "detour": "direct"
             },
             {
