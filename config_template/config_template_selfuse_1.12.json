@@ -7,14 +7,28 @@
     "dns": {
         "servers": [
             {
-                "type": "tls",
+                "type": "https",
                 "tag": "dns_proxy",
-                "server": "8.8.8.8",
+                "server": "cloudflare-dns.com",
+                "domain_resolver": "dns_cloudflare",
+                "detour": "proxy"
+            },
+            {
+                "type": "udp",
+                "tag": "dns_cloudflare",
+                "server": "1.1.1.1",
                 "detour": "proxy"
             },
             {
                 "type": "https",
                 "tag": "dns_direct",
+                "server": "dns.alidns.com",
+                "domain_resolver": "dns_ali",
+                "detour": "direct"
+            },
+            {
+                "type": "udp",
+                "tag": "dns_ali",
                 "server": "223.5.5.5",
                 "detour": "direct"
             },
@@ -53,7 +67,7 @@
                     }
                 ],
                 "action": "route",
-                "server": "dns_proxy",
+                "server": "dns_proxy",          
                 "client_subnet": "114.114.114.114/24"
             },
             {
