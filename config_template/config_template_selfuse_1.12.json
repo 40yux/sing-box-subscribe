@@ -10,6 +10,7 @@
                 "type": "https",
                 "tag": "dns_proxy",
                 "server": "cloudflare-dns.com",
+                "server_port": 443,
                 "domain_resolver": "dns_cloudflare",
                 "detour": "proxy"
             },
@@ -17,12 +18,14 @@
                 "type": "udp",
                 "tag": "dns_cloudflare",
                 "server": "1.1.1.1",
+                "server_port": 53,
                 "detour": "proxy"
             },
             {
                 "type": "https",
                 "tag": "dns_direct",
                 "server": "doh.pub",
+                "server_port": 443,
                 "domain_resolver": "dns_tencent",
                 "detour": "direct"
             },
@@ -30,6 +33,7 @@
                 "type": "udp",
                 "tag": "dns_tencent",
                 "server": "119.29.29.29",
+                "server_port": 53,
                 "detour": "direct"
             },
             {
@@ -159,7 +163,8 @@
         "rules": [
             {
                 "inbound": ["tun-in", "mixed-in"],
-                "action": "sniff"
+                "action": "sniff",
+                "sniffer": ["http", "tls", "quic", "stun", "dns", "bittorrent", "dtls", "ssh", "rdp"]
             },
             {
                 "type": "logical",
