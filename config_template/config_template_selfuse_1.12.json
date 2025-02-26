@@ -84,7 +84,7 @@
         "reverse_mapping": true
     },
     "ntp": {
-        "enabled": true,
+        "enabled": false,
         "server": "time.android.com",
         "server_port": 123,
         "detour": "direct"
