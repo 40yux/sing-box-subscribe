@@ -205,7 +205,6 @@
                 "mode": "or",
                 "rules": [
                     {
-                        "network": "tcp",
                         "port": 853
                     },
                     {
