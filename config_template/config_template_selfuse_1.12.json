@@ -16,7 +16,7 @@
             {
                 "type": "https",
                 "tag": "dns_direct",
-                "server": ".dns.alidns.com",
+                "server": "dns.alidns.com",
                 "domain_resolver": "dns_resolver",
                 "detour": "direct"
             },
