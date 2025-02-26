@@ -157,8 +157,10 @@
     ],
     "route": {
         "rules": [
-            {               
-                "action": "sniff"                
+            {
+                "inbound": ["tun-in", "mixed-in"],
+                "action": "sniff",
+                "sniffer": ["http", "tls", "quic", "stun", "dns", "bittorrent", "dtls", "ssh", "rdp"]
             },
             {
                 "type": "logical",
