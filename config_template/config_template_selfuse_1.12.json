@@ -212,7 +212,7 @@
                         "protocol": "stun"
                     }
                 ],
-                "action": "reject",
+                "action": "reject"
             },
             {
                 "rule_set": "geosite-geolocation-!cn",
