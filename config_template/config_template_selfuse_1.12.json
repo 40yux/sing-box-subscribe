@@ -22,7 +22,7 @@
             {
                 "type": "https",
                 "tag": "dns_direct",
-                "server": "doh.pub",
+                "server": "223.5.5.5",
                 "domain_resolver": "dns_resolver_2",
                 "detour": "direct"
             },
