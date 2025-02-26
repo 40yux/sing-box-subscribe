@@ -52,7 +52,8 @@
             {
                 "rule_set": "geosite-geolocation-cn",
                 "action": "route",
-                "server": "dns_direct"
+                "server": "dns_direct",
+                "strategy": "prefer_ipv4"
             },
             {
                 "type": "logical",
@@ -68,6 +69,7 @@
                 ],
                 "action": "route",
                 "server": "dns_proxy",
+                "strategy": "prefer_ipv4"
                 "client_subnet": "114.114.114.114/24"
             },
             {
