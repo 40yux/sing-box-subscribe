@@ -156,9 +156,8 @@
             },
             {
                 "rule_set": "geosite-category-ads-all",
-                "action": "reject",
-                "method": "default",
-                "no_drop": false
+                "action": "route",
+                "outbound": "direct"
             },
             {
                 "ip_is_private": true,
