@@ -87,7 +87,8 @@
                 "com.android.captiveportallogin",
                 "cn.gov.tax.its",
                 "com.MobileTicket",
-                "com.eg.android.AlipayGphone"
+                "com.eg.android.AlipayGphone",
+                "com.tencent.mm"
             ],
             "platform": {
                 "http_proxy": {
