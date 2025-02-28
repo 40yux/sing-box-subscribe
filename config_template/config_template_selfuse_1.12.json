@@ -148,12 +148,12 @@
             {
                 "type": "logical",
                 "mode": "or",
-                "inbound": [
+                "rules": [
                     {
-                        "tun-in"
+                        "inbound": "tun-in"
                     },
                     {
-                        "mixed-in"
+                        "inbound": "mixed-in"
                     }
                 ],
                 "action": "sniff",
