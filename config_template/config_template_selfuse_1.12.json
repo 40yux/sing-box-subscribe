@@ -44,7 +44,16 @@
                 "server": "dns_proxy"
             },
             {
-                "rule_set": "geosite-geolocation-cn",
+                "type": "logical",
+                "mode": "or",
+                "rules": [
+                    {
+                        "rule_set": "geosite-geolocation-cn"
+                    },
+                    {
+                        "rule_set": "geosite-cn"
+                    }
+                ],
                 "action": "route",
                 "server": "dns_direct"
             },
@@ -137,7 +146,16 @@
     "route": {
         "rules": [
             {
-                "inbound": ["tun-in", "mixed-in"],
+                "type": "logical",
+                "mode": "or",
+                "inbound": [
+                    {
+                        "tun-in"
+                    },
+                    {
+                        "mixed-in"
+                    }
+                ],
                 "action": "sniff",
                 "timeout": "1s"
             },
@@ -199,10 +217,21 @@
                 "outbound": "proxy"
             },
             {
-                "rule_set": ["geoip-cn", "geosite-geolocation-cn"],
+                "type": "logical",
+                "mode": "or",
+                "rules": [
+                    {
+                        "rule_set": "geoip-cn"
+                    },
+                    {
+                        "rule_set": "geosite-geolocation-cn"
+                    }
+                    {
+                        "rule_set": "geosite-geolocation-cn"
+                    }
+                ],
                 "action": "route",
                 "outbound": "direct"
-            }
         ],        
         "rule_set": [
             {
@@ -210,6 +239,14 @@
                 "type": "remote",
                 "format": "binary",
                 "url": "https://raw.githubusercontent.com/lyc8503/sing-box-rules/refs/heads/rule-set-geosite/geosite-category-ads-all.srs",
+                "download_detour": "auto",
+                "update_interval": "1d"
+            },
+            {
+                "tag": "geosite-cn",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://raw.githubusercontent.com/lyc8503/sing-box-rules/refs/heads/rule-set-geosite/geosite-cn.srs",
                 "download_detour": "auto",
                 "update_interval": "1d"
             },
