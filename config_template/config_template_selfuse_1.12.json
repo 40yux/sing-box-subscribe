@@ -227,7 +227,7 @@
                         "rule_set": "geosite-geolocation-cn"
                     },
                     {
-                        "rule_set": "geosite-geolocation-cn"
+                        "rule_set": "geosite-cn"
                     }
                 ],
                 "action": "route",
@@ -244,18 +244,18 @@
                 "update_interval": "1d"
             },
             {
-                "tag": "geosite-cn",
-                "type": "remote",
-                "format": "binary",
-                "url": "https://raw.githubusercontent.com/lyc8503/sing-box-rules/refs/heads/rule-set-geosite/geosite-cn.srs",
-                "download_detour": "auto",
-                "update_interval": "1d"
-            },
-            {
                 "tag": "geosite-geolocation-cn",
                 "type": "remote",
                 "format": "binary",
                 "url": "https://raw.githubusercontent.com/lyc8503/sing-box-rules/refs/heads/rule-set-geosite/geosite-geolocation-cn.srs",
+                "download_detour": "auto",
+                "update_interval": "1d"
+            },
+            {
+                "tag": "geosite-cn",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://raw.githubusercontent.com/lyc8503/sing-box-rules/refs/heads/rule-set-geosite/geosite-cn.srs",
                 "download_detour": "auto",
                 "update_interval": "1d"
             },
