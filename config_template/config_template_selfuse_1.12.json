@@ -80,6 +80,7 @@
       "type": "tailscale",
       "tag": "ts-ep",
       "auth_key": "tskey-auth-your-key",
+      "control_url": "https://controlplane.tailscale.com",
       "ephemeral": false,
       "hostname": "sing-box",
       "advertise_routes": ["192.168.0.0/24"],
