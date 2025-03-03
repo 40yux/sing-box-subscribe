@@ -75,23 +75,23 @@
         "final": "dns_proxy",
         "strategy": "prefer_ipv4"
     },
-      "endpoints": [
-    {
-      "type": "tailscale",
-      "tag": "ts-ep",
-      "state_directory": "",
-      "auth_key": "tskey-auth-k7NacNqnsh11CNTRL-MNVsHCwGGHNSjPVPUajXGNm7EeUDmF7S",
-      "control_url": "https://controlplane.tailscale.com",
-      "ephemeral": false,
-      "hostname": "sing-box",
-      "advertise_routes": ["192.168.0.0/24"],
-      "advertise_exit_node": false,
-      "udp_timeout": "5m",
-      "domain_resolver": "dns_direct",
-      "domain_strategy": "prefer_ipv4",
-      "detour": "proxy"
-    }
-  ],
+    "endpoints": [
+        {
+            "type": "tailscale",
+            "tag": "ts-ep",
+            "state_directory": "",
+            "auth_key": "tskey-auth-k7NacNqnsh11CNTRL-MNVsHCwGGHNSjPVPUajXGNm7EeUDmF7S",
+            "control_url": "https://controlplane.tailscale.com",
+            "ephemeral": false,
+            "hostname": "sing-box",
+            "advertise_routes": ["192.168.0.0/24"],
+            "advertise_exit_node": false,
+            "udp_timeout": "5m",
+            "domain_resolver": "dns_direct",
+            "domain_strategy": "prefer_ipv4",
+            "detour": "proxy"
+        }
+    ],
     "inbounds": [
         {
             "type": "tun",
@@ -224,10 +224,10 @@
                 "action": "reject"
             },
             {
-        "action": "route",
-        "ip_cidr": "100.0.0.0/8",
-        "outbound": "ts-ep"
-      },
+                "ip_cidr": "100.0.0.0/8",
+                "action": "route",                
+                "outbound": "ts-ep"
+            },
             {
                 "rule_set": "geosite-geolocation-!cn",
                 "action": "route",
