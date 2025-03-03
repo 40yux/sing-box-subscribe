@@ -10,20 +10,13 @@
                 "type": "https",
                 "tag": "dns_proxy",
                 "server": "cloudflare-dns.com",
-                "domain_resolver": "dns_resolver",
+                "domain_resolver": "dns_direct",
                 "detour": "proxy"
             },
             {
                 "type": "https",
                 "tag": "dns_direct",
-                "server": "dns.alidns.com",
-                "domain_resolver": "dns_resolver",
-                "detour": "direct"
-            },
-            {
-                "type": "udp",
-                "tag": "dns_resolver",
-                "server": "223.5.5.5",                       
+                "server": "223.5.5.5",
                 "detour": "direct"
             },
             {
