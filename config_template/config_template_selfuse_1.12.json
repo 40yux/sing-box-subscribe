@@ -230,7 +230,7 @@
             },
             {
                 "ip_cidr": "100.0.0.0/8",
-                "action": "route",                
+                "action": "route",
                 "outbound": "ts-ep"
             },
             {
@@ -300,7 +300,7 @@
         ],
         "default_domain_resolver": {
             "server": "dns_direct"
-        },        
+        },
         "final": "proxy",
         "auto_detect_interface": true
     },
@@ -320,7 +320,7 @@
             "secret": "",
             "default_mode": "Rule",
              "access_control_allow_origin": ["*"],
-            "access_control_allow_private_network": false      
+            "access_control_allow_private_network": false
         }
     }
 }
