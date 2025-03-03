@@ -18,7 +18,8 @@
                 "tag": "resolver_proxy",
                 "server": "1.1.1.1",
                 "detour": "proxy"
-            },{
+            },
+            {
                 "type": "https",
                 "tag": "dns_direct",
                 "server": "dns.alidns.com",
