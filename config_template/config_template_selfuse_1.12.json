@@ -14,9 +14,9 @@
                 "detour": "proxy"
             },
             {
-                "type": "udp",
+                "type": "https",
                 "tag": "dns_direct",
-                "server": "114.114.114.114",
+                "server": "223.5.5.5",
                 "detour": "direct"
             },
             {
