@@ -9,7 +9,7 @@
             {
                 "type": "https",
                 "tag": "dns_proxy",
-                "server": "one.one.one.one",
+                "server": "cloudflare-dns.com",
                 "domain_resolver": "dns_direct",
                 "detour": "proxy"
             },
