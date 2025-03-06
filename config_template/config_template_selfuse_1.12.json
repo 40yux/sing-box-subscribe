@@ -224,11 +224,6 @@
                 "action": "reject"
             },
             {
-                "ip_cidr": "100.0.0.0/8",
-                "action": "route",
-                "outbound": "ts-ep"
-            },
-            {
                 "rule_set": "geosite-geolocation-!cn",
                 "action": "route",
                 "outbound": "proxy"
