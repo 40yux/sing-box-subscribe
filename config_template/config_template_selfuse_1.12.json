@@ -80,7 +80,7 @@
             "type": "tailscale",
             "tag": "ts-ep",
             "state_directory": "",
-            "auth_key": "tskey-auth-kKA13PQp7Y11CNTRL-GH89ebEhJYVJJEKFk1HaYVpoRr3nxRL9L",
+            "auth_key": "tskey-auth-kH2oNANJE811CNTRL-Sh7MWVcAfxAamWvkUSKhxAiZWxv2QmVR",
             "control_url": "https://controlplane.tailscale.com",
             "ephemeral": false,
             "hostname": "sing-box",
