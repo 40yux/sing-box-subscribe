@@ -198,12 +198,22 @@
             {
                 "clash_mode": "Direct",
                 "action": "route",
-                "outbound": "direct"
+                
             },
             {
                 "clash_mode": "Global",
                 "action": "route",
                 "outbound": "proxy"
+            },
+            {
+                "ip_cidr": "192.168.0.0/24",
+                 "action": "route",
+                "outbound": "direct"
+            },
+            {
+                "ip_cidr": "100.0.0.0/8",
+                "action": "route",
+                 "outbound": "ts-ep"
             },
             {
                 "type": "logical",
