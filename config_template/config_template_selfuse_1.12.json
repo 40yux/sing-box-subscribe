@@ -197,8 +197,7 @@
             },                
             {
                 "clash_mode": "Direct",
-                "action": "route",
-                
+                "action": "route",                
             },
             {
                 "clash_mode": "Global",
@@ -208,8 +207,7 @@
             {
                 "ip_cidr": "192.168.0.0/24",
                 "action": "route",                 
-                "outbound": "direct"
-                
+                "outbound": "direct"                
             },
             {
                 "ip_cidr": "100.0.0.0/8",
