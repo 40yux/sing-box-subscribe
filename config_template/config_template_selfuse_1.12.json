@@ -197,7 +197,7 @@
             },
             {
                 "clash_mode": "Direct",
-                "action": "route",                
+                "action": "route"
             },
             {
                 "clash_mode": "Global",
@@ -206,13 +206,13 @@
             },
             {
                 "ip_cidr": "192.168.0.0/24",
-                "action": "route",                 
-                "outbound": "direct"                
+                "action": "route",
+                "outbound": "direct"
             },
             {
                 "ip_cidr": "100.0.0.0/8",
                 "action": "route",
-                "outbound": "ts-ep"                 
+                "outbound": "ts-ep"
             },
             {
                 "type": "logical",
