@@ -87,9 +87,7 @@
             "advertise_routes": ["192.168.0.0/24"],
             "advertise_exit_node": false,
             "udp_timeout": "5m",
-            "domain_resolver": "dns_direct",
-            "domain_strategy": "prefer_ipv4",
-            "detour": "proxy"
+            "domain_resolver": "dns_direct"
         }
     ],
     "inbounds": [
