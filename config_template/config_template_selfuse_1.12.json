@@ -284,20 +284,20 @@
                 "url": "https://raw.githubusercontent.com/lyc8503/sing-box-rules/refs/heads/rule-set-geosite/geosite-geolocation-!cn.srs",
                 "download_detour": "auto",
                 "update_interval": "1d"
+            },            
+            {
+                "tag": "geoip-cn",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://raw.githubusercontent.com/lyc8503/sing-box-rules/refs/heads/rule-set-geoip/geoip-cn.srs",
+                "download_detour": "auto",
+                "update_interval": "1d"
             },
             {
                 "tag": "geoip-private",
                 "type": "remote",
                 "format": "binary",
                 "url": "https://raw.githubusercontent.com/lyc8503/sing-box-rules/refs/heads/rule-set-geoip/geoip-private.srs",
-                "download_detour": "auto",
-                "update_interval": "1d"
-            },
-            {
-                "tag": "geoip-cn",
-                "type": "remote",
-                "format": "binary",
-                "url": "https://raw.githubusercontent.com/lyc8503/sing-box-rules/refs/heads/rule-set-geoip/geoip-cn.srs",
                 "download_detour": "auto",
                 "update_interval": "1d"
             },
