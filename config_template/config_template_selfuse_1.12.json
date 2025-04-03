@@ -240,7 +240,7 @@
                     },
                     {
                         "rule_set": "geosite-cn"
-                    }
+                    },
                     {
                         "rule_set": "geosite-private"
                     }
