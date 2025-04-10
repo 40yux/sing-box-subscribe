@@ -97,6 +97,8 @@
             "mtu": 1492,
             "auto_route": true,
             "strict_route": true,
+            "route_address": ["0.0.0.0/1", "128.0.0.0/1", "::/1", "8000::/1"],
+            "route_exclude_address": ["192.168.0.0/16", "fc00::/7"],
             "stack": "system",
             "exclude_package": [
                 "com.android.captiveportallogin",
@@ -240,9 +242,6 @@
                     },
                     {
                         "rule_set": "geosite-cn"
-                    },
-                    {
-                        "rule_set": "geosite-private"
                     }
                 ],
                 "action": "route",
@@ -287,14 +286,6 @@
                 "type": "remote",
                 "format": "binary",
                 "url": "https://raw.githubusercontent.com/lyc8503/sing-box-rules/refs/heads/rule-set-geoip/geoip-cn.srs",
-                "download_detour": "auto",
-                "update_interval": "1d"
-            },
-            {
-                "tag": "geosite-private",
-                "type": "remote",
-                "format": "binary",
-                "url": "https://raw.githubusercontent.com/lyc8503/sing-box-rules/refs/heads/rule-set-geosite/geosite-private.srs",
                 "download_detour": "auto",
                 "update_interval": "1d"
             }
