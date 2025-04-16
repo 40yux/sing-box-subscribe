@@ -195,7 +195,8 @@
             },
             {
                 "clash_mode": "Direct",
-                "action": "route"
+                "action": "route",
+                "outbound": "direct"
             },
             {
                 "clash_mode": "Global",
