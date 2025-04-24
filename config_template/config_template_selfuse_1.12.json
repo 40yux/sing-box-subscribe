@@ -74,20 +74,6 @@
         "final": "dns_proxy",
         "strategy": "prefer_ipv4"
     },
-     "endpoints": [
-        {
-            "type": "tailscale",
-            "tag": "ts-ep",
-            "auth_key": "tskey-auth-kH2oNANJE811CNTRL-Sh7MWVcAfxAamWvkUSKhxAiZWxv2QmVR",
-            "control_url": "https://controlplane.tailscale.com",
-            "ephemeral": false,
-            "hostname": "sing-box",
-            "advertise_routes": ["192.168.0.0/24"],
-            "advertise_exit_node": false,
-            "udp_timeout": "5m",
-            "domain_resolver": "dns_direct"
-        }
-    ],
     "inbounds": [
         {
             "type": "tun",
@@ -202,11 +188,6 @@
                 "clash_mode": "Global",
                 "action": "route",
                 "outbound": "proxy"
-            },
-            {
-                "ip_cidr": "100.0.0.0/8",
-                "action": "route",
-                "outbound": "ts-ep"
             },
             {
                 "type": "logical",
