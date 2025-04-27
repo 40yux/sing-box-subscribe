@@ -9,7 +9,7 @@
             {
                 "type": "https",
                 "tag": "dns_proxy",
-                "server": "dns.google/dns-query",
+                "server": "8.8.8.8",
                 "domain_resolver": "dns_direct",
                 "detour": "proxy"
             },
