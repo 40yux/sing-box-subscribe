@@ -282,6 +282,7 @@
         "auto_detect_interface": true
     },
     "experimental": {
+        "urltest_unified_delay": true，
         "cache_file": {
             "enabled": true,
             "path": "cache.db",
@@ -296,7 +297,6 @@
             "external_ui_download_detour": "direct",
             "secret": "",
             "default_mode": "Rule"
-        },
-"urltest_unified_delay": true
+        }
     }
 }
