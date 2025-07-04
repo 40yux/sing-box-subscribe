@@ -34,26 +34,14 @@
         "rules": [
             {   
                 "clash_mode": "Direct",
-                "action": "route",
                 "server": "dns_direct"
             },
             {   "clash_mode": "Global",
-                "action": "route",
                 "server": "dns_proxy"
             },
             {
-                "type": "logical",
-                "mode": "or",
-                "rules": [
-                    {
-                        "rule_set": "geosite-geolocation-cn"
-                    },
-                    {
-                        "rule_set": "geosite-cn"
-                    }
-                ],
-                "action": "route",
-                "server": "dns_direct"
+                "rule_set": "geosite-geolocation-cn",
+                "server": "dns_direct"                
             },
             {
                 "type": "logical",
@@ -67,13 +55,11 @@
                         "rule_set": "geoip-cn"
                     }
                 ],
-                "action": "route",
                 "server": "dns_proxy",
                 "client_subnet": "114.114.114.114/24"
             },
             {
                 "query_type": ["A", "AAAA"],
-                "action": "route",
                 "server": "dns_fakeip"
             }
         ],
@@ -150,18 +136,7 @@
     "route": {
         "rules": [
             {
-                "type": "logical",
-                "mode": "or",
-                "rules": [
-                    {
-                        "inbound": "tun-in"
-                    },
-                    {
-                        "inbound": "mixed-in"
-                    }
-                ],
-                "action": "sniff",
-                "timeout": "1s"
+                "action": "sniff"
             },
             {
                 "type": "logical",
@@ -184,17 +159,14 @@
             },
             {
                 "ip_is_private": true,
-                "action": "route",
                 "outbound": "direct"
             },
             {
                 "clash_mode": "Direct",
-                "action": "route",
                 "outbound": "direct"
             },
             {
                 "clash_mode": "Global",
-                "action": "route",
                 "outbound": "proxy"
             },
             {
@@ -215,28 +187,24 @@
                 "action": "reject"
             },
             {
-                "rule_set": "geosite-geolocation-!cn",
-                "action": "route",
-                "outbound": "proxy"
+                "rule_set": "geosite-geolocation-cn",
+                "outbound": "direct"
             },
             {
                 "type": "logical",
-                "mode": "or",
+                "mode": "and",
                 "rules": [
                     {
                         "rule_set": "geoip-cn"
                     },
                     {
-                        "rule_set": "geosite-geolocation-cn"
-                    },
-                    {
-                        "rule_set": "geosite-cn"
+                        "rule_set": "geosite-geolocation-!cn",
+                        "invert": true
                     }
                 ],
-                "action": "route",
                 "outbound": "direct"
-            }
-        ],        
+        ],
+        "default_domain_resolver": "dns_direct",
         "rule_set": [
             {
                 "tag": "geosite-category-ads-all",
@@ -251,14 +219,6 @@
                 "type": "remote",
                 "format": "binary",
                 "url": "https://raw.githubusercontent.com/lyc8503/sing-box-rules/refs/heads/rule-set-geosite/geosite-geolocation-cn.srs",
-                "download_detour": "auto",
-                "update_interval": "1d"
-            },
-            {
-                "tag": "geosite-cn",
-                "type": "remote",
-                "format": "binary",
-                "url": "https://raw.githubusercontent.com/lyc8503/sing-box-rules/refs/heads/rule-set-geosite/geosite-cn.srs",
                 "download_detour": "auto",
                 "update_interval": "1d"
             },
@@ -279,12 +239,6 @@
                 "update_interval": "1d"
             }
         ],
-        "default_domain_resolver": {
-            "server": "dns_direct",
-            "strategy": "prefer_ipv4",
-            "rewrite_tll": 60,
-            "client_subnet": "1.1.1.1"
-        },
         "final": "proxy",
         "auto_detect_interface": true
     },
