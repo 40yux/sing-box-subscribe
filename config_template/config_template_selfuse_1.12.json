@@ -203,6 +203,7 @@
                     }
                 ],
                 "outbound": "direct"
+            }
         ],
         "default_domain_resolver": "dns_direct",
         "rule_set": [
