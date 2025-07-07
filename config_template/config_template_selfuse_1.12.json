@@ -10,7 +10,8 @@
                 "type": "https",
                 "tag": "dns_proxy",
                 "server": "dns.google",
-                "domain_resolver": "dns_resolver"
+                "domain_resolver": "dns_resolver",
+                "detour": "proxy"
             },
             {
                 "type": "https",
