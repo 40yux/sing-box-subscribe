@@ -10,8 +10,7 @@
                 "type": "https",
                 "tag": "dns_proxy",
                 "server": "dns.google",
-                "domain_resolver": "dns_resolver",
-                "detour": "proxy"
+                "domain_resolver": "dns_resolver"
             },
             {
                 "type": "https",
@@ -74,9 +73,7 @@
             "address": ["172.18.0.1/30", "fdfe:dcba:9876::1/126"],
             "mtu": 1492,
             "auto_route": true,
-            "loopback_address": ["10.0.7.1"],
             "strict_route": true,
-            "route_address": ["0.0.0.0/1", "128.0.0.0/1", "::/1", "8000::/1"],
             "route_exclude_address": ["192.168.0.0/16", "fc00::/7"],
             "route_exclude_address_set":["geoip-cn"],
             "stack": "system",
