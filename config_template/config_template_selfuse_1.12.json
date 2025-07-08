@@ -82,9 +82,7 @@
                 "com.android.captiveportallogin",
                 "cn.gov.tax.its",
                 "com.eg.android.AlipayGphone",
-                "com.tencent.mm",
-                "com.ikang.official",
-                "com.huawei.health"
+                "com.tencent.mm"
             ],
             "platform": {
                 "http_proxy": {
