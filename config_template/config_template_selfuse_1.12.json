@@ -139,10 +139,10 @@
                 "mode": "or",
                 "rules": [
                     {
-                        "port": 53
+                        "protocol": "dns"
                     },
                     {
-                         "protocol": "dns"
+                        "port": 53
                     }
                 ],
                 "action": "hijack-dns"
