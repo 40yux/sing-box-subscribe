@@ -77,7 +77,6 @@
             "loopback_address": ["10.7.0.1"],
             "strict_route": true,
             "route_exclude_address": ["192.168.0.0/16", "fc00::/7"],
-            "route_exclude_address_set":["geoip-cn"],
             "stack": "system",
             "exclude_package": [
                 "com.android.captiveportallogin",
