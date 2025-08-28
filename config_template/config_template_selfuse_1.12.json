@@ -151,6 +151,12 @@
                 "ip_is_private": true,
                 "outbound": "direct"
             },
+             {
+                "rule_set": "geosite-category-ads-all",
+                "action": "reject",
+                "method": "default",
+                "no_drop": false
+            },
             {
                 "clash_mode": "Direct",
                 "outbound": "direct"
@@ -197,6 +203,14 @@
         ],
         "default_domain_resolver": "dns_direct",
         "rule_set": [
+            {
+                "tag": "geosite-category-ads-all",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://raw.githubusercontent.com/lyc8503/sing-box-rules/refs/heads/rule-set-geosite/geosite-category-ads-all.srs",
+                "download_detour": "auto",
+                "update_interval": "1d"
+            },
             {
                 "tag": "geosite-geolocation-cn",
                 "type": "remote",
