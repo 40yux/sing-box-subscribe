@@ -9,7 +9,7 @@
             {
                 "type": "https",
                 "tag": "dns_proxy",
-                "server": "cloudflare-dns.com",
+                "server": "dns.google",
                 "domain_resolver": "dns_resolver",
                 "detour": "proxy"
             },
