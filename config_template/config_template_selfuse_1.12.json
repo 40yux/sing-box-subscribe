@@ -114,7 +114,7 @@
             "filter": [{"action": "exclude", "keywords": ["网站|地址|剩余|过期|时间|有效"]}],
             "url": "https://www.gstatic.com/generate_204",
             "interval": "60s",
-            "tolerance": 50,
+            "tolerance": 100,
             "idle_timeout": "30m",
             "interrupt_exist_connections": true
         },
