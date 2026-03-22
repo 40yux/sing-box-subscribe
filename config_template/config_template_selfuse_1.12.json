@@ -119,6 +119,30 @@
             "interrupt_exist_connections": false
         },
         {
+            "tag": "Youtube",
+            "type": "selector",
+            "outbounds": ["{all}"],
+            "filter": [{"action": "exclude", "keywords": ["网站|地址|剩余|过期|到期|时间|有效|故障|重置|过滤"]}]
+        },
+        {
+            "tag": "Telegram",
+            "type": "selector",
+            "outbounds": ["{all}"],
+            "filter": [{"action": "exclude", "keywords": ["网站|地址|剩余|过期|到期|时间|有效|故障|重置|过滤"]}]
+        },
+        {
+            "tag": "Google",
+            "type": "selector",
+            "outbounds": ["{all}"],
+            "filter": [{"action": "exclude", "keywords": ["网站|地址|剩余|过期|到期|时间|有效|故障|重置|过滤"]}]
+        },
+        {
+            "tag": "Bahamut",
+            "type": "selector",
+            "outbounds": ["{all}"],
+            "filter": [{"action": "exclude", "keywords": ["网站|地址|剩余|过期|到期|时间|有效|故障|重置|过滤"]}]
+        },
+        {
             "tag": "proxy-no-jp",
             "type": "selector",
             "outbounds": ["{all}"],
@@ -218,6 +242,38 @@
                 "type": "remote",
                 "format": "binary",
                 "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-category-ads-all.srs",
+                "download_detour": "auto",
+                "update_interval": "1d"
+            },
+            {
+                "tag": "geosite-youtube",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-youtube.srs",
+                "download_detour": "auto",
+                "update_interval": "1d"
+            },
+            {
+                "tag": "geosite-telegram",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-telegram.srs",
+                "download_detour": "auto",
+                "update_interval": "1d"
+            },
+            {
+                "tag": "geosite-google",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-google.srs",
+                "download_detour": "auto",
+                "update_interval": "1d"
+            },
+            {
+                "tag": "geosite-bahamut",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-bahamut.srs",
                 "download_detour": "auto",
                 "update_interval": "1d"
             },
