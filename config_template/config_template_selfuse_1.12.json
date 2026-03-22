@@ -213,6 +213,22 @@
                 "action": "reject"
             },
             {
+                "rule_set": "geosite-youtube",
+                "outbound": "Youtube"
+            },
+            {
+                "rule_set": "geosite-telegram",
+                "outbound": "Telegram"
+            },
+            {
+                "rule_set": "geosite-google",
+                "outbound": "Google"
+            },
+            {
+                "rule_set": "geosite-bahamut",
+                "outbound": "Bahamut"
+            },
+            {
                 "domain": ["hanime1.me"],
                 "outbound": "proxy-no-jp"
             },
