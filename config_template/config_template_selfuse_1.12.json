@@ -154,8 +154,14 @@
             "outbounds": ["{all}"],
             "filter": [{"action": "exclude", "keywords": ["网站|地址|剩余|过期|到期|时间|有效|故障|重置|过滤|🇯🇵|JP|jp|日本|日"]}]
         },
-        {
+         {
             "tag": "Others",
+            "type": "selector",
+            "outbounds": ["{all}"],
+            "filter": [{"action": "exclude", "keywords": [""🇭🇰|HK|hk|香港|香|🇹🇼|TW|tw|台湾|台|🇸🇬|SG|sg|新加坡|狮|🇯🇵|JP|jp|日本|日|🇺🇸|US|us|美国|美网|站|地址|剩余|过期|到期|时间|有效|故障|重置|过滤"]}]
+        },
+        {
+            "tag": "subscription",
             "type": "selector",
             "outbounds": ["{all}"],
             "filter": [{"action": "include", "keywords": ["网站|地址|剩余|过期|到期|时间|有效|故障|重置|过滤"]}]
@@ -163,7 +169,37 @@
         {
             "tag": "direct",
             "type": "direct"
-        }
+        },
+        {
+            "tag": "America",
+            "type": "selector",
+            "outbounds": ["{all}"],
+            "filter": [{"action":"include","keywords":["🇺🇸|US|us|美国|美|United States"]}]
+        },
+        {
+            "tag": "Japan",
+            "type": "selector",
+            "outbounds": ["{all}"],
+            "filter": [{"action":"include","keywords":["🇯🇵|JP|jp|日本|日|Japan"]}]
+        },
+        {
+            "tag": "HongKong",
+            "type": "selector",
+            "outbounds": ["{all}"],
+            "filter": [{"action":"include","keywords":["🇭🇰|HK|hk|香港|港|HongKong"]]}]
+        },
+        {
+            "tag": "TaiWan",
+            "type": "selector",
+            "outbounds": ["{all}"],
+            "filter": [{"action":"include","keywords":["🇹🇼|TW|tw|台湾|臺灣|台|Taiwan"]}]
+        },
+        {
+            "tag": "Singapore",
+            "type": "selector",
+            "outbounds": ["{all}"],
+            "filter": [{"action":"include","keywords":["🇸🇬|SG|sg|新加坡|狮|Singapore"]}]
+        },
     ],
     "route": {
         "rules": [
