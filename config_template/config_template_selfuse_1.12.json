@@ -141,7 +141,7 @@
         {
             "tag": "Bahamut",
             "type": "selector",
-            "outbounds": ["TaiWan", "Proxy"]
+            "outbounds": ["TaiWan", "HongKong", "Singapore", "America", "Japan", "Others"]
         },
         {
             "tag": "proxy-no-jp",
