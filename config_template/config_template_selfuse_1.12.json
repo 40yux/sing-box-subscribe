@@ -384,7 +384,6 @@
             "external_ui": "ui",
             "external_ui_download_url": "https://github.com/MetaCubeX/metacubexd/archive/refs/heads/gh-pages.zip",
             "external_ui_download_detour": "",
-            "external_ui_update_interval": "24h0m0s",
             "secret": "",
             "default_mode": "Rule"
         }
