@@ -276,7 +276,9 @@
             "outbounds": [
 
             ],
-            "include": "(?i)香港|hong kong"
+            "filter":[
+        {"action":
+            "include": "(?i)香港|hong kong"}]
         },
         {
             "tag": "sg",
@@ -284,7 +286,9 @@
             "outbounds": [
 
             ],
-            "include": "(?i)(新加坡|狮城|singapore)"
+            "filter":[
+        {"action":
+            "include": "(?i)(新加坡|狮城|singapore)"}]
         },
         {
             "tag": "jp",
@@ -292,7 +296,9 @@
             "outbounds": [
 
             ],
-            "include": "(?i)日本|japan"
+            "filter":[
+        {"action":
+            "include": "(?i)日本|japan"}]
         },
         {
             "tag": "us",
@@ -300,7 +306,9 @@
             "outbounds": [
 
             ],
-            "include": "(?i)美国|united states"
+            "filter":[
+        {"action":
+            "include": "(?i)美国|united states"}]
         },
         {
             "tag": "eu",
@@ -308,15 +316,18 @@
             "outbounds": [
 
             ],
-            "include": "(?i)伦敦|英国|United Kingdom|法国|France|德国|Germany|荷兰|Netherlands"
+            "filter":[
+        {"action":
+            "include": "(?i)伦敦|英国|United Kingdom|法国|France|德国|Germany|荷兰|Netherlands"}]
         },
         {
             "tag": "other",
             "type": "selector",
             "outbounds": [
 
-            ],
-            "exclude": "(?i)回家|剩余|到期|Traffic|Expire|香港|hong kong|新加坡|狮城|singapore|日本|japan|美国|united states|伦敦|英国|United Kingdom|法国|France|德国|Germany|荷兰|Netherlands"
+            ],"filter":[
+        {"action":
+            "exclude": "(?i)回家|剩余|到期|Traffic|Expire|香港|hong kong|新加坡|狮城|singapore|日本|japan|美国|united states|伦敦|英国|United Kingdom|法国|France|德国|Germany|荷兰|Netherlands"}]
         },
         {
             "tag": "proxy",
