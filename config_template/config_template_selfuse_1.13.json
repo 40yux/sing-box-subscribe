@@ -200,7 +200,6 @@
         "final": "proxy",
         "auto_detect_interface": true,
         "default_domain_resolver": "proxy_server_dns",
-        "default_domain_match_strategy": "prefer_fqdn",
         "rule_set": [
             {
                 "tag": "private",
