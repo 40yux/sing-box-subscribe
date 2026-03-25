@@ -190,8 +190,7 @@
                 "outbound": "direct"
             },
             {
-                "action": "resolve",
-                "match_only": true
+                "action": "resolve"
             },
             {
                 "rule_set": "cn_ip",
