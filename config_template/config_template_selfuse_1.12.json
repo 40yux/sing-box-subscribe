@@ -313,7 +313,7 @@
                 "type": "remote",
                 "format": "binary",
                 "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-youtube.srs",
-                "download_detour": direct",
+                "download_detour": "direct",
                 "update_interval": "1d"
             },
             {
