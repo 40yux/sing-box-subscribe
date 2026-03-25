@@ -279,7 +279,7 @@
             "filter": [
                 {
                     "action": "include",
-                    "keywords": "(?i)香港|hong kong"
+                    "keywords": ["(?i)香港|hong kong"]
                 }
             ]
         },
@@ -292,7 +292,7 @@
             "filter": [
                 {
                     "action": "include",
-                    "keywords": "(?i)(新加坡|狮城|singapore)"
+                    "keywords": ["(?i)(新加坡|狮城|singapore)"]
                 }
             ]
         },
@@ -305,7 +305,7 @@
             "filter": [
                 {
                     "action": "include",
-                    "keywords": "(?i)日本|japan"
+                    "keywords": ["(?i)日本|japan"]
                 }
             ]
         },
@@ -318,7 +318,7 @@
             "filter": [
                 {
                     "action": "include",
-                    "keywords": "(?i)美国|united states"
+                    "keywords": ["(?i)美国|united states"]
                 }
             ]
         },
@@ -331,7 +331,7 @@
             "filter": [
                 {
                     "action": "include",
-                    "keywords": "(?i)伦敦|英国|United Kingdom|法国|France|德国|Germany|荷兰|Netherlands"
+                    "keywords": ["(?i)伦敦|英国|United Kingdom|法国|France|德国|Germany|荷兰|Netherlands"]
                 }
             ]
         },
@@ -344,7 +344,7 @@
             "filter": [
                 {
                     "action": "exclude",
-                    "keywords": "(?i)回家|剩余|到期|Traffic|Expire|香港|hong kong|新加坡|狮城|singapore|日本|japan|美国|united states|伦敦|英国|United Kingdom|法国|France|德国|Germany|荷兰|Netherlands"
+                    "keywords": ["(?i)回家|剩余|到期|Traffic|Expire|香港|hong kong|新加坡|狮城|singapore|日本|japan|美国|united states|伦敦|英国|United Kingdom|法国|France|德国|Germany|荷兰|Netherlands"]
                 }
             ]
         },
