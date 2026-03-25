@@ -305,7 +305,7 @@
                 "type": "remote",
                 "format": "binary",
                 "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-category-ads-all.srs",
-                "download_detour": "auto",
+                "download_detour": "direct",
                 "update_interval": "1d"
             },
             {
@@ -313,7 +313,7 @@
                 "type": "remote",
                 "format": "binary",
                 "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-youtube.srs",
-                "download_detour": "auto",
+                "download_detour": direct",
                 "update_interval": "1d"
             },
             {
@@ -321,7 +321,7 @@
                 "type": "remote",
                 "format": "binary",
                 "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-telegram.srs",
-                "download_detour": "auto",
+                "download_detour": "direct",
                 "update_interval": "1d"
             },
             {
@@ -329,7 +329,7 @@
                 "type": "remote",
                 "format": "binary",
                 "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-google.srs",
-                "download_detour": "auto",
+                "download_detour": "direct",
                 "update_interval": "1d"
             },
             {
@@ -337,7 +337,7 @@
                 "type": "remote",
                 "format": "binary",
                 "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-github.srs",
-                "download_detour": "auto",
+                "download_detour": "direct",
                 "update_interval": "1d"
             },
             {
@@ -345,7 +345,7 @@
                 "type": "remote",
                 "format": "binary",
                 "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-bahamut.srs",
-                "download_detour": "auto",
+                "download_detour": "direct",
                 "update_interval": "1d"
             },
             {
@@ -353,7 +353,7 @@
                 "type": "remote",
                 "format": "binary",
                 "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-geolocation-cn.srs",
-                "download_detour": "auto",
+                "download_detour": "direct",
                 "update_interval": "1d"
             },
             {
@@ -361,7 +361,7 @@
                 "type": "remote",
                 "format": "binary",
                 "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-geolocation-!cn.srs",
-                "download_detour": "auto",
+                "download_detour": "direct",
                 "update_interval": "1d"
             },            
             {
@@ -369,7 +369,7 @@
                 "type": "remote",
                 "format": "binary",
                 "url": "https://raw.githubusercontent.com/SagerNet/sing-geoip/rule-set/geoip-cn.srs",
-                "download_detour": "auto",
+                "download_detour": "direct",
                 "update_interval": "1d"
             }
         ],
