@@ -111,7 +111,7 @@
             "type": "selector",
             "outbounds": ["auto", "direct", "{all}"],
             "default": "auto",
-            "interrupt_exist_connections": true
+            "interrupt_exist_connections": false
         },
         {
             "tag": "auto",
