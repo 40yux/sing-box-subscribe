@@ -273,7 +273,7 @@
         {
             "tag": "hk",
             "type": "selector",
-            "outbounds": [
+            "outbounds": ["{all}"
 
             ],
             "filter": [
@@ -286,7 +286,7 @@
         {
             "tag": "sg",
             "type": "selector",
-            "outbounds": [
+            "outbounds": ["{all}"
 
             ],
             "filter": [
@@ -299,7 +299,7 @@
         {
             "tag": "jp",
             "type": "selector",
-            "outbounds": [
+            "outbounds": ["{all}"
 
             ],
             "filter": [
@@ -312,7 +312,7 @@
         {
             "tag": "us",
             "type": "selector",
-            "outbounds": [
+            "outbounds": ["{all}"
 
             ],
             "filter": [
@@ -325,7 +325,7 @@
         {
             "tag": "eu",
             "type": "selector",
-            "outbounds": [
+            "outbounds": ["{all}"
 
             ],
             "filter": [
@@ -338,7 +338,7 @@
         {
             "tag": "other",
             "type": "selector",
-            "outbounds": [
+            "outbounds": ["{all}"
 
             ],
             "filter": [
