@@ -7,22 +7,39 @@
     "dns": {
         "servers": [
             {
-                "type": "https",
                 "tag": "dns_proxy",
+                "type": "https",                
                 "server": "dns.google",
-                "domain_resolver": "dns_resolver",
+                "domain_resolver": "hosts",
                 "detour": "proxy"
             },
             {
-                "type": "https",
-                "tag": "dns_direct",
+                 "tag": "dns_direct",
+                "type": "https",               
                 "server": "dns.alidns.com",
-                "domain_resolver": "dns_resolver"
+                "domain_resolver": "hosts"
             },
             {
-                "type": "udp",
-                "tag": "dns_resolver",
-                "server": "114.114.114.114"
+                "tag": "hosts",
+                "type": "hosts",
+                "predefined": {
+                    "dns.alidns.com": [
+                        "223.5.5.5",
+                        "223.6.6.6"
+                    ],
+                    "doh.pub": [
+                        "1.12.12.21",
+                        "120.53.53.53"
+                    ],
+                    "dns.google": [
+                        "8.8.8.8",
+                        "8.8.4.4"
+                    ],
+                    "cloudflare-dns.com": [
+                        "104.16.248.249",
+                        "104.16.249.249"
+                    ]
+                }
             },
             {
                 "type": "fakeip",
