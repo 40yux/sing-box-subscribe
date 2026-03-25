@@ -276,7 +276,6 @@
             "outbounds": [
 
             ],
-            "use_all_providers": true,
             "include": "(?i)香港|hong kong"
         },
         {
@@ -285,7 +284,6 @@
             "outbounds": [
 
             ],
-            "use_all_providers": true,
             "include": "(?i)(新加坡|狮城|singapore)"
         },
         {
@@ -294,7 +292,6 @@
             "outbounds": [
 
             ],
-            "use_all_providers": true,
             "include": "(?i)日本|japan"
         },
         {
@@ -303,7 +300,6 @@
             "outbounds": [
 
             ],
-            "use_all_providers": true,
             "include": "(?i)美国|united states"
         },
         {
@@ -312,7 +308,6 @@
             "outbounds": [
 
             ],
-            "use_all_providers": true,
             "include": "(?i)伦敦|英国|United Kingdom|法国|France|德国|Germany|荷兰|Netherlands"
         },
         {
@@ -321,7 +316,6 @@
             "outbounds": [
 
             ],
-            "use_all_providers": true,
             "exclude": "(?i)回家|剩余|到期|Traffic|Expire|香港|hong kong|新加坡|狮城|singapore|日本|japan|美国|united states|伦敦|英国|United Kingdom|法国|France|德国|Germany|荷兰|Netherlands"
         },
         {
