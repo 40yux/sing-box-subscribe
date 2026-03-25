@@ -7,38 +7,49 @@
     "dns": {
         "servers": [
             {
-                "tag": "dns_proxy",
+                "tag": "google",
                 "type": "https",                
                 "server": "dns.google",
                 "domain_resolver": "hosts",
                 "detour": "proxy"
             },
             {
-                 "tag": "dns_direct",
+                "tag": "cloudflare",
+                "type": "https",               
+                "server": "cloudflare-dns.com",
+                "domain_resolver": "hosts",
+                "detour": "proxy"
+            },
+            {
+                "tag": "alidns",
                 "type": "https",               
                 "server": "dns.alidns.com",
                 "domain_resolver": "hosts"
             },
             {
+                "tag": "tencent",
+                "type": "https",                
+                "server": "doh.pub",
+                "domain_resolver": "hosts"                
+            },            
+            {
+                "tag": "dns_proxy",
+                "type": "group",                
+                "server": ["google", "cloudflare"]
+            },
+            {
+                "tag": "dns_direct",
+                "type": "group",               
+                "server": ["alidns", "tencent"]
+            },
+            {
                 "tag": "hosts",
                 "type": "hosts",
                 "predefined": {
-                    "dns.alidns.com": [
-                        "223.5.5.5",
-                        "223.6.6.6"
-                    ],
-                    "doh.pub": [
-                        "1.12.12.21",
-                        "120.53.53.53"
-                    ],
-                    "dns.google": [
-                        "8.8.8.8",
-                        "8.8.4.4"
-                    ],
-                    "cloudflare-dns.com": [
-                        "104.16.248.249",
-                        "104.16.249.249"
-                    ]
+                    "dns.alidns.com": ["223.5.5.5", "223.6.6.6"],
+                    "doh.pub": ["1.12.12.21", "120.53.53.53"],
+                    "dns.google": ["8.8.8.8", "8.8.4.4"],
+                    "cloudflare-dns.com": ["104.16.248.249", "104.16.249.249"]
                 }
             },
             {
