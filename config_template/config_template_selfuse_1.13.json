@@ -14,8 +14,7 @@
         {
             "type": "remote",
             "tag": "airport",
-            "url": "订阅链接",
-            "download_detour": "🐸 Direct"
+            "url": "订阅链接"
         }
     ],
     "dns": {
