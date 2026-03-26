@@ -10,6 +10,14 @@
         "server_port": 123,
         "interval": "24h"
     },
+    "providers": [
+        {
+            "type": "remote",
+            "tag": "airport",
+            "url": "订阅链接",
+            "download_detour": "🐸 Direct"
+        }
+    ],
     "dns": {
         "servers": [
             {
