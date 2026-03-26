@@ -424,6 +424,7 @@
             "external_ui": "ui",
             "external_ui_download_url": "https://ghfast.top/github.com/Zephyruso/zashboard/releases/latest/download/dist-no-fonts.zip",
             "external_ui_download_detour": "direct",
+            "external_ui_update_interval": "24h0m0s",
             "secret": "",
             "default_mode": "Rule"
         }
