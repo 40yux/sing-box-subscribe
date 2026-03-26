@@ -254,6 +254,10 @@
                 "outbound": "direct"
             },
             {
+                "action": "resolve",
+                "natch_only": true
+            },
+            {
                 "rule_set": "geosite-category-ads-all",
                 "action": "reject",
                 "method": "default",
