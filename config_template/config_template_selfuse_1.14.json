@@ -176,7 +176,7 @@
         {
             "tag": "proxy",
             "type": "selector",
-            "outbounds": [     
+            "outbounds": ["auto"     
            
             ],
             "use_all_providers": true,            "interrupt_exist_connections": false
