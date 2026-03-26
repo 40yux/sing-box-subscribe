@@ -41,12 +41,12 @@
             {
                 "tag": "dns_proxy",
                 "type": "group",
-                "server": ["google", "cloudflare"]
+                "servers": ["google", "cloudflare"]
             },
             {
                 "tag": "dns_direct",
                 "type": "group",
-                "server": ["alidns", "doh"]
+                "servers": ["alidns", "doh"]
             },
             {
                 "tag": "hosts",
