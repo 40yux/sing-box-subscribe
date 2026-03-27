@@ -13,40 +13,17 @@
     "dns": {
         "servers": [
             {
-                "tag": "google",
+                "tag": "dns_proxy",
                 "type": "https",
                 "server": "dns.google",
                 "domain_resolver": "hosts",
                 "detour": "proxy"
             },
             {
-                "tag": "cloudflare",
-                "type": "https",
-                "server": "cloudflare-dns.com",
-                "domain_resolver": "hosts",
-                "detour": "proxy"
-            },
-            {
-                "tag": "alidns",
+                "tag": "dns_direct",
                 "type": "https",
                 "server": "dns.alidns.com",
                 "domain_resolver": "hosts"
-            },
-            {
-                "tag": "doh",
-                "type": "https",
-                "server": "doh.pub",
-                "domain_resolver": "hosts"
-            },
-            {
-                "tag": "dns_proxy",
-                "type": "group",
-                "servers": ["google", "cloudflare"]
-            },
-            {
-                "tag": "dns_direct",
-                "type": "group",
-                "servers": ["alidns", "doh"]
             },
             {
                 "tag": "hosts",
@@ -145,9 +122,8 @@
         {
             "tag": "auto",
             "type": "urltest",
-            "outbounds": [],
-            "use_all_providers": true,            
-            "exclude": "网站|地址|剩余|过期|到期|时间|有效|故障|重置|过滤",
+            "outbounds": ["{all}"],
+            "filter": [{"action": "exclude", "keywords": ["网站|地址|剩余|过期|到期|时间|有效|故障|重置|过滤"]}],
             "url": "https://www.gstatic.com/generate_204",
             "interval": "3m",
             "tolerance": 100,
@@ -182,23 +158,20 @@
         {
             "tag": "proxy-no-jp",
             "type": "selector",
-            "outbounds": [],
-            "use_all_providers": true,
-            "exclude": "网站|地址|剩余|过期|到期|时间|有效|故障|重置|过滤|🇯🇵|JP|jp|日本|日"
+            "outbounds": ["{all}"],
+            "filter": [{"action": "exclude", "keywords": ["网站|地址|剩余|过期|到期|时间|有效|故障|重置|过滤|🇯🇵|JP|jp|日本|日"]}]
         },
          {
             "tag": "Others",
             "type": "selector",
-            "outbounds": [],
-            "use_all_providers": true,
-            "exclude": "🇭🇰|HK|hk|香港|香|🇹🇼|TW|tw|台湾|台|🇸🇬|SG|sg|新加坡|狮|🇯🇵|JP|jp|日本|日|🇺🇸|US|us|美国|美网|站|地址|剩余|过期|到期|时间|有效|故障|重置|过滤"
+            "outbounds": ["{all}"],
+            "filter": [{"action": "exclude", "keywords": ["🇭🇰|HK|hk|香港|香|🇹🇼|TW|tw|台湾|台|🇸🇬|SG|sg|新加坡|狮|🇯🇵|JP|jp|日本|日|🇺🇸|US|us|美国|美网|站|地址|剩余|过期|到期|时间|有效|故障|重置|过滤"]}]
         },
         {
             "tag": "subscription",
             "type": "selector",
-            "outbounds": [],
-            "use_all_providers": true,
-            "include": "网站|地址|剩余|过期|到期|时间|有效|故障|重置|过滤"
+            "outbounds": ["{all}"],
+            "filter": [{"action": "include", "keywords": ["网站|地址|剩余|过期|到期|时间|有效|故障|重置|过滤"]}]
         },
         {
             "tag": "direct",
@@ -207,37 +180,32 @@
         {
             "tag": "America",
             "type": "selector",
-            "outbounds": [],
-            "use_all_providers": true,
-            "include": "🇺🇸|US|us|美国|美|United States"
+            "outbounds": ["{all}"],
+            "filter": [{"action":"include","keywords":["🇺🇸|US|us|美国|美|United States"]}]
         },
         {
             "tag": "Japan",
             "type": "selector",
-            "outbounds": [],
-            "use_all_providers": true,
-            "include": "🇯🇵|JP|jp|日本|日|Japan"
+            "outbounds": ["{all}"],
+            "filter": [{"action":"include","keywords":["🇯🇵|JP|jp|日本|日|Japan"]}]
         },
         {
             "tag": "HongKong",
             "type": "selector",
-            "outbounds": [],
-            "use_all_providers": true,
-            "include": "🇭🇰|HK|hk|香港|港|HongKong"
+            "outbounds": ["{all}"],
+            "filter": [{"action":"include","keywords":["🇭🇰|HK|hk|香港|港|HongKong"]}]
         },
         {
             "tag": "TaiWan",
             "type": "selector",
-            "outbounds": [],
-            "use_all_providers": true,
-            "include": "🇹🇼|TW|tw|台湾|臺灣|台|Taiwan"
+            "outbounds": ["{all}"],
+            "filter": [{"action":"include","keywords":["🇹🇼|TW|tw|台湾|臺灣|台|Taiwan"]}]
         },
         {
             "tag": "Singapore",
             "type": "selector",
-            "outbounds": [],
-            "use_all_providers": true,
-            "include": "🇸🇬|SG|sg|新加坡|狮|Singapore"
+            "outbounds": ["{all}"],
+            "filter": [{"action":"include","keywords":["🇸🇬|SG|sg|新加坡|狮|Singapore"]}]
         }
     ],
     "route": {
@@ -261,10 +229,6 @@
             {
                 "ip_is_private": true,
                 "outbound": "direct"
-            },
-            {
-                "action": "resolve",
-                "match_only": true
             },
             {
                 "rule_set": "geosite-category-ads-all",
@@ -338,6 +302,10 @@
                     }
                 ],
                 "outbound": "direct"
+            },
+            {
+                "action": "resolve",
+                "match_only": true
             }
         ],
         "final": "proxy",
@@ -431,7 +399,7 @@
         "clash_api": {
             "external_controller": "127.0.0.1:9090",
             "external_ui": "ui",
-            "external_ui_download_url": "https://ghfast.top/github.com/Zephyruso/zashboard/releases/latest/download/dist-no-fonts.zip",
+            "external_ui_download_url": "https://github.com/MetaCubeX/metacubexd/archive/refs/heads/gh-pages.zip",
             "external_ui_download_detour": "direct",
             "external_ui_update_interval": "24h0m0s",
             "secret": "",
