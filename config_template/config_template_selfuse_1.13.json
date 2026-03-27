@@ -311,6 +311,7 @@
         "final": "proxy",
         "default_domain_resolver": "dns_direct",
         "auto_detect_interface": true,
+         "default_domain_match_strategy": "prefer_fqdn",
         "rule_set": [
             {
                 "tag": "geosite-category-ads-all",
