@@ -142,6 +142,11 @@
             "outbounds": ["HongKong", "TaiWan", "Singapore", "Japan", "America", "Others"]
         },
         {
+            "tag": "Twitter",
+            "type": "selector",
+            "outbounds": ["HongKong", "TaiWan", "Singapore", "Japan", "America", "Others"]
+        },
+        {
             "tag": "Google",
             "type": "selector",
             "outbounds": ["America", "HongKong", "TaiWan", "Singapore", "Japan", "Others"]
@@ -271,6 +276,10 @@
                 "outbound": "Telegram"
             },
             {
+                "rule_set": "geosite-twitter",
+                "outbound": "Twitter"
+            },
+            {
                 "rule_set": "geosite-google",
                 "outbound": "Google"
             },
@@ -330,6 +339,14 @@
                 "type": "remote",
                 "format": "binary",
                 "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-telegram.srs",
+                "download_detour": "direct",
+                "update_interval": "1d"
+            },
+            {
+                "tag": "geosite-twitter",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-twitter.srs",
                 "download_detour": "direct",
                 "update_interval": "1d"
             },
