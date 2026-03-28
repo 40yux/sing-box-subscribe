@@ -276,7 +276,7 @@
                 "outbound": "Telegram"
             },
             {
-                "rule_set": ["geosite-twitter", "geosite-x"]
+                "rule_set": ["geosite-twitter", "geosite-x"],
                 "outbound": "Twitter/X"
             },
             {
