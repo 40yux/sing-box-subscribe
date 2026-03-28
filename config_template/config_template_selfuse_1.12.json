@@ -142,16 +142,10 @@
             "outbounds": ["HongKong", "TaiWan", "Singapore", "Japan", "America", "Others"]
         },
         {
-            "tag": "Twitter",
+            "tag": "Twitter/X",
             "type": "selector",
             "outbounds": ["HongKong", "TaiWan", "Singapore", "Japan", "America", "Others"]
         },
-        {
-            "tag": "X",
-            "type": "selector",
-            "outbounds": ["HongKong", "TaiWan", "Singapore", "Japan", "America", "Others"]
-        },
-        
         {
             "tag": "Google",
             "type": "selector",
@@ -282,8 +276,8 @@
                 "outbound": "Telegram"
             },
             {
-                "rule_set": "geosite-twitter",
-                "outbound": "Twitter"
+                "rule_set": ["geosite-twitter", "geosite-x"]
+                "outbound": "Twitter/X"
             },
             {
                 "rule_set": "geosite-x",
