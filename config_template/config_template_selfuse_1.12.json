@@ -15,7 +15,7 @@
             {
                 "tag": "dns_proxy",
                 "type": "https",
-                "server": "dns.google",
+                "servers": ["dns.google", cloudflare-dns.com, dns.quad9.net],
                 "domain_resolver": "hosts",
                 "detour": "proxy"
             },
