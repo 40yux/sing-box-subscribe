@@ -184,33 +184,58 @@
         },
         {
             "tag": "America",
-            "type": "selector",
+            "type": "urltest",
             "outbounds": ["{all}"],
-            "filter": [{"action":"include","keywords":["🇺🇸|US|us|美国|美|United States"]}]
+            "filter": [{"action":"include","keywords":["🇺🇸|US|us|美国|美|United States"]}],
+            "url": "https://www.gstatic.com/generate_204",
+            "interval": "3m",
+            "tolerance": 60,
+            "idle_timeout": "30m",
+            "interrupt_exist_connections": false
         },
         {
             "tag": "Japan",
-            "type": "selector",
+            "type": "urltest",
             "outbounds": ["{all}"],
-            "filter": [{"action":"include","keywords":["🇯🇵|JP|jp|日本|日|Japan"]}]
+            "filter": [{"action":"include","keywords":["🇯🇵|JP|jp|日本|日|Japan"]}],
+            "url": "https://www.gstatic.com/generate_204",
+            "interval": "3m",
+            "tolerance": 60,
+            "idle_timeout": "30m",
+            "interrupt_exist_connections": false
         },
         {
             "tag": "HongKong",
-            "type": "selector",
+            "type": "urltest",
             "outbounds": ["{all}"],
-            "filter": [{"action":"include","keywords":["🇭🇰|HK|hk|香港|港|HongKong"]}]
+            "filter": [{"action":"include","keywords":["🇭🇰|HK|hk|香港|港|HongKong"]}],
+            "url": "https://www.gstatic.com/generate_204",
+            "interval": "3m",
+            "tolerance": 60,
+            "idle_timeout": "30m",
+            "interrupt_exist_connections": false
         },
         {
             "tag": "TaiWan",
-            "type": "selector",
+            "type": "urltest",
             "outbounds": ["{all}"],
-            "filter": [{"action":"include","keywords":["🇹🇼|TW|tw|台湾|臺灣|台|Taiwan"]}]
+            "filter": [{"action":"include","keywords":["🇹🇼|TW|tw|台湾|臺灣|台|Taiwan"]}],
+            "url": "https://www.gstatic.com/generate_204",
+            "interval": "3m",
+            "tolerance": 60,
+            "idle_timeout": "30m",
+            "interrupt_exist_connections": false
         },
         {
             "tag": "Singapore",
-            "type": "selector",
+            "type": "urltest",
             "outbounds": ["{all}"],
-            "filter": [{"action":"include","keywords":["🇸🇬|SG|sg|新加坡|狮|Singapore"]}]
+            "filter": [{"action":"include","keywords":["🇸🇬|SG|sg|新加坡|狮|Singapore"]}],
+            "url": "https://www.gstatic.com/generate_204",
+            "interval": "3m",
+            "tolerance": 60,
+            "idle_timeout": "30m",
+            "interrupt_exist_connections": false
         }
     ],
     "route": {
