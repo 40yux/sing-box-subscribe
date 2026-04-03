@@ -48,6 +48,10 @@
             }
         ],
         "rules": [
+            { 
+                "ip_accept_any": true,
+                "server": "hosts"
+            },
             {   
                 "clash_mode": "Direct",
                 "server": "dns_direct"
