@@ -26,6 +26,10 @@
                 "domain_resolver": "hosts"
             },
             {
+                "tag":"local",
+                "type":"local"
+            },
+            {
                 "tag": "hosts",
                 "type": "hosts",
                 "predefined": {
@@ -50,6 +54,14 @@
             },
             {   "clash_mode": "Global",
                 "server": "dns_proxy"
+            },
+            {
+                "query_type":"PTR",
+                "server":"local"
+            },
+            {
+                "query_type":["SVCB","HTTPS"],
+                "action":"reject"
             },
             {
                 "rule_set": "geosite-geolocation-cn",
@@ -176,10 +188,35 @@
             "tag": "Bahamut",
             "type": "selector",
             "outbounds": ["TaiWan", "HongKong", "Singapore", "America", "Japan", "Others"]
-        },        
+        },
         {
-            "tag": "direct",
-            "type": "direct"
+            "tag":"direct",
+            "type":"selector",
+            "outbounds":["IPv4优先","IPv6优先","双栈"],
+            "default":"IPv4优先"
+        },
+        {
+            "tag":"IPv4优先",
+            "type":"direct",
+            "domain_resolver":
+            {
+                "server":"local",
+                "strategy":"prefer_ipv4"
+            }
+        },
+        {
+            "tag":"IPv6优先",
+            "type":"direct",
+            "domain_resolver":
+            {
+                "server":"local",
+                "strategy":"prefer_ipv6"
+            }
+        },
+        {
+            "tag":"双栈",
+            "type":"direct",
+            "domain_resolver":"local"
         },
         {
             "tag": "America",
