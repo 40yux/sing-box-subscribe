@@ -21,7 +21,7 @@
             },
             {
                 "tag": "dns_direct",
-                "type": "https",
+                "type": "quic",
                 "server": "dns.alidns.com",
                 "domain_resolver": "hosts"
             },
