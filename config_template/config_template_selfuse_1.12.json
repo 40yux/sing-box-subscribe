@@ -331,6 +331,14 @@
                 "action": "reject"
             },
             {
+                "clash_mode": "Direct",
+                "outbound": "direct"
+            },
+            {
+                "clash_mode": "Global",
+                "outbound": "proxy"
+            },
+            {
                 "ip_is_private": true,
                 "outbound": "direct"
             },
@@ -351,14 +359,6 @@
                     }
                 ],
                 "outbound": "direct"
-            },
-            {
-                "clash_mode": "Direct",
-                "outbound": "direct"
-            },
-            {
-                "clash_mode": "Global",
-                "outbound": "proxy"
             },
             {
                 "rule_set": "geosite-youtube",
