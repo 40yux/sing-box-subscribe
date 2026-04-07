@@ -306,11 +306,7 @@
                     }
                 ],
                 "action": "hijack-dns"
-            },
-            {
-                "ip_is_private": true,
-                "outbound": "direct"
-            },
+            },            
             {
                 "rule_set": "geosite-category-ads-all",
                 "action": "reject",
@@ -341,6 +337,10 @@
                     }
                 ],
                 "action": "reject"
+            },
+            {
+                "ip_is_private": true,
+                "outbound": "direct"
             },
             {
                 "rule_set": "geosite-youtube",
