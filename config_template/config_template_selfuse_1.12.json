@@ -164,6 +164,35 @@
             "filter": [{"action": "include", "keywords": ["网站|地址|剩余|过期|到期|时间|有效|故障|重置|过滤"]}]
         },
         {
+            "tag":"direct",
+            "type":"selector",
+            "outbounds":["IPv4优先","IPv6优先","双栈"],
+            "default":"IPv4优先"
+        },
+        {
+            "tag":"IPv4优先",
+            "type":"direct",
+            "domain_resolver":
+            {
+                "server":"local",
+                "strategy":"prefer_ipv4"
+            }
+        },
+        {
+            "tag":"IPv6优先",
+            "type":"direct",
+            "domain_resolver":
+            {
+                "server":"local",
+                "strategy":"prefer_ipv6"
+            }
+        },
+        {
+            "tag":"双栈",
+            "type":"direct",
+            "domain_resolver":"local"
+        },
+        {
             "tag": "Youtube",
             "type": "selector",
             "outbounds": ["Japan","America", "HongKong", "TaiWan", "Singapore",  "Others"]
@@ -192,35 +221,6 @@
             "tag": "Bahamut",
             "type": "selector",
             "outbounds": ["TaiWan", "HongKong", "Singapore", "America", "Japan", "Others"]
-        },
-        {
-            "tag":"direct",
-            "type":"selector",
-            "outbounds":["IPv4优先","IPv6优先","双栈"],
-            "default":"IPv4优先"
-        },
-        {
-            "tag":"IPv4优先",
-            "type":"direct",
-            "domain_resolver":
-            {
-                "server":"local",
-                "strategy":"prefer_ipv4"
-            }
-        },
-        {
-            "tag":"IPv6优先",
-            "type":"direct",
-            "domain_resolver":
-            {
-                "server":"local",
-                "strategy":"prefer_ipv6"
-            }
-        },
-        {
-            "tag":"双栈",
-            "type":"direct",
-            "domain_resolver":"local"
         },
         {
             "tag": "America",
@@ -343,6 +343,24 @@
                 "outbound": "direct"
             },
             {
+                "rule_set": "geosite-geolocation-cn",
+                "outbound": "direct"
+            },
+            {
+                "type": "logical",
+                "mode": "and",
+                "rules": [
+                    {
+                        "rule_set": "geoip-cn"
+                    },
+                    {
+                        "rule_set": "geosite-geolocation-!cn",
+                        "invert": true
+                    }
+                ],
+                "outbound": "direct"
+            },
+            {
                 "rule_set": "geosite-youtube",
                 "outbound": "Youtube"
             },
@@ -373,25 +391,7 @@
             {
                 "domain": ["hanime1.me"],
                 "outbound": "proxy-no-jp"
-            },
-            {
-                "rule_set": "geosite-geolocation-cn",
-                "outbound": "direct"
-            },
-            {
-                "type": "logical",
-                "mode": "and",
-                "rules": [
-                    {
-                        "rule_set": "geoip-cn"
-                    },
-                    {
-                        "rule_set": "geosite-geolocation-!cn",
-                        "invert": true
-                    }
-                ],
-                "outbound": "direct"
-            }
+            }            
         ],
         "final": "proxy",
         "default_domain_resolver": "dns_direct",
