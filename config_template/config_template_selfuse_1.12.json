@@ -314,14 +314,6 @@
                 "no_drop": false
             },
             {
-                "clash_mode": "Direct",
-                "outbound": "direct"
-            },
-            {
-                "clash_mode": "Global",
-                "outbound": "proxy"
-            },
-            {
                 "type": "logical",
                 "mode": "or",
                 "rules": [
@@ -359,6 +351,14 @@
                     }
                 ],
                 "outbound": "direct"
+            },
+            {
+                "clash_mode": "Direct",
+                "outbound": "direct"
+            },
+            {
+                "clash_mode": "Global",
+                "outbound": "proxy"
             },
             {
                 "rule_set": "geosite-youtube",
