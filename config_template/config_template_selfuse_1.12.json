@@ -47,17 +47,17 @@
                 "inet6_range": "fc00::/18"
             }
         ],
-        "rules": [
-            { 
-                "ip_accept_any": true,
-                "server": "hosts"
-            },
+        "rules": [            
             {   
                 "clash_mode": "Direct",
                 "server": "dns_direct"
-            },
+            },           
             {   "clash_mode": "Global",
                 "server": "dns_proxy"
+            },
+            { 
+                "ip_accept_any": true,
+                "server": "hosts"
             },
             {
                 "query_type":"PTR",
