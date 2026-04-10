@@ -21,7 +21,7 @@
             },
             {
                 "tag": "dns_direct",
-                "type": "quic",
+                "type": "https",
                 "server": "dns.alidns.com",
                 "domain_resolver": "hosts"
             },
@@ -64,7 +64,7 @@
                 "server":"local"
             },
             {
-                "query_type":["SVCB","HTTPS"],
+                "query_type":["SVCB","QUIC"],
                 "action":"reject"
             },
             {
