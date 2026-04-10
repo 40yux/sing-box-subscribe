@@ -64,7 +64,7 @@
                 "server":"local"
             },
             {
-                "query_type":["SVCB","quic"],
+                "query_type":["SVCB","HTTPS"],
                 "action":"reject"
             },
             {
