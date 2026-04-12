@@ -97,9 +97,6 @@
                 "client_subnet": "114.114.114.114/24"
             },
             {
-                "action": "respond"
-            },
-            {
                 "query_type": ["A", "AAAA"],
                 "server": "dns_fakeip"
             }
