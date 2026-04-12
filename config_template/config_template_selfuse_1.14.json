@@ -59,7 +59,8 @@
             {   "clash_mode": "Global",
                 "server": "dns_proxy"
             },
-            { 
+            {
+                "match_response": true,
                 "ip_accept_any": true,
                 "server": "hosts"
             },
