@@ -79,14 +79,15 @@
             },
             {                
                 "type": "logical",
-                "mode": "and",
-                "match_response": true,
+                "mode": "and",                
                 "rules": [
                     {
+                        "match_response": true,
                         "rule_set": "geosite-geolocation-!cn",
                         "invert": true
                     },
                     {
+                        "match_response": true,
                         "rule_set": "geoip-cn"
                     }
                 ],
