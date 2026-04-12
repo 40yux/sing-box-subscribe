@@ -479,7 +479,7 @@
             "enabled": true,
             "path": "cache.db",
             "store_fakeip": true,
-            "store_rdrc": true,
+            "store_dns": true,
             "rdrc_timeout": "7d"
         },
         "clash_api": {
