@@ -62,7 +62,7 @@
             {
                 "match_response": true,
                 "ip_accept_any": true,
-                "server": "hosts"
+                "action": "respond"
             },
             {
                 "query_type":"PTR",
