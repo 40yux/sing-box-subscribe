@@ -77,10 +77,10 @@
                 "action": "route",
                 "server": "dns_direct"
             },
-            {
-                "match_response": true,
+            {                
                 "type": "logical",
                 "mode": "and",
+                "match_response": true,
                 "rules": [
                     {
                         "rule_set": "geosite-geolocation-!cn",
