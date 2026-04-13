@@ -98,7 +98,8 @@
             },
             {
                 "query_type": ["A", "AAAA"],
-                "server": "dns_fakeip"
+                "server": "dns_fakeip",
+                "rewrite_ttl": 1
             }
         ],
         "final": "dns_proxy"
