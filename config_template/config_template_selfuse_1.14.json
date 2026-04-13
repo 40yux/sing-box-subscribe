@@ -101,8 +101,7 @@
                 "server": "dns_fakeip"
             }
         ],
-        "final": "dns_proxy",
-        "strategy": "prefer_ipv4"
+        "final": "dns_proxy"
     },
     "inbounds": [
         {
