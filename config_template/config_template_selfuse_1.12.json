@@ -349,10 +349,6 @@
                 "outbound": "Twitter/X"
             },
             {
-                "rule_set": "geosite-x",
-                "outbound": "X"
-            },
-            {
                 "rule_set": "geosite-google",
                 "outbound": "Google"
             },
