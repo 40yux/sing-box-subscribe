@@ -54,9 +54,11 @@
             },
             {   
                 "clash_mode": "Direct",
+                "action": "route",
                 "server": "dns_direct"
             },           
             {   "clash_mode": "Global",
+                "action": "route",
                 "server": "dns_proxy"
             },
             {
@@ -66,11 +68,13 @@
             },
             {
                 "query_type":"PTR",
-                "server":"predefined"
+                "action":"predefined",
+                "rcode": "NOERROR"
             },
             {
                 "query_type":["SVCB","HTTPS"],
-                "action":"predefined"
+                "action":"predefined",
+                "rcode": "NOERROR"
             },
             {
                 "match_response": true,
@@ -98,6 +102,7 @@
             },
             {
                 "query_type": ["A", "AAAA"],
+                "action": "route",
                 "server": "dns_fakeip",
                 "rewrite_ttl": 1
             }
