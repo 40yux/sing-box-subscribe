@@ -107,7 +107,14 @@
                 "rewrite_ttl": 1
             }
         ],
-        "final": "dns_proxy"
+        "final": "dns_proxy",
+        "strategy": "prefer_ipv4",
+        "optimistic": {
+           "enabled": true,
+           "timeout": "3d"
+        },
+        "reverse_mapping": true,
+        "cache_capacity": 4096
     },
     "inbounds": [
         {
