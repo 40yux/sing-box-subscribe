@@ -383,7 +383,7 @@
                 "outbound": "Bahamut"
             },
             {
-                "domain": ["hanime1.me"],
+                "domain_keyword": ["hanime1"],
                 "outbound": "proxy-no-jp"
             }            
         ],
