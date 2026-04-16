@@ -110,8 +110,8 @@
         "final": "dns_proxy",
         "strategy": "prefer_ipv4",
         "optimistic": {
-           "enabled": true,
-           "timeout": "3d"
+            "enabled": true,
+            "timeout": "3d"
         },
         "reverse_mapping": true,
         "cache_capacity": 4096
