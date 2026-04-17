@@ -77,7 +77,6 @@
                 "rcode": "NOERROR"
             },
             {
-                "match_response": true,
                 "rule_set": "geosite-geolocation-cn",
                 "action": "route",
                 "server": "dns_direct"
@@ -87,7 +86,6 @@
                 "mode": "and",                
                 "rules": [
                     {
-                        "match_response": true,
                         "rule_set": "geosite-geolocation-!cn",
                         "invert": true
                     },
