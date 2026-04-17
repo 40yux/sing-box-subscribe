@@ -286,16 +286,16 @@
         }
     ],
     "route": {
-        "rules": [
-            {
-                "inbound": "tun-in,mixed-in",
-                "action": "resolve",
-                "strategy": "prefer_ipv4"
-            },
+        "rules": [            
             {
                 "inbound": "tun-in,mixed-in",
                 "action": "sniff",
                 "timeout": "1s"
+            },
+            {
+                "inbound": "tun-in,mixed-in",
+                "action": "resolve",
+                "strategy": "prefer_ipv4"
             },
             {
                 "type": "logical",
