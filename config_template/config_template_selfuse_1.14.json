@@ -386,7 +386,11 @@
             }            
         ],
         "final": "proxy",
-        "default_domain_resolver": "dns_direct",
+        "default_domain_resolver": {
+            "server": "dns_direct",
+            "rewrite_ttl": 60,
+            "client_subnet": "1.1.1.1"
+        },
         "auto_detect_interface": true,
         "rule_set": [
             {
