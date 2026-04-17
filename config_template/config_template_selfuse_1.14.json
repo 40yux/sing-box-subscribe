@@ -132,7 +132,7 @@
                 "com.android.captiveportallogin",
                 "cn.gov.tax.its",
                 "com.eg.android.AlipayGphone",
-                "com.tencent.mm"
+                "com.tencent.mm","com.unionpay","com.chinamworld.main","com.icbc","cn.com.spdb.mobilebank.per","com.icbc.elife","com.spdbccc.app","com.ccb.longjiLife","cmb.pb"
             ],
             "platform": {
                 "http_proxy": {
