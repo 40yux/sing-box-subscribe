@@ -77,7 +77,7 @@
                 "rcode": "NOERROR"
             },
             {
-                "domain_keyword": ["moarea", ".cn"],
+                "domain_keyword": ["moarea", "mt2.cn"],
                 "action": "route",
                 "server": "dns_direct
             },
