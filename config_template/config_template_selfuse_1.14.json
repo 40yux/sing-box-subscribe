@@ -114,6 +114,8 @@
         "reverse_mapping": true,
         "cache_capacity": 4096
     },
+    {
+       "http_clients": [{"tag": "dns_direct","detour": "direct"},{"tag": "dns_proxy","detour": "proxy"}],
     "inbounds": [
         {
             "type": "tun",
@@ -399,13 +401,14 @@
             "client_subnet": "114.114.114.114/24"
         },
         "auto_detect_interface": true,
+        "default_http_client": "dns_direct",
         "rule_set": [
             {
                 "tag": "geosite-category-ads-all",
                 "type": "remote",
                 "format": "binary",
                 "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-category-ads-all.srs",
-                "download_detour": "direct",
+     "http_client": "dns_direct",
                 "update_interval": "1d"
             },
             {
@@ -413,7 +416,7 @@
                 "type": "remote",
                 "format": "binary",
                 "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-youtube.srs",
-                "download_detour": "direct",
+                "http_client": "dns_direct",
                 "update_interval": "1d"
             },
             {
@@ -421,7 +424,7 @@
                 "type": "remote",
                 "format": "binary",
                 "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-telegram.srs",
-                "download_detour": "direct",
+                "http_client": "dns_direct",
                 "update_interval": "1d"
             },
             {
@@ -429,7 +432,7 @@
                 "type": "remote",
                 "format": "binary",
                 "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-twitter.srs",
-                "download_detour": "direct",
+                "http_client": "dns_direct",
                 "update_interval": "1d"
             },
             {
@@ -437,7 +440,7 @@
                 "type": "remote",
                 "format": "binary",
                 "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-x.srs",
-                "download_detour": "direct",
+                "http_client": "dns_direct",
                 "update_interval": "1d"
             },
             {
@@ -445,7 +448,7 @@
                 "type": "remote",
                 "format": "binary",
                 "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-google.srs",
-                "download_detour": "direct",
+                "http_client": "dns_direct",
                 "update_interval": "1d"
             },
             {
@@ -453,7 +456,7 @@
                 "type": "remote",
                 "format": "binary",
                 "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-github.srs",
-                "download_detour": "direct",
+                "http_client": "dns_direct",
                 "update_interval": "1d"
             },
             {
@@ -461,7 +464,7 @@
                 "type": "remote",
                 "format": "binary",
                 "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-bahamut.srs",
-                "download_detour": "direct",
+                "http_client": "dns_direct",
                 "update_interval": "1d"
             },
             {
@@ -469,7 +472,7 @@
                 "type": "remote",
                 "format": "binary",
                 "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-geolocation-cn.srs",
-                "download_detour": "direct",
+                "http_client": "dns_direct",
                 "update_interval": "1d"
             },
             {
@@ -477,7 +480,7 @@
                 "type": "remote",
                 "format": "binary",
                 "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-geolocation-!cn.srs",
-                "download_detour": "direct",
+                "http_client": "dns_direct",
                 "update_interval": "1d"
             },            
             {
@@ -485,7 +488,7 @@
                 "type": "remote",
                 "format": "binary",
                 "url": "https://raw.githubusercontent.com/SagerNet/sing-geoip/rule-set/geoip-cn.srs",
-                "download_detour": "direct",
+                "http_client": "dns_direct",
                 "update_interval": "1d"
             }
         ]
