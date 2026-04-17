@@ -127,7 +127,6 @@
             "route_address": ["0.0.0.0/1", "128.0.0.0/1", "::/1", "8000::/1"],
             "route_exclude_address": ["192.168.0.0/16", "fc00::/7"],
             "stack": "system",
-            "route.override_android_vpn": true,
             "exclude_package": [
                 "com.android.captiveportallogin",
                 "cn.gov.tax.its",
