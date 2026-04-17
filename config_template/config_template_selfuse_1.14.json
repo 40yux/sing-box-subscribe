@@ -5,7 +5,7 @@
         "timestamp": true
     },
     "ntp": {
-        "enabled": false,
+        "enabled": true,
         "server": "ntp.aliyun.com",
         "server_port": 123,
         "interval": "24h"
