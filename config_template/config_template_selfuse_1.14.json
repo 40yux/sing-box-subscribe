@@ -77,6 +77,11 @@
                 "rcode": "NOERROR"
             },
             {
+                "domain_keyword": ["moarea"],
+                "action": "route",
+                "server": "dns_direct
+            },
+            {
                 "rule_set": "geosite-geolocation-cn",
                 "action": "route",
                 "server": "dns_direct"
