@@ -114,8 +114,8 @@
         "reverse_mapping": true,
         "cache_capacity": 4096
     },
-    {
-       "http_clients": [{"tag": "dns_direct","detour": "direct"},{"tag": "dns_proxy","detour": "proxy"}]},
+    
+       "http_clients": [{"tag": "dns_direct","detour": "direct"},{"tag": "dns_proxy","detour": "proxy"}],
     "inbounds": [
         {
             "type": "tun",
