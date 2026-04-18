@@ -122,7 +122,8 @@
         {
             "tag": "dns_proxy",
             "detour": "proxy"
-        },
+        }
+    ],
     "inbounds": [
         {
             "type": "tun",
