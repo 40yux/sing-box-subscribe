@@ -26,18 +26,42 @@
                 "domain_resolver": "hosts"
             },
             {
-                "tag":"local",
-                "type":"local"
+                "tag": "local",
+                "type": "local"
             },
             {
                 "tag": "hosts",
                 "type": "hosts",
                 "predefined": {
-                    "dns.alidns.com": ["223.5.5.5", "223.6.6.6", "2400:3200::1", "2400:3200:baba::1"],
-                    "doh.pub": ["1.12.12.21", "120.53.53.53", "2402:4e00::"],
-                    "dns.google": ["8.8.8.8", "8.8.4.4", "2001:4860:4860::8888", "2001:4860:4860::8844"],
-                    "cloudflare-dns.com": ["104.16.248.249", "104.16.249.249", "2606:4700:4700::1111", "2606:4700:4700::1001"],
-                    "dns.quad9.net": ["9.9.9.9", "9.9.9.11", "2620:fe::fe", "2620:fe::11"]
+                    "dns.alidns.com": [
+                        "223.5.5.5",
+                        "223.6.6.6",
+                        "2400:3200::1",
+                        "2400:3200:baba::1"
+                    ],
+                    "doh.pub": [
+                        "1.12.12.21",
+                        "120.53.53.53",
+                        "2402:4e00::"
+                    ],
+                    "dns.google": [
+                        "8.8.8.8",
+                        "8.8.4.4",
+                        "2001:4860:4860::8888",
+                        "2001:4860:4860::8844"
+                    ],
+                    "cloudflare-dns.com": [
+                        "104.16.248.249",
+                        "104.16.249.249",
+                        "2606:4700:4700::1111",
+                        "2606:4700:4700::1001"
+                    ],
+                    "dns.quad9.net": [
+                        "9.9.9.9",
+                        "9.9.9.11",
+                        "2620:fe::fe",
+                        "2620:fe::11"
+                    ]
                 }
             },
             {
@@ -52,12 +76,13 @@
                 "action": "evaluate",
                 "server": "hosts"
             },
-            {   
+            {
                 "clash_mode": "Direct",
                 "action": "route",
                 "server": "dns_direct"
-            },           
-            {   "clash_mode": "Global",
+            },
+            {
+                "clash_mode": "Global",
                 "action": "route",
                 "server": "dns_proxy"
             },
@@ -67,13 +92,16 @@
                 "action": "respond"
             },
             {
-                "query_type":"PTR",
-                "action":"predefined",
+                "query_type": "PTR",
+                "action": "predefined",
                 "rcode": "NOERROR"
             },
             {
-                "query_type":["SVCB","HTTPS"],
-                "action":"predefined",
+                "query_type": [
+                    "SVCB",
+                    "HTTPS"
+                ],
+                "action": "predefined",
                 "rcode": "NOERROR"
             },
             {
@@ -81,9 +109,9 @@
                 "action": "route",
                 "server": "dns_direct"
             },
-            {                
+            {
                 "type": "logical",
-                "mode": "and",                
+                "mode": "and",
                 "rules": [
                     {
                         "rule_set": "geosite-geolocation-!cn",
@@ -99,7 +127,10 @@
                 "client_subnet": "114.114.114.114/24"
             },
             {
-                "query_type": ["A", "AAAA"],
+                "query_type": [
+                    "A",
+                    "AAAA"
+                ],
                 "action": "route",
                 "server": "dns_fakeip",
                 "rewrite_ttl": 1
@@ -128,19 +159,31 @@
         {
             "type": "tun",
             "tag": "tun-in",
-            "address": ["172.18.0.1/30", "fdfe:dcba:9876::1/126"],
+            "address": [
+                "172.18.0.1/30",
+                "fdfe:dcba:9876::1/126"
+            ],
             "mtu": 1420,
             "auto_route": true,
             "auto_redirect": true,
             "strict_route": true,
-            "route_address": ["0.0.0.0/1", "128.0.0.0/1", "::/1", "8000::/1"],
-            "route_exclude_address": ["192.168.0.0/16", "fc00::/7"],
+            "route_address": [
+                "0.0.0.0/1",
+                "128.0.0.0/1",
+                "::/1",
+                "8000::/1"
+            ],
+            "route_exclude_address": [
+                "192.168.0.0/16",
+                "fc00::/7"
+            ],
             "stack": "system",
             "exclude_package": [
                 "com.android.captiveportallogin",
                 "cn.gov.tax.its",
                 "com.eg.android.AlipayGphone",
-                "com.tencent.mm","com.unionpay",
+                "com.tencent.mm",
+                "com.unionpay",
                 "com.chinamworld.main",
                 "com.icbc",
                 "cn.com.spdb.mobilebank.per",
@@ -168,14 +211,27 @@
         {
             "tag": "proxy",
             "type": "selector",
-            "outbounds": ["auto", "direct", "{all}"],
+            "outbounds": [
+                "auto",
+                "direct",
+                "{all}"
+            ],
             "default": "auto"
         },
         {
             "tag": "auto",
             "type": "urltest",
-            "outbounds": ["{all}"],
-            "filter": [{"action": "exclude", "keywords": ["网站|地址|剩余|过期|到期|时间|有效|故障|重置|过滤"]}],
+            "outbounds": [
+                "{all}"
+            ],
+            "filter": [
+                {
+                    "action": "exclude",
+                    "keywords": [
+                        "网站|地址|剩余|过期|到期|时间|有效|故障|重置|过滤"
+                    ]
+                }
+            ],
             "url": "https://www.gstatic.com/generate_204",
             "interval": "3m",
             "tolerance": 60,
@@ -185,8 +241,17 @@
         {
             "tag": "Others",
             "type": "urltest",
-            "outbounds": ["{all}"],
-            "filter": [{"action": "exclude", "keywords": ["🇭🇰|HK|hk|香港|香|🇹🇼|TW|tw|台湾|台|🇸🇬|SG|sg|新加坡|狮|🇯🇵|JP|jp|日本|日|🇺🇸|US|us|美国|美网|站|地址|剩余|过期|到期|时间|有效|故障|重置|过滤"]}],
+            "outbounds": [
+                "{all}"
+            ],
+            "filter": [
+                {
+                    "action": "exclude",
+                    "keywords": [
+                        "🇭🇰|HK|hk|香港|香|🇹🇼|TW|tw|台湾|台|🇸🇬|SG|sg|新加坡|狮|🇯🇵|JP|jp|日本|日|🇺🇸|US|us|美国|美网|站|地址|剩余|过期|到期|时间|有效|故障|重置|过滤"
+                    ]
+                }
+            ],
             "url": "https://www.gstatic.com/generate_204",
             "interval": "3m",
             "tolerance": 60,
@@ -196,49 +261,109 @@
         {
             "tag": "subscription",
             "type": "selector",
-            "outbounds": ["{all}"],
-            "filter": [{"action": "include", "keywords": ["网站|地址|剩余|过期|到期|时间|有效|故障|重置|过滤"]}]
+            "outbounds": [
+                "{all}"
+            ],
+            "filter": [
+                {
+                    "action": "include",
+                    "keywords": [
+                        "网站|地址|剩余|过期|到期|时间|有效|故障|重置|过滤"
+                    ]
+                }
+            ]
         },
         {
-            "tag":"direct",
-            "type":"direct",
-            "domain_resolver":"local"
+            "tag": "direct",
+            "type": "direct",
+            "domain_resolver": "local"
         },
         {
             "tag": "Youtube",
             "type": "selector",
-            "outbounds": ["Japan","America", "HongKong", "TaiWan", "Singapore",  "Others"]
+            "outbounds": [
+                "Japan",
+                "America",
+                "HongKong",
+                "TaiWan",
+                "Singapore",
+                "Others"
+            ]
         },
         {
             "tag": "Telegram",
             "type": "selector",
-            "outbounds": ["HongKong", "TaiWan", "Singapore", "Japan", "America", "Others"]
+            "outbounds": [
+                "HongKong",
+                "TaiWan",
+                "Singapore",
+                "Japan",
+                "America",
+                "Others"
+            ]
         },
         {
             "tag": "Twitter/X",
             "type": "selector",
-            "outbounds": ["HongKong", "TaiWan", "Singapore", "Japan", "America", "Others"]
+            "outbounds": [
+                "HongKong",
+                "TaiWan",
+                "Singapore",
+                "Japan",
+                "America",
+                "Others"
+            ]
         },
         {
             "tag": "Google",
             "type": "selector",
-            "outbounds": ["America", "HongKong", "TaiWan", "Singapore", "Japan", "Others"]
+            "outbounds": [
+                "America",
+                "HongKong",
+                "TaiWan",
+                "Singapore",
+                "Japan",
+                "Others"
+            ]
         },
         {
             "tag": "Github",
             "type": "selector",
-            "outbounds": ["HongKong", "TaiWan", "Singapore", "Japan", "America", "Others"]
+            "outbounds": [
+                "HongKong",
+                "TaiWan",
+                "Singapore",
+                "Japan",
+                "America",
+                "Others"
+            ]
         },
         {
             "tag": "Bahamut",
             "type": "selector",
-            "outbounds": ["TaiWan", "HongKong", "Singapore", "America", "Japan", "Others"]
+            "outbounds": [
+                "TaiWan",
+                "HongKong",
+                "Singapore",
+                "America",
+                "Japan",
+                "Others"
+            ]
         },
         {
             "tag": "America",
             "type": "urltest",
-            "outbounds": ["{all}"],
-            "filter": [{"action":"include","keywords":["🇺🇸|US|us|美国|美|United States"]}],
+            "outbounds": [
+                "{all}"
+            ],
+            "filter": [
+                {
+                    "action": "include",
+                    "keywords": [
+                        "🇺🇸|US|us|美国|美|United States"
+                    ]
+                }
+            ],
             "url": "https://www.gstatic.com/generate_204",
             "interval": "3m",
             "tolerance": 60,
@@ -248,8 +373,17 @@
         {
             "tag": "Japan",
             "type": "urltest",
-            "outbounds": ["{all}"],
-            "filter": [{"action":"include","keywords":["🇯🇵|JP|jp|日本|日|Japan"]}],
+            "outbounds": [
+                "{all}"
+            ],
+            "filter": [
+                {
+                    "action": "include",
+                    "keywords": [
+                        "🇯🇵|JP|jp|日本|日|Japan"
+                    ]
+                }
+            ],
             "url": "https://www.gstatic.com/generate_204",
             "interval": "3m",
             "tolerance": 60,
@@ -259,8 +393,17 @@
         {
             "tag": "HongKong",
             "type": "urltest",
-            "outbounds": ["{all}"],
-            "filter": [{"action":"include","keywords":["🇭🇰|HK|hk|香港|港|HongKong"]}],
+            "outbounds": [
+                "{all}"
+            ],
+            "filter": [
+                {
+                    "action": "include",
+                    "keywords": [
+                        "🇭🇰|HK|hk|香港|港|HongKong"
+                    ]
+                }
+            ],
             "url": "https://www.gstatic.com/generate_204",
             "interval": "3m",
             "tolerance": 60,
@@ -270,8 +413,17 @@
         {
             "tag": "TaiWan",
             "type": "urltest",
-            "outbounds": ["{all}"],
-            "filter": [{"action":"include","keywords":["🇹🇼|TW|tw|台湾|臺灣|台|Taiwan"]}],
+            "outbounds": [
+                "{all}"
+            ],
+            "filter": [
+                {
+                    "action": "include",
+                    "keywords": [
+                        "🇹🇼|TW|tw|台湾|臺灣|台|Taiwan"
+                    ]
+                }
+            ],
             "url": "https://www.gstatic.com/generate_204",
             "interval": "3m",
             "tolerance": 60,
@@ -281,8 +433,17 @@
         {
             "tag": "Singapore",
             "type": "urltest",
-            "outbounds": ["{all}"],
-            "filter": [{"action":"include","keywords":["🇸🇬|SG|sg|新加坡|狮|Singapore"]}],
+            "outbounds": [
+                "{all}"
+            ],
+            "filter": [
+                {
+                    "action": "include",
+                    "keywords": [
+                        "🇸🇬|SG|sg|新加坡|狮|Singapore"
+                    ]
+                }
+            ],
             "url": "https://www.gstatic.com/generate_204",
             "interval": "3m",
             "tolerance": 60,
@@ -292,8 +453,17 @@
         {
             "tag": "proxy-no-jp",
             "type": "urltest",
-            "outbounds": ["{all}"],
-            "filter": [{"action": "exclude", "keywords": ["网站|地址|剩余|过期|到期|时间|有效|故障|重置|过滤|🇯🇵|JP|jp|日本|日"]}],
+            "outbounds": [
+                "{all}"
+            ],
+            "filter": [
+                {
+                    "action": "exclude",
+                    "keywords": [
+                        "网站|地址|剩余|过期|到期|时间|有效|故障|重置|过滤|🇯🇵|JP|jp|日本|日"
+                    ]
+                }
+            ],
             "url": "https://www.gstatic.com/generate_204",
             "interval": "3m",
             "tolerance": 60,
@@ -302,7 +472,7 @@
         }
     ],
     "route": {
-        "rules": [            
+        "rules": [
             {
                 "inbound": "tun-in,mixed-in",
                 "action": "sniff",
@@ -325,7 +495,7 @@
                     }
                 ],
                 "action": "hijack-dns"
-            },            
+            },
             {
                 "rule_set": "geosite-category-ads-all",
                 "action": "reject",
@@ -388,7 +558,10 @@
                 "outbound": "Telegram"
             },
             {
-                "rule_set": ["geosite-twitter", "geosite-x"],
+                "rule_set": [
+                    "geosite-twitter",
+                    "geosite-x"
+                ],
                 "outbound": "Twitter/X"
             },
             {
@@ -404,9 +577,11 @@
                 "outbound": "Bahamut"
             },
             {
-                "domain_keyword": ["hanime1"],
+                "domain_keyword": [
+                    "hanime1"
+                ],
                 "outbound": "proxy-no-jp"
-            }            
+            }
         ],
         "final": "proxy",
         "default_domain_resolver": {
@@ -422,7 +597,7 @@
                 "type": "remote",
                 "format": "binary",
                 "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-category-ads-all.srs",
-                "http_client": "dns_direct",     
+                "http_client": "dns_direct",
                 "update_interval": "1d"
             },
             {
@@ -496,7 +671,7 @@
                 "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-geolocation-!cn.srs",
                 "http_client": "dns_direct",
                 "update_interval": "1d"
-            },            
+            },
             {
                 "tag": "geoip-cn",
                 "type": "remote",
