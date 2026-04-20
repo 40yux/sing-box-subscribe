@@ -17,7 +17,7 @@
                 "type": "https",
                 "server": "dns.google",
                 "domain_resolver": "hosts",
-                "detour": "proxy"
+                "detour": "🚀proxy"
             },
             {
                 "tag": "dns_direct",
@@ -152,7 +152,7 @@
         },
         {
             "tag": "dns_proxy",
-            "detour": "proxy"
+            "detour": "🚀proxy"
         }
     ],
     "inbounds": [
@@ -209,17 +209,17 @@
     ],
     "outbounds": [
         {
-            "tag": "proxy",
+            "tag": "🚀proxy",
             "type": "selector",
             "outbounds": [
-                "auto",
+                "♻️auto",
                 "direct",
                 "{all}"
             ],
-            "default": "auto"
+            "default": "♻️auto"
         },
         {
-            "tag": "auto",
+            "tag": "♻️auto",
             "type": "urltest",
             "outbounds": [
                 "{all}"
@@ -239,7 +239,7 @@
             "interrupt_exist_connections": false
         },
         {
-            "tag": "Others",
+            "tag": "💧Others",
             "type": "urltest",
             "outbounds": [
                 "{all}"
@@ -259,7 +259,7 @@
             "interrupt_exist_connections": false
         },
         {
-            "tag": "subscription",
+            "tag": "⏳Subscription",
             "type": "selector",
             "outbounds": [
                 "{all}"
@@ -279,79 +279,79 @@
             "domain_resolver": "local"
         },
         {
-            "tag": "Youtube",
+            "tag": "☂️Youtube",
             "type": "selector",
             "outbounds": [
-                "Japan",
-                "America",
-                "HongKong",
-                "TaiWan",
-                "Singapore",
-                "Others"
+                "🇯🇵Japan",
+                "🇺🇸America",
+                "🇭🇰HongKong",
+                "🇹🇼TaiWan",
+                "🇸🇬Singapore",
+                "💧Others"
             ]
         },
         {
-            "tag": "Telegram",
+            "tag": "☂️Telegram",
             "type": "selector",
             "outbounds": [
-                "HongKong",
-                "TaiWan",
-                "Singapore",
-                "Japan",
-                "America",
-                "Others"
+                "🇭🇰HongKong",
+                "🇹🇼TaiWan",
+                "🇸🇬Singapore",
+                "🇯🇵Japan",
+                "🇺🇸America",
+                "💧Others"
             ]
         },
         {
-            "tag": "Twitter/X",
+            "tag": "☂️Twitter/X",
             "type": "selector",
             "outbounds": [
-                "HongKong",
-                "TaiWan",
-                "Singapore",
-                "Japan",
-                "America",
-                "Others"
+                "🇭🇰HongKong",
+                "🇹🇼TaiWan",
+                "🇸🇬Singapore",
+                "🇯🇵Japan",
+                "🇺🇸America",
+                "💧Others"
             ]
         },
         {
-            "tag": "Google",
+            "tag": "☂️Google",
             "type": "selector",
             "outbounds": [
-                "America",
-                "HongKong",
-                "TaiWan",
-                "Singapore",
-                "Japan",
-                "Others"
+                "🇺🇸America",
+                "🇭🇰HongKong",
+                "🇹🇼TaiWan",
+                "🇸🇬Singapore",
+                "🇯🇵Japan",
+                "💧Others"
             ]
         },
         {
-            "tag": "Github",
+            "tag": "☂️Github",
             "type": "selector",
             "outbounds": [
-                "HongKong",
-                "TaiWan",
-                "Singapore",
-                "Japan",
-                "America",
-                "Others"
+                "🇭🇰HongKong",
+                "🇹🇼TaiWan",
+                "🇸🇬Singapore",
+                "🇯🇵Japan",
+                "🇺🇸America",
+                "💧Others"
             ]
         },
         {
-            "tag": "Bahamut",
+            "tag": "☂️Bahamut",
             "type": "selector",
             "outbounds": [
-                "TaiWan",
-                "HongKong",
-                "Singapore",
-                "America",
-                "Japan",
-                "Others"
+                "🇹🇼TaiWan",
+                "🇭🇰HongKong",
+                "🇸🇬Singapore",
+                "🇺🇸America",
+                "🇯🇵Japan",
+                "💧Others"
             ]
         },
         {
-            "tag": "America",
+            "tag": "🇺🇸America",
             "type": "urltest",
             "outbounds": [
                 "{all}"
@@ -371,7 +371,7 @@
             "interrupt_exist_connections": false
         },
         {
-            "tag": "Japan",
+            "tag": "🇯🇵Japan",
             "type": "urltest",
             "outbounds": [
                 "{all}"
@@ -391,7 +391,7 @@
             "interrupt_exist_connections": false
         },
         {
-            "tag": "HongKong",
+            "tag": "🇭🇰HongKong",
             "type": "urltest",
             "outbounds": [
                 "{all}"
@@ -411,7 +411,7 @@
             "interrupt_exist_connections": false
         },
         {
-            "tag": "TaiWan",
+            "tag": "🇹🇼TaiWan",
             "type": "urltest",
             "outbounds": [
                 "{all}"
@@ -431,7 +431,7 @@
             "interrupt_exist_connections": false
         },
         {
-            "tag": "Singapore",
+            "tag": "🇸🇬Singapore",
             "type": "urltest",
             "outbounds": [
                 "{all}"
@@ -451,7 +451,7 @@
             "interrupt_exist_connections": false
         },
         {
-            "tag": "proxy-no-jp",
+            "tag": "❄️Proxy-no-jp",
             "type": "urltest",
             "outbounds": [
                 "{all}"
@@ -525,7 +525,7 @@
             },
             {
                 "clash_mode": "Global",
-                "outbound": "proxy"
+                "outbound": "🚀proxy"
             },
             {
                 "ip_is_private": true,
@@ -551,39 +551,39 @@
             },
             {
                 "rule_set": "geosite-youtube",
-                "outbound": "Youtube"
+                "outbound": "☂️Youtube"
             },
             {
                 "rule_set": "geosite-telegram",
-                "outbound": "Telegram"
+                "outbound": "☂️Telegram"
             },
             {
                 "rule_set": [
                     "geosite-twitter",
                     "geosite-x"
                 ],
-                "outbound": "Twitter/X"
+                "outbound": "☂️Twitter/X"
             },
             {
                 "rule_set": "geosite-google",
-                "outbound": "Google"
+                "outbound": "☂️Google"
             },
             {
                 "rule_set": "geosite-github",
-                "outbound": "Github"
+                "outbound": "☂️Github"
             },
             {
                 "rule_set": "geosite-bahamut",
-                "outbound": "Bahamut"
+                "outbound": "☂️Bahamut"
             },
             {
                 "domain_keyword": [
                     "hanime1"
                 ],
-                "outbound": "proxy-no-jp"
+                "outbound": "❄️Proxy-no-jp"
             }
         ],
-        "final": "proxy",
+        "final": "🚀proxy",
         "default_domain_resolver": {
             "server": "dns_direct",
             "rewrite_ttl": 60,
