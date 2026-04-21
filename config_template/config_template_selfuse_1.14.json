@@ -352,6 +352,26 @@
             ]
         },
         {
+            "tag": "💎Proxy-no-jp",
+            "type": "urltest",
+            "outbounds": [
+                "{all}"
+            ],
+            "filter": [
+                {
+                    "action": "exclude",
+                    "keywords": [
+                        "网站|地址|剩余|过期|到期|时间|有效|故障|重置|过滤|🇯🇵|JP|jp|日本|日"
+                    ]
+                }
+            ],
+            "url": "https://www.gstatic.com/generate_204",
+            "interval": "3m",
+            "tolerance": 60,
+            "idle_timeout": "30m",
+            "interrupt_exist_connections": false
+        },
+        {
             "tag": "🇺🇸America",
             "type": "urltest",
             "outbounds": [
@@ -442,26 +462,6 @@
                     "action": "include",
                     "keywords": [
                         "🇸🇬|SG|sg|新加坡|狮|Singapore"
-                    ]
-                }
-            ],
-            "url": "https://www.gstatic.com/generate_204",
-            "interval": "3m",
-            "tolerance": 60,
-            "idle_timeout": "30m",
-            "interrupt_exist_connections": false
-        },
-        {
-            "tag": "💎Proxy-no-jp",
-            "type": "urltest",
-            "outbounds": [
-                "{all}"
-            ],
-            "filter": [
-                {
-                    "action": "exclude",
-                    "keywords": [
-                        "网站|地址|剩余|过期|到期|时间|有效|故障|重置|过滤|🇯🇵|JP|jp|日本|日"
                     ]
                 }
             ],
