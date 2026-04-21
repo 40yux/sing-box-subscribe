@@ -190,7 +190,7 @@
                 "com.icbc.elife",
                 "com.spdbccc.app",
                 "com.ccb.longjiLife",
-                "cmb.pb"
+                "cmb.pb",
                 "com.tdx.AndroidNew"
             ],
             "platform": {
@@ -280,7 +280,7 @@
             "domain_resolver": "local"
         },
         {
-            "tag": "☂️Youtube",
+            "tag": "🆔Youtube",
             "type": "selector",
             "outbounds": [
                 "🇯🇵Japan",
@@ -292,7 +292,7 @@
             ]
         },
         {
-            "tag": "☂️Telegram",
+            "tag": "🆔Telegram",
             "type": "selector",
             "outbounds": [
                 "🇭🇰HongKong",
@@ -304,7 +304,7 @@
             ]
         },
         {
-            "tag": "☂️Twitter/X",
+            "tag": "🆔Twitter/X",
             "type": "selector",
             "outbounds": [
                 "🇭🇰HongKong",
@@ -316,7 +316,7 @@
             ]
         },
         {
-            "tag": "☂️Google",
+            "tag": "🆔Google",
             "type": "selector",
             "outbounds": [
                 "🇺🇸America",
@@ -328,7 +328,7 @@
             ]
         },
         {
-            "tag": "☂️Github",
+            "tag": "🆔Github",
             "type": "selector",
             "outbounds": [
                 "🇭🇰HongKong",
@@ -340,7 +340,7 @@
             ]
         },
         {
-            "tag": "☂️Bahamut",
+            "tag": "🆔Bahamut",
             "type": "selector",
             "outbounds": [
                 "🇹🇼TaiWan",
@@ -452,7 +452,7 @@
             "interrupt_exist_connections": false
         },
         {
-            "tag": "❄️Proxy-no-jp",
+            "tag": "💎Proxy-no-jp",
             "type": "urltest",
             "outbounds": [
                 "{all}"
@@ -552,36 +552,36 @@
             },
             {
                 "rule_set": "geosite-youtube",
-                "outbound": "☂️Youtube"
+                "outbound": "🆔Youtube"
             },
             {
                 "rule_set": "geosite-telegram",
-                "outbound": "☂️Telegram"
+                "outbound": "🆔Telegram"
             },
             {
                 "rule_set": [
                     "geosite-twitter",
                     "geosite-x"
                 ],
-                "outbound": "☂️Twitter/X"
+                "outbound": "🆔Twitter/X"
             },
             {
                 "rule_set": "geosite-google",
-                "outbound": "☂️Google"
+                "outbound": "🆔Google"
             },
             {
                 "rule_set": "geosite-github",
-                "outbound": "☂️Github"
+                "outbound": "🆔Github"
             },
             {
                 "rule_set": "geosite-bahamut",
-                "outbound": "☂️Bahamut"
+                "outbound": "🆔Bahamut"
             },
             {
                 "domain_keyword": [
                     "hanime1"
                 ],
-                "outbound": "❄️Proxy-no-jp"
+                "outbound": "💎Proxy-no-jp"
             }
         ],
         "final": "🚀proxy",
