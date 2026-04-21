@@ -522,18 +522,22 @@
             },
             {
                 "clash_mode": "🇨🇳Direct",
+                "action": "route",
                 "outbound": "direct"
             },
             {
                 "clash_mode": "🌍Global",
+                "action": "route",
                 "outbound": "🎯proxy"
             },
             {
                 "ip_is_private": true,
+                "action": "route",
                 "outbound": "direct"
             },
             {
                 "rule_set": "geosite-geolocation-cn",
+                "action": "route",
                 "outbound": "direct"
             },
             {
@@ -548,14 +552,17 @@
                         "invert": true
                     }
                 ],
+                "action": "route",
                 "outbound": "direct"
             },
             {
                 "rule_set": "geosite-youtube",
+                "action": "route",
                 "outbound": "🆔Youtube"
             },
             {
                 "rule_set": "geosite-telegram",
+                "action": "route",
                 "outbound": "🆔Telegram"
             },
             {
@@ -563,24 +570,29 @@
                     "geosite-twitter",
                     "geosite-x"
                 ],
+                "action": "route",
                 "outbound": "🆔Twitter/X"
             },
             {
                 "rule_set": "geosite-google",
+                "action": "route",
                 "outbound": "🆔Google"
             },
             {
                 "rule_set": "geosite-github",
+                "action": "route",
                 "outbound": "🆔Github"
             },
             {
                 "rule_set": "geosite-bahamut",
+                "action": "route",
                 "outbound": "🆔Bahamut"
             },
             {
                 "domain_keyword": [
                     "hanime1"
                 ],
+                "action": "route",
                 "outbound": "💎Proxy-no-jp"
             }
         ],
