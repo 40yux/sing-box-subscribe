@@ -352,7 +352,7 @@
             ]
         },
         {
-            "tag": "💎Proxy-no-jp",
+            "tag": "💿Proxy-no-jp",
             "type": "urltest",
             "outbounds": [
                 "{all}"
@@ -593,7 +593,7 @@
                     "hanime1"
                 ],
                 "action": "route",
-                "outbound": "💎Proxy-no-jp"
+                "outbound": "💿Proxy-no-jp"
             }
         ],
         "final": "🎯proxy",
