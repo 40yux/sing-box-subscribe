@@ -17,7 +17,7 @@
                 "type": "https",
                 "server": "dns.google",
                 "domain_resolver": "hosts",
-                "detour": "🚀proxy"
+                "detour": "🎯proxy"
             },
             {
                 "tag": "dns_direct",
@@ -152,7 +152,7 @@
         },
         {
             "tag": "dns_proxy",
-            "detour": "🚀proxy"
+            "detour": "🎯proxy"
         }
     ],
     "inbounds": [
@@ -210,7 +210,7 @@
     ],
     "outbounds": [
         {
-            "tag": "🚀proxy",
+            "tag": "🎯proxy",
             "type": "selector",
             "outbounds": [
                 "♻️auto",
@@ -526,7 +526,7 @@
             },
             {
                 "clash_mode": "🌍Global",
-                "outbound": "🚀proxy"
+                "outbound": "🎯proxy"
             },
             {
                 "ip_is_private": true,
@@ -584,7 +584,7 @@
                 "outbound": "💎Proxy-no-jp"
             }
         ],
-        "final": "🚀proxy",
+        "final": "🎯proxy",
         "default_domain_resolver": {
             "server": "dns_direct",
             "rewrite_ttl": 60,
