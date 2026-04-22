@@ -412,6 +412,26 @@
             "interrupt_exist_connections": false
         },
         {
+            "tag": "🇸🇬Singapore",
+            "type": "urltest",
+            "outbounds": [
+                "{all}"
+            ],
+            "filter": [
+                {
+                    "action": "include",
+                    "keywords": [
+                        "🇸🇬|SG|sg|新加坡|狮|Singapore"
+                    ]
+                }
+            ],
+            "url": "https://www.gstatic.com/generate_204",
+            "interval": "3m",
+            "tolerance": 60,
+            "idle_timeout": "30m",
+            "interrupt_exist_connections": false
+        },
+        {
             "tag": "🇭🇰HongKong",
             "type": "urltest",
             "outbounds": [
@@ -442,26 +462,6 @@
                     "action": "include",
                     "keywords": [
                         "🇹🇼|TW|tw|台湾|臺灣|台|Taiwan"
-                    ]
-                }
-            ],
-            "url": "https://www.gstatic.com/generate_204",
-            "interval": "3m",
-            "tolerance": 60,
-            "idle_timeout": "30m",
-            "interrupt_exist_connections": false
-        },
-        {
-            "tag": "🇸🇬Singapore",
-            "type": "urltest",
-            "outbounds": [
-                "{all}"
-            ],
-            "filter": [
-                {
-                    "action": "include",
-                    "keywords": [
-                        "🇸🇬|SG|sg|新加坡|狮|Singapore"
                     ]
                 }
             ],
