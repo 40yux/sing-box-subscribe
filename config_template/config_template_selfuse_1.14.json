@@ -127,11 +127,6 @@
                 "client_subnet": "114.114.114.114/24"
             },
             {
-                "rule_set": "geosite-xiaomi",
-                "action": "route",
-                "server": "dns_direct"
-            },
-            {
                 "query_type": [
                     "A",
                     "AAAA"
@@ -561,11 +556,6 @@
                 "outbound": "direct"
             },
             {
-                "rule_set": "geosite-xiaomi",
-                "action": "route",
-                "outbound": "direct"
-            },
-            {
                 "rule_set": "geosite-youtube",
                 "action": "route",
                 "outbound": "🆔Youtube"
@@ -636,14 +626,6 @@
                 "type": "remote",
                 "format": "binary",
                 "url": "https://raw.githubusercontent.com/SagerNet/sing-geoip/rule-set/geoip-cn.srs",
-                "http_client": "dns_direct",
-                "update_interval": "1d"
-            },
-            {
-                "tag": "geosite-xiaomi",
-                "type": "remote",
-                "format": "binary",
-                "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-xiaomi.srs",
                 "http_client": "dns_direct",
                 "update_interval": "1d"
             },
