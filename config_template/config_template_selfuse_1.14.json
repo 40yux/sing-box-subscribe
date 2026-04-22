@@ -105,6 +105,11 @@
                 "rcode": "NOERROR"
             },
             {
+                "rule_set": "geosite-xiaomi",
+                "action": "route",
+                "server": "dns_direct"
+            },
+            {
                 "rule_set": "geosite-geolocation-cn",
                 "action": "route",
                 "server": "dns_direct"
@@ -536,6 +541,11 @@
                 "outbound": "direct"
             },
             {
+                "rule_set": "geosite-xiaomi",
+                "action": "route",
+                "outbound": "direct"
+            },
+            {
                 "rule_set": "geosite-geolocation-cn",
                 "action": "route",
                 "outbound": "direct"
@@ -610,6 +620,14 @@
                 "type": "remote",
                 "format": "binary",
                 "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-category-ads-all.srs",
+                "http_client": "dns_direct",
+                "update_interval": "1d"
+            },
+            {
+                "tag": "geosite-xiaomi",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-xiaomi.srs",
                 "http_client": "dns_direct",
                 "update_interval": "1d"
             },
