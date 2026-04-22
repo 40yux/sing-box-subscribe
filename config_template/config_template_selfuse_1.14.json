@@ -105,6 +105,15 @@
                 "rcode": "NOERROR"
             },
             {
+                "rule_set": "geosite-xiaomi@ads",
+                "action": "reject"
+            },
+            {
+                "rule_set": "geosite-xiaomi",
+                "action": "route",
+                "server": "dns_direct"
+            },
+            {
                 "rule_set": "geosite-geolocation-cn",
                 "action": "route",
                 "server": "dns_direct"
@@ -536,6 +545,24 @@
                 "outbound": "direct"
             },
             {
+                "domain_keyword": [
+                    "hanime1"
+                ],
+                "action": "route",
+                "outbound": "💿Proxy-no-jp"
+            },
+            {
+                "rule_set": "geosite-xiaomi@ads",
+                "action": "reject",
+                "method": "default",
+                "no_drop": false
+            },
+            {
+                "rule_set": "geosite-xiaomi",
+                "action": "route",
+                "outbound": "direct"
+            },
+            {
                 "rule_set": "geosite-geolocation-cn",
                 "action": "route",
                 "outbound": "direct"
@@ -587,13 +614,6 @@
                 "rule_set": "geosite-bahamut",
                 "action": "route",
                 "outbound": "🆔Bahamut"
-            },
-            {
-                "domain_keyword": [
-                    "hanime1"
-                ],
-                "action": "route",
-                "outbound": "💿Proxy-no-jp"
             }
         ],
         "final": "🎯proxy",
@@ -626,6 +646,22 @@
                 "type": "remote",
                 "format": "binary",
                 "url": "https://raw.githubusercontent.com/SagerNet/sing-geoip/rule-set/geoip-cn.srs",
+                "http_client": "dns_direct",
+                "update_interval": "1d"
+            },
+            {
+                "tag": "geosite-xiaomi@ads",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-xiaomi@ads.srs",
+                "http_client": "dns_direct",
+                "update_interval": "1d"
+            },
+            {
+                "tag": "geosite-xiaomi",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-xiaomi.srs",
                 "http_client": "dns_direct",
                 "update_interval": "1d"
             },
