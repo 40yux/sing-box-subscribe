@@ -500,12 +500,6 @@
                 "action": "hijack-dns"
             },
             {
-                "rule_set": "geosite-category-ads-all",
-                "action": "reject",
-                "method": "default",
-                "no_drop": false
-            },
-            {
                 "type": "logical",
                 "mode": "or",
                 "rules": [
@@ -543,20 +537,21 @@
                 ],
                 "action": "route",
                 "outbound": "💿Proxy-no-jp"
-            },
+            },            
             {
-                "rule_set": "geosite-xiaomi@ads",
+                "rule_set": [
+                    "geosite-category-ads-all",
+                    "geosite-xiaomi@ads"
+                ],
                 "action": "reject",
                 "method": "default",
                 "no_drop": false
             },
             {
-                "rule_set": "geosite-xiaomi",
-                "action": "route",
-                "outbound": "direct"
-            },
-            {
-                "rule_set": "geosite-geolocation-cn",
+                "rule_set": [
+                    "geosite-xiaomi",
+                    "geosite-geolocation-cn"
+                ],
                 "action": "route",
                 "outbound": "direct"
             },
