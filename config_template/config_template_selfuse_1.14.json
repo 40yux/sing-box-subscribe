@@ -88,12 +88,8 @@
                 "action": "respond"
             },
             {
-                "query_type": "PTR",
-                "action": "predefined",
-                "rcode": "NOERROR"
-            },
-            {
                 "query_type": [
+                    "PTR",
                     "SVCB",
                     "HTTPS"
                 ],
@@ -101,20 +97,17 @@
                 "rcode": "NOERROR"
             },
             {
-                "rule_set": "geosite-category-ads-all",
+                "rule_set": [
+                    "geosite-category-ads-all",
+                    "geosite-xiaomi@ads"
+                ],
                 "action": "reject"
             },
             {
-                "rule_set": "geosite-xiaomi@ads",
-                "action": "reject"
-            },
-            {
-                "rule_set": "geosite-xiaomi",
-                "action": "route",
-                "server": "dns_direct"
-            },
-            {
-                "rule_set": "geosite-geolocation-cn",
+                "rule_set": [
+                    "geosite-xiaomi",
+                    "geosite-geolocation-cn"
+                ],
                 "action": "route",
                 "server": "dns_direct"
             },
