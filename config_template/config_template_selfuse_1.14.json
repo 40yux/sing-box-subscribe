@@ -26,10 +26,6 @@
                 "domain_resolver": "hosts"
             },
             {
-                "tag": "local",
-                "type": "local"
-            },
-            {
                 "tag": "hosts",
                 "type": "hosts",
                 "predefined": {
@@ -290,7 +286,7 @@
         {
             "tag": "direct",
             "type": "direct",
-            "domain_resolver": "local"
+            "domain_resolver": "dns_direct"
         },
         {
             "tag": "🆔Youtube",
