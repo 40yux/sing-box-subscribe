@@ -612,7 +612,7 @@
         },
         "auto_detect_interface": true,
         "default_http_client": "dns_direct",
-"override_android_vpn": true，
+"override_android_vpn": true,
         "rule_set": [
             {
                 "tag": "geosite-category-ads-all",
