@@ -97,10 +97,7 @@
                 "rcode": "NOERROR"
             },
             {
-                "rule_set": [
-                    "geosite-category-ads-all",
-                    "geosite-xiaomi@ads"
-                ],
+                "rule_set": "geosite-category-ads-all"
                 "action": "reject"
             },
             {
@@ -539,10 +536,7 @@
                 "outbound": "💿Proxy-no-jp"
             },            
             {
-                "rule_set": [
-                    "geosite-category-ads-all",
-                    "geosite-xiaomi@ads"
-                ],
+                "rule_set": "geosite-category-ads-all",
                 "action": "reject",
                 "method": "default",
                 "no_drop": false
@@ -635,14 +629,6 @@
                 "type": "remote",
                 "format": "binary",
                 "url": "https://raw.githubusercontent.com/SagerNet/sing-geoip/rule-set/geoip-cn.srs",
-                "http_client": "dns_direct",
-                "update_interval": "1d"
-            },
-            {
-                "tag": "geosite-xiaomi@ads",
-                "type": "remote",
-                "format": "binary",
-                "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-xiaomi@ads.srs",
                 "http_client": "dns_direct",
                 "update_interval": "1d"
             },
