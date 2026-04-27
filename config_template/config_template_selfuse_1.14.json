@@ -95,11 +95,6 @@
                 ],
                 "action": "predefined",
                 "rcode": "NOERROR"
-            },
-            {
-                "rule_set": "geosite-category-ads-all",
-                "action": "predefined",
-                "rcode": "NOERROR"
             },                
             {
                 "rule_set": [
