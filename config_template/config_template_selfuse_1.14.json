@@ -538,7 +538,10 @@
                 "outbound": "💿Proxy-no-jp"
             },            
             {
-                "rule_set": "geosite-category-ads-all",
+                "rule_set": [
+                    "geosite-category-ads-all",
+                    "geosite-adguard"
+                ],
                 "action": "reject",
                 "method": "default",
                 "no_drop": false
@@ -615,6 +618,14 @@
                 "type": "remote",
                 "format": "binary",
                 "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-category-ads-all.srs",
+                "http_client": "",
+                "update_interval": "1d"
+            },
+            {
+                "tag": "geosite-adguard",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-adguard.srs",
                 "http_client": "",
                 "update_interval": "1d"
             },
