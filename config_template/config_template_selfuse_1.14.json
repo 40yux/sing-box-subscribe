@@ -618,7 +618,6 @@
                 "type": "remote",
                 "format": "binary",
                 "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-category-ads-all.srs",
-                "http_client": "",
                 "update_interval": "1d"
             },
             {
@@ -626,7 +625,6 @@
                 "type": "remote",
                 "format": "binary",
                 "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-adguard.srs",
-                "http_client": "",
                 "update_interval": "1d"
             },
             {
@@ -634,7 +632,6 @@
                 "type": "remote",
                 "format": "binary",
                 "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-geolocation-!cn.srs",
-                "http_client": "",
                 "update_interval": "1d"
             },
             {
@@ -642,7 +639,6 @@
                 "type": "remote",
                 "format": "binary",
                 "url": "https://raw.githubusercontent.com/SagerNet/sing-geoip/rule-set/geoip-cn.srs",
-                "http_client": "",
                 "update_interval": "1d"
             },
             {
@@ -650,7 +646,6 @@
                 "type": "remote",
                 "format": "binary",
                 "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-xiaomi.srs",
-                "http_client": "",
                 "update_interval": "1d"
             },
             {
@@ -658,7 +653,6 @@
                 "type": "remote",
                 "format": "binary",
                 "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-youtube.srs",
-                "http_client": "",
                 "update_interval": "1d"
             },
             {
@@ -666,7 +660,6 @@
                 "type": "remote",
                 "format": "binary",
                 "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-telegram.srs",
-                "http_client": "",
                 "update_interval": "1d"
             },
             {
@@ -674,7 +667,6 @@
                 "type": "remote",
                 "format": "binary",
                 "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-twitter.srs",
-                "http_client": "",
                 "update_interval": "1d"
             },
             {
@@ -682,7 +674,6 @@
                 "type": "remote",
                 "format": "binary",
                 "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-x.srs",
-                "http_client": "",
                 "update_interval": "1d"
             },
             {
@@ -690,7 +681,6 @@
                 "type": "remote",
                 "format": "binary",
                 "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-google.srs",
-                "http_client": "",
                 "update_interval": "1d"
             },
             {
@@ -698,7 +688,6 @@
                 "type": "remote",
                 "format": "binary",
                 "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-github.srs",
-                "http_client": "",
                 "update_interval": "1d"
             },
             {
@@ -706,7 +695,6 @@
                 "type": "remote",
                 "format": "binary",
                 "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-bahamut.srs",
-                "http_client": "",
                 "update_interval": "1d"
             },
             {
@@ -714,7 +702,6 @@
                 "type": "remote",
                 "format": "binary",
                 "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-geolocation-cn.srs",
-                "http_client": "",
                 "update_interval": "1d"
             }
         ]
