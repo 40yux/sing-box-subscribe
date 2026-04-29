@@ -79,12 +79,12 @@
                 "server": "hosts"
             },
             {
-                "clash_mode": "Direct",
+                "clash_mode": "🇨🇳Direct",
                 "action": "route",
                 "server": "dns_direct"
             },
             {
-                "clash_mode": "Global",
+                "clash_mode": "🌍Global",
                 "action": "route",
                 "server": "dns_proxy"
             },
@@ -512,12 +512,12 @@
                 "action": "reject"
             },
             {
-                "clash_mode": "Direct",
+                "clash_mode": "🇨🇳Direct",
                 "action": "route",
                 "outbound": "direct"
             },
             {
-                "clash_mode": "Global",
+                "clash_mode": "🌍Global",
                 "action": "route",
                 "outbound": "🎯proxy"
             },
