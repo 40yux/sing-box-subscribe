@@ -149,7 +149,7 @@
     "http_clients": [
         {
             "tag": "default_client",
-            "detour": "direct"
+            "detour": "🇨🇳direct"
         }
     ],
     "inbounds": [
@@ -211,7 +211,7 @@
             "type": "selector",
             "outbounds": [
                 "♻️auto",
-                "direct",
+                "🇨🇳direct",
                 "{all}"
             ],
             "default": "♻️auto"
@@ -272,7 +272,7 @@
             ]
         },
         {
-            "tag": "direct",
+            "tag": "🇨🇳direct",
             "type": "direct",
             "domain_resolver": "dns_direct"
         },
@@ -514,7 +514,7 @@
             {
                 "clash_mode": "🇨🇳Direct",
                 "action": "route",
-                "outbound": "direct"
+                "outbound": "🇨🇳direct"
             },
             {
                 "clash_mode": "🌍Global",
@@ -524,7 +524,7 @@
             {
                 "ip_is_private": true,
                 "action": "route",
-                "outbound": "direct"
+                "outbound": "🇨🇳direct"
             },
             {
                 "domain_keyword": [
@@ -548,7 +548,7 @@
                     "geosite-geolocation-cn"
                 ],
                 "action": "route",
-                "outbound": "direct"
+                "outbound": "🇨🇳direct"
             },
             {
                 "type": "logical",
@@ -563,7 +563,7 @@
                     }
                 ],
                 "action": "route",
-                "outbound": "direct"
+                "outbound": "🇨🇳direct"
             },
             {
                 "rule_set": "geosite-youtube",
@@ -714,7 +714,7 @@
             "external_controller": "127.0.0.1:9090",
             "external_ui": "ui",
             "external_ui_download_url": "https://github.com/MetaCubeX/metacubexd/archive/refs/heads/gh-pages.zip",
-            "external_ui_download_detour": "direct",
+            "external_ui_download_detour": "🇨🇳direct",
             "default_mode": "🛞Rule"
         }
     }
