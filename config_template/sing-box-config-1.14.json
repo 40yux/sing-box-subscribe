@@ -185,19 +185,7 @@
             ],
             "stack": "system",
             "exclude_package": [
-                "com.android.captiveportallogin",
-                "cn.gov.tax.its",
-                "com.eg.android.AlipayGphone",
-                "com.tencent.mm",
-                "com.unionpay",
-                "com.chinamworld.main",
-                "com.icbc",
-                "cn.com.spdb.mobilebank.per",
-                "com.icbc.elife",
-                "com.spdbccc.app",
-                "com.ccb.longjiLife",
-                "cmb.pb",
-                "com.tdx.AndroidNew"
+                "com.android.captiveportallogin"
             ],
             "platform": {
                 "http_proxy": {
