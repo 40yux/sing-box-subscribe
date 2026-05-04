@@ -14,11 +14,7 @@
         "servers": [
             {
                 "type": "local",
-                "tag": "local",
-                "neighbor_domain": [
-                    ".local",
-                    ".lan"
-                ]
+                "tag": "local"
             },
             {
                 "tag": "dns_mdns",
