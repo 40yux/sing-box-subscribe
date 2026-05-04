@@ -13,17 +13,12 @@
     "dns": {
         "servers": [
             {
-                "tag": "dns_proxy",
-                "type": "https",
-                "server": "dns.google",
-                "domain_resolver": "hosts",
-                "detour": "🎯proxy"
-            },
-            {
-                "tag": "dns_direct",
-                "type": "https",
-                "server": "dns.alidns.com",
-                "domain_resolver": "hosts"
+                "type": "local",
+                "tag": "local",
+                "neighbor_domain": [
+                    ".local",
+                    ".lan"
+                ]
             },
             {
                 "tag": "dns_mdns",
@@ -71,6 +66,20 @@
                 }
             },
             {
+                "tag": "dns_direct",
+                "type": "https",
+                "server": "dns.alidns.com",
+                "domain_resolver": "hosts",
+                "detour": "🇨🇳direct"
+            },
+            {
+                "tag": "dns_proxy",
+                "type": "https",
+                "server": "dns.google",
+                "domain_resolver": "hosts",
+                "detour": "🎯proxy"
+            },
+            {
                 "type": "fakeip",
                 "tag": "dns_fakeip",
                 "inet4_range": "198.18.0.0/15",
@@ -81,6 +90,17 @@
             {
                 "action": "evaluate",
                 "server": "hosts"
+            },
+            {
+                "domain_suffix": [
+                    "local",
+                    "lan",
+                    "home",
+                    "internal",
+                    "corp",
+                    "example.com"
+                ],
+                "server": "local"
             },
             {
                 "preferred_by": [
@@ -521,6 +541,26 @@
             {
                 "ip_is_private": true,
                 "action": "route",
+                "outbound": "🇨🇳direct"
+            },
+            {
+                "domain": [
+                    "astrategy.beacon.qq.com",
+                    "beacon.qq.com",
+                    "abyss.cyapi.cn",
+                    "ad.cyapi.cn",
+                    "gather.colorfulclouds.net"
+                ],
+                "action": "reject",
+                "method": "default",
+                "no_drop": false
+            },
+            {
+                "package_name": [
+                    "com.tencent.mm",
+                    "com.eg.android.AlipayGphone",
+                    "com.netease.cloudmusic"
+                ],
                 "outbound": "🇨🇳direct"
             },
             {
