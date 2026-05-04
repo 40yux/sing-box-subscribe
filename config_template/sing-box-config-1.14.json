@@ -558,8 +558,7 @@
             {
                 "package_name": [
                     "com.tencent.mm",
-                    "com.eg.android.AlipayGphone",
-                    "com.netease.cloudmusic"
+                    "com.eg.android.AlipayGphone"
                 ],
                 "outbound": "🇨🇳direct"
             },
