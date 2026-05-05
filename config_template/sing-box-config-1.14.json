@@ -250,7 +250,7 @@
             "interrupt_exist_connections": false
         },
         {
-            "tag": "💧Others",
+            "tag": "🫧Others",
             "type": "urltest",
             "outbounds": [
                 "{all}"
