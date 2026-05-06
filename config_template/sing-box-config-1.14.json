@@ -554,7 +554,8 @@
             {
                 "package_name": [
                     "com.tencent.mm",
-                    "com.eg.android.AlipayGphone"
+                    "com.eg.android.AlipayGphone",
+                    "com.tdx.AndroidNew"
                 ],
                 "outbound": "🇨🇳direct"
             },
