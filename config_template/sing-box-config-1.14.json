@@ -362,7 +362,7 @@
             ]
         },
         {
-            "tag": "💿Proxy-no-jp",
+            "tag": "💿Lifan",
             "type": "urltest",
             "outbounds": [
                 "{all}"
@@ -564,7 +564,7 @@
                     "hanime1"
                 ],
                 "action": "route",
-                "outbound": "💿Proxy-no-jp"
+                "outbound": "💿Lifan"
             },
             {
                 "rule_set": [
