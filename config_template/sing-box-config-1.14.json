@@ -101,7 +101,6 @@
             },
             {
                 "preferred_by": [
-                    "local",
                     "hosts",
                     "dns_mdns"
                 ],
