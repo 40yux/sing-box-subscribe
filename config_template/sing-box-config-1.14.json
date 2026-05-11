@@ -96,12 +96,13 @@
                     "corp",
                     "example.com"
                 ],
+                "action": "route",
                 "server": "local"
             },
             {
                 "preferred_by": [
-                    "dns_mdns",
-                    "hosts"
+                    "hosts",
+                    "dns_mdns"
                 ],
                 "action": "route",
                 "server": "dns_direct"
