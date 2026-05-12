@@ -13,10 +13,6 @@
     "dns": {
         "servers": [
             {
-                "type": "local",
-                "tag": "local"
-            },
-            {
                 "tag": "hosts",
                 "type": "hosts",
                 "predefined": {
@@ -82,18 +78,6 @@
             {
                 "action": "evaluate",
                 "server": "hosts"
-            },
-            {
-                "domain_suffix": [
-                    "local",
-                    "lan",
-                    "home",
-                    "internal",
-                    "corp",
-                    "example.com"
-                ],
-                "action": "route",
-                "server": "local"
             },
             {
                 "preferred_by": "hosts",
