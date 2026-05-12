@@ -17,10 +17,6 @@
                 "tag": "local"
             },
             {
-                "tag": "dns_mdns",
-                "type": "mdns"
-            },
-            {
                 "tag": "hosts",
                 "type": "hosts",
                 "predefined": {
@@ -100,10 +96,7 @@
                 "server": "local"
             },
             {
-                "preferred_by": [
-                    "hosts",
-                    "dns_mdns"
-                ],
+                "preferred_by": "hosts",
                 "action": "route",
                 "server": "dns_direct"
             },
