@@ -13,14 +13,6 @@
     "dns": {
         "servers": [
             {
-                "type": "local",
-                "tag": "local"
-            },
-            {
-                "tag": "dns_mdns",
-                "type": "mdns"
-            },
-            {
                 "tag": "hosts",
                 "type": "hosts",
                 "predefined": {
@@ -88,22 +80,7 @@
                 "server": "hosts"
             },
             {
-                "domain_suffix": [
-                    "local",
-                    "lan",
-                    "home",
-                    "internal",
-                    "corp",
-                    "example.com"
-                ],
-                "action": "route",
-                "server": "local"
-            },
-            {
-                "preferred_by": [
-                    "hosts",
-                    "dns_mdns"
-                ],
+                "preferred_by": "hosts",
                 "action": "route",
                 "server": "dns_direct"
             },
@@ -196,6 +173,10 @@
                 "::/1",
                 "8000::/1"
             ],
+            "route_exclude_address": [
+                "192.168.0.0/16",
+                "fc00::/7"
+            ],
             "stack": "system",
             "exclude_package": [
                 "com.android.captiveportallogin"
@@ -203,7 +184,7 @@
             "platform": {
                 "http_proxy": {
                     "enabled": true,
-                    "server": "0.0.0.0",
+                    "server": "127.0.0.1",
                     "server_port": 7890
                 }
             }
@@ -211,7 +192,7 @@
         {
             "type": "mixed",
             "tag": "mixed-in",
-            "listen": "0.0.0.0",
+            "listen": "127.0.0.1",
             "listen_port": 7890
         }
     ],
