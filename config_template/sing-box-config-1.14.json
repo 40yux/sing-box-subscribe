@@ -59,7 +59,7 @@
                 "type": "https",
                 "server": "dns.google",
                 "domain_resolver": "hosts",
-                "detour": "🎯proxy"
+                "detour": "🏄proxy"
             },
             {
                 "type": "fakeip",
@@ -182,7 +182,7 @@
     ],
     "outbounds": [
         {
-            "tag": "🎯proxy",
+            "tag": "🏄proxy",
             "type": "selector",
             "outbounds": [
                 "♻️auto",
@@ -494,7 +494,7 @@
             {
                 "clash_mode": "Global",
                 "action": "route",
-                "outbound": "🎯proxy"
+                "outbound": "🏄proxy"
             },
             {
                 "ip_is_private": true,
@@ -591,7 +591,7 @@
                 "outbound": "🆔Bahamut"
             }
         ],
-        "final": "🎯proxy",
+        "final": "🏄proxy",
         "auto_detect_interface": true,
         "override_android_vpn": true,
         "default_domain_resolver": {
