@@ -465,15 +465,52 @@
                 "action": "hijack-dns"
             },
             {
-        "package_name": [
-          "com.google.android.gms",
-          "com.android.vending",
-          "com.google.android.gsf"
-        ],
-        "port": [5222, 5223, 5228, 5229, 5230],
-        "action": "route",
-        "outbound": "🆔Google"
-      },
+                "package_name": [
+                    "com.google.android.gms",
+                    "com.android.vending",
+                    "com.google.android.gsf"
+                ],
+                "port": [
+                    5222,
+                    5223,
+                    5228,
+                    5229,
+                    5230
+                ],
+                "action": "route",
+                "outbound": "🆔Google"
+            },
+            {
+                "clash_mode": "Direct",
+                "action": "route",
+                "outbound": "🇨🇳direct"
+            },
+            {
+                "clash_mode": "Global",
+                "action": "route",
+                "outbound": "🏄proxy"
+            },
+            {
+                "domain": [
+                    "astrategy.beacon.qq.com",
+                    "beacon.qq.com",
+                    "abyss.cyapi.cn",
+                    "ad.cyapi.cn",
+                    "gather.colorfulclouds.net"
+                ],
+                "action": "reject",
+                "method": "default",
+                "no_drop": false
+            },
+            {
+                "rule_set": [
+                    "geosite-category-ads-all",
+                    "geosite-adguard"
+                ],
+                "action": "reject",
+                "method": "default",
+                "no_drop": false
+            },
             {
                 "type": "logical",
                 "mode": "or",
@@ -492,33 +529,6 @@
                 "action": "reject"
             },
             {
-                "clash_mode": "Direct",
-                "action": "route",
-                "outbound": "🇨🇳direct"
-            },
-            {
-                "clash_mode": "Global",
-                "action": "route",
-                "outbound": "🏄proxy"
-            },
-            {
-                "ip_is_private": true,
-                "action": "route",
-                "outbound": "🇨🇳direct"
-            },
-            {
-                "domain": [
-                    "astrategy.beacon.qq.com",
-                    "beacon.qq.com",
-                    "abyss.cyapi.cn",
-                    "ad.cyapi.cn",
-                    "gather.colorfulclouds.net"
-                ],
-                "action": "reject",
-                "method": "default",
-                "no_drop": false
-            },
-            {
                 "package_name": [
                     "com.tencent.mm",
                     "com.eg.android.AlipayGphone",
@@ -534,13 +544,9 @@
                 "outbound": "💿Lifan"
             },
             {
-                "rule_set": [
-                    "geosite-category-ads-all",
-                    "geosite-adguard"
-                ],
-                "action": "reject",
-                "method": "default",
-                "no_drop": false
+                "ip_is_private": true,
+                "action": "route",
+                "outbound": "🇨🇳direct"
             },
             {
                 "rule_set": "geosite-geolocation-cn",
