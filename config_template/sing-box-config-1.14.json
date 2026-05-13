@@ -157,7 +157,6 @@
             "auto_route": true,
             "strict_route": true,
             "stack": "gvisor",
-            "sniff": true,
             "exclude_package": [
                 "com.android.captiveportallogin"
             ],
