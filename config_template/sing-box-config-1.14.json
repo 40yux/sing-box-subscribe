@@ -154,6 +154,10 @@
             ],
             "mtu": 1420,
             "dns_mode": "hijack",
+"dns_address": [
+        "172.18.0.2",
+        "fdfe:dcba:9876::2"
+    ],
             "auto_route": true,
             "strict_route": true,
             "stack": "system",
