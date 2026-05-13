@@ -136,7 +136,7 @@
             "timeout": "3d"
         },
         "reverse_mapping": true,
-        "cache_capacity": 4096
+        "cache_capacity": 40960
     },
     "http_clients": [
         {
