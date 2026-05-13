@@ -498,18 +498,14 @@
                     "ad.cyapi.cn",
                     "gather.colorfulclouds.net"
                 ],
-                "action": "reject",
-                "method": "default",
-                "no_drop": false
+                "action": "reject"
             },
             {
                 "rule_set": [
                     "geosite-category-ads-all",
                     "geosite-adguard"
                 ],
-                "action": "reject",
-                "method": "default",
-                "no_drop": false
+                "action": "reject"
             },
             {
                 "type": "logical",
