@@ -514,6 +514,7 @@
                         ]
                     }
                 ],
+                "action": "route",
                 "outbound": "🆔Google"
             },
             {
@@ -549,6 +550,7 @@
                     "com.eg.android.AlipayGphone",
                     "com.tdx.AndroidNew"
                 ],
+                "action": "route",
                 "outbound": "🇨🇳direct"
             },
             {
