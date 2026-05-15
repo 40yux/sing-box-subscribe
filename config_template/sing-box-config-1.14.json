@@ -516,6 +516,50 @@
                 "outbound": "🇨🇳direct"
             },
             {
+                "type": "logical",
+                "mode": "and",
+                "rules": [
+                    {
+                        "type": "logical",
+                        "mode": "or",
+                        "rules": [
+                            {
+                                "port": 853
+                            },
+                            {
+                                "network": "udp",
+                                "port": 443
+                            },
+                            {
+                                "protocol": "stun"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "logical",
+                        "invert": true,
+                        "mode": "or",
+                        "rules": [
+                            {
+                                "domain_keyword": [
+                                    "google",
+                                    "googleapis",
+                                    "gstatic"
+                                ]
+                            },
+                            {
+                                "package_name": [
+                                    "com.google.android.gms",
+                                    "com.android.vending",
+                                    "com.google.android.gsf"
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "action": "reject"
+            },
+            {
                 "rule_set": "geosite-geolocation-cn",
                 "action": "route",
                 "outbound": "🇨🇳direct"
