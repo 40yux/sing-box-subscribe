@@ -485,39 +485,6 @@
                 "action": "reject"
             },
             {
-                "type": "logical",
-                "mode": "or",
-                "rules": [
-                    {
-                        "package_name": [
-                            "com.google.android.gms",
-                            "com.android.vending",
-                            "com.google.android.gsf",
-                            "com.google.android.apps.authenticator2",
-                            "com.google.android.play.games"
-                        ]
-                    },
-                    {
-                        "port": [
-                            5222,
-                            5223,
-                            5228,
-                            5229,
-                            5230
-                        ]
-                    },
-                    {
-                        "domain_keyword": [
-                            "google",
-                            "googleapis",
-                            "gstatic"
-                        ]
-                    }
-                ],
-                "action": "route",
-                "outbound": "🆔Google"
-            },
-            {
                 "clash_mode": "Direct",
                 "action": "route",
                 "outbound": "🇨🇳direct"
@@ -526,23 +493,6 @@
                 "clash_mode": "Global",
                 "action": "route",
                 "outbound": "🏄proxy"
-            },
-            {
-                "type": "logical",
-                "mode": "or",
-                "rules": [
-                    {
-                        "port": 853
-                    },
-                    {
-                        "network": "udp",
-                        "port": 443
-                    },
-                    {
-                        "protocol": "stun"
-                    }
-                ],
-                "action": "reject"
             },
             {
                 "package_name": [
