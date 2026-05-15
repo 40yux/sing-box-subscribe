@@ -468,16 +468,6 @@
                 "action": "hijack-dns"
             },
             {
-                "domain": [
-                    "astrategy.beacon.qq.com",
-                    "beacon.qq.com",
-                    "abyss.cyapi.cn",
-                    "ad.cyapi.cn",
-                    "gather.colorfulclouds.net"
-                ],
-                "action": "reject"
-            },
-            {
                 "rule_set": [
                     "geosite-category-ads-all",
                     "geosite-adguard"
