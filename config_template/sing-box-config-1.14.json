@@ -205,7 +205,7 @@
                 }
             ],
             "url": "httpswww.gstatic.comgenerate_204",
-            "interval": "3m",
+            "interval": "1m",
             "tolerance": 60,
             "idle_timeout": "30m",
             "interrupt_exist_connections": false
@@ -225,7 +225,7 @@
                 }
             ],
             "url": "httpswww.gstatic.comgenerate_204",
-            "interval": "3m",
+            "interval": "1m",
             "tolerance": 60,
             "idle_timeout": "30m",
             "interrupt_exist_connections": false
@@ -337,7 +337,7 @@
                 }
             ],
             "url": "httpswww.gstatic.comgenerate_204",
-            "interval": "3m",
+            "interval": "1m",
             "tolerance": 60,
             "idle_timeout": "30m",
             "interrupt_exist_connections": false
@@ -357,7 +357,7 @@
                 }
             ],
             "url": "httpswww.gstatic.comgenerate_204",
-            "interval": "3m",
+            "interval": "1m",
             "tolerance": 60,
             "idle_timeout": "30m",
             "interrupt_exist_connections": false
@@ -377,7 +377,7 @@
                 }
             ],
             "url": "httpswww.gstatic.comgenerate_204",
-            "interval": "3m",
+            "interval": "1m",
             "tolerance": 60,
             "idle_timeout": "30m",
             "interrupt_exist_connections": false
@@ -397,7 +397,7 @@
                 }
             ],
             "url": "httpswww.gstatic.comgenerate_204",
-            "interval": "3m",
+            "interval": "1m",
             "tolerance": 60,
             "idle_timeout": "30m",
             "interrupt_exist_connections": false
@@ -417,7 +417,7 @@
                 }
             ],
             "url": "httpswww.gstatic.comgenerate_204",
-            "interval": "3m",
+            "interval": "1m",
             "tolerance": 60,
             "idle_timeout": "30m",
             "interrupt_exist_connections": false
@@ -437,7 +437,7 @@
                 }
             ],
             "url": "httpswww.gstatic.comgenerate_204",
-            "interval": "3m",
+            "interval": "1m",
             "tolerance": 60,
             "idle_timeout": "30m",
             "interrupt_exist_connections": false
