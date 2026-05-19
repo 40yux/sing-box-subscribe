@@ -488,13 +488,6 @@
                 "outbound": "🇨🇳direct"
             },
             {
-                "package_name": [
-                    "games.wfs.anothereden"
-                ],
-                "action": "route",
-                "outbound": "🏄proxy"
-            },
-            {
                 "domain_keyword": [
                     "hanime1"
                 ],
@@ -542,8 +535,7 @@
                                 "package_name": [
                                     "com.google.android.gms",
                                     "com.android.vending",
-                                    "com.google.android.gsf",
-                                    "games.wfs.anothereden"
+                                    "com.google.android.gsf"
                                 ]
                             }
                         ]
