@@ -153,8 +153,8 @@
             "loopback_address": [
                 "10.7.0.1"
             ],
-            "strict_route": true,
-            "stack": "mixed",
+            "strict_route": false,
+            "stack": "gvisor",
             "exclude_package": [
                 "com.android.captiveportallogin"
             ],
