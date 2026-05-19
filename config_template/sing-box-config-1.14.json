@@ -89,15 +89,6 @@
                 "server": "dns_proxy"
             },
             {
-                "query_type": [
-                    "PTR",
-                    "SVCB",
-                    "HTTPS"
-                ],
-                "action": "predefined",
-                "rcode": "NOERROR"
-            },
-            {
                 "rule_set": "geosite-geolocation-cn",
                 "action": "route",
                 "server": "dns_direct"
