@@ -207,7 +207,7 @@
                     ]
                 }
             ],
-            "url": "httpswww.gstatic.comgenerate_204",
+            "url": "https://www.gstatic.com/generate_204",
             "interval": "1m",
             "tolerance": 60,
             "idle_timeout": "30m",
@@ -227,7 +227,7 @@
                     ]
                 }
             ],
-            "url": "httpswww.gstatic.comgenerate_204",
+            "url": "https://www.gstatic.com/generate_204",
             "interval": "1m",
             "tolerance": 60,
             "idle_timeout": "30m",
@@ -339,7 +339,7 @@
                     ]
                 }
             ],
-            "url": "httpswww.gstatic.comgenerate_204",
+            "url": "https://www.gstatic.com/generate_204",
             "interval": "1m",
             "tolerance": 60,
             "idle_timeout": "30m",
@@ -359,7 +359,7 @@
                     ]
                 }
             ],
-            "url": "httpswww.gstatic.comgenerate_204",
+            "url": "https://www.gstatic.com/generate_204",
             "interval": "1m",
             "tolerance": 60,
             "idle_timeout": "30m",
@@ -379,7 +379,7 @@
                     ]
                 }
             ],
-            "url": "httpswww.gstatic.comgenerate_204",
+            "url": "https://www.gstatic.com/generate_204",
             "interval": "1m",
             "tolerance": 60,
             "idle_timeout": "30m",
@@ -399,7 +399,7 @@
                     ]
                 }
             ],
-            "url": "httpswww.gstatic.comgenerate_204",
+            "url": "https://www.gstatic.com/generate_204",
             "interval": "1m",
             "tolerance": 60,
             "idle_timeout": "30m",
@@ -419,7 +419,7 @@
                     ]
                 }
             ],
-            "url": "httpswww.gstatic.comgenerate_204",
+            "url": "https://www.gstatic.com/generate_204",
             "interval": "1m",
             "tolerance": 60,
             "idle_timeout": "30m",
@@ -439,7 +439,7 @@
                     ]
                 }
             ],
-            "url": "httpswww.gstatic.comgenerate_204",
+            "url": "https://www.gstatic.com/generate_204",
             "interval": "1m",
             "tolerance": 60,
             "idle_timeout": "30m",
