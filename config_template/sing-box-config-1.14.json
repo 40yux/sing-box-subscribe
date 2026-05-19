@@ -159,6 +159,9 @@
                 "fdfe:dcba:9876::2"
             ],
             "auto_route": true,
+            "loopback_address": [
+                "10.7.0.1"
+            ],
             "strict_route": true,
             "stack": "system",
             "exclude_package": [
