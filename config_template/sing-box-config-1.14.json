@@ -130,7 +130,7 @@
             }
         ],
         "final": "dns_proxy",
-        "strategy": "only_ipv4",
+        "strategy": "ipv4_only",
         "optimistic": {
             "enabled": true,
             "timeout": "3d"
