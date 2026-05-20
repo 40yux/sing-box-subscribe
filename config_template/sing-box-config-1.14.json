@@ -118,7 +118,7 @@
                 "action": "route",
                 "server": "dns_fakeip",
                 "rewrite_ttl": 1
-            },
+            }
         ],
         "final": "dns_proxy",
         "strategy": "prefer_ipv4",
