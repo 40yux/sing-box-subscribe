@@ -440,13 +440,7 @@
     "route": {
         "rules": [
             {
-                "inbound": "tun-in,mixed-in",
                 "action": "sniff"
-            },
-            {
-                "inbound": "tun-in,mixed-in",
-                "action": "resolve",
-                "strategy": "prefer_ipv4"
             },
             {
                 "type": "logical",
