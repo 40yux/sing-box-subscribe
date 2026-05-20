@@ -89,6 +89,16 @@
                 "server": "dns_proxy"
             },
             {
+                 "rule_set": "geosite-geolocation-!cn",
+                 "query_type": [
+                    "A",
+                    "AAAA"
+                ],
+                "action": "route",
+                "server": "dns_fakeip",
+                "rewrite_ttl": 1
+            },
+            {
                 "rule_set": "geosite-geolocation-cn",
                 "action": "route",
                 "server": "dns_direct"
@@ -153,7 +163,7 @@
             "loopback_address": [
                 "10.7.0.1"
             ],
-            "strict_route": true,
+            "strict_route": false,
             "stack": "gvisor",
             "exclude_package": [
                 "com.android.captiveportallogin"
