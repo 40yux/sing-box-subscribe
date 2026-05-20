@@ -470,6 +470,11 @@
                 "outbound": "🏄proxy"
             },
             {
+                "domain_keyword": [ "xiaomi", "miui", "mi" ],
+                "action": "route",
+                "outbound": "🇨🇳direct"
+            },
+            {
                 "rule_set": [
                     "geosite-category-ads-all",
                     "geosite-adguard"
