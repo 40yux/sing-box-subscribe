@@ -441,8 +441,7 @@
     "route": {
         "rules": [
             {
-                "action": "sniff",
-                "timeout": "300ms"
+                "action": "sniff"
             },
             {
                 "action": "resolve",
