@@ -443,6 +443,10 @@
                 "action": "sniff"
             },
             {
+                "action": "resolve",
+                "strategy": "prefer_ipv4"
+            },
+            {
                 "type": "logical",
                 "mode": "or",
                 "rules": [
@@ -456,13 +460,6 @@
                 "action": "hijack-dns"
             },
             {
-                "rule_set": [
-                    "geosite-category-ads-all",
-                    "geosite-adguard"
-                ],
-                "action": "reject"
-            },
-            {
                 "clash_mode": "Direct",
                 "action": "route",
                 "outbound": "🇨🇳direct"
@@ -473,13 +470,11 @@
                 "outbound": "🏄proxy"
             },
             {
-                "package_name": [
-                    "com.tencent.mm",
-                    "com.eg.android.AlipayGphone",
-                    "com.tdx.AndroidNew"
+                "rule_set": [
+                    "geosite-category-ads-all",
+                    "geosite-adguard"
                 ],
-                "action": "route",
-                "outbound": "🇨🇳direct"
+                "action": "reject"
             },
             {
                 "domain_keyword": [
@@ -489,73 +484,44 @@
                 "outbound": "💿Lifan"
             },
             {
-                "ip_is_private": true,
-                "action": "route",
-                "outbound": "🇨🇳direct"
-            },
-            {
                 "type": "logical",
-                "mode": "and",
+                "mode": "or",
                 "rules": [
                     {
-                        "type": "logical",
-                        "mode": "or",
-                        "rules": [
-                            {
-                                "port": 853
-                            },
-                            {
-                                "network": "udp",
-                                "port": 443
-                            },
-                            {
-                                "protocol": "stun"
-                            }
+                        "domain_keyword": [
+                            "google",
+                            "googleapis",
+                            "gstatic"
                         ]
                     },
                     {
-                        "type": "logical",
-                        "invert": true,
-                        "mode": "or",
-                        "rules": [
-                            {
-                                "domain_keyword": [
-                                    "google",
-                                    "googleapis",
-                                    "gstatic"
-                                ]
-                            },
-                            {
-                                "package_name": [
-                                    "com.google.android.gms",
-                                    "com.android.vending",
-                                    "com.google.android.gsf"
-                                ]
-                            }
+                        "package_name": [
+                            "com.google.android.gms",
+                            "com.android.vending",
+                            "com.google.android.gsf",
+                            "games.wfs.anothereden"
                         ]
+                    }
+                ],
+                "action": "route",
+                "outbound": "🏄proxy"
+            },
+            {
+                "type": "logical",
+                "mode": "or",
+                "rules": [
+                    {
+                        "port": 853
+                    },
+                    {
+                        "network": "udp",
+                        "port": 443
+                    },
+                    {
+                        "protocol": "stun"
                     }
                 ],
                 "action": "reject"
-            },
-            {
-                "rule_set": "geosite-geolocation-cn",
-                "action": "route",
-                "outbound": "🇨🇳direct"
-            },
-            {
-                "type": "logical",
-                "mode": "and",
-                "rules": [
-                    {
-                        "rule_set": "geoip-cn"
-                    },
-                    {
-                        "rule_set": "geosite-geolocation-!cn",
-                        "invert": true
-                    }
-                ],
-                "action": "route",
-                "outbound": "🇨🇳direct"
             },
             {
                 "rule_set": "geosite-youtube",
@@ -591,8 +557,38 @@
                 "outbound": "🆔Bahamut"
             },
             {
-                "action": "resolve",
-                "strategy": "prefer_ipv4"
+                "package_name": [
+                    "com.tencent.mm",
+                    "com.eg.android.AlipayGphone",
+                    "com.tdx.AndroidNew"
+                ],
+                "action": "route",
+                "outbound": "🇨🇳direct"
+            },
+            {
+                "ip_is_private": true,
+                "action": "route",
+                "outbound": "🇨🇳direct"
+            },
+            {
+                "rule_set": "geosite-geolocation-cn",
+                "action": "route",
+                "outbound": "🇨🇳direct"
+            },
+            {
+                "type": "logical",
+                "mode": "and",
+                "rules": [
+                    {
+                        "rule_set": "geoip-cn"
+                    },
+                    {
+                        "rule_set": "geosite-geolocation-!cn",
+                        "invert": true
+                    }
+                ],
+                "action": "route",
+                "outbound": "🇨🇳direct"
             }
         ],
         "final": "🏄proxy",
