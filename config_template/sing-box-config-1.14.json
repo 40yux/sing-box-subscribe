@@ -201,7 +201,7 @@
                     ]
                 }
             ],
-            "url": "https://www.gstatic.com/generate_204",
+            "url": "https://cp.cloudflare.com/generate_204",
             "interval": "10m",
             "tolerance": 60,
             "idle_timeout": "30m",
@@ -221,7 +221,7 @@
                     ]
                 }
             ],
-            "url": "https://www.gstatic.com/generate_204",
+            "url": "https://cp.cloudflare.com/generate_204",
             "interval": "10m",
             "tolerance": 60,
             "idle_timeout": "30m",
@@ -333,7 +333,7 @@
                     ]
                 }
             ],
-            "url": "https://www.gstatic.com/generate_204",
+            "url": "https://cp.cloudflare.com/generate_204",
             "interval": "10m",
             "tolerance": 60,
             "idle_timeout": "30m",
@@ -353,7 +353,7 @@
                     ]
                 }
             ],
-            "url": "https://www.gstatic.com/generate_204",
+            "url": "https://cp.cloudflare.com/generate_204",
             "interval": "10m",
             "tolerance": 60,
             "idle_timeout": "30m",
@@ -373,7 +373,7 @@
                     ]
                 }
             ],
-            "url": "https://www.gstatic.com/generate_204",
+            "url": "https://cp.cloudflare.com/generate_204",
             "interval": "10m",
             "tolerance": 60,
             "idle_timeout": "30m",
@@ -393,7 +393,7 @@
                     ]
                 }
             ],
-            "url": "https://www.gstatic.com/generate_204",
+            "url": "https://cp.cloudflare.com/generate_204",
             "interval": "10m",
             "tolerance": 60,
             "idle_timeout": "30m",
@@ -413,7 +413,7 @@
                     ]
                 }
             ],
-            "url": "https://www.gstatic.com/generate_204",
+            "url": "https://cp.cloudflare.com/generate_204",
             "interval": "10m",
             "tolerance": 60,
             "idle_timeout": "30m",
@@ -433,7 +433,7 @@
                     ]
                 }
             ],
-            "url": "https://www.gstatic.com/generate_204",
+            "url": "https://cp.cloudflare.com/generate_204",
             "interval": "10m",
             "tolerance": 60,
             "idle_timeout": "30m",
