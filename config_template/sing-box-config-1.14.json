@@ -154,7 +154,7 @@
                 "10.7.0.1"
             ],
             "strict_route": true,
-            "stack": "system",
+            "stack": "gvisor",
             "exclude_package": [
                 "com.android.captiveportallogin"
             ],
