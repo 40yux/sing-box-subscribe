@@ -500,6 +500,19 @@
                 "outbound": "💿Lifan"
             },
             {
+                "ip_cidr": [
+                    "198.18.0.0/15",
+                    "fc00::/18"
+                ],
+                "outbound": "🏄proxy",
+                "action": "route"
+            },
+            {
+                "ip_is_private": true,
+                "action": "route",
+                "outbound": "🇨🇳direct"
+            },
+            {
                 "type": "logical",
                 "mode": "and",
                 "rules": [
@@ -584,19 +597,6 @@
                 "rule_set": "geosite-bahamut",
                 "action": "route",
                 "outbound": "🆔Bahamut"
-            },
-            {
-                "ip_cidr": [
-                    "198.18.0.0/15",
-                    "fc00::/18"
-                ],
-                "outbound": "🏄proxy",
-                "action": "route"
-            },
-            {
-                "ip_is_private": true,
-                "action": "route",
-                "outbound": "🇨🇳direct"
             },
             {
                 "rule_set": "geosite-geolocation-cn",
