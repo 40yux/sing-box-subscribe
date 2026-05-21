@@ -129,8 +129,7 @@
         "timeout": "10s",
         "reverse_mapping": true,
         "cache_capacity": 40960,
-        "reverse_mapping": true,
-        "client_subnet": "114.114.114.114/24"
+        "reverse_mapping": true
     },
     "http_clients": [
         {
@@ -343,7 +342,7 @@
                     ]
                 }
             ],
-            "url": "https://cp.cloudflare.com/generate_204",
+            "url": "NXDOMAIN",
             "interval": "14m",
             "tolerance": 60,
             "idle_timeout": "30m",
@@ -363,7 +362,7 @@
                     ]
                 }
             ],
-            "url": "https://cp.cloudflare.com/generate_204",
+            "url": "NXDOMAIN",
             "interval": "14m",
             "tolerance": 60,
             "idle_timeout": "30m",
@@ -383,7 +382,7 @@
                     ]
                 }
             ],
-            "url": "https://cp.cloudflare.com/generate_204",
+            "url": "NXDOMAIN",
             "interval": "14m",
             "tolerance": 60,
             "idle_timeout": "30m",
@@ -403,7 +402,7 @@
                     ]
                 }
             ],
-            "url": "https://cp.cloudflare.com/generate_204",
+            "url": "NXDOMAIN",
             "interval": "14m",
             "tolerance": 60,
             "idle_timeout": "30m",
@@ -423,7 +422,7 @@
                     ]
                 }
             ],
-            "url": "https://cp.cloudflare.com/generate_204",
+            "url": "NXDOMAIN",
             "interval": "14m",
             "tolerance": 60,
             "idle_timeout": "30m",
