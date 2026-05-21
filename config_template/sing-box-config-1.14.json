@@ -126,7 +126,7 @@
             "enabled": true,
             "timeout": "3d"
         },
-        "timeout": "8s",
+        "timeout": "10s",
         "reverse_mapping": true,
         "cache_capacity": 40960,
         "reverse_mapping": true,
