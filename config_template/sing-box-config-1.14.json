@@ -448,11 +448,6 @@
                 "strategy": "prefer_ipv4"
             },
             {
-                "action": "route-options",
-                "udp_connect": true,
-                "udp_disable_domain_unmapping": true
-            },
-            {
                 "type": "logical",
                 "mode": "or",
                 "rules": [
