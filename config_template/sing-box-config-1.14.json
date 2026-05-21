@@ -124,9 +124,9 @@
         "strategy": "prefer_ipv4",
         "optimistic": {
             "enabled": true,
-            "timeout": "1d"
+            "timeout": "3d"
         },
-        "timeout": "5s",
+        "timeout": "8s",
         "reverse_mapping": true,
         "cache_capacity": 40960,
         "reverse_mapping": true,
