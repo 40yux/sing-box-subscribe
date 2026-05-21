@@ -440,12 +440,18 @@
     "route": {
         "rules": [
             {
-                "inbound": ["tun-in", "mixed-in"],
+                "inbound": [
+                    "tun-in",
+                    "mixed-in"
+                ],
                 "action": "sniff",
                 "timeout": "1s"
             },
             {
-                "inbound": ["tun-in", "mixed-in"],
+                "inbound": [
+                    "tun-in",
+                    "mixed-in"
+                ],
                 "action": "resolve",
                 "strategy": "prefer_ipv4"
             },
@@ -525,7 +531,13 @@
                                     "com.google.android.gsf",
                                     "com.google.android.ext.services",
                                     "com.google.android.syncadapters.contacts",
-                                    "games.wfs.anothereden"
+                                    "com.android.chrome",
+                                    "com.android.systemui",
+                                    "games.wfs.anothereden",
+                                    "com.tencent.mm",
+                                    "com.tencent.mobileqq",
+                                    "tv.danmaku.bili",
+                                    "com.ss.android.ugc.aweme.lite"
                                 ]
                             }
                         ]
@@ -574,6 +586,13 @@
                 ],
                 "action": "route",
                 "outbound": "🇨🇳direct"
+            },
+            {
+                "ip_cidr": [
+                    "198.18.0.0/15"
+                ],
+                "outbound": "🏄proxy",
+                "action": "route"
             },
             {
                 "ip_is_private": true,
