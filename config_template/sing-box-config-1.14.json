@@ -239,6 +239,7 @@
             "tag": "🇨🇳direct",
             "type": "direct",
             "domain_resolver": "dns_direct"
+        },
         {
             "tag": "🆔Youtube",
             "type": "selector",
