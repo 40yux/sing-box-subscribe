@@ -200,7 +200,7 @@
                 }
             ],
             "url": "https://www.gstatic.com/generate_204",
-            "interval": "15m",
+            "interval": "3m",
             "tolerance": 90,
             "idle_timeout": "30m",
             "interrupt_exist_connections": false
