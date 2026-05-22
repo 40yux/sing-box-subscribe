@@ -409,7 +409,7 @@
             "url": "https://cp.cloudflare.com/generate_204",
             "interval": "14m",
             "tolerance": 90,
-            "idle_timeout": "3m",
+            "idle_timeout": "30m",
             "interrupt_exist_connections": false
         }
     ],
