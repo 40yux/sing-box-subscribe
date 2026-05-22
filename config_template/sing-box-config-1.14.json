@@ -344,7 +344,7 @@
             "url": "https://cp.cloudflare.com/generate_204",
             "interval": "7d",
             "tolerance": 90,
-            "idle_timeout": "30m",
+            "idle_timeout": "7d",
             "interrupt_exist_connections": false
         },
         {
@@ -364,7 +364,7 @@
             "url": "https://cp.cloudflare.com/generate_204",
             "interval": "7d",
             "tolerance": 90,
-            "idle_timeout": "30m",
+            "idle_timeout": "7d",
             "interrupt_exist_connections": false
         },
         {
@@ -384,7 +384,7 @@
             "url": "https://cp.cloudflare.com/generate_204",
             "interval": "7d",
             "tolerance": 90,
-            "idle_timeout": "30m",
+            "idle_timeout": "7d",
             "interrupt_exist_connections": false
         },
         {
@@ -404,7 +404,7 @@
             "url": "https://cp.cloudflare.com/generate_204",
             "interval": "7d",
             "tolerance": 90,
-            "idle_timeout": "30m",
+            "idle_timeout": "7d",
             "interrupt_exist_connections": false
         },
         {
@@ -424,7 +424,7 @@
             "url": "https://cp.cloudflare.com/generate_204",
             "interval": "7d",
             "tolerance": 90,
-            "idle_timeout": "30m",
+            "idle_timeout": "7d",
             "interrupt_exist_connections": false
         }
     ],
