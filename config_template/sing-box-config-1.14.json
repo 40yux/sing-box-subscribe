@@ -238,7 +238,8 @@
         {
             "tag": "🇨🇳direct",
             "type": "direct",
-            "domain_resolver": "dns_direct"
+            "domain_resolver": "dns_direct",
+            "connect_timeout": "12s"
         },
         {
             "tag": "🆔Youtube",
