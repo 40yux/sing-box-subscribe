@@ -470,9 +470,7 @@
                 ],
                 "action": "route",
                 "outbound": "🏄proxy"
-            }, 
-}
-
+            },
             {
                 "rule_set": [
                     "geosite-category-ads-all",
