@@ -464,6 +464,16 @@
                 "outbound": "🏄proxy"
             },
             {
+                "domain": [
+                    "app.adjust.io",
+                    "adjust.io"
+                ],
+                "action": "route",
+                "outbound": "🏄proxy"
+            }, 
+}
+
+            {
                 "rule_set": [
                     "geosite-category-ads-all",
                     "geosite-adguard"
