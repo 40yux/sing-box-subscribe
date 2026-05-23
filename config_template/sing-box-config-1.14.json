@@ -458,6 +458,16 @@
                     "geosite-category-ads-all",
                     "geosite-adguard"
                 ],
+                
+                "clash_mode": "Global",
+                "action": "route",
+                "outbound": "🏄proxy"
+            },
+            {
+                "rule_set": [
+                    "geosite-category-ads-all",
+                    "geosite-adguard"
+                ],
                 "action": "reject"
             },            
             {
