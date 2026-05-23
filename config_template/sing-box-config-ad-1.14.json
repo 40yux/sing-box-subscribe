@@ -44,7 +44,14 @@
                         "9.9.9.11",
                         "2620:fe::fe",
                         "2620:fe::11"
-                    ]
+                    ],          "mtalk.google.com": [
+            "142.250.107.188",
+            "142.251.170.188",
+            "108.177.125.188"
+          ],
+          "alt1-mtalk.google.com": "74.125.200.188",
+          "dl.google.com": "180.163.151.161",
+          "dl.l.google.com": "180.163.150.33"
                 }
             },
             {
@@ -452,7 +459,20 @@
                 "clash_mode": "Global",
                 "action": "route",
                 "outbound": "🏄proxy"
-            },
+            },      {
+        "type": "logical",
+        "mode": "and",
+        "rules": [
+          {
+            "ip_version": 6
+          },
+          {
+            "default_interface_address": "2000::/3",
+            "invert": true
+          }
+        ],
+        "action": "reject"
+      },
             {
                 "rule_set": [
                     "geosite-category-ads-all",
