@@ -12,7 +12,8 @@
                 "predefined": {
                     "dns.alidns.com": [
                         "223.5.5.5",
-                        "223.6.6.6"                    ],
+                        "223.6.6.6"
+                    ],
                     "doh.pub": [
                         "1.12.12.21",
                         "120.53.53.53"
@@ -31,14 +32,16 @@
                     ],
                     "dns.quad9.net": [
                         "9.9.9.9",
-                        "9.9.9.11"                    ],          "mtalk.google.com": [
-            "142.250.107.188",
-            "142.251.170.188",
-            "108.177.125.188"
-          ],
-          "alt1-mtalk.google.com": "74.125.200.188",
-          "dl.google.com": "180.163.151.161",
-          "dl.l.google.com": "180.163.150.33"
+                        "9.9.9.11"
+                    ],
+                    "mtalk.google.com": [
+                        "142.250.107.188",
+                        "142.251.170.188",
+                        "108.177.125.188"
+                    ],
+                    "alt1-mtalk.google.com": "74.125.200.188",
+                    "dl.google.com": "180.163.151.161",
+                    "dl.l.google.com": "180.163.150.33"
                 }
             },
             {
@@ -58,7 +61,8 @@
             {
                 "type": "fakeip",
                 "tag": "dns_fakeip",
-                "inet4_range": "198.18.0.0/15"            }
+                "inet4_range": "198.18.0.0/15"
+            }
         ],
         "rules": [
             {
@@ -133,11 +137,13 @@
             "type": "tun",
             "tag": "tun-in",
             "address": [
-                "172.18.0.1/30"            ],
+                "172.18.0.1/30"
+            ],
             "mtu": 1420,
             "dns_mode": "hijack",
             "dns_address": [
-                "172.18.0.2"            ],
+                "172.18.0.2"
+            ],
             "auto_route": true,
             "loopback_address": [
                 "10.7.0.1"
@@ -440,26 +446,26 @@
                 "clash_mode": "Global",
                 "action": "route",
                 "outbound": "🏄proxy"
-            },      {
-        "type": "logical",
-        "mode": "and",
-        "rules": [
-          {
-            "ip_version": 6
-          },
-          {
-            "default_interface_address": "2000::/3",
-            "invert": true
-          }
-        ],
-        "action": "reject"
-      },
+            },
+            {
+                "type": "logical",
+                "mode": "and",
+                "rules": [
+                    {
+                        "ip_version": 6
+                    },
+                    {
+                        "default_interface_address": "2000::/3",
+                        "invert": true
+                    }
+                ],
+                "action": "reject"
+            },
             {
                 "rule_set": [
                     "geosite-category-ads-all",
                     "geosite-adguard"
                 ],
-                
                 "clash_mode": "Global",
                 "action": "route",
                 "outbound": "🏄proxy"
@@ -476,18 +482,18 @@
                     "app.adjust.io",
                     "adjust.io",
                     "mtalk.google.com",
-                     "alt1-mtalk.google.com",
+                    "alt1-mtalk.google.com",
                     "alt2-mtalk.google.com",
-                     "alt3-mtalk.google.com",
+                    "alt3-mtalk.google.com",
                     "alt4-mtalk.google.com",
                     "alt5-mtalk.google.com",
                     "alt6-mtalk.google.com",
                     "alt7-mtalk.google.com",
-                     "alt8-mtalk.google.com"
+                    "alt8-mtalk.google.com"
                 ],
                 "action": "route",
                 "outbound": "🏄proxy"
-            },           
+            },
             {
                 "package_name": [
                     "com.tencent.mm",
