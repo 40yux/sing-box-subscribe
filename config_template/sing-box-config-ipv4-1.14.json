@@ -196,8 +196,7 @@
             "url": "https://www.gstatic.com/generate_204",
             "interval": "3m",
             "tolerance": 90,
-            "idle_timeout": "30m",
-            "interrupt_exist_connections": false
+            "idle_timeout": "30m"
         },
         {
             "tag": "🫧Others",
@@ -320,11 +319,10 @@
                     ]
                 }
             ],
-            "url": "https://cp.cloudflare.com/generate_204",
+            "url": "https://www.gstatic.com/generate_204",
             "interval": "14m",
             "tolerance": 90,
-            "idle_timeout": "30m",
-            "interrupt_exist_connections": false
+            "idle_timeout": "30m"
         },
         {
             "tag": "🇯🇵Japan",
@@ -340,11 +338,10 @@
                     ]
                 }
             ],
-            "url": "https://cp.cloudflare.com/generate_204",
+            "url": "https://www.gstatic.com/generate_204",
             "interval": "14m",
             "tolerance": 90,
-            "idle_timeout": "30m",
-            "interrupt_exist_connections": false
+            "idle_timeout": "30m"
         },
         {
             "tag": "🇸🇬Singapore",
@@ -360,11 +357,10 @@
                     ]
                 }
             ],
-            "url": "https://cp.cloudflare.com/generate_204",
+            "url": "https://www.gstatic.com/generate_204",
             "interval": "14m",
             "tolerance": 90,
-            "idle_timeout": "30m",
-            "interrupt_exist_connections": false
+            "idle_timeout": "30m"
         },
         {
             "tag": "🇭🇰HongKong",
@@ -380,11 +376,10 @@
                     ]
                 }
             ],
-            "url": "https://cp.cloudflare.com/generate_204",
+            "url": "https://www.gstatic.com/generate_204",
             "interval": "14m",
             "tolerance": 90,
-            "idle_timeout": "30m",
-            "interrupt_exist_connections": false
+            "idle_timeout": "30m"
         },
         {
             "tag": "🇹🇼TaiWan",
@@ -400,11 +395,10 @@
                     ]
                 }
             ],
-            "url": "https://cp.cloudflare.com/generate_204",
+            "url": "https://www.gstatic.com/generate_204",
             "interval": "14m",
             "tolerance": 90,
-            "idle_timeout": "30m",
-            "interrupt_exist_connections": false
+            "idle_timeout": "30m"
         }
     ],
     "route": {
@@ -490,6 +484,13 @@
                     "alt6-mtalk.google.com",
                     "alt7-mtalk.google.com",
                     "alt8-mtalk.google.com"
+                ],
+                "action": "route",
+                "outbound": "🆔Google"
+            },
+            {
+                "package_name": [
+                    "games.wfs.anothereden"
                 ],
                 "action": "route",
                 "outbound": "🆔Google"
