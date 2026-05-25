@@ -326,7 +326,7 @@
                 }
             ],
             "url": "https://www.gstatic.com/generate_204",
-            "interval": "3m",
+            "interval": "3m5s",
             "tolerance": 60,
             "idle_timeout": "30m"
         },
@@ -345,7 +345,7 @@
                 }
             ],
             "url": "https://www.gstatic.com/generate_204",
-            "interval": "3m",
+            "interval": "3m10s",
             "tolerance": 60,
             "idle_timeout": "30m"
         },
@@ -364,7 +364,7 @@
                 }
             ],
             "url": "https://www.gstatic.com/generate_204",
-            "interval": "3m",
+            "interval": "3m15s",
             "tolerance": 60,
             "idle_timeout": "30m"
         },
@@ -383,7 +383,7 @@
                 }
             ],
             "url": "https://www.gstatic.com/generate_204",
-            "interval": "3m",
+            "interval": "3m20s",
             "tolerance": 60,
             "idle_timeout": "30m"
         },
@@ -402,7 +402,7 @@
                 }
             ],
             "url": "https://www.gstatic.com/generate_204",
-            "interval": "3m",
+            "interval": "3m25s",
             "tolerance": 60,
             "idle_timeout": "30m"
         }
