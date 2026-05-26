@@ -13,35 +13,11 @@
                     "dns.alidns.com": [
                         "223.5.5.5",
                         "223.6.6.6"
-                    ],
-                    "doh.pub": [
-                        "1.12.12.21",
-                        "120.53.53.53"
-                    ],
-                    "dns.adguard-dns.com": [
-                        "94.140.14.15",
-                        "94.140.15.16"
-                    ],
+                    ],                    
                     "dns.google": [
                         "8.8.8.8",
                         "8.8.4.4"
-                    ],
-                    "cloudflare-dns.com": [
-                        "104.16.248.249",
-                        "104.16.249.249"
-                    ],
-                    "dns.quad9.net": [
-                        "9.9.9.9",
-                        "9.9.9.11"
-                    ],
-                    "mtalk.google.com": [
-                        "142.250.107.188",
-                        "142.251.170.188",
-                        "108.177.125.188"
-                    ],
-                    "alt1-mtalk.google.com": "74.125.200.188",
-                    "dl.google.com": "180.163.151.161",
-                    "dl.l.google.com": "180.163.150.33"
+                    ]
                 }
             },
             {
@@ -456,19 +432,13 @@
                 "action": "reject"
             },
             {
-                "rule_set": [
-                    "geosite-category-ads-all",
-                    "geosite-adguard"
-                ],
+                "rule_set": "geosite-category-ads-all",                    
                 "clash_mode": "Global",
                 "action": "route",
                 "outbound": "🏄proxy"
             },
             {
-                "rule_set": [
-                    "geosite-category-ads-all",
-                    "geosite-adguard"
-                ],
+                "rule_set": "geosite-category-ads-all",
                 "action": "reject"
             },
             {
@@ -638,13 +608,6 @@
                 "type": "remote",
                 "format": "binary",
                 "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-category-ads-all.srs",
-                "update_interval": "1d"
-            },
-            {
-                "tag": "geosite-adguard",
-                "type": "remote",
-                "format": "binary",
-                "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-adguard.srs",
                 "update_interval": "1d"
             },
             {
