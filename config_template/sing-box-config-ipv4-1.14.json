@@ -384,7 +384,8 @@
                     "tun-in",
                     "mixed-in"
                 ],
-                "action": "sniff"
+                "action": "sniff",
+                "timeout": "1s"
             },
             {
                 "inbound": [
