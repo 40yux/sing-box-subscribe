@@ -432,7 +432,7 @@
                 "outbound": "🏄proxy"
             },
             {
-                "rule_set": ,[ "geosite-category-ads-all","geosite-youtube@ads"],
+                "rule_set": [ "geosite-category-ads-all","geosite-youtube@ads"],
                 "action": "reject"
             },
             {
