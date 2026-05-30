@@ -289,6 +289,18 @@
             ]
         },
         {
+            "tag": "🤖Ai",
+            "type": "selector",
+            "outbounds": [
+                "🇹🇼TaiWan",
+                "🇭🇰HongKong",
+                "🇸🇬Singapore",
+                "🇺🇸America",
+                "🇯🇵Japan",
+                "🫧Others"
+            ]
+        },
+        {
             "tag": "🇺🇸America",
             "type": "urltest",
             "outbounds": [
@@ -565,6 +577,11 @@
                 "outbound": "🆔Bahamut"
             },
             {
+                "rule_set": "geosite-category-ai-!cn",
+                "action": "route",
+                "outbound": "🤖Ai"
+            },
+            {
                 "rule_set": "geosite-geolocation-cn",
                 "action": "route",
                 "outbound": "🇨🇳direct"
@@ -670,6 +687,13 @@
                 "type": "remote",
                 "format": "binary",
                 "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-bahamut.srs",
+                "update_interval": "1d"
+            },
+            {
+                "tag": "geosite-category-ai-!cn",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-category-ai-!cn.srs",
                 "update_interval": "1d"
             },
             {
