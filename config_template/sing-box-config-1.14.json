@@ -94,7 +94,7 @@
                 ],
                 "action": "route",
                 "server": "dns_fakeip",
-                "rewrite_ttl": 1
+                "rewrite_ttl": 60
             }
         ],
         "final": "dns_proxy",
