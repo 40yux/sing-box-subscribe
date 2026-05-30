@@ -432,7 +432,7 @@
                 "outbound": "🏄proxy"
             },
             {
-                "rule_set": "geosite-category-ads-all",
+                "rule_set": ,[ "geosite-category-ads-all","geosite-youtube@ads"],
                 "action": "reject"
             },
             {
@@ -600,6 +600,13 @@
                 "type": "remote",
                 "format": "binary",
                 "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-category-ads-all.srs",
+                "update_interval": "1d"
+            },
+            {
+                "tag": "geosite-youtube@ads",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-youtube@ads.srs",
                 "update_interval": "1d"
             },
             {
