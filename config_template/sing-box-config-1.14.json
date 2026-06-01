@@ -474,6 +474,13 @@
                 "outbound": "🇨🇳direct"
             },
             {
+                "package_name": [
+                    "games.wfs.anothereden"
+                ],
+                "action": "route",
+                "outbound": "🆔Google"
+            },
+            {
                 "domain_keyword": [
                     "hanime1"
                 ],
