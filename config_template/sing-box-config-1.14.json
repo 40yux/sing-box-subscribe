@@ -447,16 +447,6 @@
                 "action": "hijack-dns"
             },
             {
-                "ip_cidr": [
-                    "223.5.5.5/32",
-                    "223.6.6.6/32",
-                    "2400:3200::1/128",
-                    "2400:3200:baba::1/128"
-                ],
-                "action": "route",
-                "outbound": "🇨🇳direct"
-            },
-            {
                 "clash_mode": "Direct",
                 "action": "route",
                 "outbound": "🇨🇳direct"
@@ -473,21 +463,6 @@
                     "geosite-youtube@ads"
                 ],
                 "action": "reject"
-            },
-            {
-                "domain": [
-                    "app.adjust.io",
-                    "adjust.io"
-                ],
-                "action": "route",
-                "outbound": "🧞‍♂️proxy"
-            },
-            {
-                "package_name": [
-                    "games.wfs.anothereden"
-                ],
-                "action": "route",
-                "outbound": "🧞‍♂️proxy"
             },
             {
                 "package_name": [
@@ -517,37 +492,6 @@
                 "ip_is_private": true,
                 "action": "route",
                 "outbound": "🇨🇳direct"
-            },
-            {
-                "type": "logical",
-                "mode": "and",
-                "rules": [
-                    {
-                        "type": "logical",
-                        "mode": "or",
-                        "rules": [
-                            {
-                                "port": 853
-                            },
-                            {
-                                "network": "udp",
-                                "port": 443
-                            },
-                            {
-                                "protocol": "stun"
-                            }
-                        ]
-                    },
-                    {
-                        "rule_set": [
-                            "geosite-geolocation-cn",
-                            "geoip-cn"
-                        ],
-                        "invert": true
-                    }
-                ],
-                "action": "route",
-                "outbound": "🧞‍♂️proxy"
             },
             {
                 "rule_set": "geosite-youtube",
