@@ -158,10 +158,10 @@
             "outbounds": [
                 "♻️auto",
                 "🇭🇰HongKong",
+                "🇺🇸America",
+                "🇯🇵Japan",
                 "🇹🇼TaiWan",
                 "🇸🇬Singapore",
-                "🇯🇵Japan",
-                "🇺🇸America",
                 "🫧Others",
                 "🇨🇳direct"
             ],
@@ -225,85 +225,99 @@
             "tag": "🆔Youtube",
             "type": "selector",
             "outbounds": [
-                "🇯🇵Japan",
-                "🇺🇸America",
                 "🇭🇰HongKong",
+                "🇺🇸America",
+                "🇯🇵Japan",
                 "🇹🇼TaiWan",
                 "🇸🇬Singapore",
-                "🫧Others"
-            ]
+                "🫧Others",
+                "🇨🇳direct"
+            ],
+            "default": "🇯🇵Japan"
         },
         {
             "tag": "🆔Telegram",
             "type": "selector",
             "outbounds": [
                 "🇭🇰HongKong",
+                "🇺🇸America",
+                "🇯🇵Japan",
                 "🇹🇼TaiWan",
                 "🇸🇬Singapore",
-                "🇯🇵Japan",
-                "🇺🇸America",
-                "🫧Others"
-            ]
+                "🫧Others",
+                "🇨🇳direct"
+            ],
+            "default": "🇭🇰HongKong"
         },
         {
             "tag": "🆔Twitter/X",
             "type": "selector",
             "outbounds": [
                 "🇭🇰HongKong",
+                "🇺🇸America",
+                "🇯🇵Japan",
                 "🇹🇼TaiWan",
                 "🇸🇬Singapore",
-                "🇯🇵Japan",
-                "🇺🇸America",
-                "🫧Others"
-            ]
+                "🫧Others",
+                "🇨🇳direct"
+            ],
+            "default": "🇭🇰HongKong"
         },
         {
             "tag": "🆔Google",
             "type": "selector",
             "outbounds": [
-                "🇺🇸America",
                 "🇭🇰HongKong",
+                "🇺🇸America",
+                "🇯🇵Japan",
                 "🇹🇼TaiWan",
                 "🇸🇬Singapore",
-                "🇯🇵Japan",
-                "🫧Others"
-            ]
+                "🫧Others",
+                "🇨🇳direct"
+            ],
+            "default": "🇺🇸America"
         },
         {
             "tag": "🆔Github",
             "type": "selector",
             "outbounds": [
                 "🇭🇰HongKong",
+                "🇺🇸America",
+                "🇯🇵Japan",
                 "🇹🇼TaiWan",
                 "🇸🇬Singapore",
-                "🇯🇵Japan",
-                "🇺🇸America",
-                "🫧Others"
-            ]
+                "🫧Others",
+                "🇨🇳direct"
+            ],
+            "default": "🇺🇸America"
         },
         {
             "tag": "🆔Bahamut",
             "type": "selector",
             "outbounds": [
-                "🇹🇼TaiWan",
                 "🇭🇰HongKong",
-                "🇸🇬Singapore",
                 "🇺🇸America",
                 "🇯🇵Japan",
-                "🫧Others"
-            ]
+                "🇹🇼TaiWan",
+                "🇸🇬Singapore",
+                "🫧Others",
+                "🇨🇳direct"
+            ],
+            "default": "🇹🇼TaiWan"
         },
         {
             "tag": "🤖Ai",
             "type": "selector",
             "outbounds": [
-                "🇹🇼TaiWan",
                 "🇭🇰HongKong",
-                "🇸🇬Singapore",
                 "🇺🇸America",
                 "🇯🇵Japan",
-                "🫧Others"
-            ]
+                "🇹🇼TaiWan",
+                "🇸🇬Singapore",
+                "🫧Others",
+                "🇨🇳direct"
+            ],
+            "default": "🇺🇸America"
         },
         {
             "tag": "🇺🇸America",
@@ -443,13 +457,11 @@
                 "outbound": "🧞‍♂️proxy"
             },
             {
-                "rule_set": "geosite-category-ads-all",
-                "clash_mode": "Global",
-                "action": "route",
-                "outbound": "🧞‍♂️proxy"
-            },
-            {
-                "rule_set": [ "geosite-category-ads-all","geosite-youtube@ads"],
+                "rule_set": [
+                    "geosite-category-ads-all",
+                    "geosite-adguard",
+                    "geosite-youtube@ads"
+                ],
                 "action": "reject"
             },
             {
@@ -458,14 +470,14 @@
                     "adjust.io"
                 ],
                 "action": "route",
-                "outbound": "🆔Google"
+                "outbound": "🧞‍♂️proxy"
             },
             {
                 "package_name": [
                     "games.wfs.anothereden"
                 ],
                 "action": "route",
-                "outbound": "🆔Google"
+                "outbound": "🧞‍♂️proxy"
             },
             {
                 "package_name": [
@@ -517,14 +529,15 @@
                         ]
                     },
                     {
-                        "rule_set": ["geosite-geolocation-cn","geoip-cn"],
-                
+                        "rule_set": [
+                            "geosite-geolocation-cn",
+                            "geoip-cn"
+                        ],
                         "invert": true
-                       
                     }
                 ],
                 "action": "route",
-                "outbound": "🆔Google"
+                "outbound": "🧞‍♂️proxy"
             },
             {
                 "rule_set": "geosite-youtube",
@@ -600,6 +613,13 @@
                 "type": "remote",
                 "format": "binary",
                 "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-category-ads-all.srs",
+                "update_interval": "1d"
+            },
+            {
+                "tag": "geosite-adguard",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-adguard.srs",
                 "update_interval": "1d"
             },
             {
