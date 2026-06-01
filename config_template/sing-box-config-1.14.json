@@ -447,6 +447,16 @@
                 "action": "hijack-dns"
             },
             {
+                "ip_cidr": [
+                    "223.5.5.5/32",
+                    "223.6.6.6/32",
+                    "2400:3200::1/128",
+                    "2400:3200:baba::1/128"
+                ],
+                "action": "route",
+                "outbound": "🇨🇳direct"
+            },
+            {
                 "clash_mode": "Direct",
                 "action": "route",
                 "outbound": "🇨🇳direct"
