@@ -182,7 +182,7 @@
                     ]
                 }
             ],
-            "url": "http://cp.cloudflare.com/generate_204",
+            "url": "http://www.gstatic.com/generate_204",
             "interval": "14m",
             "tolerance": 60,
             "idle_timeout": "30m",
@@ -344,7 +344,7 @@
                     ]
                 }
             ],
-            "url": "http://cp.cloudflare.com/generate_204",
+            "url": "http://www.gstatic.com/generate_204",
             "interval": "3m1s",
             "tolerance": 60,
             "idle_timeout": "30m",
@@ -364,7 +364,7 @@
                     ]
                 }
             ],
-            "url": "http://cp.cloudflare.com/generate_204",
+            "url": "http://www.gstatic.com/generate_204",
             "interval": "3m3s",
             "tolerance": 60,
             "idle_timeout": "30m",
@@ -384,7 +384,7 @@
                     ]
                 }
             ],
-            "url": "http://cp.cloudflare.com/generate_204",
+            "url": "http://www.gstatic.com/generate_204",
             "interval": "3m5s",
             "tolerance": 60,
             "idle_timeout": "30m",
@@ -404,7 +404,7 @@
                     ]
                 }
             ],
-            "url": "http://cp.cloudflare.com/generate_204",
+            "url": "http://www.gstatic.com/generate_204",
             "interval": "3m7s",
             "tolerance": 60,
             "idle_timeout": "30m",
@@ -424,7 +424,7 @@
                     ]
                 }
             ],
-            "url": "http://cp.cloudflare.com/generate_204",
+            "url": "http://www.gstatic.com/generate_204",
             "interval": "3m9s",
             "tolerance": 60,
             "idle_timeout": "30m",
