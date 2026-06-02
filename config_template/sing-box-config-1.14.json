@@ -165,7 +165,8 @@
                 "🫧Others",
                 "🇨🇳direct"
             ],
-            "default": "♻️auto"
+            "default": "♻️auto",
+            "interrupt_exist_connections": true
         },
         {
             "tag": "♻️auto",
@@ -184,7 +185,8 @@
             "url": "https://www.gstatic.com/generate_204",
             "interval": "14m",
             "tolerance": 60,
-            "idle_timeout": "30m"
+            "idle_timeout": "30m",
+            "interrupt_exist_connections": false
         },
         {
             "tag": "🫧Others",
@@ -192,6 +194,7 @@
             "outbounds": [
                 "{all}"
             ],
+            "interrupt_exist_connections": true
             "filter": [
                 {
                     "action": "exclude",
@@ -207,6 +210,7 @@
             "outbounds": [
                 "{all}"
             ],
+            "interrupt_exist_connections": true
             "filter": [
                 {
                     "action": "include",
@@ -233,7 +237,8 @@
                 "🫧Others",
                 "🇨🇳direct"
             ],
-            "default": "🇯🇵Japan"
+            "default": "🇯🇵Japan",
+            "interrupt_exist_connections": true
         },
         {
             "tag": "🆔Telegram",
@@ -247,7 +252,8 @@
                 "🫧Others",
                 "🇨🇳direct"
             ],
-            "default": "🇭🇰HongKong"
+            "default": "🇭🇰HongKong",
+            "interrupt_exist_connections": true
         },
         {
             "tag": "🆔Twitter/X",
@@ -261,7 +267,8 @@
                 "🫧Others",
                 "🇨🇳direct"
             ],
-            "default": "🇭🇰HongKong"
+            "default": "🇭🇰HongKong",
+            "interrupt_exist_connections": true
         },
         {
             "tag": "🆔Google",
@@ -275,7 +282,8 @@
                 "🫧Others",
                 "🇨🇳direct"
             ],
-            "default": "🇺🇸America"
+            "default": "🇺🇸America",
+            "interrupt_exist_connections": true
         },
         {
             "tag": "🆔Github",
@@ -289,7 +297,8 @@
                 "🫧Others",
                 "🇨🇳direct"
             ],
-            "default": "🇺🇸America"
+            "default": "🇺🇸America",
+            "interrupt_exist_connections": true
         },
         {
             "tag": "🆔Bahamut",
@@ -303,7 +312,8 @@
                 "🫧Others",
                 "🇨🇳direct"
             ],
-            "default": "🇹🇼TaiWan"
+            "default": "🇹🇼TaiWan",
+            "interrupt_exist_connections": true
         },
         {
             "tag": "🤖Ai",
@@ -317,7 +327,8 @@
                 "🫧Others",
                 "🇨🇳direct"
             ],
-            "default": "🇺🇸America"
+            "default": "🇺🇸America",
+            "interrupt_exist_connections": true
         },
         {
             "tag": "🇺🇸America",
@@ -336,7 +347,8 @@
             "url": "https://www.gstatic.com/generate_204",
             "interval": "3m1s",
             "tolerance": 60,
-            "idle_timeout": "30m"
+            "idle_timeout": "30m",
+            "interrupt_exist_connections": false
         },
         {
             "tag": "🇯🇵Japan",
@@ -355,7 +367,8 @@
             "url": "https://www.gstatic.com/generate_204",
             "interval": "3m3s",
             "tolerance": 60,
-            "idle_timeout": "30m"
+            "idle_timeout": "30m",
+            "interrupt_exist_connections": false
         },
         {
             "tag": "🇸🇬Singapore",
@@ -374,7 +387,8 @@
             "url": "https://www.gstatic.com/generate_204",
             "interval": "3m5s",
             "tolerance": 60,
-            "idle_timeout": "30m"
+            "idle_timeout": "30m",
+            "interrupt_exist_connections": false
         },
         {
             "tag": "🇭🇰HongKong",
@@ -393,7 +407,8 @@
             "url": "https://www.gstatic.com/generate_204",
             "interval": "3m7s",
             "tolerance": 60,
-            "idle_timeout": "30m"
+            "idle_timeout": "30m",
+            "interrupt_exist_connections": false
         },
         {
             "tag": "🇹🇼TaiWan",
@@ -412,7 +427,8 @@
             "url": "https://www.gstatic.com/generate_204",
             "interval": "3m9s",
             "tolerance": 60,
-            "idle_timeout": "30m"
+            "idle_timeout": "30m",
+            "interrupt_exist_connections": false
         }
     ],
     "route": {
