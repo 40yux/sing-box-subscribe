@@ -234,8 +234,7 @@
                 "🇯🇵Japan",
                 "🇹🇼TaiWan",
                 "🇸🇬Singapore",
-                "🫧Others",
-                "🇨🇳direct"
+                "🫧Others"
             ],
             "default": "🇯🇵Japan",
             "interrupt_exist_connections": true
@@ -249,8 +248,7 @@
                 "🇯🇵Japan",
                 "🇹🇼TaiWan",
                 "🇸🇬Singapore",
-                "🫧Others",
-                "🇨🇳direct"
+                "🫧Others"
             ],
             "default": "🇭🇰HongKong",
             "interrupt_exist_connections": true
@@ -264,8 +262,7 @@
                 "🇯🇵Japan",
                 "🇹🇼TaiWan",
                 "🇸🇬Singapore",
-                "🫧Others",
-                "🇨🇳direct"
+                "🫧Others"
             ],
             "default": "🇭🇰HongKong",
             "interrupt_exist_connections": true
@@ -279,8 +276,7 @@
                 "🇯🇵Japan",
                 "🇹🇼TaiWan",
                 "🇸🇬Singapore",
-                "🫧Others",
-                "🇨🇳direct"
+                "🫧Others"
             ],
             "default": "🇺🇸America",
             "interrupt_exist_connections": true
@@ -294,8 +290,7 @@
                 "🇯🇵Japan",
                 "🇹🇼TaiWan",
                 "🇸🇬Singapore",
-                "🫧Others",
-                "🇨🇳direct"
+                "🫧Others"
             ],
             "default": "🇺🇸America",
             "interrupt_exist_connections": true
@@ -309,8 +304,7 @@
                 "🇯🇵Japan",
                 "🇹🇼TaiWan",
                 "🇸🇬Singapore",
-                "🫧Others",
-                "🇨🇳direct"
+                "🫧Others"
             ],
             "default": "🇹🇼TaiWan",
             "interrupt_exist_connections": true
@@ -324,8 +318,7 @@
                 "🇯🇵Japan",
                 "🇹🇼TaiWan",
                 "🇸🇬Singapore",
-                "🫧Others",
-                "🇨🇳direct"
+                "🫧Others"
             ],
             "default": "🇺🇸America",
             "interrupt_exist_connections": true
