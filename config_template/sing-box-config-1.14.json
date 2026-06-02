@@ -482,15 +482,6 @@
             },
             {
                 "package_name": [
-                    "com.tencent.mm",
-                    "com.eg.android.AlipayGphone",
-                    "com.tdx.AndroidNew"
-                ],
-                "action": "route",
-                "outbound": "🇨🇳direct"
-            },
-            {
-                "package_name": [
                     "games.wfs.anothereden"
                 ],
                 "action": "route",
