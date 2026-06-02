@@ -12,11 +12,15 @@
                 "predefined": {
                     "dns.alidns.com": [
                         "223.5.5.5",
-                        "223.6.6.6"
-                    ],                    
+                        "223.6.6.6",
+                        "2400:3200::1",
+                        "2400:3200:baba::1"
+                    ],
                     "dns.google": [
                         "8.8.8.8",
-                        "8.8.4.4"
+                        "8.8.4.4",
+                        "2001:4860:4860::8888",
+                        "2001:4860:4860::8844"
                     ]
                 }
             },
@@ -32,12 +36,13 @@
                 "type": "https",
                 "server": "dns.google",
                 "domain_resolver": "hosts",
-                "detour": "🏄proxy"
+                "detour": "🧞‍♂️proxy"
             },
             {
                 "type": "fakeip",
                 "tag": "dns_fakeip",
-                "inet4_range": "198.18.0.0/15"
+                "inet4_range": "198.18.0.0/15",
+                "inet6_range": "fc00::/18"
             }
         ],
         "rules": [
@@ -89,14 +94,14 @@
                 ],
                 "action": "route",
                 "server": "dns_fakeip",
-                "rewrite_ttl": 1
+                "rewrite_ttl": 60
             }
         ],
         "final": "dns_proxy",
-        "strategy": "ipv4_only",
+        "strategy": "prefer_ipv4",
         "optimistic": {
             "enabled": true,
-            "timeout": "3d"
+            "timeout": "1h"
         },
         "timeout": "10s",
         "reverse_mapping": true,
@@ -113,19 +118,21 @@
             "type": "tun",
             "tag": "tun-in",
             "address": [
-                "172.18.0.1/30"
+                "172.18.0.1/30",
+                "fdfe:dcba:9876::1/126"
             ],
             "mtu": 1420,
             "dns_mode": "hijack",
             "dns_address": [
-                "172.18.0.2"
+                "172.18.0.2",
+                "fdfe:dcba:9876::2"
             ],
             "auto_route": true,
             "loopback_address": [
                 "10.7.0.1"
             ],
             "strict_route": true,
-            "stack": "system",
+            "stack": "mixed",
             "exclude_package": [
                 "com.android.captiveportallogin"
             ],
@@ -146,14 +153,20 @@
     ],
     "outbounds": [
         {
-            "tag": "🏄proxy",
+            "tag": "🧞‍♂️proxy",
             "type": "selector",
             "outbounds": [
                 "♻️auto",
-                "🇨🇳direct",
-                "{all}"
+                "🇭🇰HongKong",
+                "🇺🇸America",
+                "🇯🇵Japan",
+                "🇹🇼TaiWan",
+                "🇸🇬Singapore",
+                "🫧Others",
+                "🇨🇳direct"
             ],
-            "default": "♻️auto"
+            "default": "♻️auto",
+            "interrupt_exist_connections": true
         },
         {
             "tag": "♻️auto",
@@ -169,10 +182,11 @@
                     ]
                 }
             ],
-            "url": "https://www.gstatic.com/generate_204",
-            "interval": "3m",
-            "tolerance": 90,
-            "idle_timeout": "30m"
+            "url": "http://www.gstatic.com/generate_204",
+            "interval": "14m",
+            "tolerance": 60,
+            "idle_timeout": "30m",
+            "interrupt_exist_connections": false
         },
         {
             "tag": "🫧Others",
@@ -180,6 +194,7 @@
             "outbounds": [
                 "{all}"
             ],
+            "interrupt_exist_connections": true,
             "filter": [
                 {
                     "action": "exclude",
@@ -195,6 +210,7 @@
             "outbounds": [
                 "{all}"
             ],
+            "interrupt_exist_connections": true,
             "filter": [
                 {
                     "action": "include",
@@ -213,73 +229,106 @@
             "tag": "🆔Youtube",
             "type": "selector",
             "outbounds": [
-                "🇯🇵Japan",
-                "🇺🇸America",
                 "🇭🇰HongKong",
+                "🇺🇸America",
+                "🇯🇵Japan",
                 "🇹🇼TaiWan",
                 "🇸🇬Singapore",
-                "🫧Others"
-            ]
+                "🫧Others",
+                "🇨🇳direct"
+            ],
+            "default": "🇯🇵Japan",
+            "interrupt_exist_connections": true
         },
         {
             "tag": "🆔Telegram",
             "type": "selector",
             "outbounds": [
                 "🇭🇰HongKong",
+                "🇺🇸America",
+                "🇯🇵Japan",
                 "🇹🇼TaiWan",
                 "🇸🇬Singapore",
-                "🇯🇵Japan",
-                "🇺🇸America",
-                "🫧Others"
-            ]
+                "🫧Others",
+                "🇨🇳direct"
+            ],
+            "default": "🇭🇰HongKong",
+            "interrupt_exist_connections": true
         },
         {
             "tag": "🆔Twitter/X",
             "type": "selector",
             "outbounds": [
                 "🇭🇰HongKong",
+                "🇺🇸America",
+                "🇯🇵Japan",
                 "🇹🇼TaiWan",
                 "🇸🇬Singapore",
-                "🇯🇵Japan",
-                "🇺🇸America",
-                "🫧Others"
-            ]
+                "🫧Others",
+                "🇨🇳direct"
+            ],
+            "default": "🇭🇰HongKong",
+            "interrupt_exist_connections": true
         },
         {
             "tag": "🆔Google",
             "type": "selector",
             "outbounds": [
-                "🇺🇸America",
                 "🇭🇰HongKong",
+                "🇺🇸America",
+                "🇯🇵Japan",
                 "🇹🇼TaiWan",
                 "🇸🇬Singapore",
-                "🇯🇵Japan",
-                "🫧Others"
-            ]
+                "🫧Others",
+                "🇨🇳direct"
+            ],
+            "default": "🇺🇸America",
+            "interrupt_exist_connections": true
         },
         {
             "tag": "🆔Github",
             "type": "selector",
             "outbounds": [
                 "🇭🇰HongKong",
+                "🇺🇸America",
+                "🇯🇵Japan",
                 "🇹🇼TaiWan",
                 "🇸🇬Singapore",
-                "🇯🇵Japan",
-                "🇺🇸America",
-                "🫧Others"
-            ]
+                "🫧Others",
+                "🇨🇳direct"
+            ],
+            "default": "🇺🇸America",
+            "interrupt_exist_connections": true
         },
         {
             "tag": "🆔Bahamut",
             "type": "selector",
             "outbounds": [
-                "🇹🇼TaiWan",
                 "🇭🇰HongKong",
-                "🇸🇬Singapore",
                 "🇺🇸America",
                 "🇯🇵Japan",
-                "🫧Others"
-            ]
+                "🇹🇼TaiWan",
+                "🇸🇬Singapore",
+                "🫧Others",
+                "🇨🇳direct"
+            ],
+            "default": "🇹🇼TaiWan",
+            "interrupt_exist_connections": true
+        },
+        {
+            "tag": "🤖Ai",
+            "type": "selector",
+            "outbounds": [
+                "🇭🇰HongKong",
+                "🇺🇸America",
+                "🇯🇵Japan",
+                "🇹🇼TaiWan",
+                "🇸🇬Singapore",
+                "🫧Others",
+                "🇨🇳direct"
+            ],
+            "default": "🇺🇸America",
+            "interrupt_exist_connections": true
         },
         {
             "tag": "🇺🇸America",
@@ -295,10 +344,11 @@
                     ]
                 }
             ],
-            "url": "https://www.gstatic.com/generate_204",
-            "interval": "14m",
-            "tolerance": 90,
-            "idle_timeout": "30m"
+            "url": "http://www.gstatic.com/generate_204",
+            "interval": "3m1s",
+            "tolerance": 60,
+            "idle_timeout": "30m",
+            "interrupt_exist_connections": false
         },
         {
             "tag": "🇯🇵Japan",
@@ -314,10 +364,11 @@
                     ]
                 }
             ],
-            "url": "https://www.gstatic.com/generate_204",
-            "interval": "14m",
-            "tolerance": 90,
-            "idle_timeout": "30m"
+            "url": "http://www.gstatic.com/generate_204",
+            "interval": "3m3s",
+            "tolerance": 60,
+            "idle_timeout": "30m",
+            "interrupt_exist_connections": false
         },
         {
             "tag": "🇸🇬Singapore",
@@ -333,10 +384,11 @@
                     ]
                 }
             ],
-            "url": "https://www.gstatic.com/generate_204",
-            "interval": "14m",
-            "tolerance": 90,
-            "idle_timeout": "30m"
+            "url": "http://www.gstatic.com/generate_204",
+            "interval": "3m5s",
+            "tolerance": 60,
+            "idle_timeout": "30m",
+            "interrupt_exist_connections": false
         },
         {
             "tag": "🇭🇰HongKong",
@@ -352,10 +404,11 @@
                     ]
                 }
             ],
-            "url": "https://www.gstatic.com/generate_204",
-            "interval": "14m",
-            "tolerance": 90,
-            "idle_timeout": "30m"
+            "url": "http://www.gstatic.com/generate_204",
+            "interval": "3m7s",
+            "tolerance": 60,
+            "idle_timeout": "30m",
+            "interrupt_exist_connections": false
         },
         {
             "tag": "🇹🇼TaiWan",
@@ -371,10 +424,11 @@
                     ]
                 }
             ],
-            "url": "https://www.gstatic.com/generate_204",
-            "interval": "14m",
-            "tolerance": 90,
-            "idle_timeout": "30m"
+            "url": "http://www.gstatic.com/generate_204",
+            "interval": "3m9s",
+            "tolerance": 60,
+            "idle_timeout": "30m",
+            "interrupt_exist_connections": false
         }
     ],
     "route": {
@@ -393,7 +447,7 @@
                     "mixed-in"
                 ],
                 "action": "resolve",
-                "strategy": "ipv4_only"
+                "strategy": "prefer_ipv4"
             },
             {
                 "type": "logical",
@@ -416,25 +470,7 @@
             {
                 "clash_mode": "Global",
                 "action": "route",
-                "outbound": "🏄proxy"
-            },
-            {
-                "rule_set": "geosite-category-ads-all",                    
-                "clash_mode": "Global",
-                "action": "route",
-                "outbound": "🏄proxy"
-            },
-            {
-                "rule_set": "geosite-category-ads-all",
-                "action": "reject"
-            },
-            {
-                "domain": [
-                    "app.adjust.io",
-                    "adjust.io"
-                ],
-                "action": "route",
-                "outbound": "🆔Google"
+                "outbound": "🧞‍♂️proxy"
             },
             {
                 "package_name": [
@@ -442,15 +478,6 @@
                 ],
                 "action": "route",
                 "outbound": "🆔Google"
-            },
-            {
-                "package_name": [
-                    "com.tencent.mm",
-                    "com.eg.android.AlipayGphone",
-                    "com.tdx.AndroidNew"
-                ],
-                "action": "route",
-                "outbound": "🇨🇳direct"
             },
             {
                 "domain_keyword": [
@@ -464,58 +491,13 @@
                     "198.18.0.0/15",
                     "fc00::/18"
                 ],
-                "outbound": "🏄proxy",
+                "outbound": "🧞‍♂️proxy",
                 "action": "route"
             },
             {
                 "ip_is_private": true,
                 "action": "route",
                 "outbound": "🇨🇳direct"
-            },
-            {
-                "type": "logical",
-                "mode": "and",
-                "rules": [
-                    {
-                        "type": "logical",
-                        "mode": "or",
-                        "rules": [
-                            {
-                                "port": 853
-                            },
-                            {
-                                "network": "udp",
-                                "port": 443
-                            },
-                            {
-                                "protocol": "stun"
-                            }
-                        ]
-                    },
-                    {
-                        "type": "logical",
-                        "invert": true,
-                        "mode": "or",
-                        "rules": [
-                            {
-                                "domain_keyword": [
-                                    "google",
-                                    "googleapis",
-                                    "gstatic"
-                                ]
-                            },
-                            {
-                                "package_name": [
-                                    "com.google.android.gms",
-                                    "com.android.vending",
-                                    "com.google.android.gsf",
-                                    "games.wfs.anothereden"
-                                ]
-                            }
-                        ]
-                    }
-                ],
-                "action": "reject"
             },
             {
                 "rule_set": "geosite-youtube",
@@ -551,6 +533,11 @@
                 "outbound": "🆔Bahamut"
             },
             {
+                "rule_set": "geosite-category-ai-!cn",
+                "action": "route",
+                "outbound": "🤖Ai"
+            },
+            {
                 "rule_set": "geosite-geolocation-cn",
                 "action": "route",
                 "outbound": "🇨🇳direct"
@@ -571,7 +558,7 @@
                 "outbound": "🇨🇳direct"
             }
         ],
-        "final": "🏄proxy",
+        "final": "🧞‍♂️proxy",
         "auto_detect_interface": true,
         "override_android_vpn": true,
         "default_domain_resolver": {
@@ -580,14 +567,7 @@
             "client_subnet": "114.114.114.114/24"
         },
         "default_http_client": "default_client",
-        "rule_set": [
-            {
-                "tag": "geosite-category-ads-all",
-                "type": "remote",
-                "format": "binary",
-                "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-category-ads-all.srs",
-                "update_interval": "1d"
-            },
+        "rule_set": [           
             {
                 "tag": "geosite-geolocation-!cn",
                 "type": "remote",
@@ -649,6 +629,13 @@
                 "type": "remote",
                 "format": "binary",
                 "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-bahamut.srs",
+                "update_interval": "1d"
+            },
+            {
+                "tag": "geosite-category-ai-!cn",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-category-ai-!cn.srs",
                 "update_interval": "1d"
             },
             {
