@@ -103,9 +103,9 @@
             "enabled": true,
             "timeout": "1h"
         },
-        "timeout": "10s",
+        "timeout": "8s",
         "reverse_mapping": true,
-        "cache_capacity": 40960
+        "cache_capacity": 20480
     },
     "http_clients": [
         {
