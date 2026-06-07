@@ -503,7 +503,11 @@
                 "outbound": "🇨🇳direct"
             },
             {
-                "rule_set": ["geosite-geolocation-cn","geosite-google@cn","geosite-youtube@cn"],
+                "rule_set": [
+                    "geosite-geolocation-cn",
+                    "geosite-google@cn",
+                    "geosite-youtube@cn"
+                ],
                 "action": "route",
                 "outbound": "🇨🇳direct"
             },
@@ -560,8 +564,6 @@
                 "action": "route",
                 "outbound": "🤖Ai"
             }
-            
-            
         ],
         "final": "🧞‍♂️proxy",
         "auto_detect_interface": true,
@@ -669,7 +671,7 @@
                 "format": "binary",
                 "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-category-ai-!cn.srs",
                 "update_interval": "1d"
-            }            
+            }
         ]
     },
     "experimental": {
