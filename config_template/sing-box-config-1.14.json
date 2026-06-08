@@ -335,7 +335,7 @@
                 }
             ],
             "url": "http://www.gstatic.com/generate_204",
-            "interval": "5m14s",
+            "interval": "3m3s",
             "tolerance": 60,
             "idle_timeout": "30m",
             "interrupt_exist_connections": true
@@ -355,7 +355,7 @@
                 }
             ],
             "url": "http://www.gstatic.com/generate_204",
-            "interval": "6m14s",
+            "interval": "3m3s",
             "tolerance": 60,
             "idle_timeout": "30m",
             "interrupt_exist_connections": true
@@ -375,7 +375,7 @@
                 }
             ],
             "url": "http://www.gstatic.com/generate_204",
-            "interval": "7m14s",
+            "interval": "3m3s",
             "tolerance": 60,
             "idle_timeout": "30m",
             "interrupt_exist_connections": true
@@ -395,7 +395,7 @@
                 }
             ],
             "url": "http://www.gstatic.com/generate_204",
-            "interval": "8m14s",
+            "interval": "3m3s",
             "tolerance": 60,
             "idle_timeout": "30m",
             "interrupt_exist_connections": true
@@ -415,7 +415,7 @@
                 }
             ],
             "url": "http://www.gstatic.com/generate_204",
-            "interval": "9m14s",
+            "interval": "3m3s",
             "tolerance": 60,
             "idle_timeout": "30m",
             "interrupt_exist_connections": true
