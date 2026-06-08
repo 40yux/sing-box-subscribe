@@ -183,7 +183,7 @@
             "interval": "14m",
             "tolerance": 60,
             "idle_timeout": "30m",
-            "interrupt_exist_connections": false
+            "interrupt_exist_connections": true
         },
         {
             "tag": "🫧Others",
@@ -338,7 +338,7 @@
             "interval": "5m14s",
             "tolerance": 60,
             "idle_timeout": "30m",
-            "interrupt_exist_connections": false
+            "interrupt_exist_connections": true
         },
         {
             "tag": "🇯🇵Japan",
@@ -358,7 +358,7 @@
             "interval": "6m14s",
             "tolerance": 60,
             "idle_timeout": "30m",
-            "interrupt_exist_connections": false
+            "interrupt_exist_connections": true
         },
         {
             "tag": "🇸🇬Singapore",
@@ -378,7 +378,7 @@
             "interval": "7m14s",
             "tolerance": 60,
             "idle_timeout": "30m",
-            "interrupt_exist_connections": false
+            "interrupt_exist_connections": true
         },
         {
             "tag": "🇭🇰HongKong",
@@ -398,7 +398,7 @@
             "interval": "8m14s",
             "tolerance": 60,
             "idle_timeout": "30m",
-            "interrupt_exist_connections": false
+            "interrupt_exist_connections": true
         },
         {
             "tag": "🇹🇼TaiWan",
@@ -418,7 +418,7 @@
             "interval": "9m14s",
             "tolerance": 60,
             "idle_timeout": "30m",
-            "interrupt_exist_connections": false
+            "interrupt_exist_connections": true
         }
     ],
     "route": {
