@@ -500,11 +500,7 @@
                 "outbound": "🇨🇳direct"
             },
             {
-                "rule_set": [
-                    "geosite-geolocation-cn",
-                    "geosite-google@cn",
-                    "geosite-youtube@cn"
-                ],
+                "rule_set": "geosite-geolocation-cn",
                 "action": "route",
                 "outbound": "🇨🇳direct"
             },
@@ -542,7 +538,7 @@
                 "outbound": "🆔Twitter/X"
             },
             {
-                "rule_set": "geosite-google@!cn",
+                "rule_set": "geosite-google",
                 "action": "route",
                 "outbound": "🆔Google"
             },
@@ -600,17 +596,10 @@
                 "update_interval": "1d"
             },
             {
-                "tag": "geosite-google@cn",
+                "tag": "geosite-google",
                 "type": "remote",
                 "format": "binary",
-                "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-google@cn.srs",
-                "update_interval": "1d"
-            },
-            {
-                "tag": "geosite-youtube@cn",
-                "type": "remote",
-                "format": "binary",
-                "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-youtube@cn.srs",
+                "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-google.srs",
                 "update_interval": "1d"
             },
             {
@@ -639,13 +628,6 @@
                 "type": "remote",
                 "format": "binary",
                 "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-x.srs",
-                "update_interval": "1d"
-            },
-            {
-                "tag": "geosite-google@!cn",
-                "type": "remote",
-                "format": "binary",
-                "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-google@!cn.srs",
                 "update_interval": "1d"
             },
             {
