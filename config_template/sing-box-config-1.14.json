@@ -154,12 +154,7 @@
             "type": "selector",
             "outbounds": [
                 "♻️auto",
-                "🇭🇰HongKong",
-                "🇺🇸America",
-                "🇯🇵Japan",
-                "🇹🇼TaiWan",
-                "🇸🇬Singapore",
-                "🫧Others",
+                "{all}",
                 "🇨🇳direct"
             ],
             "default": "♻️auto",
