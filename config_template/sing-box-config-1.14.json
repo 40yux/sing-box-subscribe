@@ -329,7 +329,6 @@
                     ]
                 }
             ],
-            "url": "http://www.gstatic.com/generate_204",
             "interrupt_exist_connections": false
         },
         {
@@ -346,7 +345,6 @@
                     ]
                 }
             ],
-            "url": "http://www.gstatic.com/generate_204",
             "interrupt_exist_connections": false
         },
         {
@@ -363,7 +361,6 @@
                     ]
                 }
             ],
-            "url": "http://www.gstatic.com/generate_204",
             "interrupt_exist_connections": false
         },
         {
@@ -380,7 +377,6 @@
                     ]
                 }
             ],
-            "url": "http://www.gstatic.com/generate_204",
             "interrupt_exist_connections": false
         },
         {
@@ -397,7 +393,6 @@
                     ]
                 }
             ],
-            "url": "http://www.gstatic.com/generate_204",
             "interrupt_exist_connections": false
         }
     ],
