@@ -175,7 +175,7 @@
                 }
             ],
             "url": "http://www.gstatic.com/generate_204",
-            "interval": "7m",
+            "interval": "5m",
             "tolerance": 60,
             "idle_timeout": "30m",
             "interrupt_exist_connections": false
