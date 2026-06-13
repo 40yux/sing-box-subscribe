@@ -567,7 +567,7 @@
                 "type": "remote",
                 "format": "binary",
                 "url": "https://raw.githubusercontent.com/SagerNet/sing-geoip/rule-set/geoip-cn.srs",
-                "http_client": "default",
+                "http_client": "client_direct",
                 "update_interval": "1d"
             },
             {
