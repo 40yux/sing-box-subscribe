@@ -28,7 +28,8 @@
                 "tag": "dns_direct",
                 "type": "https",
                 "server": "dns.alidns.com",
-                "domain_resolver": "hosts"
+                "domain_resolver": "hosts",
+                "detour": "🇨🇳direct"
             },
             {
                 "tag": "dns_proxy",
@@ -132,7 +133,7 @@
             ],
             "auto_route": true,
             "strict_route": true,
-            "stack": "system",
+            "stack": "mixed",
             "exclude_package": [
                 "com.android.captiveportallogin"
             ],
