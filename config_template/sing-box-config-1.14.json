@@ -132,7 +132,7 @@
             ],
             "auto_route": true,
             "strict_route": true,
-            "stack": "mixed",
+            "stack": "system",
             "exclude_package": [
                 "com.android.captiveportallogin"
             ],
