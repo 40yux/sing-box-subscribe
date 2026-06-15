@@ -465,7 +465,8 @@
             },
             {
                 "package_name": [
-                    "games.wfs.anothereden"
+                    "games.wfs.anothereden",
+                    "com.greenmushroom.boomblitz.gp"
                 ],
                 "action": "route",
                 "outbound": "🆔Google"
