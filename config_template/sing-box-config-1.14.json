@@ -657,7 +657,7 @@
             }
         ]
     },
-    "services": {
+    "services": [
         "type": "api",
         "tag": "api",
         "listen": "127.0.0.1",
@@ -667,7 +667,7 @@
             "download_url": "https://github.com/SagerNet/sing-box-dashboard/archive/refs/heads/gh-pages.zip",
             "update_interval": "1d"
         }
-    },
+    ],
     "experimental": {
         "cache_file": {
             "enabled": true,
