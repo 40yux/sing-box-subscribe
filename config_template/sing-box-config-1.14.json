@@ -666,6 +666,7 @@
             "dashboard": {
                 "enabled": true,
                 "download_url": "https://github.com/SagerNet/sing-box-dashboard/archive/refs/heads/gh-pages.zip",
+                "http_client": "client_direct",
                 "update_interval": "1d"
             }
         }
