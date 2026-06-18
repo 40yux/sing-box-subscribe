@@ -20,7 +20,7 @@
                         "1.12.12.21",
                         "120.53.53.53",
                         "2402:4e00::"
-                        ],
+                    ],
                     "dns.google": [
                         "8.8.8.8",
                         "8.8.4.4",
@@ -657,6 +657,17 @@
             }
         ]
     },
+    "services": {
+        "type": "api",
+        "tag": "api",
+        "listen": "127.0.0.1",
+        "listen_port": 9090,
+        "dashboard": {
+            "enabled": true,
+            "download_url": "https://github.com/SagerNet/sing-box-dashboard/archive/refs/heads/gh-pages.zip",
+            "update_interval": "1d"
+        }
+    },
     "experimental": {
         "cache_file": {
             "enabled": true,
@@ -664,13 +675,6 @@
             "store_fakeip": true,
             "store_dns": true,
             "rdrc_timeout": "7d"
-        },
-        "clash_api": {
-            "external_controller": "127.0.0.1:9090",
-            "external_ui": "ui",
-            "external_ui_download_url": "https://github.com/MetaCubeX/metacubexd/archive/refs/heads/gh-pages.zip",
-            "external_ui_download_detour": "🇨🇳direct",
-            "default_mode": "Rule"
         }
     }
 }
