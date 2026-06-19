@@ -472,6 +472,14 @@
                 "outbound": "🆔Google"
             },
             {
+                "package_name": [
+                    "leyi.frozenislandpro"
+                ],
+                "action": "route",
+                "outbound": "🇨🇳direct"
+            },
+       
+            {
                 "domain_keyword": [
                     "hanime1"
                 ],
