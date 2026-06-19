@@ -466,7 +466,8 @@
             {
                 "package_name": [
                     "games.wfs.anothereden",
-                    "com.greenmushroom.boomblitz.gp"
+                    "com.greenmushroom.boomblitz.gp",
+"leyi.frozenislandpro"
                 ],
                 "action": "route",
                 "outbound": "🆔Google"
