@@ -132,6 +132,7 @@
         {
             "type": "tun",
             "tag": "tun-in",
+            "interface_name": "tun0",
             "address": [
                 "172.18.0.1/30",
                 "fdfe:dcba:9876::1/126"
@@ -144,6 +145,12 @@
             ],
             "auto_route": true,
             "strict_route": true,
+            "route_address": [
+                "0.0.0.0/1",
+                "128.0.0.0/1",
+                "::/1",
+                "8000::/1"
+            ],
             "stack": "mixed",
             "exclude_package": [
                 "com.android.captiveportallogin"
