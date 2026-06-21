@@ -53,7 +53,7 @@
             {
                 "preferred_by": "hosts",
                 "action": "route",
-                "server": "dns_direct"
+                "server": "hosts"
             },
             {
                 "clash_mode": "Direct",
