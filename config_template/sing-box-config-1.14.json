@@ -467,6 +467,13 @@
                 "outbound": "🆔Google"
             },
             {
+                "package_name": [
+                    "com.iMe.android"
+                ],
+                "action": "route",
+                "outbound": "🆔Telegram"
+            },
+            {
                 "domain_keyword": [
                     "hanime1"
                 ],
