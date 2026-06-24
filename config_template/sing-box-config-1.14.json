@@ -21,10 +21,6 @@
                 }
             },
             {
-                "tag": "local",
-                "type": "local"
-            },
-            {
                 "tag": "dns_direct",
                 "type": "https",
                 "server": "dns.alidns.com",
@@ -219,7 +215,7 @@
         {
             "tag": "🇨🇳direct",
             "type": "direct",
-            "domain_resolver": "local"
+            "domain_resolver": "dns_direct"
         },
         {
             "tag": "🆔Youtube",
@@ -533,7 +529,7 @@
         "final": "🧞‍♂️proxy",
         "auto_detect_interface": true,
         "default_domain_resolver": {
-            "server": "local",
+            "server": "dns_direct",
             "rewrite_ttl": 60,
             "client_subnet": "114.114.114.114/24"
         },
