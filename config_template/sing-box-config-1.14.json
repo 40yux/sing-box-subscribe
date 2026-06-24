@@ -497,13 +497,6 @@
                 "outbound": "🆔Telegram"
             },
             {
-                "package_name": [
-                    "com.iMe.android"
-                ],
-                "action": "route",
-                "outbound": "🆔Telegram"
-            },
-            {
                 "rule_set": [
                     "geosite-twitter",
                     "geosite-x"
