@@ -454,13 +454,6 @@
             },
             {
                 "package_name": [
-                    "com.tdx.AndroidNew"
-                ],
-                "action": "route",
-                "outbound": "🇨🇳direct"
-            },
-            {
-                "package_name": [
                     "games.wfs.anothereden"
                 ],
                 "action": "route",
