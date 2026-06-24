@@ -48,7 +48,7 @@
         "rules": [
             {
                 "action": "evaluate",
-                "server": "hosts"
+                "server": "dns_direct"
             },
             {
                 "preferred_by": "hosts",
