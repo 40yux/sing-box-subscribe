@@ -467,14 +467,6 @@
                 "outbound": "🆔Telegram"
             },
             {
-                "ip_cidr": [
-                    "198.18.0.0/15",
-                    "fc00::/18"
-                ],
-                "outbound": "🧞‍♂️proxy",
-                "action": "route"
-            },
-            {
                 "ip_is_private": true,
                 "action": "route",
                 "outbound": "🇨🇳direct"
