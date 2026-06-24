@@ -12,13 +12,17 @@
                 "predefined": {
                     "dns.alidns.com": [
                         "223.5.5.5",
-                        "223.6.6.6",
+                        "223.6.6.6"
                     ],
                     "dns.google": [
                         "8.8.8.8",
                         "8.8.4.4"
                     ]
                 }
+            },
+            {
+                "tag": "local",
+                "type": "local"
             },
             {
                 "tag": "dns_direct",
@@ -215,7 +219,7 @@
         {
             "tag": "🇨🇳direct",
             "type": "direct",
-            "domain_resolver": "dns_direct"
+            "domain_resolver": "local"
         },
         {
             "tag": "🆔Youtube",
@@ -529,7 +533,7 @@
         "final": "🧞‍♂️proxy",
         "auto_detect_interface": true,
         "default_domain_resolver": {
-            "server": "dns_direct",
+            "server": "local",
             "rewrite_ttl": 60,
             "client_subnet": "114.114.114.114/24"
         },
