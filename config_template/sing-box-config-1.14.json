@@ -632,7 +632,7 @@
                 "update_interval": "1d"
             },
             {
-                "tag": "geosite-category-games-!cn.srs",
+                "tag": "geosite-category-games-!cn",
                 "type": "remote",
                 "format": "binary",
                 "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-category-games-!cn.srs",
