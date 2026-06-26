@@ -316,7 +316,7 @@
             "interrupt_exist_connections": true
         },
         {
-            "tag": "Games",
+            "tag": "🕹️Games",
             "type": "selector",
             "outbounds": [
                 "🇭🇰HongKong",
@@ -463,13 +463,6 @@
                 "method": "drop"
             },
             {
-                "package_name": [
-                    "games.wfs.anothereden"
-                ],
-                "action": "route",
-                "outbound": "🆔Google"
-            },
-            {
                 "domain_keyword": [
                     "hanime1"
                 ],
@@ -522,7 +515,7 @@
             {
                 "rule_set": "geosite-category-games-!cn",
                 "action": "route",
-                "outbound": "Games"
+                "outbound": "🕹️Games"
             },
             {
                 "rule_set": "geosite-geolocation-cn",
