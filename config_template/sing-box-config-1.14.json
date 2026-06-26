@@ -362,7 +362,7 @@
         },
         {
             "tag": "🇭🇰HongKong",
-            ""type": "selector",
+            "type": "selector",
             "outbounds": [
                 "{all}"
             ],
