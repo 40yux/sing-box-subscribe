@@ -317,7 +317,7 @@
         },
         {
             "tag": "🇺🇸America",
-            "type": "urltest",
+            "type": "selector",
             "outbounds": [
                 "{all}"
             ],
@@ -328,16 +328,11 @@
                         "🇺🇸|US|us|美国|美|United States"
                     ]
                 }
-            ],
-            "url": "http://www.gstatic.com/generate_204",
-            "interval": "10m",
-            "tolerance": 90,
-            "idle_timeout": "30m",
-            "interrupt_exist_connections": false
+            ]
         },
         {
             "tag": "🇯🇵Japan",
-            "type": "urltest",
+            "type": "selector",
             "outbounds": [
                 "{all}"
             ],
@@ -348,16 +343,11 @@
                         "🇯🇵|JP|jp|日本|日|Japan"
                     ]
                 }
-            ],
-            "url": "http://www.gstatic.com/generate_204",
-            "interval": "10m",
-            "tolerance": 90,
-            "idle_timeout": "30m",
-            "interrupt_exist_connections": false
+            ]
         },
         {
             "tag": "🇸🇬Singapore",
-            "type": "urltest",
+           "type": "selector",
             "outbounds": [
                 "{all}"
             ],
@@ -368,16 +358,11 @@
                         "🇸🇬|SG|sg|新加坡|狮城|狮|Singapore"
                     ]
                 }
-            ],
-            "url": "http://www.gstatic.com/generate_204",
-            "interval": "10m",
-            "tolerance": 90,
-            "idle_timeout": "30m",
-            "interrupt_exist_connections": false
+            ]
         },
         {
             "tag": "🇭🇰HongKong",
-            "type": "urltest",
+            ""type": "selector",
             "outbounds": [
                 "{all}"
             ],
@@ -388,16 +373,11 @@
                         "🇭🇰|HK|hk|香港|港|HongKong"
                     ]
                 }
-            ],
-            "url": "http://www.gstatic.com/generate_204",
-            "interval": "10m",
-            "tolerance": 90,
-            "idle_timeout": "30m",
-            "interrupt_exist_connections": false
+            ]
         },
         {
             "tag": "🇹🇼TaiWan",
-            "type": "urltest",
+           "type": "selector",
             "outbounds": [
                 "{all}"
             ],
@@ -408,12 +388,7 @@
                         "🇹🇼|TW|tw|台湾|臺灣|台|Taiwan"
                     ]
                 }
-            ],
-            "url": "http://www.gstatic.com/generate_204",
-            "interval": "10m",
-            "tolerance": 90,
-            "idle_timeout": "30m",
-            "interrupt_exist_connections": false
+            ]
         }
     ],
     "route": {
