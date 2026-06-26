@@ -328,7 +328,8 @@
                         "🇺🇸|US|us|美国|美|United States"
                     ]
                 }
-            ]
+            ],
+            "interrupt_exist_connections": true
         },
         {
             "tag": "🇯🇵Japan",
@@ -343,7 +344,8 @@
                         "🇯🇵|JP|jp|日本|日|Japan"
                     ]
                 }
-            ]
+            ],
+            "interrupt_exist_connections": true
         },
         {
             "tag": "🇸🇬Singapore",
@@ -358,7 +360,8 @@
                         "🇸🇬|SG|sg|新加坡|狮城|狮|Singapore"
                     ]
                 }
-            ]
+            ],
+            "interrupt_exist_connections": true
         },
         {
             "tag": "🇭🇰HongKong",
@@ -373,7 +376,8 @@
                         "🇭🇰|HK|hk|香港|港|HongKong"
                     ]
                 }
-            ]
+            ],
+            "interrupt_exist_connections": true
         },
         {
             "tag": "🇹🇼TaiWan",
@@ -388,7 +392,8 @@
                         "🇹🇼|TW|tw|台湾|臺灣|台|Taiwan"
                     ]
                 }
-            ]
+            ],
+            "interrupt_exist_connections": true
         }
     ],
     "route": {
