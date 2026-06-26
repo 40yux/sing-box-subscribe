@@ -316,20 +316,6 @@
             "interrupt_exist_connections": true
         },
         {
-            "tag": "🕹️Games",
-            "type": "selector",
-            "outbounds": [
-                "🇭🇰HongKong",
-                "🇺🇸America",
-                "🇯🇵Japan",
-                "🇹🇼TaiWan",
-                "🇸🇬Singapore",
-                "🫧Others"
-            ],
-            "default": "🇺🇸America",
-            "interrupt_exist_connections": true
-        },
-        {
             "tag": "🇺🇸America",
             "type": "selector",
             "outbounds": [
@@ -513,11 +499,6 @@
                 "outbound": "🤖Ai"
             },
             {
-                "rule_set": "geosite-category-games-!cn",
-                "action": "route",
-                "outbound": "🕹️Games"
-            },
-            {
                 "rule_set": "geosite-geolocation-cn",
                 "action": "route",
                 "outbound": "🇨🇳direct"
@@ -629,13 +610,6 @@
                 "type": "remote",
                 "format": "binary",
                 "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-category-ai-!cn.srs",
-                "update_interval": "1d"
-            },
-            {
-                "tag": "geosite-category-games-!cn",
-                "type": "remote",
-                "format": "binary",
-                "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-category-games-!cn.srs",
                 "update_interval": "1d"
             }
         ]
