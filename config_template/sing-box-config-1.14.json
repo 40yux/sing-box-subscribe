@@ -449,13 +449,6 @@
                 "method": "drop"
             },
             {
-                "domain_keyword": [
-                    "hanime1"
-                ],
-                "action": "route",
-                "outbound": "🆔Telegram"
-            },
-            {
                 "ip_is_private": true,
                 "action": "route",
                 "outbound": "🇨🇳direct"
