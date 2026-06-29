@@ -131,7 +131,8 @@
             "strict_route": true,
             "stack": "mixed",
             "exclude_package": [
-                "com.android.captiveportallogin"
+                "com.android.captiveportallogin",
+"com.tdx.AndroidNew"
             ],
             "platform": {
                 "http_proxy": {
