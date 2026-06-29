@@ -453,7 +453,9 @@
                 "package_name": [
           "games.wfs.anothereden"
         ],
-                 
+                "action": "route",
+                "outbound": "🆔Google"
+            },      
             {
                 "ip_is_private": true,
                 "action": "route",
