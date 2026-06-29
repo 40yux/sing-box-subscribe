@@ -450,6 +450,11 @@
                 "method": "drop"
             },
             {
+                "package_name": [
+          "games.wfs.anothereden"
+        ],
+                 
+            {
                 "ip_is_private": true,
                 "action": "route",
                 "outbound": "🇨🇳direct"
