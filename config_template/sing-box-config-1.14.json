@@ -132,7 +132,7 @@
             "stack": "mixed",
             "exclude_package": [
                 "com.android.captiveportallogin",
-"com.tdx.AndroidNew"
+                "com.tdx.AndroidNew"
             ],
             "platform": {
                 "http_proxy": {
@@ -350,7 +350,7 @@
         },
         {
             "tag": "🇸🇬Singapore",
-           "type": "selector",
+            "type": "selector",
             "outbounds": [
                 "{all}"
             ],
@@ -382,7 +382,7 @@
         },
         {
             "tag": "🇹🇼TaiWan",
-           "type": "selector",
+            "type": "selector",
             "outbounds": [
                 "{all}"
             ],
@@ -451,11 +451,11 @@
             },
             {
                 "package_name": [
-          "games.wfs.anothereden"
-        ],
+                    "games.wfs.anothereden"
+                ],
                 "action": "route",
                 "outbound": "🆔Google"
-            },      
+            },
             {
                 "ip_is_private": true,
                 "action": "route",
