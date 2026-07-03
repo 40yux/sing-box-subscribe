@@ -623,8 +623,7 @@
             "listen_port": 9090,
             "dashboard": {
                 "enabled": true,
-                "download_url": "https://github.com/SagerNet/sing-box-dashboard/archive/refs/heads/gh-pages.zip",
-                "http_client": "client_direct",
+                "download_url": "https://github.com/SagerNet/sing-box-dashboard/archive/refs/heads/gh-pages.zip"
                 "update_interval": "1d"
             }
         }
