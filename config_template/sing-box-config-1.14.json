@@ -62,6 +62,11 @@
                 "server": "dns_proxy"
             },
             {
+                "rule_set": "geosite-category-ads-all",
+                "action": "reject",
+                "method": "drop"
+            },
+            {
                 "rule_set": "geosite-geolocation-cn",
                 "action": "route",
                 "server": "dns_direct"
@@ -439,19 +444,7 @@
                 "outbound": "🧞‍♂️proxy"
             },
             {
-                "rule_set": [
-                    "geosite-category-ads-all",
-                    "geosite-tencent@ads"
-                ],
-                "clash_mode": "Global",
-                "action": "route",
-                "outbound": "🧞‍♂️proxy"
-            },
-            {
-                "rule_set": [
-                    "geosite-category-ads-all",
-                    "geosite-tencent@ads"
-                ],
+                "rule_set": "geosite-category-ads-all",
                 "action": "reject",
                 "method": "drop"
             },
