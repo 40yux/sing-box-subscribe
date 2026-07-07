@@ -439,13 +439,19 @@
                 "outbound": "🧞‍♂️proxy"
             },
             {
-                "rule_set": "geosite-category-ads-all",
+                "rule_set": [
+                    "geosite-category-ads-all",
+                    "geosite-tencent@ads"
+                ],
                 "clash_mode": "Global",
                 "action": "route",
                 "outbound": "🧞‍♂️proxy"
             },
             {
-                "rule_set": "geosite-category-ads-all",
+                "rule_set": [
+                    "geosite-category-ads-all",
+                    "geosite-tencent@ads"
+                ],
                 "action": "reject",
                 "method": "drop"
             },
@@ -537,6 +543,13 @@
                 "update_interval": "1d"
             },
             {
+                "tag": "geosite-tencent@ads",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-tencent@ads.srs",
+                "update_interval": "1d"
+            },
+            {
                 "tag": "geosite-geolocation-!cn",
                 "type": "remote",
                 "format": "binary",
@@ -623,7 +636,7 @@
             "listen_port": 9090,
             "dashboard": {
                 "enabled": true,
-                "download_url": "https://github.com/SagerNet/sing-box-dashboard/archive/refs/heads/gh-pages.zip"
+                "download_url": "https://github.com/SagerNet/sing-box-dashboard/archive/refs/heads/gh-pages.zip",
                 "update_interval": "1d"
             }
         }
