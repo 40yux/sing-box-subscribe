@@ -531,13 +531,6 @@
                 "update_interval": "1d"
             },
             {
-                "tag": "geosite-tencent@ads",
-                "type": "remote",
-                "format": "binary",
-                "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-tencent@ads.srs",
-                "update_interval": "1d"
-            },
-            {
                 "tag": "geosite-geolocation-!cn",
                 "type": "remote",
                 "format": "binary",
