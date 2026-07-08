@@ -439,7 +439,11 @@
                 "outbound": "🧞‍♂️proxy"
             },
             {
-                "rule_set": "geosite-category-ads-all",
+                "rule_set": [
+                    "geosite-category-ads-all",
+                    "geosite-adguard",
+                    "geosite-adblockplus"
+                ],
                 "action": "reject",
                 "method": "drop"
             },
@@ -528,6 +532,20 @@
                 "type": "remote",
                 "format": "binary",
                 "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-category-ads-all.srs",
+                "update_interval": "1d"
+            },
+            {
+                "tag": "geosite-adguard",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-adguard.srs",
+                "update_interval": "1d"
+            },
+            {
+                "tag": "geosite-adblockplus",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-adblockplus.srs",
                 "update_interval": "1d"
             },
             {
