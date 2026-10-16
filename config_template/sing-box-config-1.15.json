@@ -129,7 +129,6 @@
             ],
             "auto_route": true,
             "strict_route": true,
-            "stack": "mixed",
             "exclude_package": [
                 "com.android.captiveportallogin",
                 "com.tdx.AndroidNew"
@@ -528,101 +527,25 @@
         "default_http_client": "client_direct",
         "rule_set": [
             {
-                "tag": "geosite-category-ads-all",
+                "tag": [
+                    "geosite-category-ads-all",
+                    "geosite-adguard",
+                    "geosite-adblockplus",
+                    "geosite-geolocation-!cn",
+                    "geoip-cn",
+                    "geosite-geolocation-cn",
+                    "geosite-google",
+                    "geosite-youtube",
+                    "geosite-telegram",
+                    "geosite-twitter",
+                    "geosite-x",
+                    "geosite-github",
+                    "geosite-bahamut",
+                    "geosite-category-ai-!cn"
+                ],
                 "type": "remote",
                 "format": "binary",
-                "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-category-ads-all.srs",
-                "update_interval": "1d"
-            },
-            {
-                "tag": "geosite-adguard",
-                "type": "remote",
-                "format": "binary",
-                "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-adguard.srs",
-                "update_interval": "1d"
-            },
-            {
-                "tag": "geosite-adblockplus",
-                "type": "remote",
-                "format": "binary",
-                "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-adblockplus.srs",
-                "update_interval": "1d"
-            },
-            {
-                "tag": "geosite-geolocation-!cn",
-                "type": "remote",
-                "format": "binary",
-                "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-geolocation-!cn.srs",
-                "update_interval": "1d"
-            },
-            {
-                "tag": "geoip-cn",
-                "type": "remote",
-                "format": "binary",
-                "url": "https://raw.githubusercontent.com/SagerNet/sing-geoip/rule-set/geoip-cn.srs",
-                "update_interval": "1d"
-            },
-            {
-                "tag": "geosite-geolocation-cn",
-                "type": "remote",
-                "format": "binary",
-                "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-geolocation-cn.srs",
-                "update_interval": "1d"
-            },
-            {
-                "tag": "geosite-google",
-                "type": "remote",
-                "format": "binary",
-                "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-google.srs",
-                "update_interval": "1d"
-            },
-            {
-                "tag": "geosite-youtube",
-                "type": "remote",
-                "format": "binary",
-                "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-youtube.srs",
-                "update_interval": "1d"
-            },
-            {
-                "tag": "geosite-telegram",
-                "type": "remote",
-                "format": "binary",
-                "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-telegram.srs",
-                "update_interval": "1d"
-            },
-            {
-                "tag": "geosite-twitter",
-                "type": "remote",
-                "format": "binary",
-                "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-twitter.srs",
-                "update_interval": "1d"
-            },
-            {
-                "tag": "geosite-x",
-                "type": "remote",
-                "format": "binary",
-                "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-x.srs",
-                "update_interval": "1d"
-            },
-            {
-                "tag": "geosite-github",
-                "type": "remote",
-                "format": "binary",
-                "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-github.srs",
-                "update_interval": "1d"
-            },
-            {
-                "tag": "geosite-bahamut",
-                "type": "remote",
-                "format": "binary",
-                "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-bahamut.srs",
-                "update_interval": "1d"
-            },
-            {
-                "tag": "geosite-category-ai-!cn",
-                "type": "remote",
-                "format": "binary",
-                "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-category-ai-!cn.srs",
+                "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/{tag}.srs",
                 "update_interval": "1d"
             }
         ]
