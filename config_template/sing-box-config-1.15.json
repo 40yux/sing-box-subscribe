@@ -527,12 +527,18 @@
         "default_http_client": "client_direct",
         "rule_set": [
             {
+                "tag": "geoip-cn",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://raw.githubusercontent.com/SagerNet/sing-geoip/rule-set/geoip-cn.srs",
+                "update_interval": "1d"
+            },
+            {
                 "tag": [
                     "geosite-category-ads-all",
                     "geosite-adguard",
                     "geosite-adblockplus",
                     "geosite-geolocation-!cn",
-                    "geoip-cn",
                     "geosite-geolocation-cn",
                     "geosite-google",
                     "geosite-youtube",
