@@ -105,12 +105,8 @@
     },
     "http_clients": [
         {
-            "tag": "client_direct",
+            "tag": "client_default",
             "detour": "🇨🇳direct"
-        },
-        {
-            "tag": "client_proxy",
-            "detour": "🧞‍♂️proxy"
         }
     ],
     "inbounds": [
@@ -531,7 +527,7 @@
             "rewrite_ttl": 60,
             "client_subnet": "114.114.114.114/24"
         },
-        "default_http_client": "client_direct",
+        "default_http_client": "client_default",
         "rule_set": [
             {
                 "tag": "geoip-cn",
