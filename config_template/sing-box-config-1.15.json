@@ -534,7 +534,7 @@
                 "tag": "geoip-cn",
                 "type": "remote",
                 "format": "binary",
-                "url": "https://raw.githubusercontent.com/SagerNet/sing-geoip/rule-set/geoip-cn.srs",
+                "url": "https://raw.githubusercontent.com/SagerNet/sing-geoip/rule-set/{tag}.srs",
                 "update_interval": "1d"
             },
             {
