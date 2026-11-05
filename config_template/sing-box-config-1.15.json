@@ -318,7 +318,7 @@
         },
         {
             "tag": "🇺🇸America",
-            "type": "selector",
+            "type": "urltest",
             "outbounds": [
                 "{all}"
             ],
@@ -330,11 +330,15 @@
                     ]
                 }
             ],
-            "interrupt_exist_connections": true
+            "url": "http://www.gstatic.com/generate_204",
+            "interval": "3m",
+            "tolerance": 60,
+            "idle_timeout": "30m",
+            "interrupt_exist_connections": false
         },
         {
             "tag": "🇯🇵Japan",
-            "type": "selector",
+            "type": "urltest",
             "outbounds": [
                 "{all}"
             ],
@@ -346,11 +350,15 @@
                     ]
                 }
             ],
-            "interrupt_exist_connections": true
+            "url": "http://www.gstatic.com/generate_204",
+            "interval": "3m",
+            "tolerance": 60,
+            "idle_timeout": "30m",
+            "interrupt_exist_connections": false
         },
         {
             "tag": "🇸🇬Singapore",
-            "type": "selector",
+            "type": "urltest",
             "outbounds": [
                 "{all}"
             ],
@@ -362,7 +370,11 @@
                     ]
                 }
             ],
-            "interrupt_exist_connections": true
+            "url": "http://www.gstatic.com/generate_204",
+            "interval": "3m",
+            "tolerance": 60,
+            "idle_timeout": "30m",
+            "interrupt_exist_connections": false
         },
         {
             "tag": "🇭🇰HongKong",
