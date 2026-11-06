@@ -61,6 +61,10 @@
                 "action": "route",
                 "server": "dns_proxy"
             },
+            { 
+                "query_type": "PTR", 
+                "action": "reject" 
+            },
             {
                 "rule_set": "geosite-geolocation-cn",
                 "action": "route",
