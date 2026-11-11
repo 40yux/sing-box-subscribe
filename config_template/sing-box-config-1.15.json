@@ -181,7 +181,7 @@
             ],
             "url": "http://www.gstatic.com/generate_204",
             "interval": "3m",
-            "tolerance": 60,
+            "tolerance": 50,
             "idle_timeout": "30m",
             "interrupt_exist_connections": false
         },
@@ -336,7 +336,7 @@
             ],
             "url": "http://www.gstatic.com/generate_204",
             "interval": "3m",
-            "tolerance": 60,
+            "tolerance": 50,
             "idle_timeout": "30m",
             "interrupt_exist_connections": false
         },
@@ -356,7 +356,7 @@
             ],
             "url": "http://www.gstatic.com/generate_204",
             "interval": "3m",
-            "tolerance": 60,
+            "tolerance": 50,
             "idle_timeout": "30m",
             "interrupt_exist_connections": false
         },
@@ -376,7 +376,7 @@
             ],
             "url": "http://www.gstatic.com/generate_204",
             "interval": "3m",
-            "tolerance": 60,
+            "tolerance": 50,
             "idle_timeout": "30m",
             "interrupt_exist_connections": false
         },
