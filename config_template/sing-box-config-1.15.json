@@ -539,11 +539,7 @@
         ],
         "final": "🧞‍♂️proxy",
         "auto_detect_interface": true,
-        "default_domain_resolver": {
-            "server": "dns_direct",
-            "rewrite_ttl": 60,
-            "client_subnet": "114.114.114.114/24"
-        },
+        "default_domain_resolver": "server": "dns_direct",            
         "default_http_client": "client_default",
         "rule_set": [
             {
