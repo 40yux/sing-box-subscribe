@@ -35,6 +35,10 @@
                 "detour": "🧞‍♂️proxy"
             },
             {
+                "type": "local",
+                 "tag": "local"
+            },
+            {
                 "type": "fakeip",
                 "tag": "dns_fakeip",
                 "inet4_range": "198.18.0.0/15",
@@ -539,7 +543,10 @@
         ],
         "final": "🧞‍♂️proxy",
         "auto_detect_interface": true,
-        "default_domain_resolver": "server": "dns_direct",            
+        "default_domain_resolver": 
+        {"server": "local"
+        },
+                
         "default_http_client": "client_default",
         "rule_set": [
             {
