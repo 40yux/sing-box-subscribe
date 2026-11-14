@@ -459,11 +459,7 @@
                 "outbound": "🧞‍♂️proxy"
             },
             {
-                "rule_set": [
-                    "geosite-category-ads-all",
-                    "geosite-adguard",
-                    "geosite-adblockplus"
-                ],
+                "rule_set": "geosite-category-ads-all",
                 "action": "reject",
                 "method": "default"
             },
@@ -558,8 +554,6 @@
             {
                 "tag": [
                     "geosite-category-ads-all",
-                    "geosite-adguard",
-                    "geosite-adblockplus",
                     "geosite-geolocation-!cn",
                     "geosite-geolocation-cn",
                     "geosite-google",
