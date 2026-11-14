@@ -465,7 +465,7 @@
                     "geosite-adblockplus"
                 ],
                 "action": "reject",
-                "method": "drop"
+                "method": "default"
             },
             {
                 "package_name": [
