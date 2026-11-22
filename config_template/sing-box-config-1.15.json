@@ -511,8 +511,6 @@
             {
                 "rule_set": [
                     "geosite-category-ai-!cn",
-                    "geosite-google-gemini"
-                ],
                 "action": "route",
                 "outbound": "🗿Ai"
             },
@@ -563,8 +561,7 @@
                     "geosite-x",
                     "geosite-github",
                     "geosite-bahamut",
-                    "geosite-category-ai-!cn",
-                    "geosite-google-gemini"
+                    "geosite-category-ai-!cn
                 ],
                 "type": "remote",
                 "format": "binary",
