@@ -509,8 +509,7 @@
                 "outbound": "🆔Bahamut"
             },
             {
-                "rule_set": [
-                    "geosite-category-ai-!cn",
+                "rule_set": "geosite-category-ai-!cn",
                 "action": "route",
                 "outbound": "🗿Ai"
             },
