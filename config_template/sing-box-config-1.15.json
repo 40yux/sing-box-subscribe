@@ -127,11 +127,6 @@
                 "fdfe:dcba:9876::1/126"
             ],
             "mtu": 1500,
-            "dns_mode": "hijack",
-            "dns_address": [
-                "172.18.0.2",
-                "fdfe:dcba:9876::2"
-            ],
             "auto_route": true,
             "strict_route": true,
             "route_exclude_address": [
@@ -163,7 +158,12 @@
             "type": "selector",
             "outbounds": [
                 "♻️auto",
-                "{all}",
+                "🇭🇰HongKong",
+                "🇺🇸America",
+                "🇯🇵Japan",
+                "🇹🇼TaiWan",
+                "🇸🇬Singapore",
+                "🫧Others",
                 "🇨🇳direct"
             ],
             "default": "♻️auto",
