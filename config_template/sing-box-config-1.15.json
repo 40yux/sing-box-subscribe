@@ -14,9 +14,9 @@
                         "223.5.5.5",
                         "223.6.6.6"
                     ],
-                    "cloudflare-dns.com": [
-                        "1.1.1.1",
-                        "1.0.0.1"
+                    "dns.google": [
+                        "8.8.8.8",
+                        "8.8.4.4"
                     ]
                 }
             },
@@ -30,7 +30,7 @@
             {
                 "tag": "dns_proxy",
                 "type": "https",
-                "server": "cloudflare-dns.com",
+                "server": "dns.google",
                 "domain_resolver": "hosts",
                 "detour": "🧞‍♂️proxy"
             },
