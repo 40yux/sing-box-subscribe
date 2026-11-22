@@ -56,6 +56,10 @@
                 "server": "hosts"
             },
             {
+                "query_type": "PTR",
+                "action": "reject"
+            },
+            {
                 "clash_mode": "Direct",
                 "action": "route",
                 "server": "dns_direct"
