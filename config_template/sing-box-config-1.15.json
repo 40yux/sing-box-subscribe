@@ -47,11 +47,6 @@
         ],
         "rules": [
             {
-                "rule_set": "geosite-geolocation-!cn",
-                "action": "evaluate",
-                "server": "dns_direct"
-            },
-            {
                 "preferred_by": "hosts",
                 "action": "route",
                 "server": "hosts"
@@ -73,6 +68,11 @@
             {
                 "rule_set": "geosite-geolocation-cn",
                 "action": "route",
+                "server": "dns_direct"
+            },
+            {
+                "rule_set": "geosite-geolocation-!cn",
+                "action": "evaluate",
                 "server": "dns_direct"
             },
             {
