@@ -47,6 +47,7 @@
         ],
         "rules": [
             {
+                "rule_set": "geosite-geolocation-!cn",
                 "action": "evaluate",
                 "server": "dns_direct"
             },
