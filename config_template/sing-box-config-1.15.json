@@ -173,10 +173,10 @@
             "type": "selector",
             "outbounds": [
                 "♻️auto",
-                "🇭🇰HongKong",
                 "🇺🇸America",
                 "🇯🇵Japan",
                 "🇸🇬Singapore",
+                "🇭🇰HongKong",
                 "🫧Others",
                 "🇨🇳direct"
             ],
@@ -243,7 +243,6 @@
             "tag": "🆔Youtube",
             "type": "selector",
             "outbounds": [
-                "🇭🇰HongKong",
                 "🇺🇸America",
                 "🇯🇵Japan",
                 "🇸🇬Singapore",
@@ -256,7 +255,6 @@
             "tag": "🆔Telegram",
             "type": "selector",
             "outbounds": [
-                "🇭🇰HongKong",
                 "🇺🇸America",
                 "🇯🇵Japan",
                 "🇸🇬Singapore",
@@ -269,7 +267,6 @@
             "tag": "🆔Twitter/X",
             "type": "selector",
             "outbounds": [
-                "🇭🇰HongKong",
                 "🇺🇸America",
                 "🇯🇵Japan",
                 "🇸🇬Singapore",
@@ -282,7 +279,6 @@
             "tag": "🆔Google",
             "type": "selector",
             "outbounds": [
-                "🇭🇰HongKong",
                 "🇺🇸America",
                 "🇯🇵Japan",
                 "🇸🇬Singapore",
@@ -295,7 +291,6 @@
             "tag": "🆔Github",
             "type": "selector",
             "outbounds": [
-                "🇭🇰HongKong",
                 "🇺🇸America",
                 "🇯🇵Japan",
                 "🇸🇬Singapore",
@@ -308,7 +303,6 @@
             "tag": "🗿Ai",
             "type": "selector",
             "outbounds": [
-                "🇭🇰HongKong",
                 "🇺🇸America",
                 "🇯🇵Japan",
                 "🇸🇬Singapore",
