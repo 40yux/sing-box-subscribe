@@ -241,7 +241,7 @@
             "type": "direct"
         },
         {
-            "tag": "🆔Youtube",
+            "tag": "🎬Youtube",
             "type": "selector",
             "outbounds": [
                 "🇺🇸America",
@@ -253,7 +253,7 @@
             "interrupt_exist_connections": true
         },
         {
-            "tag": "🆔Telegram",
+            "tag": "📧Telegram",
             "type": "selector",
             "outbounds": [
                 "🇺🇸America",
@@ -265,7 +265,7 @@
             "interrupt_exist_connections": true
         },
         {
-            "tag": "🆔Twitter/X",
+            "tag": "📧Twitter/X",
             "type": "selector",
             "outbounds": [
                 "🇺🇸America",
@@ -277,7 +277,7 @@
             "interrupt_exist_connections": true
         },
         {
-            "tag": "🆔Google",
+            "tag": "👀Google",
             "type": "selector",
             "outbounds": [
                 "🇺🇸America",
@@ -289,7 +289,7 @@
             "interrupt_exist_connections": true
         },
         {
-            "tag": "🆔Github",
+            "tag": "🔍Github",
             "type": "selector",
             "outbounds": [
                 "🇺🇸America",
@@ -427,7 +427,7 @@
                     "games.wfs.anothereden"
                 ],
                 "action": "route",
-                "outbound": "🆔Google"
+                "outbound": "👀Google"
             },
             {
                 "ip_is_private": true,
@@ -437,12 +437,12 @@
             {
                 "rule_set": "geosite-youtube",
                 "action": "route",
-                "outbound": "🆔Youtube"
+                "outbound": "🎬Youtube"
             },
             {
                 "rule_set": "geosite-telegram",
                 "action": "route",
-                "outbound": "🆔Telegram"
+                "outbound": "📧Telegram"
             },
             {
                 "rule_set": [
@@ -450,17 +450,17 @@
                     "geosite-x"
                 ],
                 "action": "route",
-                "outbound": "🆔Twitter/X"
+                "outbound": "📧Twitter/X"
             },
             {
                 "rule_set": "geosite-google",
                 "action": "route",
-                "outbound": "🆔Google"
+                "outbound": "👀Google"
             },
             {
                 "rule_set": "geosite-github",
                 "action": "route",
-                "outbound": "🆔Github"
+                "outbound": "🔍Github"
             },
             {
                 "rule_set": "geosite-category-ai-!cn",
