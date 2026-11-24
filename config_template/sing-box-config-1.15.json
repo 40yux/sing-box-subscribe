@@ -28,8 +28,7 @@
                 "tag": "dns_direct",
                 "type": "https",
                 "server": "dns.alidns.com",
-                "domain_resolver": "hosts",
-                "detour": "🇨🇳direct"
+                "domain_resolver": "hosts"
             },
             {
                 "tag": "dns_proxy",
