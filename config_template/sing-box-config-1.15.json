@@ -17,7 +17,11 @@
                     "dns.google": [
                         "8.8.8.8",
                         "8.8.4.4"
-                    ]
+                    ],
+                    "cloudflare-dns.com": [
+                        "1.1.1.1", 
+                        "1.0.0.1"
+                    ],
                 }
             },
             {
@@ -31,6 +35,13 @@
                 "tag": "dns_proxy",
                 "type": "https",
                 "server": "dns.google",
+                "domain_resolver": "hosts",
+                "detour": "🧞‍♂️proxy"
+            },
+            {
+                "tag": "dns_evaluate",
+                "type": "https",
+                "server": "cloudflare-dns.com",
                 "domain_resolver": "hosts",
                 "detour": "🧞‍♂️proxy"
             },
@@ -72,7 +83,7 @@
             },
             {
                 "action": "evaluate",
-                "server": "dns_proxy"
+                "server": "dns_evaluate"
             },
             {
                 "type": "logical",
