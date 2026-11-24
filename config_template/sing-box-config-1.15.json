@@ -72,7 +72,7 @@
             },
             {
                 "action": "evaluate",
-                "server": "dns_direct"
+                "server": "dns_proxy"
             },
             {
                 "type": "logical",
