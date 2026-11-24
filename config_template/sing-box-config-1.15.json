@@ -300,7 +300,7 @@
             "interrupt_exist_connections": true
         },
         {
-            "tag": "🗿Ai",
+            "tag": "👽Ai",
             "type": "selector",
             "outbounds": [
                 "🇺🇸America",
@@ -464,7 +464,7 @@
             {
                 "rule_set": "geosite-category-ai-!cn",
                 "action": "route",
-                "outbound": "🗿Ai"
+                "outbound": "👽Ai"
             },
             {
                 "rule_set": "geosite-geolocation-cn",
