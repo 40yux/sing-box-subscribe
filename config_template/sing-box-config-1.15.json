@@ -71,10 +71,8 @@
                 "server": "dns_direct"
             },
             {
-                "rule_set": "geosite-geolocation-!cn",
-                "invert": true,
                 "action": "evaluate",
-                "server": "dns_direct"
+                "server": "dns_proxy"
             },
             {
                 "type": "logical",
