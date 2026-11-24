@@ -19,7 +19,7 @@
                         "8.8.4.4"
                     ],
                     "cloudflare-dns.com": [
-                        "1.1.1.1", 
+                        "1.1.1.1",
                         "1.0.0.1"
                     ]
                 }
@@ -176,7 +176,6 @@
                 "🇭🇰HongKong",
                 "🇺🇸America",
                 "🇯🇵Japan",
-                "🇹🇼TaiWan",
                 "🇸🇬Singapore",
                 "🫧Others",
                 "🇨🇳direct"
@@ -247,7 +246,6 @@
                 "🇭🇰HongKong",
                 "🇺🇸America",
                 "🇯🇵Japan",
-                "🇹🇼TaiWan",
                 "🇸🇬Singapore",
                 "🫧Others"
             ],
@@ -261,7 +259,6 @@
                 "🇭🇰HongKong",
                 "🇺🇸America",
                 "🇯🇵Japan",
-                "🇹🇼TaiWan",
                 "🇸🇬Singapore",
                 "🫧Others"
             ],
@@ -275,7 +272,6 @@
                 "🇭🇰HongKong",
                 "🇺🇸America",
                 "🇯🇵Japan",
-                "🇹🇼TaiWan",
                 "🇸🇬Singapore",
                 "🫧Others"
             ],
@@ -289,7 +285,6 @@
                 "🇭🇰HongKong",
                 "🇺🇸America",
                 "🇯🇵Japan",
-                "🇹🇼TaiWan",
                 "🇸🇬Singapore",
                 "🫧Others"
             ],
@@ -303,25 +298,10 @@
                 "🇭🇰HongKong",
                 "🇺🇸America",
                 "🇯🇵Japan",
-                "🇹🇼TaiWan",
                 "🇸🇬Singapore",
                 "🫧Others"
             ],
             "default": "🇺🇸America",
-            "interrupt_exist_connections": true
-        },
-        {
-            "tag": "🆔Bahamut",
-            "type": "selector",
-            "outbounds": [
-                "🇭🇰HongKong",
-                "🇺🇸America",
-                "🇯🇵Japan",
-                "🇹🇼TaiWan",
-                "🇸🇬Singapore",
-                "🫧Others"
-            ],
-            "default": "🇹🇼TaiWan",
             "interrupt_exist_connections": true
         },
         {
@@ -331,7 +311,6 @@
                 "🇭🇰HongKong",
                 "🇺🇸America",
                 "🇯🇵Japan",
-                "🇹🇼TaiWan",
                 "🇸🇬Singapore",
                 "🫧Others"
             ],
@@ -413,22 +392,6 @@
                 }
             ],
             "interrupt_exist_connections": true
-        },
-        {
-            "tag": "🇹🇼TaiWan",
-            "type": "selector",
-            "outbounds": [
-                "{all}"
-            ],
-            "filter": [
-                {
-                    "action": "include",
-                    "keywords": [
-                        "🇹🇼|TW|tw|台湾|臺灣|台|Taiwan"
-                    ]
-                }
-            ],
-            "interrupt_exist_connections": true
         }
     ],
     "route": {
@@ -505,11 +468,6 @@
                 "outbound": "🆔Github"
             },
             {
-                "rule_set": "geosite-bahamut",
-                "action": "route",
-                "outbound": "🆔Bahamut"
-            },
-            {
                 "rule_set": "geosite-category-ai-!cn",
                 "action": "route",
                 "outbound": "🗿Ai"
@@ -558,7 +516,6 @@
                     "geosite-twitter",
                     "geosite-x",
                     "geosite-github",
-                    "geosite-bahamut",
                     "geosite-category-ai-!cn"
                 ],
                 "type": "remote",
