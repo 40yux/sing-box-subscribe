@@ -266,7 +266,6 @@
             "default": "🇸🇬Singapore",
             "interrupt_exist_connections": true
         },
-       
         {
             "tag": "👽Ai",
             "type": "selector",
@@ -390,21 +389,26 @@
                 "action": "reject",
                 "method": "default"
             },
-           
             {
                 "ip_is_private": true,
                 "action": "route",
                 "outbound": "🇨🇳direct"
             },
             {
-                "rule_set": ["geosite-google","geosite-youtube"],
+                "rule_set": [
+                    "geosite-google",
+                    "geosite-youtube"
+                ],
                 "action": "route",
                 "outbound": "👀Google"
             },
-            
             {
-                "rule_set": ["geosite-telegram","geosite-twitter",
-                    "geosite-x","geosite-github"],
+                "rule_set": [
+                    "geosite-telegram",
+                    "geosite-twitter",
+                    "geosite-x",
+                    "geosite-github"
+                ],
                 "action": "route",
                 "outbound": "📧Social​​"
             },
