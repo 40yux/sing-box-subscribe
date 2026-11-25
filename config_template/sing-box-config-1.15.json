@@ -297,7 +297,7 @@
             "interval": "3m",
             "tolerance": 50,
             "idle_timeout": "30m",
-            "interrupt_exist_connections": false
+            "interrupt_exist_connections": true
         },
         {
             "tag": "🇯🇵Japan",
@@ -317,7 +317,7 @@
             "interval": "3m",
             "tolerance": 50,
             "idle_timeout": "30m",
-            "interrupt_exist_connections": false
+            "interrupt_exist_connections": true
         },
         {
             "tag": "🇸🇬Singapore",
@@ -337,7 +337,7 @@
             "interval": "3m",
             "tolerance": 50,
             "idle_timeout": "30m",
-            "interrupt_exist_connections": false
+            "interrupt_exist_connections": true
         },
         {
             "tag": "🇭🇰HongKong",
