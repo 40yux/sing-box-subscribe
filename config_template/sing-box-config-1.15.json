@@ -385,14 +385,14 @@
                 "outbound": "🧞‍♂️proxy"
             },
             {
-                "rule_set": "geosite-category-ads-all",
-                "action": "reject",
-                "method": "default"
-            },
-            {
                 "ip_is_private": true,
                 "action": "route",
                 "outbound": "🇨🇳direct"
+            },
+            {
+                "rule_set": "geosite-category-ads-all",
+                "action": "reject",
+                "method": "default"
             },
             {
                 "rule_set": [
