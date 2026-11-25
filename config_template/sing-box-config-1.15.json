@@ -241,69 +241,37 @@
             "type": "direct"
         },
         {
-            "tag": "🎬Youtube",
-            "type": "selector",
-            "outbounds": [
-                "🇺🇸America",
-                "🇯🇵Japan",
-                "🇸🇬Singapore",
-                "🫧Others"
-            ],
-            "default": "🇯🇵Japan",
-            "interrupt_exist_connections": true
-        },
-        {
-            "tag": "📧Telegram",
-            "type": "selector",
-            "outbounds": [
-                "🇺🇸America",
-                "🇯🇵Japan",
-                "🇸🇬Singapore",
-                "🫧Others"
-            ],
-            "default": "🇸🇬Singapore",
-            "interrupt_exist_connections": true
-        },
-        {
-            "tag": "📧Twitter/X",
-            "type": "selector",
-            "outbounds": [
-                "🇺🇸America",
-                "🇯🇵Japan",
-                "🇸🇬Singapore",
-                "🫧Others"
-            ],
-            "default": "🇸🇬Singapore",
-            "interrupt_exist_connections": true
-        },
-        {
             "tag": "👀Google",
             "type": "selector",
             "outbounds": [
+                "🧞‍♂️proxy",
                 "🇺🇸America",
                 "🇯🇵Japan",
                 "🇸🇬Singapore",
                 "🫧Others"
             ],
-            "default": "🇺🇸America",
+            "default": "🧞‍♂️proxy",
             "interrupt_exist_connections": true
         },
         {
-            "tag": "🔍Github",
+            "tag": "📧Social​​",
             "type": "selector",
             "outbounds": [
+                "🧞‍♂️proxy",
                 "🇺🇸America",
                 "🇯🇵Japan",
                 "🇸🇬Singapore",
                 "🫧Others"
             ],
-            "default": "🇺🇸America",
+            "default": "🇸🇬Singapore",
             "interrupt_exist_connections": true
         },
+       
         {
             "tag": "👽Ai",
             "type": "selector",
             "outbounds": [
+                "🧞‍♂️proxy",
                 "🇺🇸America",
                 "🇯🇵Japan",
                 "🇸🇬Singapore",
@@ -422,45 +390,23 @@
                 "action": "reject",
                 "method": "default"
             },
-            {
-                "package_name": [
-                    "games.wfs.anothereden"
-                ],
-                "action": "route",
-                "outbound": "👀Google"
-            },
+           
             {
                 "ip_is_private": true,
                 "action": "route",
                 "outbound": "🇨🇳direct"
             },
             {
-                "rule_set": "geosite-youtube",
-                "action": "route",
-                "outbound": "🎬Youtube"
-            },
-            {
-                "rule_set": "geosite-telegram",
-                "action": "route",
-                "outbound": "📧Telegram"
-            },
-            {
-                "rule_set": [
-                    "geosite-twitter",
-                    "geosite-x"
-                ],
-                "action": "route",
-                "outbound": "📧Twitter/X"
-            },
-            {
-                "rule_set": "geosite-google",
+                "rule_set": ["geosite-google","geosite-youtube"],
                 "action": "route",
                 "outbound": "👀Google"
             },
+            
             {
-                "rule_set": "geosite-github",
+                "rule_set": ["geosite-telegram","geosite-twitter",
+                    "geosite-x","geosite-github"],
                 "action": "route",
-                "outbound": "🔍Github"
+                "outbound": "📧Social​​"
             },
             {
                 "rule_set": "geosite-category-ai-!cn",
