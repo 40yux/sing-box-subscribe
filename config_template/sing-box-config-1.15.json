@@ -293,10 +293,6 @@
                     ]
                 }
             ],
-            "url": "http://www.gstatic.com/generate_204",
-            "interval": "3m",
-            "tolerance": 50,
-            "idle_timeout": "30m",
             "interrupt_exist_connections": true
         },
         {
@@ -313,10 +309,6 @@
                     ]
                 }
             ],
-            "url": "http://www.gstatic.com/generate_204",
-            "interval": "3m",
-            "tolerance": 50,
-            "idle_timeout": "30m",
             "interrupt_exist_connections": true
         },
         {
@@ -333,15 +325,11 @@
                     ]
                 }
             ],
-            "url": "http://www.gstatic.com/generate_204",
-            "interval": "3m",
-            "tolerance": 50,
-            "idle_timeout": "30m",
             "interrupt_exist_connections": true
         },
         {
             "tag": "🇭🇰HongKong",
-            "type": "selector",
+            "type": "urltest",
             "outbounds": [
                 "{all}"
             ],
